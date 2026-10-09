@@ -1,0 +1,42 @@
+{
+  "id": "2027-01-09-cb7dae",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第柒拾陸次黑客松 Hackath76n",
+  "date_start": "2027-01-09",
+  "date_end": "2027-01-10",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [
+    {
+      "name": "高雄場",
+      "date": "2027-01-09",
+      "start_time": "10:30",
+      "end_time": "17:00",
+      "venue": "暫定 Second Space RED，高雄市新興區七賢一路294號"
+    },
+    {
+      "name": "屏東場",
+      "date": "2027-01-10",
+      "start_time": "10:30",
+      "end_time": "17:00",
+      "venue": "屏東市讀者城市空間，屏東縣屏東市瑞光里民生路4-17號"
+    }
+  ],
+  "fields": {},
+  "links": [],
+  "description": [],
+  "month_section": "2027-01",
+  "raw": "2027 1/09-1/10 g0v 第柒拾陸次黑客松 Hackath76n\n- 高雄場\n    - 時間：01/09 週六 10:30-17:00\n    - 地點：暫定 Second Space RED，高雄市新興區七賢一路294號\n- 屏東場\n    - 時間：01/10 週日 10:30-17:00\n    - 地點：屏東市讀者城市空間，屏東縣屏東市瑞光里民生路4-17號",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

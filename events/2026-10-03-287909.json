@@ -1,0 +1,36 @@
+{
+  "id": "2026-10-03-287909",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Code for Japan Summit 2026",
+  "date_start": "2026-10-03",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "10:30",
+  "end_time": "18:00",
+  "venue": "ベルサール九段（東京・千代田）",
+  "address": null,
+  "signup_url": "https://luma.com/cfjsummit-2026",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "開催日時": "2026-10-03 10:30 〜 18:00",
+    "開催場所/開催方法": "ベルサール九段（東京・千代田）",
+    "対象/定員": "行政・自治体でデジタル化やAI活用に取り組む方 / ​社会課題解決に関わりたいエンジニア・デザイナー・研究者 / ​社会的な活動に関心のある学生・社会人 / シビックテックや公共とテクノロジーの関係に関心のある方",
+    "参加費": "通常会場参加チケット2,000円が、前売りだと1,000円！",
+    "参加方法": "https://luma.com/cfjsummit-2026"
+  },
+  "links": [
+    "https://luma.com/cfjsummit-2026",
+    "https://summit.code4japan.org/"
+  ],
+  "description": [],
+  "month_section": "2026-10",
+  "raw": "10/3 Code for Japan Summit 2026\n- 開催日時：2026-10-03 10:30 〜 18:00\n- 開催場所/開催方法：ベルサール九段（東京・千代田）\n- 対象/定員：行政・自治体でデジタル化やAI活用に取り組む方 / ​社会課題解決に関わりたいエンジニア・デザイナー・研究者 / ​社会的な活動に関心のある学生・社会人 / シビックテックや公共とテクノロジーの関係に関心のある方\n- 参加費：通常会場参加チケット2,000円が、前売りだと1,000円！\n- 参加方法：https://luma.com/cfjsummit-2026\n- https://summit.code4japan.org/",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

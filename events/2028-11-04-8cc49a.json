@@ -1,0 +1,31 @@
+{
+  "id": "2028-11-04-8cc49a",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "公民科技主題日",
+  "date_start": "2028-11-04",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@jothon/civictechon",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "籌備構想": "https://g0v.hackmd.io/@jothon/civictechon"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/civictechon"
+  ],
+  "description": [],
+  "month_section": "2028-11",
+  "raw": "11/04 週六 公民科技主題日 \n- 籌備構想：https://g0v.hackmd.io/@jothon/civictechon",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

@@ -1,0 +1,29 @@
+{
+  "id": "2027-03-6c4962",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "暫定舉辦 Open Data Day Taiwan 2027",
+  "date_start": null,
+  "date_end": null,
+  "date_precision": "month",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [],
+  "description": [],
+  "month_section": "2027-03",
+  "raw": "暫定舉辦 Open Data Day Taiwan 2027",
+  "warnings": [
+    "沒有日期，只知道月份；不會放進訂閱日曆"
+  ],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

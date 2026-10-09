@@ -1,0 +1,36 @@
+{
+  "id": "2026-10-05-1cdd76",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "AI Monday 線上活動「地端模型主題場」",
+  "date_start": "2026-10-05",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "20:00",
+  "end_time": "21:30",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "10/05 週一晚上 20:00-21:30",
+    "講題與講者": ""
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/ai/"
+  ],
+  "description": [
+    "(1) 地端算力在醫療情境的應用 by Teemo",
+    "(2) 2026 桌面級地端模型能做什麼 by 政揚",
+    "Webex 線上會議活動網址，請見文件：https://g0v.hackmd.io/@jothon/ai/"
+  ],
+  "month_section": "2026-10",
+  "raw": "10/05 AI Monday 線上活動「地端模型主題場」\n- 時間：10/05 週一晚上 20:00-21:30\n- 講題與講者：\n    - (1) 地端算力在醫療情境的應用 by Teemo\n    - (2) 2026 桌面級地端模型能做什麼 by 政揚\n- Webex 線上會議活動網址，請見文件：https://g0v.hackmd.io/@jothon/ai/",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2027-03-06-9934d5",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第柒拾柒次黑客松 Hackath77n",
+  "date_start": "2027-03-06",
+  "date_end": "2027-03-07",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [
+    {
+      "name": "嘉義場",
+      "date": "2027-03-06",
+      "start_time": "10:30",
+      "end_time": "17:00",
+      "venue": "嘉義市謐巷空間，嘉義市西區民生北路215巷11號"
+    },
+    {
+      "name": "台南場",
+      "date": "2027-03-07",
+      "start_time": "10:30",
+      "end_time": "17:00",
+      "venue": "台南市友愛街好想工作室，臺南市中西區友愛街117號2樓"
+    }
+  ],
+  "fields": {},
+  "links": [],
+  "description": [],
+  "month_section": "2027-03",
+  "raw": "2027 3/6-3/7 g0v 第柒拾柒次黑客松 Hackath77n\n- 嘉義場\n    - 時間：3/6 週六 10:30-17:00\n    - 地點：嘉義市謐巷空間，嘉義市西區民生北路215巷11號\n- 台南場\n    - 時間：3/7 週日 10:30-17:00\n    - 地點：台南市友愛街好想工作室，臺南市中西區友愛街117號2樓",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}

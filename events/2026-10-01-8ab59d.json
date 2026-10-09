@@ -1,0 +1,40 @@
+{
+  "id": "2026-10-01-8ab59d",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "公民科技體驗營 第二彈在臺東",
+  "date_start": "2026-10-01",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "13:30",
+  "end_time": "17:00",
+  "venue": "臺東縣消防局四樓災害應變中心（臺東市四維路二段 100 號 4 樓）",
+  "address": null,
+  "signup_url": "https://docs.google.com/forms/d/e/1FAIpQLSdfepjsQYhOOqSUBZxc4WcvVvRrL-RfTXk5AvqHBJfd09kGMg/viewform",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2026/10/1（四）13:30–17:00",
+    "地點": "臺東縣消防局四樓災害應變中心（臺東市四維路二段 100 號 4 樓）",
+    "報名連結": "https://docs.google.com/forms/d/e/1FAIpQLSdfepjsQYhOOqSUBZxc4WcvVvRrL-RfTXk5AvqHBJfd09kGMg/viewform"
+  },
+  "links": [
+    "https://docs.google.com/forms/d/e/1FAIpQLSdfepjsQYhOOqSUBZxc4WcvVvRrL-RfTXk5AvqHBJfd09kGMg/viewform"
+  ],
+  "description": [
+    "你身邊有對公文管理、公民科技或 AI 有興趣的朋友嗎？OCF 將協助數位發展部舉辦公務人員公民科技體驗營。第二場的題目，來自公務員大量查找公文資料的需求——公務員處理業務時常要翻查歷史公文，面對一年一年累積的資料，現行搜尋方式常遇到：關鍵字不夠精確就找不到、難以跨資料尋找、不容易串聯同一件事的前後脈絡。",
+    "公民科技（Civic Tech）講的就是把公共問題攤開來，讓有需求的人「出題」、有能力有想法的人一起「解題」——不急著先開發系統或導入工具，而是從理解需求開始，邊討論邊實作，找出更貼近實際需求的解方。",
+    "這場我們會從公文為例出發，示範怎麼運用 AI 處理資料格式、提問與找資料，並邀請大家實際操作。雖然這次以公文資料當練習，但只要資料有被好好整理過，往後在跨角色或單位合作時也會更好流通。",
+    "只要願意一起討論、一起動手，都歡迎加入！",
+    "想試著用 AI 整理資料，但不確定有敏感資料要如何處理的人",
+    "對「用科技解決公共問題」有熱情、想參與看看的人"
+  ],
+  "month_section": "2026-10",
+  "raw": "10/01 週四下午 公民科技體驗營 第二彈在臺東\n- 你身邊有對公文管理、公民科技或 AI 有興趣的朋友嗎？OCF 將協助數位發展部舉辦公務人員公民科技體驗營。第二場的題目，來自公務員大量查找公文資料的需求——公務員處理業務時常要翻查歷史公文，面對一年一年累積的資料，現行搜尋方式常遇到：關鍵字不夠精確就找不到、難以跨資料尋找、不容易串聯同一件事的前後脈絡。\n- 公民科技（Civic Tech）講的就是把公共問題攤開來，讓有需求的人「出題」、有能力有想法的人一起「解題」——不急著先開發系統或導入工具，而是從理解需求開始，邊討論邊實作，找出更貼近實際需求的解方。\n- 這場我們會從公文為例出發，示範怎麼運用 AI 處理資料格式、提問與找資料，並邀請大家實際操作。雖然這次以公文資料當練習，但只要資料有被好好整理過，往後在跨角色或單位合作時也會更好流通。\n- 活動資訊\n    - 時間：2026/10/1（四）13:30–17:00\n    - 地點：臺東縣消防局四樓災害應變中心（臺東市四維路二段 100 號 4 樓）\n    - 報名連結：https://docs.google.com/forms/d/e/1FAIpQLSdfepjsQYhOOqSUBZxc4WcvVvRrL-RfTXk5AvqHBJfd09kGMg/viewform\n- 誰適合參與活動？\n    - 只要願意一起討論、一起動手，都歡迎加入！\n    - 想試著用 AI 整理資料，但不確定有敏感資料要如何處理的人\n    - 對「用科技解決公共問題」有熱情、想參與看看的人",
+  "warnings": [],
+  "first_seen": "2026-10-09",
+  "in_source": true,
+  "removed_from_source": null
+}
