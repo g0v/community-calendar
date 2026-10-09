@@ -131,7 +131,8 @@ const fullTitle = title ? `${title}｜g0v 社群行事曆` : 'g0v 社群行事�
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  /* 永遠留著捲軸的位置：內容長度一變（展開修改紀錄、篩選活動），捲軸出現或消失時畫面不會左右跳 */
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-gutter: stable; }
   body {
     margin: 0;
     background: var(--bg);

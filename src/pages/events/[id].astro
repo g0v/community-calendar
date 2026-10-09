@@ -187,7 +187,7 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
   .tip[open] summary { color: var(--accent); border-color: var(--accent); }
   .tip p { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 2; margin: 0; padding: 10px 12px; border-radius: var(--r-md); background: var(--surface-2); font-size: .8rem; color: var(--muted); }
   /* 修改紀錄：收在頁面最下面一行小字，要找的人找得到、不看的人不會注意到 */
-  .history { margin-top: 40px; font-size: .8rem; color: var(--muted); }
+  .history { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
   .history summary { display: inline-flex; gap: 8px; cursor: pointer; list-style: none; }
   .history summary::-webkit-details-marker { display: none; }
   .history summary::before { content: '▸'; transition: transform .2s; }
