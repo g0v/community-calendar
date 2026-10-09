@@ -11,6 +11,9 @@ const values = {
   name: e.title, date: e.date_start, date_end: e.date_end, start_time: e.start_time, end_time: e.end_time,
   venue: e.venue, address: e.address, host: e.host,
   signup_url: e.signup_url, online_url: e.online_url, notes_url: e.notes_url, page_url: e.page_url,
+  series: e.series,
+  // 只有確認過的才顯示是／不是；AI Monday 自動判斷的也算確認過
+  jothon: e.jothon_source ? (e.jothon ? '是' : '不是') : null,
 };
 ---
 <Base title={`修改：${e.title}`}>

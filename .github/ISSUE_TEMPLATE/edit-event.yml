@@ -96,6 +96,16 @@ body:
     validations:
       required: false
   - type: input
+    id: series
+    attributes:
+      label: 系列
+      description: 系列代號或名稱，例如 hackathon（大松）、rand0mthon（放輕松）、congressthon（國會松）；不屬於任何系列寫 none。完整清單見 config/series.json
+  - type: input
+    id: jothon
+    attributes:
+      label: 揪松主辦
+      description: 是不是揪松團主辦的活動（大松、AI Monday、放輕松、跑咖松）。寫「是」或「不是」，不確定就留空
+  - type: input
     id: takedown
     attributes:
       label: 要不要從行事曆上拿掉？

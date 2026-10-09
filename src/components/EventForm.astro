@@ -2,6 +2,7 @@
 // 編輯頁與新增活動頁共用的表單。送出時不直接改資料：組好一張 GitHub issue（表單欄位預先填好），
 // 由 workflow 轉成 PR、管理員合併後才生效。沒有 GitHub 帳號的人改用 email
 import { CONTACT_EMAIL, REPO } from '../lib/data';
+import { SERIES } from '../../scripts/facets.mjs';
 
 interface Props {
   mode: 'edit' | 'new';
@@ -28,13 +29,32 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
 ---
 <form class="event-form" data-mode={mode} data-event-id={eventId} data-label={label} data-repo={REPO} data-email={CONTACT_EMAIL}>
   <div class="grid">
-    {fields.map((f) => (
+    {fields.map((f, i) => (<>
       <label class:list={['field', { wide: f.wide }]}>
         <span class="l">{f.label}{(f.id === 'name' || f.id === 'date') && mode === 'new' && <span class="req">必填</span>}</span>
         <input name={f.id} type={f.type ?? 'text'} value={v(f.id)} data-initial={v(f.id)} required={mode === 'new' && (f.id === 'name' || f.id === 'date')} />
         {f.hint && <span class="hint muted">{f.hint}</span>}
       </label>
-    ))}
+      {i === 0 && (<>
+    <label class="field">
+        <span class="l">系列</span>
+        <select name="series" data-initial={v('series')}>
+          <option value="" selected={!v('series')}>{mode === 'new' ? '不屬於任何系列' : '（沒有系列）'}</option>
+          {SERIES.map(([slug, name]) => <option value={slug} selected={v('series') === slug}>{name}</option>)}
+        </select>
+        <span class="hint muted">歸類到系列後，可以用系列篩選與訂閱</span>
+      </label>
+      <label class="field">
+        <span class="l">揪松主辦</span>
+        <select name="jothon" data-initial={v('jothon')}>
+          <option value="" selected={!v('jothon')}>{mode === 'new' ? '不確定' : '（未確認）'}</option>
+          <option value="是" selected={v('jothon') === '是'}>是</option>
+          <option value="不是" selected={v('jothon') === '不是'}>不是</option>
+        </select>
+        <span class="hint muted">大松、AI Monday、放輕松、跑咖松；是的話會進揪松團日曆</span>
+      </label>
+        </>)}
+    </>))}
     {mode === 'new' && (
       <label class="field wide">
         <span class="l">活動說明</span>
@@ -71,10 +91,13 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
     // 編輯：只送有改的欄位，管理員一眼就看得出改了什麼
     const collect = () => {
       const out: Record<string, string> = {};
-      form.querySelectorAll<HTMLInputElement>('input[name]:not([type=checkbox]), textarea[name]').forEach((el) => {
+      form.querySelectorAll<HTMLInputElement>('input[name]:not([type=checkbox]), textarea[name], select[name]').forEach((el) => {
         const v = el.value.trim();
         if (el.name === 'reason' || el.name === 'description') { if (v) out[el.name] = v; return; }
-        if (mode === 'new' ? v : v !== (el.dataset.initial ?? '')) out[el.name] = v;
+        if (mode === 'new' ? v : v !== (el.dataset.initial ?? '')) {
+          // 系列改成「沒有系列」要明確送 none，不然空白會被當成「沒填」
+          out[el.name] = !v && el.name === 'series' ? 'none' : v;
+        }
       });
       return out;
     };
@@ -106,7 +129,7 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
     form.querySelector<HTMLAnchorElement>('[data-mail]')!.addEventListener('click', (ev) => {
       ev.preventDefault();
       const f = collect();
-      const names: Record<string, string> = { name: '活動名稱', date: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間', venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址', notes_url: '共筆網址', page_url: '活動頁', description: '活動說明', reason: mode === 'edit' ? '為什麼要改' : '我跟這場活動的關係' };
+      const names: Record<string, string> = { series: '系列', jothon: '揪松主辦', name: '活動名稱', date: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間', venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址', notes_url: '共筆網址', page_url: '活動頁', description: '活動說明', reason: mode === 'edit' ? '為什麼要改' : '我跟這場活動的關係' };
       const body = [
         mode === 'edit' ? `我想修改 g0v 社群行事曆上的這場活動：${location.href.replace(/edit\/?$/, '')}` : '我想在 g0v 社群行事曆上新增一場活動：',
         '',
@@ -124,11 +147,11 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
   .field { display: flex; flex-direction: column; gap: 6px; }
   .l { font-size: .875rem; font-weight: 600; }
   .req { margin-left: 6px; font-size: .75rem; font-weight: 500; color: var(--accent); }
-  input:not([type=checkbox]), textarea {
+  input:not([type=checkbox]), textarea, select {
     width: 100%; padding: 9px 12px; border-radius: var(--r-md); border: 1px solid var(--line);
     background: var(--surface); color: var(--text); font: inherit; font-size: .95rem;
   }
-  input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
   .hint { font-size: .8rem; }
   .check { flex-direction: row; align-items: center; gap: 8px; font-size: .9rem; }
   .err { color: var(--warn); margin: 16px 0 0; }

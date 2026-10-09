@@ -16,12 +16,13 @@
 //     "hidden": true,                 下架：網站與日曆都不出現（資料仍保留在 events/）
 //     "jothon": true,                 揪松主辦：放進揪松日曆。false＝確認不是，不再提醒
 //     "set": { "title": "…" },        蓋掉共筆解析出來的欄位
+//     "series": "hackathon",          指定系列（config/series.json 的 slug），null＝不屬於任何系列；不寫就從標題自動判斷
 //     "note": "為什麼這樣改"          給下一個管理員看的，不會顯示在網站上
 //   }
 
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { facets, seriesOf } from './facets.mjs';
+import { facets, SERIES, seriesOf } from './facets.mjs';
 
 const AI_MONDAY = /ai\s*monday/i;
 const AIMONDAY_API = 'https://data.civictech.tw/v0/aimonday';
@@ -83,10 +84,13 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
     r.aimonday_url = am ? `${AIMONDAY_SITE}/events/${am.id}/` : null;
     r.cancelled = am?.status === '停辦';
     r.hidden = o.hidden === true;
+    if ('series' in o) r.series_fixed = o.series;
     r.has_override = e.id in overrides;
     const amJothon = am?.series_slug === 'ai-monday';
-    r.jothon = typeof o.jothon === 'boolean' ? o.jothon : amJothon;
-    r.jothon_source = typeof o.jothon === 'boolean' ? 'override' : amJothon ? 'aimonday' : null;
+    // 揪松主辦：管理員的 overrides 優先，其次是新增活動時就標好的（manual/ 的 jothon_fixed），再其次是 AI Monday
+    const fixed = typeof o.jothon === 'boolean' ? o.jothon : typeof r.jothon_fixed === 'boolean' ? r.jothon_fixed : null;
+    r.jothon = fixed ?? amJothon;
+    r.jothon_source = fixed !== null ? 'override' : amJothon ? 'aimonday' : null;
     // 標題對到揪松主辦的系列（config/series.json 的 jothon: true）、但沒有人確認過：報給管理員
     r.jothon_pending = r.jothon_source == null && !!seriesOf(r.title)?.jothon;
     return r;
@@ -96,13 +100,18 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
   const fromAiMonday = amEvents.filter((a) => !claimed.has(a.id)).map((a) => fromAm(a, amTalks, overrides[`aimonday-${a.id}`]));
 
   return [...fromHackmd, ...fromAiMonday]
-    .map((r) => ({ ...r, ...facets(r) }))
+    .map((r) => ({ ...r, ...facets(r), ...fixedSeries(r) }))
     .sort((a, b) => (a.date_start ?? a.month_section ?? '9999').localeCompare(b.date_start ?? b.month_section ?? '9999'));
 }
 
 // 共筆的寫法常常比表單多幾個字，所以一個包含另一個就算同一場
 const squash = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
 const sameTitle = (a, b) => { const [x, y] = [squash(a), squash(b)].sort((p, q) => p.length - q.length); return x.length >= 3 && y.includes(x); };
+
+// 系列由標題自動判斷，但管理員或送修改的人可以指定（overrides 的 "series"，或新增活動時選的）。
+// 指定 null＝不屬於任何系列
+const SERIES_NAME = Object.fromEntries(SERIES.map(([slug, name]) => [slug, name]));
+const fixedSeries = (r) => (r.series_fixed === undefined ? {} : { series: r.series_fixed, series_label: SERIES_NAME[r.series_fixed] ?? null });
 
 const talksOf = (am, talks) =>
   talks.filter((t) => t.event_id === am.id && !t.open_slot && t.kind === 'talk')

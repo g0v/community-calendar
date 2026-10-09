@@ -15,6 +15,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import seriesConfig from '../config/series.json' with { type: 'json' };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -24,7 +25,7 @@ const LABELS = {
   '日期': 'date', '結束日期（跨天才填）': 'date_end', '開始時間': 'start_time', '結束時間': 'end_time',
   '地點': 'venue', '地址': 'address', '主辦': 'host',
   '報名網址': 'signup_url', '線上參加網址': 'online_url', '共筆網址': 'notes_url', '活動頁': 'page_url',
-  '要不要從行事曆上拿掉？': 'takedown', '為什麼要改': 'reason', '活動說明': 'description', '你跟這場活動的關係': 'reason',
+  '要不要從行事曆上拿掉？': 'takedown', '系列': 'series', '揪松主辦': 'jothon', '為什麼要改': 'reason', '活動說明': 'description', '你跟這場活動的關係': 'reason',
 };
 // 表單欄位 → 活動資料的欄位
 const TO_EVENT = {
@@ -63,6 +64,16 @@ function validate(f, errors) {
     } else if (k === 'event_id') {
       if (!/^[a-z0-9-]{6,80}$/.test(s)) errors.push(`活動代號的格式不對：「${s}」`);
       else v[k] = s;
+    } else if (k === 'series') {
+      // 網站上的下拉選單送來的是 slug；手動填的也接受系列名稱。「none」＝不屬於任何系列
+      const hit = seriesConfig.series.find((x) => x.slug === s || x.name === s);
+      if (s === 'none' || s === '無') v[k] = null;
+      else if (hit) v[k] = hit.slug;
+      else errors.push(`沒有「${s}」這個系列，可以用的有：${seriesConfig.series.map((x) => x.slug).join('、')}`);
+    } else if (k === 'jothon') {
+      if (/^(是|yes|true)$/i.test(s)) v[k] = true;
+      else if (/^(不是|否|no|false)$/i.test(s)) v[k] = false;
+      else errors.push(`「揪松主辦」請寫「是」或「不是」，現在是「${s}」`);
     } else if (k === 'description' || k === 'reason') {
       v[k] = s.slice(0, 2000);
     } else {
@@ -89,15 +100,17 @@ export async function handle(issue) {
     const set = Object.fromEntries(Object.entries(TO_EVENT).filter(([k]) => f[k]).map(([k, to]) => [to, f[k]]));
     // 用文字欄位而不是下拉選單：GitHub 的 issue 表單只有文字欄位能從網址預先填好
     const takedown = /拿掉|下架|移除/.test(f.takedown ?? '');
-    if (!Object.keys(set).length && !takedown) errors.push('沒有填任何要改的欄位，也沒有選擇拿掉');
+    const series = 'series' in f ? { series: f.series } : null;
+    const jothon = 'jothon' in f ? { jothon: f.jothon } : null;
+    if (!Object.keys(set).length && !takedown && !series && !jothon) errors.push('沒有填任何要改的欄位，也沒有選擇拿掉');
     if (errors.length) return { ok: false, kind, errors };
 
     // manual/ 的活動直接改那個檔案；其他的寫進 overrides/
     if (existsSync(path.join(ROOT, 'manual', `${f.event_id}.json`))) {
       const file = `manual/${f.event_id}.json`;
       const cur = JSON.parse(await readFile(path.join(ROOT, file), 'utf8'));
-      const next = { ...cur, ...set, ...(takedown ? { hidden: true } : {}) };
-      return done(kind, issue, [[file, next]], set, takedown, f.reason);
+      const next = { ...cur, ...set, ...(series ? { series_fixed: series.series } : {}), ...(jothon ? { jothon_fixed: jothon.jothon } : {}), ...(takedown ? { hidden: true } : {}) };
+      return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason);
     }
     const file = `overrides/${f.event_id}.json`;
     const cur = existsSync(path.join(ROOT, file)) ? JSON.parse(await readFile(path.join(ROOT, file), 'utf8')) : {};
@@ -105,9 +118,11 @@ export async function handle(issue) {
       ...cur,
       ...(takedown ? { hidden: true } : {}),
       ...(Object.keys(set).length ? { set: { ...(cur.set ?? {}), ...set } } : {}),
+      ...(series ?? {}),
+      ...(jothon ?? {}),
       note: [cur.note, `${ref}：${(f.reason ?? '').replace(/\s+/g, ' ').slice(0, 200)}`].filter(Boolean).join('／'),
     };
-    return done(kind, issue, [[file, next]], set, takedown, f.reason);
+    return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason);
   }
 
   // 新增活動
@@ -128,6 +143,8 @@ export async function handle(issue) {
     month_section: f.date.slice(0, 7),
     raw: '', warnings: [],
     first_seen: issue.created_at?.slice(0, 10) ?? null, in_source: false, removed_from_source: null,
+    ...('series' in f ? { series_fixed: f.series } : {}),
+    ...('jothon' in f ? { jothon_fixed: f.jothon } : {}),
   };
   return done(kind, issue, [[`manual/${id}.json`, ev]], null, false, f.reason);
 }
@@ -135,7 +152,7 @@ export async function handle(issue) {
 function done(kind, issue, files, set, takedown, reason) {
   const lines = kind === 'edit'
     ? [
-        ...(set ? Object.entries(set).map(([k, v]) => `- \`${k}\`：${v}`) : []),
+        ...(set ? Object.entries(set).map(([k, v]) => `- \`${k}\`：${v === true ? '是' : v === false ? '不是' : v ?? '（無）'}`) : []),
         ...(takedown ? ['- **從行事曆上拿掉**（`hidden: true`，資料仍保留，改回 false 就恢復）'] : []),
       ]
     : [`- ${files[0][1].title}（${files[0][1].date_start}）`];
