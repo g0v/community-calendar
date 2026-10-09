@@ -54,6 +54,15 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
 每天台灣時間 04:30 同步一次（`.github/workflows/sync.yml`）。
 
+### 共筆從哪裡讀
+
+g0v.hackmd.io 前面有 AWS 的防火牆，對 GitHub Actions 的機器（Azure 機房）一律回人機驗證頁（HTTP 405），所以同步程式依序試：
+
+1. 直接從 g0v.hackmd.io 下載——在一般電腦或 VPS 上跑時會成功
+2. [g0v-data/g0v-hackmd-archive](https://github.com/g0v-data/g0v-hackmd-archive)：Ronny 每小時爬一次的 g0v HackMD 備份。從 GitHub Actions 讀得到；備份超過 3 天沒更新會在資料檢查 issue 提醒
+
+不嘗試繞過人機驗證，那是 HackMD／g0v 那邊的決定。報告（`report.json`）的 `read_from` 記錄這次讀自哪裡。
+
 ## 資料在哪
 
 | 路徑 | 內容 |

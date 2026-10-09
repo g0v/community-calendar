@@ -34,7 +34,13 @@ async function main() {
   const report = { generated_at: new Date().toISOString(), today: TODAY, source: SOURCE_URL, counts: {}, errors: [], warnings: [] };
   let md;
   try {
-    md = process.env.SOURCE_FILE ? await readFile(process.env.SOURCE_FILE, 'utf8') : await fetchSource();
+    if (process.env.SOURCE_FILE) md = await readFile(process.env.SOURCE_FILE, 'utf8');
+    else {
+      const got = await fetchSource();
+      md = got.md;
+      report.read_from = got.via;
+      if (got.note) report.warnings.push({ where: '共筆來源', msg: got.note });
+    }
   } catch (e) {
     // 讀不到共筆也要留下報告，資料檢查 issue 才會開出來；不然只會在 Actions 裡安靜地紅一格
     report.errors.push({ where: '共筆', msg: `讀不到共筆：${e.message}。這次不更新資料` });
@@ -205,19 +211,55 @@ async function writeReport(report) {
   await writeFile(path.join(ROOT, 'report.json'), JSON.stringify(report, null, 2) + '\n');
 }
 
-// 共筆的 note id（@jothon/event 是它的短網址；/@jothon/event/edit 會轉址到這裡）
-export const NOTE_ID = 'N3EnvC7ATSG-r71zuleuyQ';
+// 共筆的 note id（@jothon/event 是它的短網址；/@jothon/event/edit 會轉址到這裡）。NOTE_ID 環境變數可以換成別的筆記測試
+export const NOTE_ID = process.env.NOTE_ID ?? 'N3EnvC7ATSG-r71zuleuyQ';
 
-// 共筆的 Markdown 原文。先用 note id 讀；短網址在 GitHub Actions 上會被回 HTTP 405，留著當備援
+// Ronny 的 g0v HackMD 備份（每小時從他自己的機器爬一次，存成原始 Markdown）
+const ARCHIVE_REPO = 'g0v-data/g0v-hackmd-archive';
+const ARCHIVE_STALE_DAYS = 3;
+
+// 共筆的 Markdown 原文，回傳 { md, via, note }。依序試：
+//   1. 直接從 g0v.hackmd.io 下載——本機與 VPS 可以；GitHub Actions 會被 HackMD 前面的 AWS WAF 回人機驗證頁（HTTP 405）
+//   2. Ronny 的備份 repo——從 GitHub Actions 讀 GitHub 上的檔案不會被擋。備份太久沒更新時附上提醒
+// 不嘗試繞過人機驗證：那是 HackMD／g0v 那邊的決定
 async function fetchSource() {
   const tried = [];
-  for (const url of [`https://g0v.hackmd.io/${NOTE_ID}/download`, `${SOURCE_URL}/download`]) {
-    const r = await fetch(url, { signal: AbortSignal.timeout(30_000), headers: { 'User-Agent': 'g0v-community-calendar (+https://github.com/g0v/community-calendar)' } });
-    console.log(`${url} → HTTP ${r.status}`);
-    if (r.ok) return r.text();
-    tried.push(`${url} 回 HTTP ${r.status}`);
+  const ua = { 'User-Agent': 'g0v-community-calendar (+https://github.com/g0v/community-calendar)' };
+  if (!process.env.FORCE_ARCHIVE) {
+    for (const url of [`https://g0v.hackmd.io/${NOTE_ID}/download`, `${SOURCE_URL}/download`]) {
+      const r = await fetch(url, { signal: AbortSignal.timeout(30_000), headers: ua }).catch((e) => ({ ok: false, status: e.message }));
+      console.log(`${url} → HTTP ${r.status}`);
+      if (r.ok) return { md: await r.text(), via: 'hackmd', note: null };
+      tried.push(`${url} 回 HTTP ${r.status}`);
+    }
   }
-  throw new Error(tried.join('；'));
+  const raw = `https://raw.githubusercontent.com/${ARCHIVE_REPO}/main/notes/${NOTE_ID}.md`;
+  const r = await fetch(raw, { signal: AbortSignal.timeout(30_000), headers: ua }).catch((e) => ({ ok: false, status: e.message }));
+  console.log(`${raw} → HTTP ${r.status}`);
+  if (!r.ok) {
+    tried.push(r.status === 404 ? `g0v-hackmd-archive 裡沒有這份共筆（${NOTE_ID}）` : `${raw} 回 HTTP ${r.status}`);
+    throw new Error(tried.join('；'));
+  }
+  const md = await r.text();
+  const updated = await archiveUpdated();
+  const days = updated ? Math.floor((Date.now() - Date.parse(updated)) / 864e5) : null;
+  const note = days == null
+    ? null
+    : days >= ARCHIVE_STALE_DAYS
+      ? `這次的共筆內容讀自 g0v-hackmd-archive 的備份，但備份已經 ${days} 天沒更新（最後是 ${updated.slice(0, 10)}），共筆後來的修改沒有反映進來。可能是備份的爬蟲出了狀況`
+      : null;
+  return { md, via: `g0v-hackmd-archive（${updated?.slice(0, 16).replace('T', ' ') ?? '更新時間不明'}）`, note };
+}
+
+// 備份裡這份共筆最後一次被更新的時間（GitHub API；有 GH_TOKEN 就帶上，額度比較多）
+async function archiveUpdated() {
+  try {
+    const r = await fetch(`https://api.github.com/repos/${ARCHIVE_REPO}/commits?path=notes/${NOTE_ID}.md&per_page=1`, {
+      signal: AbortSignal.timeout(20_000),
+      headers: process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env.GH_TOKEN}` } : {},
+    });
+    return (await r.json())[0]?.commit?.committer?.date ?? null;
+  } catch { return null; }
 }
 
 // 路徑有中文時 import.meta.url 會被百分比編碼，所以比對前先轉回檔案路徑

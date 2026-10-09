@@ -34,6 +34,8 @@ jobs:
       - id: sync
         run: node scripts/sync.mjs
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }} # 查備份最後更新時間用
 
       - name: 有變動就 commit
         run: |
