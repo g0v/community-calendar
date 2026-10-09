@@ -1,0 +1,33 @@
+{
+  "id": "2025-02-18-416edf",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "法庭觀察松 - 個人資料外洩議題",
+  "date_start": "2025-02-18",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "臺北市士林區福國路101號，台北高等行政法院",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v.hackmd.io/_GKcnfHQTQWCN_zSAcUdew"
+  ],
+  "description": [],
+  "month_section": "2025-null",
+  "raw": "2/18 Tue. 週二下午 **法庭觀察松 - 個人資料外洩議題**，地點在臺北市士林區福國路101號，台北高等行政法院 \nhttps://g0v.hackmd.io/_GKcnfHQTQWCN_zSAcUdew",
+  "warnings": [],
+  "first_seen": "2025-01-14",
+  "in_source": false,
+  "removed_from_source": "2025-03-20",
+  "archive": {
+    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event"
+  }
+}

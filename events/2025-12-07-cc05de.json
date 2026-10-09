@@ -1,0 +1,39 @@
+{
+  "id": "2025-12-07-cc05de",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 嘉義社群小聚",
+  "date_start": "2025-12-07",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "16:30",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "12/07 下午 14:00-16:30",
+    "暫定地點": "嘉義西市場數位翻轉基地",
+    "活動流程與內容文件": "https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view"
+  },
+  "links": [
+    "https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view"
+  ],
+  "description": [
+    "地點原則上以嘉義市市區為主"
+  ],
+  "month_section": "2025-12",
+  "raw": "12/7 週日下午 g0v 嘉義社群小聚\n- 日期：12/07 下午 14:00-16:30\n- 📍 暫定地點：嘉義西市場數位翻轉基地\n    - 地點原則上以嘉義市市區為主\n- 活動流程與內容文件：https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view",
+  "warnings": [],
+  "first_seen": "2025-09-08",
+  "in_source": false,
+  "removed_from_source": "2025-12-15",
+  "archive": {
+    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251116215110/https://g0v.hackmd.io/@jothon/event"
+  }
+}

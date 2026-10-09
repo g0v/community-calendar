@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-22-67734c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 放輕松_輕鬆交流的時光",
+  "date_start": "2026-06-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@tofus/rand0mth0n/",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "19": "40 - 21:00 | cowork | a.k.a. 開始做專案或自己的事情",
+    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+    "共筆": "https://g0v.hackmd.io/@tofus/rand0mth0n/",
+    "流程": ""
+  },
+  "links": [
+    "https://g0v.hackmd.io/@tofus/rand0mth0n/"
+  ],
+  "description": [
+    "若有新朋友，則可以介紹 g0v 社群",
+    "自我介紹"
+  ],
+  "month_section": "2026-06",
+  "raw": "6/22 週一晚上 g0v 放輕松_輕鬆交流的時光\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站\n- 共筆：https://g0v.hackmd.io/@tofus/rand0mth0n/\n- 流程：\n    - 19:00 - 19:30 | 活動入場\n    - 19:30 - 19:40 | 介紹\n        - 若有新朋友，則可以介紹 g0v 社群\n        - 自我介紹\n    - 19:40 - 21:00 | cowork | a.k.a. 開始做專案或自己的事情",
+  "warnings": [],
+  "first_seen": "2026-01-13",
+  "in_source": false,
+  "removed_from_source": "2026-10-06",
+  "archive": {
+    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2025-03-29-37f8bf",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第陸拾陸次 友愛青年黑客松 hackath66n",
+  "date_start": "2025-03-29",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "Tainan 友愛市場二樓 - 好想工作室 / 台南市中西區友愛街117號2樓",
+  "address": null,
+  "signup_url": "https://g0v-jothon.kktix.cc/events/g0v-hackath66n",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動人數": "80-100人",
+    "活動地點": "Tainan 友愛市場二樓 - 好想工作室 / 台南市中西區友愛街117號2樓",
+    "報名網址": "https://g0v-jothon.kktix.cc/events/g0v-hackath66n"
+  },
+  "links": [
+    "https://g0v-jothon.kktix.cc/events/g0v-hackath66n"
+  ],
+  "description": [],
+  "month_section": "2025-03",
+  "raw": "3/29 Sat. 週六上下午 **g0v 第陸拾陸次 友愛青年黑客松 hackath66n**\n- 活動人數：80-100人\n- 活動地點：Tainan 友愛市場二樓 - 好想工作室 / 台南市中西區友愛街117號2樓\n- 報名網址：https://g0v-jothon.kktix.cc/events/g0v-hackath66n",
+  "warnings": [],
+  "first_seen": "2025-01-14",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

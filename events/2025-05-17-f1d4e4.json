@@ -1,0 +1,42 @@
+{
+  "id": "2025-05-17-f1d4e4",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "噶哈巫 Wikidata 編輯工作坊",
+  "date_start": "2025-05-17",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "南投縣埔里數位機會中心",
+  "address": "南投縣埔里鎮蜈蚣路36號",
+  "signup_url": "https://wikidatatw.kktix.cc/events/kaxabu202505",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "5/17（六）13": "30-17:00",
+    "地點": "南投縣埔里數位機會中心",
+    "地址": "南投縣埔里鎮蜈蚣路36號",
+    "Google地圖": "https://maps.app.goo.gl/bbduWuMMMNkJNMqE9",
+    "活動報名頁面": "https://wikidatatw.kktix.cc/events/kaxabu202505"
+  },
+  "links": [
+    "https://maps.app.goo.gl/bbduWuMMMNkJNMqE9",
+    "https://wikidatatw.kktix.cc/events/kaxabu202505"
+  ],
+  "description": [
+    "活動以華語進行，歡迎對於噶哈巫文化、語言有興趣的朋友參加，不會族語也沒有關係喔。"
+  ],
+  "month_section": "2025-05",
+  "raw": "5/17 Sat. 下午 噶哈巫 Wikidata 編輯工作坊\n- 5/17（六）13:30-17:00 \n- 地點：南投縣埔里數位機會中心\n    - 地址：南投縣埔里鎮蜈蚣路36號\n    - Google 地圖：https://maps.app.goo.gl/bbduWuMMMNkJNMqE9　\n- 活動報名頁面：https://wikidatatw.kktix.cc/events/kaxabu202505 \n- 活動以華語進行，歡迎對於噶哈巫文化、語言有興趣的朋友參加，不會族語也沒有關係喔。",
+  "warnings": [],
+  "first_seen": "2025-05-21",
+  "in_source": false,
+  "removed_from_source": "2025-09-08",
+  "archive": {
+    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event"
+  }
+}

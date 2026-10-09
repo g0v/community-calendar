@@ -1,0 +1,43 @@
+{
+  "id": "2025-12-13-9592f6",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "📢 g0v 國會松｜從 lawtrace 看公民科技",
+  "date_start": "2025-12-13",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "16:00",
+  "venue": "NPO Hub Taipei 2F（台北市中正區重慶南路三段 2 號）",
+  "address": null,
+  "signup_url": "https://bitl.to/5Mcr",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "12/13（六）14:00-16:00",
+    "地點": "NPO Hub Taipei 2F（台北市中正區重慶南路三段 2 號）",
+    "報名連結": "https://bitl.to/5Mcr",
+    "Sandra（服務設計師）▍講題": "lawtrace 的使用者回饋",
+    "Weichen（研究員）▍講題": "活動設計、工具推廣、大眾溝通"
+  },
+  "links": [
+    "https://bitl.to/5Mcr"
+  ],
+  "description": [
+    "開放實體與線上票",
+    "🔸 Claire（專案管理師、研究員）▍講題：打造開源工具，推動立法院開放資料的倡議路徑",
+    "🔸 Ronny（開發者、創業者）▍講題：g0v 社群 10 年的開放國會之路，怎麼走到 lawtrace（對談分享）"
+  ],
+  "month_section": "2025-12",
+  "raw": "12/13 週六下午 📢 g0v 國會松｜從 lawtrace 看公民科技\n- 🗓 時間：12/13（六）14:00-16:00\n- 📍 地點：NPO Hub Taipei 2F（台北市中正區重慶南路三段 2 號）\n- 🎟️ 報名連結：https://bitl.to/5Mcr\n- 開放實體與線上票\n- 與談人\n    - 🔸 Claire（專案管理師、研究員）▍講題：打造開源工具，推動立法院開放資料的倡議路徑\n    - 🔸 Sandra（服務設計師）▍講題：lawtrace 的使用者回饋\n    - 🔸 Weichen（研究員）▍講題：活動設計、工具推廣、大眾溝通\n    - 🔸 Ronny（開發者、創業者）▍講題：g0v 社群 10 年的開放國會之路，怎麼走到 lawtrace（對談分享）",
+  "warnings": [],
+  "first_seen": "2025-12-15",
+  "in_source": false,
+  "removed_from_source": "2026-01-13",
+  "archive": {
+    "first": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event"
+  }
+}

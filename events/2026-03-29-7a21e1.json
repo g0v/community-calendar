@@ -1,0 +1,46 @@
+{
+  "id": "2026-03-29-7a21e1",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 黑客松 (80-100人) g0v hackath72n",
+  "date_start": "2026-03-29",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "台南好想工作室，臺南市中西區友愛街117號2樓",
+  "address": null,
+  "signup_url": "https://g0v-jothon.kktix.cc/events/g0v-hackath72n",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "台南好想工作室，臺南市中西區友愛街117號2樓",
+    "實體場次_報名網址": "https://g0v-jothon.kktix.cc/events/g0v-hackath72n"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/g0v-hackath72n/",
+    "https://g0v-jothon.kktix.cc/events/g0v-hackath72n",
+    "https://www.youtube.com/@g0vTW/",
+    "https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "description": [
+    "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
+    "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
+    "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
+    "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
+    "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
+    "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "month_section": "2026-03",
+  "raw": "**2026/03/29 g0v 黑客松 (80-100人) g0v hackath72n**\n- https://g0v.hackmd.io/@jothon/g0v-hackath72n/\n- https://g0v-jothon.kktix.cc/events/g0v-hackath72n\n- 地點：台南好想工作室，臺南市中西區友愛街117號2樓\n- Time Zone 留意您的時區\n    - [UTC+8] 3/29 Sun. 10:00-21:00\n        - Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n        - g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack\n        - 實體場次_報名網址：https://g0v-jothon.kktix.cc/events/g0v-hackath72n\n    - [PDT] 3/28 Sat. 19:00-21:30\n        - Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n        - g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack\n    - [BST] 3/29 Sun. 10:30-14:00\n        - Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n        - g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
+  "warnings": [],
+  "first_seen": "2025-05-21",
+  "in_source": false,
+  "removed_from_source": "2026-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+  }
+}

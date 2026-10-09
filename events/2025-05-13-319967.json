@@ -1,0 +1,51 @@
+{
+  "id": "2025-05-13-319967",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "【g0v Rand0mth25n 第貳拾伍次放輕松】",
+  "date_start": "2025-05-13",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "07:00",
+  "end_time": "09:00",
+  "venue": "NPO Hub 202 辦公室",
+  "address": null,
+  "signup_url": "https://forms.gle/kZvKL9EQG16oFvYY8",
+  "notes_url": "http://s.g0v.tw/rand0mthon",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動地點": "NPO Hub 202 辦公室",
+    "活動地址": "台北市中正區重慶南路三段2號2樓",
+    "活動時間": "2025/05/13 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)",
+    "活動共筆": "http://s.g0v.tw/rand0mthon",
+    "EventLocation": "NPO Hub Taipei, Room 202",
+    "Address": "No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei",
+    "EventTime": "Tuesday, 2025/05/13, 7:00 PM - 9:00 PM (Entry starts at 6:30 PM)",
+    "報名連結": "https://forms.gle/kZvKL9EQG16oFvYY8",
+    "5/15灣區時間晚上10": "00-10:30 有下次活動討論 (討論 6/14 的 mini hack day 活動)，歡迎有興趣參與 g0v bayarea 社群治理的朋友參加",
+    "加入您的日曆": "https://calendar.app.google/9KiTY33cnNheZZPR7"
+  },
+  "links": [
+    "http://s.g0v.tw/rand0mthon",
+    "https://forms.gle/kZvKL9EQG16oFvYY8",
+    "https://calendar.app.google/9KiTY33cnNheZZPR7",
+    "https://s.g0v.tw/bayarea"
+  ],
+  "description": [
+    "Collaborative Note: http://s.g0v.tw/rand0mthon",
+    "並請加入 g0v Slack 頻道 #g0v-siliconvalley",
+    "g0v 矽谷灣區社群共筆 Shared Notes  https://s.g0v.tw/bayarea"
+  ],
+  "month_section": "2025-05",
+  "raw": "5/13 Tue. 晚上【g0v Rand0mth25n 第貳拾伍次放輕松】\n- 活動地點：NPO Hub 202 辦公室\n- 活動地址：台北市中正區重慶南路三段2號2樓\n- 活動時間：2025/05/13 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)\n- 活動共筆：http://s.g0v.tw/rand0mthon\n- Event Location: NPO Hub Taipei, Room 202\n- Address: No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei\n- Event Time: Tuesday, 2025/05/13, 7:00 PM - 9:00 PM (Entry starts at 6:30 PM)\n- Collaborative Note: http://s.g0v.tw/rand0mthon\n- 報名連結：https://forms.gle/kZvKL9EQG16oFvYY8\n\n- 5/15 灣區時間晚上10:00-10:30 有下次活動討論 (討論 6/14 的 mini hack day 活動)，歡迎有興趣參與 g0v bayarea 社群治理的朋友參加\n    - 加入您的日曆：https://calendar.app.google/9KiTY33cnNheZZPR7\n    - 並請加入 g0v Slack 頻道 #g0v-siliconvalley \n    - g0v 矽谷灣區社群共筆 Shared Notes  https://s.g0v.tw/bayarea",
+  "warnings": [],
+  "first_seen": "2025-05-21",
+  "in_source": false,
+  "removed_from_source": "2025-09-08",
+  "archive": {
+    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2025-03-19-ba5846",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "vTaiwan 小聚",
+  "date_start": "2025-03-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v.hackmd.io/@Pno233SAS8G5UfL5OvSRmA/H1xeO5ofnkg"
+  ],
+  "description": [],
+  "month_section": "2025-03",
+  "raw": "3/19 Wed. 晚上 19:00-20:00 **vTaiwan 小聚** 線上\n- https://g0v.hackmd.io/@Pno233SAS8G5UfL5OvSRmA/H1xeO5ofnkg",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

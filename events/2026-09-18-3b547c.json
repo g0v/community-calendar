@@ -1,0 +1,38 @@
+{
+  "id": "2026-09-18-3b547c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "FtO Seoul 2026 (Facing the Ocean Meet & Hack)",
+  "date_start": "2026-09-18",
+  "date_end": "2026-09-20",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v.hackmd.io/@fto/book/%2FhDu0pA9QQeWS9z_8SVkmvA?type=book"
+  ],
+  "description": [
+    "This is to announce that the 2026 FtO will be held in Seoul between 18th to 20th September (with 19-20th being the main event).",
+    "More info coming later, along with registration, but now the venue and dates are fixed, you can book your trip in advance!",
+    "Some basic info about our venue is [here](https://g0v.hackmd.io/@fto/book/%2FhDu0pA9QQeWS9z_8SVkmvA?type=book)",
+    "Hope to see you there! As we are collaborating with a creative youth centre in Seoul - we're hoping to get more participants under 24!"
+  ],
+  "month_section": "2026-09",
+  "raw": "9/18-9/20 FtO Seoul 2026 (Facing the Ocean Meet & Hack)\n- This is to announce that the 2026 FtO will be held in Seoul between 18th to 20th September (with 19-20th being the main event).\n- More info coming later, along with registration, but now the venue and dates are fixed, you can book your trip in advance!\n- Some basic info about our venue is [here](https://g0v.hackmd.io/@fto/book/%2FhDu0pA9QQeWS9z_8SVkmvA?type=book)\n- Hope to see you there! As we are collaborating with a creative youth centre in Seoul - we're hoping to get more participants under 24!",
+  "warnings": [],
+  "first_seen": "2026-03-28",
+  "in_source": false,
+  "removed_from_source": "2026-10-06",
+  "archive": {
+    "first": "https://web.archive.org/web/20260328114650/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+  }
+}

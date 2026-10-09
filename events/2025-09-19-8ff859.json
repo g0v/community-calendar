@@ -1,0 +1,37 @@
+{
+  "id": "2025-09-19-8ff859",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "_TIPF 台灣國際攝影節_展場小聚󠀠_華語展場小聚｜劉致昕",
+  "date_start": "2025-09-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "16:00",
+  "end_time": "17:00",
+  "venue": "C-LAB 未來廣場",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "9/19（五）16:00-17:00（15:30 開放報到）",
+    "地點": "C-LAB 未來廣場",
+    "講者": "劉致昕（自由記者）"
+  },
+  "links": [],
+  "description": [
+    "將帶著過去他採訪的真實故事，以「#手機鏡頭與民主：十年回顧」為題，與大家聊聊他怎麼看「親愛的台灣，戶外影像展」。"
+  ],
+  "month_section": "2025-09",
+  "raw": "9/19 週五下午_TIPF 台灣國際攝影節_展場小聚󠀠_華語展場小聚｜劉致昕\n- 時間：9/19（五）16:00-17:00（15:30 開放報到）\n- 地點：C-LAB 未來廣場\n- 講者：劉致昕（自由記者）\n    - 將帶著過去他採訪的真實故事，以「#手機鏡頭與民主：十年回顧」為題，與大家聊聊他怎麼看「親愛的台灣，戶外影像展」。",
+  "warnings": [],
+  "first_seen": "2025-09-23",
+  "in_source": false,
+  "removed_from_source": "2025-11-03",
+  "archive": {
+    "first": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+  }
+}

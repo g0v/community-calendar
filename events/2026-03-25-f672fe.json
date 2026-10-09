@@ -1,0 +1,42 @@
+{
+  "id": "2026-03-25-f672fe",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "海纜斷光怎麼辦？海纜是不是假議題？",
+  "date_start": "2026-03-25",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "01:30",
+  "end_time": "17:00",
+  "venue": "Impact Hub 2F （臺北市中正區重慶南路三段2 號）",
+  "address": null,
+  "signup_url": "https://forms.gle/ThgUp5aVk9iiUv5u7",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "3月25日（三）",
+    "時間": "1:30 - 17:00（一點報到）",
+    "地點": "Impact Hub 2F （臺北市中正區重慶南路三段2 號）",
+    "座位有限，煩請登記報名": "https://forms.gle/ThgUp5aVk9iiUv5u7"
+  },
+  "links": [
+    "https://forms.gle/ThgUp5aVk9iiUv5u7"
+  ],
+  "description": [
+    "連結網路的海底纜線，近期成為熱門焦點，因為被海圍繞的台灣，對於海纜的各種變化更是格外敏感、易受影響。在不穩定的地緣政治下更顯脆弱。只是擔心，不如來了解更多！！",
+    "{ 數位韌性論壇 } 第一場，將好好來檢視海纜議題的各個面向，除了有「台灣海纜動態地圖」和「數位服務韌性檢測」」兩個技術專案的分享，讓大家實際了解我們到底要擔心海纜什麼？還將從政策、社會安全、公民參與的角度來檢視海纜的影響層面。",
+    "CRC 團隊首次辦理的公開活動，歡迎立即報名，跟我們一起辨別問題所在，才能找到應對方式。"
+  ],
+  "month_section": "2026-03",
+  "raw": "3/25 週三下午，海纜斷光怎麼辦？海纜是不是假議題？\n- 連結網路的海底纜線，近期成為熱門焦點，因為被海圍繞的台灣，對於海纜的各種變化更是格外敏感、易受影響。在不穩定的地緣政治下更顯脆弱。只是擔心，不如來了解更多！！\n- { 數位韌性論壇 } 第一場，將好好來檢視海纜議題的各個面向，除了有「台灣海纜動態地圖」和「數位服務韌性檢測」」兩個技術專案的分享，讓大家實際了解我們到底要擔心海纜什麼？還將從政策、社會安全、公民參與的角度來檢視海纜的影響層面。\n- CRC 團隊首次辦理的公開活動，歡迎立即報名，跟我們一起辨別問題所在，才能找到應對方式。\n- ℹ️日期：3月25日（三）\n- ℹ️時間：1:30 - 17:00（一點報到）\n- ℹ️地點：Impact Hub 2F （臺北市中正區重慶南路三段2 號）\n- 座位有限，煩請登記報名：https://forms.gle/ThgUp5aVk9iiUv5u7",
+  "warnings": [],
+  "first_seen": "2026-03-08",
+  "in_source": false,
+  "removed_from_source": "2026-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20260308164730/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+  }
+}

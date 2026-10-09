@@ -1,0 +1,33 @@
+{
+  "id": "2026-08-08-ea9c16",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "COSCUP 開源人年會",
+  "date_start": "2026-08-08",
+  "date_end": "2026-08-09",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [],
+  "description": [
+    "台北市台灣科技大學"
+  ],
+  "month_section": "2026-08",
+  "raw": "8/8-8/9 COSCUP 開源人年會\n- 台北市台灣科技大學",
+  "warnings": [],
+  "first_seen": "2026-03-08",
+  "in_source": false,
+  "removed_from_source": "2026-10-06",
+  "archive": {
+    "first": "https://web.archive.org/web/20260308164730/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+  }
+}

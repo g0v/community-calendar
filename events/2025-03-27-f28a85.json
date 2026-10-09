@@ -1,0 +1,33 @@
+{
+  "id": "2025-03-27-f28a85",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "10:00-12:00 臺北市街區建築規劃設計討論活動，地點在 NPOHUB Taipei",
+  "date_start": "2025-03-27",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [],
+  "description": [
+    "請至 g0v Skack #poponfire-公有地大行動 頻道報名"
+  ],
+  "month_section": "2025-03",
+  "raw": "3/27 Thu. 週四上午 10:00-12:00 臺北市街區建築規劃設計討論活動，地點在 NPOHUB Taipei\n- 請至 g0v Skack #poponfire-公有地大行動 頻道報名",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-03-28",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2025-03-05-fd7fde",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "違章工廠回報系統地192次小聚",
+  "date_start": "2025-03-05",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:30",
+  "end_time": null,
+  "venue": "線上/實體 hybrid",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025/03/05（三) 19:30 (GMT+8)",
+    "地點": "線上/實體 hybrid",
+    "線上": "https://meet.google.com/coc-vuaa-ykz",
+    "實體地點": "地球公民基金會台北辦公室（北平東路28號9樓之2）",
+    "本次小聚內容": ""
+  },
+  "links": [
+    "https://meet.google.com/coc-vuaa-ykz"
+  ],
+  "description": [
+    "來提 disfactory 新提案！",
+    "春酒提案！"
+  ],
+  "month_section": "2025-03",
+  "raw": "3/5 Wed. 違章工廠回報系統地192次小聚\n- 時間：2025/03/05（三) 19:30 (GMT+8)\n- 地點：線上/實體 hybrid\n    - 線上：https://meet.google.com/coc-vuaa-ykz\n    - 實體地點：地球公民基金會台北辦公室（北平東路28號9樓之2）\n- 本次小聚內容：\n    - 來提 disfactory 新提案！\n    - 春酒提案！",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

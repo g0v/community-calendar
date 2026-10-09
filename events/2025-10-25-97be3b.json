@@ -1,0 +1,42 @@
+{
+  "id": "2025-10-25-97be3b",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "鏈結資料文獻翻譯賽德克語成果發表會",
+  "date_start": "2025-10-25",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "籃城書房(南投縣埔里鎮籃城五巷4號)",
+  "address": null,
+  "signup_url": "https://wikidatatw.kktix.cc/events/seediq202510",
+  "notes_url": "https://hackmd.io/@wikidata-tw/S14QHFf9ge",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "10 月 25 日下午兩點至晚上七點",
+    "地點": "籃城書房(南投縣埔里鎮籃城五巷4號)",
+    "活動報名頁面": "https://wikidatatw.kktix.cc/events/seediq202510",
+    "活動共筆": "https://hackmd.io/@wikidata-tw/S14QHFf9ge"
+  },
+  "links": [
+    "https://wikidatatw.kktix.cc/events/seediq202510",
+    "https://hackmd.io/@wikidata-tw/S14QHFf9ge",
+    "https://hackmd.io/@wikidata-tw/Wikidata13thbirthdayinTaiwan"
+  ],
+  "description": [
+    "參閱 [Wikidata 13 週年系列活動](https://hackmd.io/@wikidata-tw/Wikidata13thbirthdayinTaiwan)"
+  ],
+  "month_section": "2025-10",
+  "raw": "10/25 鏈結資料文獻翻譯賽德克語成果發表會\n![Wikidata 十三週年慶臺灣系列活動](https://upload.wikimedia.org/wikipedia/commons/d/df/Wikidata%27s_13th_birthday_in_Taiwan_banner.png)\n- 時間：10 月 25 日下午兩點至晚上七點\n- 地點：籃城書房(南投縣埔里鎮籃城五巷4號)\n- [活動報名頁面](https://wikidatatw.kktix.cc/events/seediq202510)\n- [活動共筆](https://hackmd.io/@wikidata-tw/S14QHFf9ge)\n- 參閱 [Wikidata 13 週年系列活動](https://hackmd.io/@wikidata-tw/Wikidata13thbirthdayinTaiwan)",
+  "warnings": [],
+  "first_seen": "2025-09-23",
+  "in_source": false,
+  "removed_from_source": "2025-11-03",
+  "archive": {
+    "first": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+  }
+}

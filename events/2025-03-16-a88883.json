@@ -1,0 +1,37 @@
+{
+  "id": "2025-03-16-a88883",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 國會松",
+  "date_start": "2025-03-16",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "NPO HUB Taipei",
+  "address": null,
+  "signup_url": "https://bitl.to/464H",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名連結": "https://bitl.to/464H"
+  },
+  "links": [
+    "https://bitl.to/464H"
+  ],
+  "description": [
+    "開放實體票與線上票"
+  ],
+  "month_section": "2025-03",
+  "raw": "3/16 Sun. 週日下午 **g0v 國會松**，地點在 NPO HUB Taipei\n- 開放實體票與線上票\n- 👉 報名連結：https://bitl.to/464H",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

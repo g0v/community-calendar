@@ -1,0 +1,35 @@
+{
+  "id": "2025-03-04-32571d",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "放輕松",
+  "date_start": "2025-03-04",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "http://s.g0v.tw/rand0mthon"
+  ],
+  "description": [
+    "NPOHUB 二樓 202"
+  ],
+  "month_section": "2025-03",
+  "raw": "3/4 Tue. 週二晚上 19:30-21:00 **放輕松** \n- NPOHUB 二樓 202\n- http://s.g0v.tw/rand0mthon",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

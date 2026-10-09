@@ -1,0 +1,36 @@
+{
+  "id": "2025-11-02-fb1e4f",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "臺北市新生流域公民週論壇 (chewei 接洽)",
+  "date_start": "2025-11-02",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@chewei/xinsheng-watershed",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+    "共筆": "https://g0v.hackmd.io/@chewei/xinsheng-watershed"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@chewei/xinsheng-watershed"
+  ],
+  "description": [],
+  "month_section": "2025-11",
+  "raw": "11/2 週日上午下午 臺北市新生流域公民週論壇 (chewei 接洽)\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站\n- 共筆：https://g0v.hackmd.io/@chewei/xinsheng-watershed",
+  "warnings": [],
+  "first_seen": "2025-09-08",
+  "in_source": false,
+  "removed_from_source": "2025-12-15",
+  "archive": {
+    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251116215110/https://g0v.hackmd.io/@jothon/event"
+  }
+}

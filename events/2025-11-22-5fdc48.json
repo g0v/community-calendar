@@ -1,0 +1,41 @@
+{
+  "id": "2025-11-22-5fdc48",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "台灣零時政府第柒拾次費波那契數列黑客松 | g0v Fibonacci Sequence Hackath70n",
+  "date_start": "2025-11-23",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": "https://g0v-jothon.kktix.cc/events/g0v-hackath70n",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名頁面": "https://g0v-jothon.kktix.cc/events/g0v-hackath70n"
+  },
+  "links": [
+    "https://g0v-jothon.kktix.cc/events/g0v-hackath70n",
+    "https://www.youtube.com/@g0vTW/",
+    "https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "description": [
+    "Time Zone [UTC+8] 11/23 Sun. 10:00-17:00",
+    "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
+    "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "month_section": "2025-11",
+  "raw": "11/23 Sun. 週日上下午 **台灣零時政府第柒拾次費波那契數列黑客松 | g0v Fibonacci Sequence Hackath70n**\n- 報名頁面：https://g0v-jothon.kktix.cc/events/g0v-hackath70n\n- Time Zone [UTC+8] 11/23 Sun. 10:00-17:00\n- Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n- g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
+  "warnings": [],
+  "first_seen": "2025-01-14",
+  "in_source": false,
+  "removed_from_source": "2025-12-15",
+  "archive": {
+    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251116215110/https://g0v.hackmd.io/@jothon/event"
+  }
+}

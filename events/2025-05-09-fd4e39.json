@@ -1,0 +1,42 @@
+{
+  "id": "2025-05-09-fd4e39",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "【AI 麻瓜共學團 #3 AI x 人資 - 履歷快篩與薪資情報分析】幫HR擺脫繁瑣的履歷海和薪資調查，讓AI成為你的得力助手！",
+  "date_start": "2025-05-09",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "20:00",
+  "end_time": "21:30",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025/5/9（五）20:00-21:30",
+    "形式": "線上討論會 https://forms.gle/pXxtJfRkpa6Lj7UR9",
+    "一起探索如何運用AI工具來": "",
+    "歷次聚會的成果文件": "https://g0v.hackmd.io/@jothon/ai/"
+  },
+  "links": [
+    "https://forms.gle/pXxtJfRkpa6Lj7UR9",
+    "https://g0v.hackmd.io/@jothon/ai/"
+  ],
+  "description": [
+    "快速掃描並分析大量履歷，找出最適合的人才",
+    "自動搜集並整理市場薪資資料，讓你開出有競爭力又合理的薪資"
+  ],
+  "month_section": "2025-05",
+  "raw": "5/9 週五晚上【AI 麻瓜共學團 #3 AI x 人資 - 履歷快篩與薪資情報分析】幫HR擺脫繁瑣的履歷海和薪資調查，讓AI成為你的得力助手！\n- 時間：2025/5/9（五）20:00-21:30\n- 形式：線上討論會 https://forms.gle/pXxtJfRkpa6Lj7UR9\n- 一起探索如何運用AI工具來：\n    - 快速掃描並分析大量履歷，找出最適合的人才\n    - 自動搜集並整理市場薪資資料，讓你開出有競爭力又合理的薪資\n- 歷次聚會的成果文件：https://g0v.hackmd.io/@jothon/ai/",
+  "warnings": [],
+  "first_seen": "2025-05-21",
+  "in_source": false,
+  "removed_from_source": "2025-09-08",
+  "archive": {
+    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event"
+  }
+}

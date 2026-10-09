@@ -1,0 +1,36 @@
+{
+  "id": "2026-04-13-3a2fa1",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "OpenStreetMap x Wikidata 月聚會 #87",
+  "date_start": "2026-04-13",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:30",
+  "end_time": "21:30",
+  "venue": "請特別注意！摩茲工寮已經搬遷到臺北市中正區重慶南路一段 99 號 11 樓 1105 室(鄰近二二八和平公園)",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2026-4-13 (一) 19:30-21:30",
+    "地點": "請特別注意！摩茲工寮已經搬遷到臺北市中正區重慶南路一段 99 號 11 樓 1105 室(鄰近二二八和平公園)"
+  },
+  "links": [],
+  "description": [
+    "免報名、自由入場"
+  ],
+  "month_section": "2026-04",
+  "raw": "4/13 OpenStreetMap x Wikidata 月聚會 #87\n- 時間：2026-4-13 (一) 19:30-21:30\n- 地點：請特別注意！摩茲工寮已經搬遷到臺北市中正區重慶南路一段 99 號 11 樓 1105 室(鄰近二二八和平公園)\n- 免報名、自由入場",
+  "warnings": [],
+  "first_seen": "2025-12-15",
+  "in_source": false,
+  "removed_from_source": "2026-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+  }
+}

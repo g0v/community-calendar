@@ -1,0 +1,33 @@
+{
+  "id": "2025-12-31-5157f0",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "跨年松",
+  "date_start": "2025-12-31",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v.hackmd.io/iLOgozRcSBCoQ3A_2vf1RQ"
+  ],
+  "description": [],
+  "month_section": "2025-12",
+  "raw": "12/31 跨年松\n- https://g0v.hackmd.io/iLOgozRcSBCoQ3A_2vf1RQ",
+  "warnings": [],
+  "first_seen": "2025-11-03",
+  "in_source": false,
+  "removed_from_source": "2026-01-13",
+  "archive": {
+    "first": "https://web.archive.org/web/20251103183349/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event"
+  }
+}

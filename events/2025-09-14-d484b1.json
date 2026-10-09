@@ -1,0 +1,33 @@
+{
+  "id": "2025-09-14-d484b1",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 大黑客松 (80-100人) g0v hackath69n",
+  "date_start": "2025-09-14",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點評估": "高雄左營高鐵場地舉辦"
+  },
+  "links": [],
+  "description": [],
+  "month_section": "2025-09",
+  "raw": "日期暫定 9/14 Sun. 週日上下午 **g0v 大黑客松 (80-100人) g0v hackath69n**，地點待確認\n- 地點評估：高雄左營高鐵場地舉辦",
+  "warnings": [],
+  "first_seen": "2025-03-20",
+  "in_source": false,
+  "removed_from_source": "2025-05-21",
+  "archive": {
+    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+  }
+}

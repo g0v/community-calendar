@@ -1,0 +1,35 @@
+{
+  "id": "2026-01-18-9bc9f6",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "數位韌性松",
+  "date_start": "2026-01-18",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間 / g0v Community Hub, Taipei",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "g0v 台北社群空間 / g0v Community Hub, Taipei"
+  },
+  "links": [
+    "https://g0v-digiresi.kktix.cc/events/digiresith13n"
+  ],
+  "description": [],
+  "month_section": "2026-01",
+  "raw": "1/18 週日下午 數位韌性松\n- https://g0v-digiresi.kktix.cc/events/digiresith13n\n- 地點：g0v 台北社群空間 / g0v Community Hub, Taipei",
+  "warnings": [],
+  "first_seen": "2026-01-21",
+  "in_source": false,
+  "removed_from_source": "2026-03-08",
+  "archive": {
+    "first": "https://web.archive.org/web/20260121192746/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260121192746/https://g0v.hackmd.io/@jothon/event"
+  }
+}

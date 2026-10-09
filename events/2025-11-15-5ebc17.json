@@ -1,0 +1,40 @@
+{
+  "id": "2025-11-15-5ebc17",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "📣 g0v 國會松｜LINE BOT 使用者測試 & 預算提案資料小黑客松",
+  "date_start": "2025-11-15",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "17:00",
+  "venue": "NPO HUB Taipei（台北市中正區重慶南路三段 2 號 2 樓，近捷運中正紀念堂站）",
+  "address": null,
+  "signup_url": "https://reurl.cc/da6rNM",
+  "notes_url": null,
+  "page_url": "https://www.facebook.com/g0v.tw/posts/pfbid0uJKD2tQHZfgGh2FQHRP5HQXCf6tUZpc48uFKMcSp1PRMvrmERe7hHWvsjdf42fBbl?locale=zh_TW",
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "合作籌辦單位": "👤 READr × 公督盟 × FNF",
+    "時間": "11/15（六）14:00–17:00（13:30開放入場）",
+    "地點": "NPO HUB Taipei（台北市中正區重慶南路三段 2 號 2 樓，近捷運中正紀念堂站）",
+    "報名連結": "https://reurl.cc/da6rNM",
+    "活動資訊": "https://www.facebook.com/g0v.tw/posts/pfbid0uJKD2tQHZfgGh2FQHRP5HQXCf6tUZpc48uFKMcSp1PRMvrmERe7hHWvsjdf42fBbl?locale=zh_TW"
+  },
+  "links": [
+    "https://reurl.cc/da6rNM",
+    "https://www.facebook.com/g0v.tw/posts/pfbid0uJKD2tQHZfgGh2FQHRP5HQXCf6tUZpc48uFKMcSp1PRMvrmERe7hHWvsjdf42fBbl?locale=zh_TW"
+  ],
+  "description": [],
+  "month_section": "2025-11",
+  "raw": "11/15 週六下午 📣 g0v 國會松｜LINE BOT 使用者測試 & 預算提案資料小黑客松\n- 合作籌辦單位：👤 READr × 公督盟 × FNF\n- 🗓️時間：11/15（六）14:00–17:00（13:30開放入場）\n- 📍 地點：NPO HUB Taipei（台北市中正區重慶南路三段 2 號 2 樓，近捷運中正紀念堂站）\n- 🎟️ 報名連結：https://reurl.cc/da6rNM\n- 活動資訊：https://www.facebook.com/g0v.tw/posts/pfbid0uJKD2tQHZfgGh2FQHRP5HQXCf6tUZpc48uFKMcSp1PRMvrmERe7hHWvsjdf42fBbl?locale=zh_TW",
+  "warnings": [],
+  "first_seen": "2025-11-03",
+  "in_source": false,
+  "removed_from_source": "2025-12-15",
+  "archive": {
+    "first": "https://web.archive.org/web/20251103183349/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20251116215110/https://g0v.hackmd.io/@jothon/event"
+  }
+}

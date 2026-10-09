@@ -1,0 +1,41 @@
+{
+  "id": "2026-05-27-cf2b45",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Design Token System 讓設計師和工程師說同一種語言",
+  "date_start": "2026-05-27",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "08:00",
+  "end_time": "09:00",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": "https://luma.com/etixae8s",
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動時間": "5/27（三）晚上 8:00-9:00",
+    "活動頁面": "https://luma.com/etixae8s"
+  },
+  "links": [
+    "https://luma.com/etixae8s"
+  ],
+  "description": [
+    "Design Token 到底是什麼？為什麼能讓設計師和工程師不再雞同鴨講",
+    "怎麼把 Token 分層整理？從色碼到元件規則",
+    "在真實團隊裡怎麼推？一個人倡議到整團隊買單，中間踩過什麼坑",
+    "小團隊也用得上嗎？怎麼簡單做"
+  ],
+  "month_section": "2026-05",
+  "raw": "5/27 週三晚上 Design Token System 讓設計師和工程師說同一種語言\n- 設計師說「主色」，工程師說「primary」，PM 說「那個紅色」——講同一件事，卻每次都要重新對齊。專案越大越痛：改一個顏色動十幾處，設計稿永遠跟實際畫面對不上。這次邀請到 Senior Product Designer Harry ，近 20 年 UI/UX × 前端實戰，2017 年赴新加坡協助產品團隊導入設計系統，大幅降低跨團隊溝通與人力成本。在這場分享你會聽到：\n    - Design Token 到底是什麼？為什麼能讓設計師和工程師不再雞同鴨講\n    - 怎麼把 Token 分層整理？從色碼到元件規則\n    - 在真實團隊裡怎麼推？一個人倡議到整團隊買單，中間踩過什麼坑\n    - 小團隊也用得上嗎？怎麼簡單做\n- 📅 活動資訊\n    - 活動時間：5/27（三）晚上 8:00-9:00\n    - 活動頁面：https://luma.com/etixae8s",
+  "warnings": [],
+  "first_seen": "2026-05-21",
+  "in_source": false,
+  "removed_from_source": "2026-10-06",
+  "archive": {
+    "first": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2025-02-22-c3a8d2",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第陸拾伍次 平凡而自由的黑客松 Ordinary Life with Freedom Hackathon",
+  "date_start": "2025-02-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "臺大校內，80-100 人",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v-jothon.kktix.cc/events/g0v-hackath65n"
+  ],
+  "description": [],
+  "month_section": "2025-null",
+  "raw": "2/22 Sat. 週六上下午 **g0v 第陸拾伍次 平凡而自由的黑客松 Ordinary Life with Freedom Hackathon**，地點在臺大校內，80-100 人\nhttps://g0v-jothon.kktix.cc/events/g0v-hackath65n",
+  "warnings": [],
+  "first_seen": "2025-01-14",
+  "in_source": false,
+  "removed_from_source": "2025-03-20",
+  "archive": {
+    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2025-09-10-26f7e3",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "違章工廠回報系統地202次小聚",
+  "date_start": "2025-09-10",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:30",
+  "end_time": null,
+  "venue": "實體/線上hybrid",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/38pWA0EZQSOzu1QOvBYNWA",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025/09/10（三）19:30 (GMT+8)",
+    "地點": "實體/線上hybrid",
+    "實體地點": "地球公民基金會台北辦公室（北平東路28號9樓之2）",
+    "線上": "https://meet.google.com/coc-vuaa-ykz",
+    "小聚共筆": "https://g0v.hackmd.io/38pWA0EZQSOzu1QOvBYNWA",
+    "小聚內容": ""
+  },
+  "links": [
+    "https://meet.google.com/coc-vuaa-ykz",
+    "https://g0v.hackmd.io/38pWA0EZQSOzu1QOvBYNWA"
+  ],
+  "description": [
+    "Imgur替代方案",
+    "回報系統改版UI討論"
+  ],
+  "month_section": "2025-09",
+  "raw": "9/10 違章工廠回報系統地202次小聚\n- 時間：2025/09/10（三）19:30 (GMT+8)\n- 地點：實體/線上hybrid\n- 實體地點：地球公民基金會台北辦公室（北平東路28號9樓之2）\n- 線上：https://meet.google.com/coc-vuaa-ykz\n- 小聚共筆：https://g0v.hackmd.io/38pWA0EZQSOzu1QOvBYNWA\n- 小聚內容：\n    - Imgur替代方案\n    - 回報系統改版UI討論",
+  "warnings": [],
+  "first_seen": "2025-09-23",
+  "in_source": false,
+  "removed_from_source": "2025-11-03",
+  "archive": {
+    "first": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event",
+    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+  }
+}
