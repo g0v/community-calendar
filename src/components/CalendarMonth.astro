@@ -19,18 +19,24 @@ const [y, m] = month.split('-').map(Number);
 const time = (e: Event) => (tentative(e) ? null : e.start_time);
 ---
 <header class="cal-head">
-  <h1 class="page-title"><span class="num">{y}</span> 年 <span class="num">{m}</span> 月</h1>
+  <h1 class="page-title">
+    <!-- 標題本身就是月份選單：看起來是標題，點下去可以選任何一個月 -->
+    <label class="pick">
+      <span class="sr">選擇月份</span>
+      <select data-jump>
+        {[...new Set(months.map((x) => x.slice(0, 4)))].map((yy) => (
+          <optgroup label={`${yy} 年`}>
+            {months.filter((x) => x.startsWith(yy)).map((x) => <option value={href(`/calendar/${x}/`)} selected={x === month}>{yy} 年 {Number(x.slice(5))} 月</option>)}
+          </optgroup>
+        ))}
+      </select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+    </label>
+  </h1>
   <nav class="pager" aria-label="切換月份">
     {prev ? <a href={href(`/calendar/${prev}/`)} rel="prev" data-keep>← 上個月</a> : <span class="off">← 上個月</span>}
     {month !== thisMonth && months.includes(thisMonth) && <a href={href(`/calendar/${thisMonth}/`)} data-keep>本月</a>}
     {next ? <a href={href(`/calendar/${next}/`)} rel="next" data-keep>下個月 →</a> : <span class="off">下個月 →</span>}
-    <select aria-label="跳到月份" data-jump>
-      {[...new Set(months.map((x) => x.slice(0, 4)))].map((yy) => (
-        <optgroup label={`${yy} 年`}>
-          {months.filter((x) => x.startsWith(yy)).map((x) => <option value={href(`/calendar/${x}/`)} selected={x === month}>{yy} 年 {Number(x.slice(5))} 月</option>)}
-        </optgroup>
-      ))}
-    </select>
   </nav>
 </header>
 <label class="check"><input type="checkbox" data-jothon-only /><span>只看揪松主辦</span></label>
@@ -87,10 +93,16 @@ const time = (e: Event) => (tentative(e) ? null : e.start_time);
 <style>
   .cal-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 12px; }
   .pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: .95rem; }
-  .pager select {
-    height: 34px; padding: 0 10px; border-radius: var(--r-md); border: 1px solid var(--line);
-    background: var(--surface); color: var(--text); font: inherit; font-size: .875rem;
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pick { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+  .pick select {
+    appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: var(--text);
+    font: inherit; letter-spacing: inherit; padding: 2px 1.4em 2px 6px; margin-left: -6px; border-radius: var(--r-md); cursor: pointer;
+    font-variant-numeric: tabular-nums;
   }
+  .pick select:hover, .pick select:focus-visible { background: var(--surface-2); }
+  .pick svg { position: absolute; right: .2em; width: .7em; height: .7em; pointer-events: none; fill: none; stroke: var(--muted); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .pick option, .pick optgroup { font-size: 1rem; font-weight: 400; }
   .pager a { text-decoration: none; }
   .pager .off { color: var(--line); }
   .check { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; cursor: pointer; margin-bottom: 16px; }

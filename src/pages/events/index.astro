@@ -43,12 +43,17 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
           {cityOpts.map((c) => <option value={c}>{c}</option>)}
         </select>
       </div>
-      <p class="count muted" aria-live="polite" data-count></p>
+      <div class="count-row">
+        <p class="count muted" aria-live="polite" data-count></p>
+        <select class="jump" aria-label="跳到月份" data-jump hidden></select>
+      </div>
     </form>
 
+    <div class="body">
+    <div class="lists">
     <div data-list="upcoming">
       {groups(upcoming).map(([m, list]) => (
-        <section data-month>
+        <section data-month={m} id={`upcoming-${m}`}>
           <h3 class="month-title">{monthLabel(m)}</h3>
           {list.map((e) => <EventRow event={e} />)}
         </section>
@@ -57,13 +62,16 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
     <div data-list="past">
       <h2 class="past-title" data-past-title>過去的活動</h2>
       {groups(past).map(([m, list]) => (
-        <section data-month>
+        <section data-month={m} id={`past-${m}`}>
           <h3 class="month-title">{monthLabel(m)}</h3>
           {list.map((e) => <EventRow event={e} />)}
         </section>
       ))}
     </div>
     <p class="empty muted" data-empty hidden>沒有符合條件的活動。</p>
+    </div>
+    <nav class="timeline" aria-label="時間軸" data-timeline></nav>
+    </div>
   </section>
 
 </Base>
@@ -123,9 +131,46 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
     if (series) out.set('series', series);
     if (city) out.set('city', city);
     history.replaceState(null, '', out.size ? `?${out}` : location.pathname);
+    buildTimeline();
   }
-  form.addEventListener('input', apply);
-  form.addEventListener('change', apply);
+
+  // 時間軸：依目前看得到的月份產生。寬螢幕是右邊一條，窄螢幕是「跳到月份」選單
+  const timeline = document.querySelector<HTMLElement>('[data-timeline]')!;
+  const jump = document.querySelector<HTMLSelectElement>('[data-jump]')!;
+  const monthName = (k: string) => (/^\d{4}-\d{2}$/.test(k) ? `${Number(k.slice(5))} 月` : '未定');
+  let spy: IntersectionObserver | undefined;
+  function buildTimeline() {
+    const sections = [...document.querySelectorAll<HTMLElement>('[data-month]')].filter((m) => !m.hidden && !m.closest('[data-list]')!.hidden);
+    const both = new Set(sections.map((m) => m.closest<HTMLElement>('[data-list]')!.dataset.list)).size > 1;
+    let html = '', opts = '', lastGroup = '', lastYear = '';
+    for (const m of sections) {
+      const list = m.closest<HTMLElement>('[data-list]')!.dataset.list!;
+      const key = m.dataset.month!;
+      const year = key.slice(0, 4);
+      if (both && list !== lastGroup) { html += `<p class="tl-group">${list === 'past' ? '過去' : '近期'}</p>`; lastGroup = list; lastYear = ''; }
+      if (year !== lastYear) { html += `<p class="tl-year">${/^\d{4}$/.test(year) ? year : ''}</p>`; lastYear = year; }
+      html += `<a href="#${m.id}" data-for="${m.id}">${monthName(key)}</a>`;
+      opts += `<option value="${m.id}">${both ? (list === 'past' ? '過去・' : '近期・') : ''}${/^\d{4}/.test(key) ? `${year} 年 ` : ''}${monthName(key)}</option>`;
+    }
+    timeline.innerHTML = html;
+    jump.innerHTML = `<option value="">跳到月份…</option>${opts}`;
+    jump.hidden = sections.length < 2;
+    // 捲動時標出現在看到的月份
+    spy?.disconnect();
+    spy = new IntersectionObserver((entries) => {
+      for (const en of entries) if (en.isIntersecting) {
+        timeline.querySelectorAll('a').forEach((a) => a.classList.toggle('on', a.dataset.for === en.target.id));
+        timeline.querySelector('a.on')?.scrollIntoView({ block: 'nearest' });
+      }
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach((m) => spy!.observe(m));
+  }
+  jump.addEventListener('change', () => {
+    if (jump.value) document.getElementById(jump.value)?.scrollIntoView({ behavior: 'smooth' });
+    jump.value = '';
+  });
+  form.addEventListener('input', (ev) => { if (ev.target !== jump) apply(); });
+  form.addEventListener('change', (ev) => { if (ev.target !== jump) apply(); });
   apply();
 
 </script>
@@ -151,7 +196,27 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
     height: 34px; padding: 0 10px; border-radius: var(--r-md); border: 1px solid var(--line);
     background: var(--surface); color: var(--text); font: inherit; font-size: .875rem; max-width: 100%;
   }
-  .count { margin: 0; font-size: .85rem; min-height: 1.2em; }
+  .count-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 34px; }
+  .count { margin: 0; font-size: .85rem; }
+  .jump { margin-left: auto; }
+
+  .body { display: grid; gap: 32px; }
+  .timeline { display: none; }
+  @media (min-width: 1024px) {
+    .body { grid-template-columns: minmax(0, 1fr) 120px; }
+    .jump { display: none; }
+    .timeline {
+      display: flex; flex-direction: column; position: sticky; top: 210px; align-self: start;
+      max-height: calc(100vh - 230px); overflow-y: auto; padding: 4px 0 4px 16px; border-left: 1px solid var(--line);
+      font-size: .85rem; scrollbar-width: thin;
+    }
+  }
+  .timeline :global(.tl-group) { margin: 8px 0 2px; font-size: .75rem; font-weight: 600; color: var(--accent); }
+  .timeline :global(.tl-year) { margin: 10px 0 2px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+  .timeline :global(a) { padding: 2px 0; color: var(--muted); text-decoration: none; }
+  .timeline :global(a:hover) { color: var(--text); }
+  .timeline :global(a.on) { color: var(--accent); font-weight: 600; }
+  [data-month] { scroll-margin-top: 220px; }
 
   .month-title { margin: 28px 0 0; font-size: .95rem; color: var(--muted); font-weight: 600; }
   .past-title { margin: 56px 0 0; font-size: 1.1rem; }
