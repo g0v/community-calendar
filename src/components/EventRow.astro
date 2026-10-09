@@ -1,5 +1,5 @@
 ---
-import { href, vanishedEarly, type Event } from '../lib/data';
+import { href, isPast, tentative, vanishedEarly, type Event } from '../lib/data';
 
 interface Props { event: Event }
 const { event: e } = Astro.props;
@@ -9,9 +9,21 @@ const day = d ? Number(d.slice(8)) : null;
 const label = d
   ? `${Number(d.slice(5, 7))} 月・週${WEEK[new Date(`${d}T00:00:00Z`).getUTCDay()]}${e.date_end ? ` 起 ${Math.round((Date.parse(e.date_end) - Date.parse(d)) / 864e5) + 1} 天` : ''}`
   : e.date_precision === 'month' ? '日期未定' : '待確認';
-const time = e.start_time ? (e.end_time ? `${e.start_time}–${e.end_time}` : `${e.start_time} 開始`) : null;
+const time = tentative(e) ? '邀約中・時間未定' : e.start_time ? (e.end_time ? `${e.start_time}–${e.end_time}` : `${e.start_time} 開始`) : null;
+// 搜尋比對的文字：標題、地點、主辦、講題與講者、共筆原文
+const text = [e.title, e.venue, e.address, e.host, e.series_label, ...e.cities, ...(e.talks ?? []).flatMap((t) => [t.title, ...t.speakers]), e.raw]
+  .filter(Boolean).join(' ').toLowerCase();
 ---
-<article class="row" data-jothon={e.jothon ? '1' : '0'}>
+<article
+  class:list={['row', { cancelled: e.cancelled }]}
+  data-row
+  data-when={isPast(e) ? 'past' : 'upcoming'}
+  data-jothon={e.jothon ? '1' : '0'}
+  data-series={e.series ?? ''}
+  data-cities={e.cities.join(' ')}
+  data-online={e.online ? '1' : '0'}
+  data-text={text}
+>
   <a class="date" href={href(`/events/${e.id}/`)}>
     <span class="day mono">{day ?? '—'}</span>
     <span class="month">{label}</span>
@@ -19,14 +31,15 @@ const time = e.start_time ? (e.end_time ? `${e.start_time}–${e.end_time}` : `$
   <div class="body">
     <div class="meta">
       {e.jothon && <span class="badge accent">揪松主辦</span>}
+      {e.series_label && !e.jothon && <span class="badge">{e.series_label}</span>}
+      {e.cancelled && <span class="badge warn">停辦</span>}
       {vanishedEarly(e) && <span class="badge warn">共筆已移除</span>}
-      {time && <span class="mono">{time}</span>}
+      {time && <span class={tentative(e) ? '' : 'mono'}>{time}</span>}
       {e.venue && <span class="venue">{e.venue}</span>}
     </div>
     <h3><a href={href(`/events/${e.id}/`)}>{e.title}</a></h3>
-    {e.sub_sessions.length > 0 && (
-      <p class="subs muted">{e.sub_sessions.map((s) => s.name).join('・')}</p>
-    )}
+    {e.sub_sessions.length > 0 && <p class="sub muted">{e.sub_sessions.map((s) => s.name).join('・')}</p>}
+    {(e.talks?.length ?? 0) > 0 && <p class="sub muted">{e.talks!.map((t) => t.title).filter(Boolean).join('、')}</p>}
   </div>
 </article>
 
@@ -41,5 +54,6 @@ const time = e.start_time ? (e.end_time ? `${e.start_time}–${e.end_time}` : `$
   h3 { margin: 6px 0 4px; font-size: 1.1rem; overflow-wrap: anywhere; }
   h3 a { color: var(--text); text-decoration: none; }
   h3 a:hover { color: var(--accent); }
-  .subs { margin: 4px 0 0; font-size: .875rem; }
+  .cancelled h3 a { text-decoration: line-through; color: var(--muted); }
+  .sub { margin: 4px 0 0; font-size: .875rem; }
 </style>

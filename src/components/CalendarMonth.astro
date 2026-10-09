@@ -1,0 +1,116 @@
+---
+// 改寫自 g0v/AI-Monday 的 CalendarMonth。這裡一天可能有好幾場、而且多數不是揪松辦的，
+// 所以揪松主辦用強調色、其他用中性色；可以只看揪松主辦（?jothon=1，跟首頁同一個參數）
+import EventRow from './EventRow.astro';
+import { calendarMonths, getEvents, href, monthGrid, monthOf, onDate, shiftMonth, tentative, today, vanishedEarly, type Event } from '../lib/data';
+
+interface Props { month: string }
+const { month } = Astro.props;
+const events = (await getEvents()).filter((e) => !e.hidden);
+const months = calendarMonths(events);
+const prev = months.includes(shiftMonth(month, -1)) ? shiftMonth(month, -1) : null;
+const next = months.includes(shiftMonth(month, 1)) ? shiftMonth(month, 1) : null;
+const thisMonth = monthOf(today);
+
+const cells = monthGrid(month);
+const own = events.filter((e) => cells.some((d) => d && onDate(e, d)));
+const onDay = (d: string) => own.filter((e) => onDate(e, d));
+const [y, m] = month.split('-').map(Number);
+const time = (e: Event) => (tentative(e) ? null : e.start_time);
+---
+<header class="cal-head">
+  <h1 class="page-title"><span class="num">{y}</span> 年 <span class="num">{m}</span> 月</h1>
+  <nav class="pager" aria-label="切換月份">
+    {prev ? <a href={href(`/calendar/${prev}/`)} rel="prev" data-keep>← 上個月</a> : <span class="off">← 上個月</span>}
+    {month !== thisMonth && months.includes(thisMonth) && <a href={href(`/calendar/${thisMonth}/`)} data-keep>本月</a>}
+    {next ? <a href={href(`/calendar/${next}/`)} rel="next" data-keep>下個月 →</a> : <span class="off">下個月 →</span>}
+  </nav>
+</header>
+<label class="check"><input type="checkbox" data-jothon-only /><span>只看揪松主辦</span></label>
+
+<div class="grid panel" role="grid" aria-label={`${y} 年 ${m} 月`}>
+  <div class="row week" role="row">
+    {'日一二三四五六'.split('').map((w) => <div role="columnheader">{w}</div>)}
+  </div>
+  {Array.from({ length: cells.length / 7 }, (_, i) => cells.slice(i * 7, i * 7 + 7)).map((week) => (
+    <div class="row" role="row">
+      {week.map((d) => (
+        <div role="gridcell" class:list={['cell', { blank: !d, today: d === today }]}>
+          {d && <span class="d num">{Number(d.slice(8))}</span>}
+          {d && onDay(d).map((e) => (
+            <a
+              class:list={['chip', { jothon: e.jothon, cancelled: e.cancelled || vanishedEarly(e), tentative: tentative(e) }]}
+              data-jothon={e.jothon ? '1' : '0'}
+              href={href(`/events/${e.id}/`)}
+              title={`${e.cancelled ? '（停辦）' : vanishedEarly(e) ? '（共筆已移除，可能沒有舉辦）' : ''}${e.title}${time(e) ? `・${time(e)}` : ''}`}
+            >
+              {time(e) && <span class="t mono">{time(e)}</span>}
+              <span class="l">{e.title}</span>
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
+
+<section class="list">
+  <h2>這個月的活動</h2>
+  {own.length === 0 ? <p class="muted">這個月沒有活動。</p> : own.map((e) => <EventRow event={e} />)}
+</section>
+
+<script>
+  // 「只看揪松主辦」：存在網址上（?jothon=1），翻月時帶著走
+  const box = document.querySelector<HTMLInputElement>('[data-jothon-only]')!;
+  box.checked = new URLSearchParams(location.search).get('jothon') === '1';
+  const apply = () => {
+    document.querySelectorAll<HTMLElement>('.chip, [data-row]').forEach((el) => (el.hidden = box.checked && el.dataset.jothon !== '1'));
+    const qs = box.checked ? '?jothon=1' : '';
+    history.replaceState(null, '', location.pathname + qs);
+    document.querySelectorAll<HTMLAnchorElement>('[data-keep]').forEach((a) => (a.search = qs));
+  };
+  box.addEventListener('change', apply);
+  apply();
+</script>
+
+<style>
+  .cal-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 12px; }
+  .pager { display: flex; gap: 16px; font-size: .95rem; }
+  .pager a { text-decoration: none; }
+  .pager .off { color: var(--line); }
+  .check { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; cursor: pointer; margin-bottom: 16px; }
+
+  .grid { overflow: hidden; }
+  .row { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .week div { padding: 10px 8px; font-size: .8rem; color: var(--muted); text-align: center; border-bottom: 1px solid var(--line); }
+  .cell { min-height: 7.5rem; padding: 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .row > .cell:last-child { border-right: 0; }
+  .row:last-child > .cell { border-bottom: 0; }
+  .cell.blank { background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
+  .d { font-size: .85rem; color: var(--muted); width: 1.75rem; height: 1.75rem; display: inline-grid; place-items: center; border-radius: 999px; }
+  .today .d { background: var(--accent); color: #fff; font-weight: 600; }
+
+  .chip {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    padding: 3px 6px; border-radius: var(--r-sm); font-size: .76rem; line-height: 1.35;
+    background: var(--surface-2); color: var(--text); text-decoration: none;
+  }
+  .chip.jothon { background: var(--accent-soft); color: var(--accent); }
+  .chip:hover { filter: brightness(.96); }
+  .chip .t { margin-right: 6px; font-size: .7rem; }
+  .chip.tentative { background: transparent; color: var(--muted); outline: 1px dashed var(--line); outline-offset: -1px; }
+  .chip.cancelled { color: var(--muted); text-decoration: line-through; }
+
+  /* 手機：格子太窄放不下標題，只留圓點，細節看下方列表 */
+  @media (max-width: 639px) {
+    .cell { min-height: 3.25rem; align-items: center; padding: 4px 2px; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: flex-start; }
+    .d { flex-basis: 100%; text-align: center; }
+    .chip { display: block; width: 7px; height: 7px; padding: 0; border-radius: 999px; background: var(--muted); }
+    .chip.jothon { background: var(--accent); }
+    .chip > * { display: none; }
+    .chip.tentative { background: transparent; outline: 1.5px solid var(--muted); outline-offset: -1.5px; }
+  }
+
+  .list { margin-top: 48px; }
+  .list h2 { margin-bottom: 8px; }
+</style>

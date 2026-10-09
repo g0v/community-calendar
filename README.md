@@ -1,8 +1,23 @@
 # g0v 社群行事曆
 
-把揪松團的「[大松小松活動訊息](https://g0v.hackmd.io/@jothon/event)」共筆整理成結構化的活動資料，做成網站與可訂閱的日曆。
+g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
-網站：<https://g0v.github.io/community-calendar/>
+網站：<https://g0v.github.io/community-calendar/>（活動列表與搜尋、[月曆](https://g0v.github.io/community-calendar/calendar/)）
+
+## 資料來源
+
+| 來源 | 收什麼 | 存在哪 |
+|---|---|---|
+| 揪松團「[大松小松活動訊息](https://g0v.hackmd.io/@jothon/event)」共筆 | 社群自由填寫的所有活動 | 這個 repo 的 `events/`，每天同步、累積保存 |
+| [AI Monday](https://g0v.github.io/AI-Monday/) 工作小組的 Sheet（[data.civictech.tw](https://data.civictech.tw/v0/aimonday/events.json)） | AI Monday、國會松、COSCUP 的 AI 議程 | 不存在這裡，建置時讀取 |
+
+同一場活動兩邊都有時（同一天、同一個系列），只顯示一筆：時間與講者以 AI Monday 的 Sheet 為準，並連到 AI Monday 的講題頁。講題、講者、錄影這些「講了什麼」留在 AI Monday 網站；「什麼時候、在哪」都在這裡。
+
+## 搜尋與篩選
+
+首頁可以搜尋活動名稱、地點、講者與共筆原文，並依時間（近期／過去）、揪松主辦、系列、地點（縣市或線上）篩選。條件會寫進網址，可以直接分享，例如 `?series=hackathon&when=all`。
+
+系列、縣市、線上是程式從標題與地點推出來的（`scripts/facets.mjs`），推不出來就不標。
 
 ## 訂閱日曆
 
@@ -12,6 +27,12 @@
 | 所有社群活動 | `https://g0v.github.io/community-calendar/all.ics` | 共筆上的所有活動。共筆開放社群自由填寫，**內容未經審核** |
 
 兩份都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
+
+## 從網路檔案館補回的過去活動
+
+每日同步從 2026-10-09 開始。在那之前就被清掉的活動，是從網路檔案館（Wayback Machine）的共筆存檔補回來的（`scripts/backfill-wayback.mjs`，2025-01 到 2026-10 共 21 份存檔）。這些資料帶有 `archive` 欄位，記錄最早與最晚出現在哪一份存檔。兩次存檔之間新增又刪掉的活動補不回來。
+
+在活動日之前就從存檔裡消失的，多半是改期或取消前的舊計畫，網站會標「共筆已移除」，月曆上畫刪除線。
 
 ## 跟共筆的關係：累積，不是鏡像
 
@@ -124,7 +145,9 @@ npm run build    # 輸出靜態檔到 dist/
 |---|---|
 | `scripts/parse.mjs` | 共筆 Markdown → 一筆一筆活動。只做文字轉換，不碰檔案與網路 |
 | `scripts/sync.mjs` | 讀共筆、比對既有資料、寫 `events/` 與 `report.json` |
-| `scripts/resolve.mjs` | 套上 `overrides/`、判斷揪松主辦。同步與網站共用 |
+| `scripts/resolve.mjs` | 套上 `overrides/`、判斷揪松主辦、併進 AI Monday 的場次。同步與網站共用 |
+| `scripts/facets.mjs` | 從標題與地點推出系列、縣市、線上 |
+| `scripts/backfill-wayback.mjs` | 一次性：從網路檔案館補回過去的活動 |
 | `scripts/data-check-issue.sh` | 把 `report.json` 同步成「資料檢查」issue |
 | `src/lib/ics.ts` | 產生日曆檔 |
 

@@ -20,8 +20,13 @@ export interface Event {
   raw: string;
   warnings: string[];
   first_seen: string; in_source: boolean; removed_from_source: string | null;
+  status?: string | null; // 只有 AI Monday 來源有：已排定／已完成／邀約中／停辦
   // resolve() 加上的
-  hidden: boolean; jothon: boolean; jothon_source: 'override' | 'aimonday' | null; jothon_pending: boolean; aimonday_id: string | null;
+  hidden: boolean; jothon: boolean; jothon_source: 'override' | 'aimonday' | null; jothon_pending: boolean;
+  aimonday_id: string | null; aimonday_url: string | null; cancelled: boolean;
+  talks?: { title: string | null; speakers: string[]; url: string }[];
+  // facets()：篩選用，推不出來就是 null／空陣列
+  series: string | null; series_label: string | null; cities: string[]; online: boolean;
 }
 
 let cache: Promise<Event[]> | undefined;
@@ -35,6 +40,10 @@ export function getEvents(): Promise<Event[]> {
 
 // 「今天」以台灣時間算；網站每天跟著同步重建，所以建置當下的日期就夠準
 export const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date());
+
+export const fromAiMonday = (e: Event) => e.source === 'aimonday';
+// AI Monday 還在邀約講者的空場次：時間未定
+export const tentative = (e: Event) => e.status === '邀約中';
 
 export const isPast = (e: Event) => !!e.date_start && (e.date_end ?? e.date_start) < today;
 
@@ -55,10 +64,47 @@ export function formatWhen(e: Event) {
   return `${y}/${range}${time}`;
 }
 
+// ---------- 日曆 ----------
+
+export const monthOf = (date: string) => date.slice(0, 7);
+
+// 有活動的第一個月到最後一個月（含今天所在的月），每個月「YYYY-MM」
+export function calendarMonths(events: Event[]) {
+  const all = [...events.filter((e) => e.date_start).map((e) => monthOf(e.date_start!)), monthOf(today)].sort();
+  const months: string[] = [];
+  for (let m = all[0]; m <= all[all.length - 1]; m = shiftMonth(m, 1)) months.push(m);
+  return months;
+}
+
+export function shiftMonth(ym: string, n: number) {
+  const [y, m] = ym.split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 1 + n, 1));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+// 月曆格子：週日開頭，前後補滿成整週。每格是「YYYY-MM-DD」，不在本月的格子為 null
+export function monthGrid(ym: string) {
+  const [y, m] = ym.split('-').map(Number);
+  const first = new Date(Date.UTC(y, m - 1, 1)).getUTCDay();
+  const days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const cells: (string | null)[] = Array(first).fill(null);
+  for (let d = 1; d <= days; d++) cells.push(`${ym}-${String(d).padStart(2, '0')}`);
+  while (cells.length % 7) cells.push(null);
+  return cells;
+}
+
+// 這一天有沒有這場活動：跨天的活動每一天都算；分城市辦的大松算在各子場次那天
+export function onDate(e: Event, d: string) {
+  if (!e.date_start || e.date_precision !== 'day') return false;
+  const subs = e.sub_sessions.filter((s) => s.date);
+  if (subs.length) return subs.some((s) => s.date === d);
+  return e.date_start <= d && d <= (e.date_end ?? e.date_start);
+}
+
 export const monthKey = (e: Event) => e.date_start?.slice(0, 7) ?? e.month_section ?? '未定';
 
-// GitHub 上這筆資料的修改紀錄與回報入口
-export const historyUrl = (e: Event) => `${REPO}/commits/main/events/${e.id}.json`;
+// GitHub 上這筆資料的修改紀錄與回報入口。AI Monday 來源的資料不在這個 repo，修改紀錄在 civictech-tw-data
+export const historyUrl = (e: Event) => (fromAiMonday(e) ? null : `${REPO}/commits/main/events/${e.id}.json`);
 export function reportUrl(e: Event) {
   const body = [
     `活動：${e.title}（\`${e.id}\`）`,

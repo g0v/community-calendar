@@ -6,10 +6,11 @@
 //   - 活動日還沒到就從共筆消失的：照收，標題前加「（共筆已移除）」。可能是取消、也可能是誤刪，
 //     看不出來，所以先讓訂閱的人看得到變化，而不是讓它安靜消失（2026-10-09 暫定，要改只改 summary()）
 //   - 有子場次的（大松分城市）：每個子場次一個事件
+//   - AI Monday 來源：跟 AI Monday 日曆同一套規則——邀約中、時間未定的不收；停辦的照收並標 CANCELLED
 //
 // UID：AI Monday 場次沿用 AI-Monday 日曆的 UID（{id}@aimonday.g0v），其他用 {id}@community-calendar.g0v。
 // id 第一次看到時就定了、之後不變，所以標題或日期被改，訂閱者的日曆會更新那一筆，不會多出一筆。
-import { type Event, href, vanishedEarly } from './data';
+import { type Event, href, tentative, vanishedEarly } from './data';
 
 export interface Feed { name: string; desc: string; filter: (e: Event) => boolean }
 
@@ -19,10 +20,13 @@ export function buildIcs(events: Event[], feed: Feed, site: URL | undefined) {
 
   const vevents = events
     .filter((e) => !e.hidden && e.date_precision === 'day' && e.date_start && feed.filter(e))
+    .filter((e) => !tentative(e) || e.cancelled)
     .flatMap((e) => {
       const uid = e.aimonday_id ? `${e.aimonday_id}@aimonday.g0v` : `${e.id}@community-calendar.g0v`;
       const page = base && `${base}events/${e.id}/`;
       const desc = [
+        ...(e.talks ?? []).map((t) => `・${t.title ?? '講題待定'}${t.speakers.length ? `（${t.speakers.join('、')}）` : ''}`),
+        e.aimonday_url && `講題與影片：${e.aimonday_url}`,
         e.signup_url && `報名：${e.signup_url}`,
         e.notes_url && `共筆：${e.notes_url}`,
         e.page_url && `活動頁：${e.page_url}`,
@@ -31,7 +35,7 @@ export function buildIcs(events: Event[], feed: Feed, site: URL | undefined) {
         page && `更多資訊：${page}`,
       ].filter(Boolean).join('\n');
       const location = [e.venue, e.address].filter(Boolean).join('／') || null;
-      const common = { desc, page, stamp, location };
+      const common = { desc, page, stamp, location, cancelled: e.cancelled };
 
       const subs = e.sub_sessions.filter((s) => s.date);
       if (subs.length) {
@@ -65,7 +69,7 @@ export function buildIcs(events: Event[], feed: Feed, site: URL | undefined) {
 
 const summary = (e: Event) => (vanishedEarly(e) ? `（共筆已移除）${e.title}` : e.title);
 
-interface V { uid: string; stamp: string; title: string; date: string; end: string | null; start: string | null; finish: string | null; desc: string; page: string | null; location: string | null }
+interface V { cancelled: boolean; uid: string; stamp: string; title: string; date: string; end: string | null; start: string | null; finish: string | null; desc: string; page: string | null; location: string | null }
 function vevent(v: V) {
   // 有開始時間：當天的時段；只寫開始沒寫結束，就只給開始（不替它編一個結束時間）。
   // 沒有時間：全天，跨天的就到最後一天
@@ -81,6 +85,7 @@ function vevent(v: V) {
     ...(v.desc ? [`DESCRIPTION:${text(v.desc)}`] : []),
     ...(v.location ? [`LOCATION:${text(v.location)}`] : []),
     ...(v.page ? [`URL:${v.page}`] : []),
+    `STATUS:${v.cancelled ? 'CANCELLED' : 'CONFIRMED'}`,
     'END:VEVENT',
   ];
 }

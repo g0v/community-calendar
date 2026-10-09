@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import CalendarMonth from '../../components/CalendarMonth.astro';
+import { calendarMonths, getEvents } from '../../lib/data';
+
+export async function getStaticPaths() {
+  return calendarMonths((await getEvents()).filter((e) => !e.hidden)).map((month) => ({ params: { month } }));
+}
+
+const { month } = Astro.params;
+const [y, m] = month!.split('-').map(Number);
+---
+<Base title={`${y} 年 ${m} 月`} description={`g0v 社群 ${y} 年 ${m} 月的活動。`}>
+  <CalendarMonth month={month!} />
+</Base>
