@@ -1,0 +1,36 @@
+{
+  "id": "2026-07-05-25ff36",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "2026 嘉義街景踏察維基媒體工作坊",
+  "date_start": "2026-07-05",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "台灣圖書室 / 嘉義市東區中央里中山路255號",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": "https://wikidatatw.kktix.cc/events/wikidatakagi2026",
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動地點": "台灣圖書室 / 嘉義市東區中央里中山路255號",
+    "活動資訊": "https://wikidatatw.kktix.cc/events/wikidatakagi2026"
+  },
+  "links": [
+    "https://wikidatatw.kktix.cc/events/wikidatakagi2026"
+  ],
+  "description": [],
+  "month_section": "2026-07",
+  "raw": "7/05 週日 2026 嘉義街景踏察維基媒體工作坊\n- 活動地點：台灣圖書室 / 嘉義市東區中央里中山路255號\n- 活動資訊：https://wikidatatw.kktix.cc/events/wikidatakagi2026",
+  "warnings": [],
+  "first_seen": "2026-06-27",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782566409825",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

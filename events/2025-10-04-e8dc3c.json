@@ -6,28 +6,33 @@
   "date_start": "2025-10-04",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
-  "venue": null,
+  "start_time": "14:30",
+  "end_time": "17:30",
+  "venue": "C-LAB CREATORS 空間 102 共享吧（台北市大安區建國南路一段177號）",
   "address": null,
   "signup_url": null,
   "notes_url": null,
   "page_url": null,
   "host": null,
   "sub_sessions": [],
-  "fields": {},
-  "links": [],
-  "description": [
-    "待確認時間資訊"
+  "fields": {
+    "時間": "2025.10.4（六）14:30 – 17:30",
+    "地點": "C-LAB CREATORS 空間 102 共享吧（台北市大安區建國南路一段177號）",
+    "活動筆記": "https://g0v.hackmd.io/7TONekHaRBS4mr6lzdxlHw?view"
+  },
+  "links": [
+    "https://tipf.tw/",
+    "https://g0v.hackmd.io/7TONekHaRBS4mr6lzdxlHw?view"
   ],
+  "description": [],
   "month_section": "2025-10",
-  "raw": "10/04 TIPF 台灣國際攝影節 & 民主與攝影 _ 講座活動\n- 待確認時間資訊",
+  "raw": "10/04 TIPF 台灣國際攝影節 & 民主與攝影 _ 講座活動\n- 時間：2025.10.4（六）14:30 – 17:30\n- 地點：C-LAB CREATORS 空間 102 共享吧（台北市大安區建國南路一段177號）\n- https://tipf.tw/\n- 活動筆記：https://g0v.hackmd.io/7TONekHaRBS4mr6lzdxlHw?view",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-08-07",
   "in_source": false,
-  "removed_from_source": "2025-11-03",
+  "removed_from_source": "2025-10-31",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1754580309551",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
   }
 }

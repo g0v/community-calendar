@@ -1,0 +1,35 @@
+{
+  "id": "2025-05-17-de459c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第拾壹次國會松",
+  "date_start": "2025-05-17",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "13:30",
+  "end_time": "17:00",
+  "venue": "台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "5/17（日）13:30–17:00（中午12點就可以入場、歡迎大家帶午餐來～）",
+    "地點": "台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）",
+    "開放實體票👉報名連結": "TBA"
+  },
+  "links": [],
+  "description": [],
+  "month_section": "2025-05",
+  "raw": "5/17 Sat. 週六下午 **g0v 第拾壹次國會松 **，地點在 NPO HUB Taipei\n- 📅 時間：5/17（日）13:30–17:00（中午12點就可以入場、歡迎大家帶午餐來～）\n- 📍 地點：台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）\n- 開放實體票 👉 報名連結：TBA",
+  "warnings": [],
+  "first_seen": "2025-05-01",
+  "in_source": false,
+  "removed_from_source": "2025-05-06",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1746086408775",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1746086408775"
+  }
+}

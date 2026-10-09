@@ -1,0 +1,40 @@
+{
+  "id": "2025-02-23-0af9ce",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 數位韌性松 DigiResiTh12n",
+  "date_start": "2025-02-23",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "15:00",
+  "end_time": "18:00",
+  "venue": "臺北科技大學（近忠孝新生站）以實體方式舉行",
+  "address": null,
+  "signup_url": "https://s.g0v.tw/rc25-resi",
+  "notes_url": "https://g0v.hackmd.io/@paulpengtw/DigiResiTh0n-home/",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "2025 年 2 月 23 號（日）",
+    "時間": "15:00 - 18:00",
+    "地點": "臺北科技大學（近忠孝新生站）以實體方式舉行",
+    "馬上報名（英文連結）": "https://s.g0v.tw/rc25-resi",
+    "活動共筆": "https://g0v.hackmd.io/@paulpengtw/DigiResiTh0n-home/"
+  },
+  "links": [
+    "https://s.g0v.tw/rc25-resi",
+    "https://g0v.hackmd.io/@paulpengtw/DigiResiTh0n-home/"
+  ],
+  "description": [],
+  "month_section": "2025-02",
+  "raw": "2/23 Sun. 週日下午 **g0v 數位韌性松 DigiResiTh12n**\n📅 日期：2025 年 2 月 23 號（日）\n⏰ 時間：15:00 - 18:00\n📌 地點：臺北科技大學（近忠孝新生站）以實體方式舉行\n馬上報名（英文連結）：https://s.g0v.tw/rc25-resi \n活動共筆：https://g0v.hackmd.io/@paulpengtw/DigiResiTh0n-home/",
+  "warnings": [],
+  "first_seen": "2025-01-28",
+  "in_source": false,
+  "removed_from_source": "2025-03-03",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1737999628047",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470"
+  }
+}

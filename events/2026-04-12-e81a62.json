@@ -6,8 +6,8 @@
   "date_start": "2026-04-12",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "02:00",
+  "end_time": "05:00",
   "venue": "台北市中正區重慶南路三段2號2樓",
   "address": null,
   "signup_url": null,
@@ -34,13 +34,13 @@
     "ReJOIN - 數位公共參與體驗優化"
   ],
   "month_section": "2026-04",
-  "raw": "4/12 週日下午 零時小學校專案孵化成果分享暨數位公民論壇\n- https://g0v.hackmd.io/@jothon/nest\n- 地點：台北市中正區重慶南路三段2號2樓\n- 本次有 10 組專案團隊分享\n    - TaskyVenture - 兒童任務管理平台\n    - ReSchool 校地創生分析\n    - 「認識植物」網站改版營運\n    - HackIt 由青少年打造的創意程式社群\n    - HePai | 合拍\n    - 自學力製學例\n    - 綠洲計畫\n    - 藥品仿單白話文運動\n    - 大台北交通流量模擬\n    - ReJOIN - 數位公共參與體驗優化",
+  "raw": "4/12 週日下午 2:00-5:00 零時小學校專案孵化成果分享暨數位公民論壇\n- https://g0v.hackmd.io/@jothon/nest\n- 地點：台北市中正區重慶南路三段2號2樓\n- 本次有 10 組專案團隊分享\n    - TaskyVenture - 兒童任務管理平台\n    - ReSchool 校地創生分析\n    - 「認識植物」網站改版營運\n    - HackIt 由青少年打造的創意程式社群\n    - HePai | 合拍\n    - 自學力製學例\n    - 綠洲計畫\n    - 藥品仿單白話文運動\n    - 大台北交通流量模擬\n    - ReJOIN - 數位公共參與體驗優化",
   "warnings": [],
-  "first_seen": "2026-01-13",
+  "first_seen": "2025-12-31",
   "in_source": false,
-  "removed_from_source": "2026-05-21",
+  "removed_from_source": "2026-05-01",
   "archive": {
-    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1767190809187",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1777223711401"
   }
 }

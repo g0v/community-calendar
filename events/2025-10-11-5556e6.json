@@ -2,7 +2,7 @@
   "id": "2025-10-11-5556e6",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "都市農耕網食農教育講座",
+  "title": "都市農耕網食農教育講座_認識食物從產地到餐桌的旅程 ~ 酪梨",
   "date_start": "2025-10-11",
   "date_end": null,
   "date_precision": "day",
@@ -10,24 +10,28 @@
   "end_time": null,
   "venue": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
   "address": null,
-  "signup_url": null,
+  "signup_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02R8HpHGKMgvSriXfUj9rtsEuVVy3vpYjreD4GEtMPtw1w3zZH6MZQQM9ghQhQh3wMl&id=61573616768169",
   "notes_url": null,
   "page_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
-    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站"
+    "內容": "酪梨與台灣的發展",
+    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+    "報名網址": "https://www.facebook.com/permalink.php?story_fbid=pfbid02R8HpHGKMgvSriXfUj9rtsEuVVy3vpYjreD4GEtMPtw1w3zZH6MZQQM9ghQhQh3wMl&id=61573616768169"
   },
-  "links": [],
+  "links": [
+    "https://www.facebook.com/permalink.php?story_fbid=pfbid02R8HpHGKMgvSriXfUj9rtsEuVVy3vpYjreD4GEtMPtw1w3zZH6MZQQM9ghQhQh3wMl&id=61573616768169"
+  ],
   "description": [],
   "month_section": "2025-10",
-  "raw": "10/11 週六下午 都市農耕網食農教育講座\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+  "raw": "10/11 週六下午 都市農耕網食農教育講座_認識食物從產地到餐桌的旅程 ~ 酪梨\n- 內容 : 酪梨與台灣的發展\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站\n- 報名網址：https://www.facebook.com/permalink.php?story_fbid=pfbid02R8HpHGKMgvSriXfUj9rtsEuVVy3vpYjreD4GEtMPtw1w3zZH6MZQQM9ghQhQh3wMl&id=61573616768169",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-06-13",
   "in_source": false,
-  "removed_from_source": "2025-11-03",
+  "removed_from_source": "2025-10-31",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1749744608705",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
   }
 }

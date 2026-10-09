@@ -1,0 +1,37 @@
+{
+  "id": "2025-08-11-8523fb",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "台南實體 - 公開場【公務結合公民科技_推動計畫】",
+  "date_start": "2025-08-11",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": "https://forms.gle/2bF8ZE1oz8hRL4818",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "提案單位": "臺南市政府衛生局提案【智慧化週報與資料串接管考輔助系統】",
+    "說明": "建立智慧化週報暨資料串接輔助系統，集中各業務單位週更新資料，研考部門可快速篩選、管考並重複利用，減少重複索資與製作年度報告、質詢回覆等文件的時間成本。",
+    "報名網址": "https://forms.gle/2bF8ZE1oz8hRL4818"
+  },
+  "links": [
+    "https://forms.gle/2bF8ZE1oz8hRL4818"
+  ],
+  "description": [],
+  "month_section": "2025-08",
+  "raw": "8/11（一）14:00 台南實體 - 公開場【公務結合公民科技_推動計畫】\n- 提案單位：臺南市政府衛生局提案【智慧化週報與資料串接管考輔助系統】\n- 說明：建立智慧化週報暨資料串接輔助系統，集中各業務單位週更新資料，研考部門可快速篩選、管考並重複利用，減少重複索資與製作年度報告、質詢回覆等文件的時間成本。\n- 報名網址：https://forms.gle/2bF8ZE1oz8hRL4818",
+  "warnings": [],
+  "first_seen": "2025-07-09",
+  "in_source": false,
+  "removed_from_source": "2025-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1752066908653",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
+  }
+}

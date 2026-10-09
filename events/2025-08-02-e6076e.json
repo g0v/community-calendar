@@ -1,0 +1,35 @@
+{
+  "id": "2025-08-02-e6076e",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "在西門町飛地書店",
+  "date_start": "2025-08-02",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://docs.google.com/forms/d/e/1FAIpQLSeUwmF8NIue7pfguh0usyPDoh3-LTUnvLLdL3WKxBY944FQrg/viewform"
+  ],
+  "description": [
+    "web3 for all 讀書會的夥伴找了 Sam 跟 MG 一起來聊沒有人的運動，如果是之前錯過相關新書活動的，或者是想看 Sam 跟 MG 如何聊這本書的，都歡迎報名參加喔！"
+  ],
+  "month_section": "2025-08",
+  "raw": "8/2 週六晚上19:00 在西門町飛地書店\n- web3 for all 讀書會的夥伴找了 Sam 跟 MG 一起來聊沒有人的運動，如果是之前錯過相關新書活動的，或者是想看 Sam 跟 MG 如何聊這本書的，都歡迎報名參加喔！\n- https://docs.google.com/forms/d/e/1FAIpQLSeUwmF8NIue7pfguh0usyPDoh3-LTUnvLLdL3WKxBY944FQrg/viewform",
+  "warnings": [],
+  "first_seen": "2025-07-28",
+  "in_source": false,
+  "removed_from_source": "2025-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753686011391",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
+  }
+}

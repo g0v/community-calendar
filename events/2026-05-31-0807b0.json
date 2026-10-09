@@ -23,11 +23,11 @@
   "month_section": "2026-05",
   "raw": "5/31 週日 g0v 黑客松\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
   "warnings": [],
-  "first_seen": "2026-03-08",
+  "first_seen": "2026-01-27",
   "in_source": false,
-  "removed_from_source": "2026-05-21",
+  "removed_from_source": "2026-05-02",
   "archive": {
-    "first": "https://web.archive.org/web/20260308164730/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1769511010534",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1777633510844"
   }
 }

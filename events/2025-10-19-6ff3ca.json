@@ -1,0 +1,39 @@
+{
+  "id": "2025-10-19-6ff3ca",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "「專案交流工作坊」",
+  "date_start": "2025-10-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@jothon/20251019",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站",
+    "活動共筆": "https://g0v.hackmd.io/@jothon/20251019"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/20251019"
+  ],
+  "description": [
+    "為促進總統盃黑客松初選團隊與民間資料社群互動，本年度「總統盃黑客松執行單位」與「g0v揪松團」合作辦理「專案交流工作坊」於 10/19 (日) 13:30-17:30，地點在重慶南路三段2號2樓 g0v 社群空間舉辦，歡迎與團隊們交流",
+    "直接到場參加即可"
+  ],
+  "month_section": "2025-10",
+  "raw": "10/19 週日下午「專案交流工作坊」\n- 為促進總統盃黑客松初選團隊與民間資料社群互動，本年度「總統盃黑客松執行單位」與「g0v揪松團」合作辦理「專案交流工作坊」於 10/19 (日) 13:30-17:30，地點在重慶南路三段2號2樓 g0v 社群空間舉辦，歡迎與團隊們交流\n- 📍 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室，近捷運中正紀念堂站\n- 直接到場參加即可\n- 活動共筆：https://g0v.hackmd.io/@jothon/20251019\n\n![](https://g0v.hackmd.io/_uploads/BkeKn-LbTgx.png)",
+  "warnings": [],
+  "first_seen": "2025-09-26",
+  "in_source": false,
+  "removed_from_source": "2025-10-31",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1758821109096",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
+  }
+}

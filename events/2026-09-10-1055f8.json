@@ -6,28 +6,37 @@
   "date_start": "2026-09-10",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
-  "venue": null,
+  "start_time": "19:00",
+  "end_time": "21:00",
+  "venue": "重慶南路三段2號2 樓 202 室",
   "address": null,
   "signup_url": null,
   "notes_url": null,
   "page_url": null,
   "host": null,
   "sub_sessions": [],
-  "fields": {},
+  "fields": {
+    "主題": "輾轉相除法、codata 與枚舉有理數",
+    "分享者": "黃建碩",
+    "活動時間": "19:00-21:00",
+    "活動地點": "重慶南路三段2號2 樓 202 室"
+  },
   "links": [
+    "https://luma.com/1y48vz61",
     "https://www.facebook.com/groups/functioanl.thursday/"
   ],
-  "description": [],
+  "description": [
+    "眾所周知，有理數是可數的，亦即所有有理數可以和自然數一一對應。通常說明這件事都是用康托爾的枚舉法，但是會有許多重複的數字，並不令人滿意。這次分享將展示如何從輾轉相除法推導出著名的 Stern–Brocot 樹和 Calkin–Wilf 樹，並利用 codata 上的推理，從 Stern–Brocot 樹推導出一個可以不重複枚舉有理數的簡單式子。",
+    "台大資訊系四年級，接觸 functional programming 剛滿一年。"
+  ],
   "month_section": "2026-09",
-  "raw": "9/10 週四晚上 F4: functional thursday 社群活動\n- https://www.facebook.com/groups/functioanl.thursday/",
+  "raw": "9/10 週四晚上 F4: functional thursday 社群活動\n- ▶︎ 主題：輾轉相除法、codata 與枚舉有理數\n    - 眾所周知，有理數是可數的，亦即所有有理數可以和自然數一一對應。通常說明這件事都是用康托爾的枚舉法，但是會有許多重複的數字，並不令人滿意。這次分享將展示如何從輾轉相除法推導出著名的 Stern–Brocot 樹和 Calkin–Wilf 樹，並利用 codata 上的推理，從 Stern–Brocot 樹推導出一個可以不重複枚舉有理數的簡單式子。\n- ▶︎ 分享者：黃建碩\n    - 台大資訊系四年級，接觸 functional programming 剛滿一年。\n- ▶︎ 活動資訊\n    - 活動時間：19:00-21:00\n    - 活動地點：重慶南路三段2號2 樓 202 室\n    - https://luma.com/1y48vz61\n    - https://www.facebook.com/groups/functioanl.thursday/",
   "warnings": [],
-  "first_seen": "2026-01-13",
+  "first_seen": "2026-01-05",
   "in_source": false,
-  "removed_from_source": "2026-10-06",
+  "removed_from_source": "2026-09-26",
   "archive": {
-    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1767605411904",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1790246110531"
   }
 }

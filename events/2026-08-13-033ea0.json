@@ -2,7 +2,7 @@
   "id": "2026-08-13-033ea0",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "F4: functional thursday 社群活動",
+  "title": "F4: functional thursday 社群活動 ▶︎主題：用 LLM 生成形式證明經驗談",
   "date_start": "2026-08-13",
   "date_end": null,
   "date_precision": "day",
@@ -15,19 +15,25 @@
   "page_url": null,
   "host": null,
   "sub_sessions": [],
-  "fields": {},
+  "fields": {
+    "分享者": "陳亮廷"
+  },
   "links": [
-    "https://www.facebook.com/groups/functioanl.thursday/"
+    "https://www.facebook.com/groups/functioanl.thursday/posts/4447561422225517"
   ],
-  "description": [],
+  "description": [
+    "近年來 AI/LLM 發展迅速，不僅能生成文字和圖片，還能穩定生成程式碼。幾個月前，GPT 5.4 和 Claude Opus 4.6 等前沿模型開始能生成相對複雜的形式化數學證明，甚至複雜如編譯器中介表示轉換的正確性，只需提供類似的證明「範本」即可生成相近敘述的形式證明。",
+    "本次分享將探討使用 GPT 5 系列與 Agda 撰寫依值型別程式和形式定理證明的經驗，並說明語言模型如何透過定理證明器的保證，生成正確性近乎無懈可擊的數學證明。",
+    "在中央研究院擔任助理研究員，喜歡嘗試各種新事物。最近的興趣是型別論、範疇模型，還有具備計算意義的證明。"
+  ],
   "month_section": "2026-08",
-  "raw": "8/13 週四晚上 F4: functional thursday 社群活動\n- https://www.facebook.com/groups/functioanl.thursday/",
+  "raw": "8/13 週四晚上 F4: functional thursday 社群活動 ▶︎主題：用 LLM 生成形式證明經驗談\n- 近年來 AI/LLM 發展迅速，不僅能生成文字和圖片，還能穩定生成程式碼。幾個月前，GPT 5.4 和 Claude Opus 4.6 等前沿模型開始能生成相對複雜的形式化數學證明，甚至複雜如編譯器中介表示轉換的正確性，只需提供類似的證明「範本」即可生成相近敘述的形式證明。\n- 本次分享將探討使用 GPT 5 系列與 Agda 撰寫依值型別程式和形式定理證明的經驗，並說明語言模型如何透過定理證明器的保證，生成正確性近乎無懈可擊的數學證明。\n- ▶︎分享者：陳亮廷\n    - 在中央研究院擔任助理研究員，喜歡嘗試各種新事物。最近的興趣是型別論、範疇模型，還有具備計算意義的證明。\n- https://www.facebook.com/groups/functioanl.thursday/posts/4447561422225517",
   "warnings": [],
-  "first_seen": "2026-01-13",
+  "first_seen": "2026-01-05",
   "in_source": false,
-  "removed_from_source": "2026-10-06",
+  "removed_from_source": "2026-09-01",
   "archive": {
-    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1767605411904",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
   }
 }

@@ -49,11 +49,11 @@
   "month_section": "2026-01",
   "raw": "1/8 週四晚上 ▶︎主題：Functional programming: extended definition and why does it matter?\n- 活動詳細資訊：https://facebook.com/events/s/functional-programming-extende/1506637530443665/\n- 活動簡介：\n    - 很多初學者在接觸 FP 不久後會有兩個很⼤的疑問：\n        - 我會⽤ map, filter, reduce 了，那我算是會 FP 了嗎？ \n        - FP 的定義到底是什麼？\n    - 這兩個問題其實有點⼀體兩⾯：如果 FP 的定義只是 map, filter, reduce 的話，那會⽤ map, filter, reduce 就算是學會了吧？如果沒有這麼單純的話，那就…。在這場分享中，我將會談談我個⼈給 FP 的定義，並且回顧這種對 FP 的觀點曾幫我解過什麼有趣的問題。\n- ▶︎　分享者：Laurence Chen（陳家宏）\n    - IT 顧問、講者、作家。喜歡快速迭代 (fast iteration) 與提⾼產出。\n    - 現職：\n        - REPLWARE ( https://replware.dev ) CEO\n        - 台灣 Clojure 社群 ( https://clojure.tw/ ) 線下活動主辦⼈\n        - Taipei dbt Meetup 社群 ( https://medium.com/dbt-local-taiwan ) 線下活動主辦⼈\n    - 著作：\n        - 從錯誤到創新 ( https://leanpub.com/errors_to_innovation/ )\n        - 從試算表到資料平台：重構資料⼯程的技術與團隊\n- 活動地點：\n    - 地點：g0v 台北社群空間 \n    - 地址：台北市中正區重慶南路三段2號2樓202室\n    - https://maps.app.goo.gl/38w8sEgCXoYG4WdXA\n- 歡迎加入 Functional Thursday 臉書社團：https://www.facebook.com/groups/functioanl.thursday",
   "warnings": [],
-  "first_seen": "2026-01-13",
+  "first_seen": "2025-12-24",
   "in_source": false,
-  "removed_from_source": "2026-03-08",
+  "removed_from_source": "2026-02-09",
   "archive": {
-    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260121192746/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1766578809031",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1769511010534"
   }
 }

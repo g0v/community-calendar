@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-13-0cd340",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "（每週一、三 21:00-22:00） 島島阿學社群共學_一起來拿 Claude 101 證書",
+  "date_start": "2026-07-13",
+  "date_end": "2026-07-29",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "所以我們想試一件簡單的事": "找一群人，在同一個時間，安靜地一起念書。"
+  },
+  "links": [
+    "https://luma.com/n9hl6pol"
+  ],
+  "description": [
+    "Anthropic 推出了免費線上課程，涵蓋 AI 素養、API 開發、MCP 等主題，從零基礎到進階開發都有對應內容。",
+    "但老實說，免費課程到處都有，真正難的是「開始」跟「完成」。",
+    "你是不是也這樣？收藏了一堆學習資源，告訴自己「有空再看」，然後就再也沒打開過。或是打開了，看了十分鐘就切回社群滑手機。不是你不想學，是一個人學真的很難撐下去。",
+    "三週、每週兩天、每次一小時，共 6 小時。從最基礎的 Claude 101 開始，一起在最後拿到證書。",
+    "不用擔心要發言或討論。每次一小時，聚在一起的時間就是專心念書，就比較容易坐得住。想法和心得可以用島島阿學的「主題實踐」慢慢記錄，不趕、不比較，按自己的步調來。",
+    "📅 7/13 - 7/29（每週一、三 21:00-22:00）",
+    "📍 島島阿學 Discord 語音頻道",
+    "🔗 報名連結 https://luma.com/n9hl6pol"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/13 - 7/29（每週一、三 21:00-22:00） 島島阿學社群共學_一起來拿 Claude 101 證書\n-　Anthropic 推出了免費線上課程，涵蓋 AI 素養、API 開發、MCP 等主題，從零基礎到進階開發都有對應內容。\n-　但老實說，免費課程到處都有，真正難的是「開始」跟「完成」。\n-　你是不是也這樣？收藏了一堆學習資源，告訴自己「有空再看」，然後就再也沒打開過。或是打開了，看了十分鐘就切回社群滑手機。不是你不想學，是一個人學真的很難撐下去。\n-　所以我們想試一件簡單的事：找一群人，在同一個時間，安靜地一起念書。\n-　三週、每週兩天、每次一小時，共 6 小時。從最基礎的 Claude 101 開始，一起在最後拿到證書。\n-　不用擔心要發言或討論。每次一小時，聚在一起的時間就是專心念書，就比較容易坐得住。想法和心得可以用島島阿學的「主題實踐」慢慢記錄，不趕、不比較，按自己的步調來。\n-　📅 7/13 - 7/29（每週一、三 21:00-22:00）\n-　📍 島島阿學 Discord 語音頻道\n-　🔗 報名連結 https://luma.com/n9hl6pol",
+  "warnings": [],
+  "first_seen": "2026-07-05",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1783212910446",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

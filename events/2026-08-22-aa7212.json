@@ -1,0 +1,40 @@
+{
+  "id": "2026-08-22-aa7212",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "【vTaiwan 數位公民審議場次】報名中",
+  "date_start": "2026-08-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "16:30",
+  "venue": "花蓮豐田火車站旁_大同戲院 (花蓮縣壽豐鄉豐山村豐山街28號)",
+  "address": null,
+  "signup_url": "https://forms.gle/gtV9aYyW2GH4mztk7",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "8/22 週六下午 14:00-16:30",
+    "地點": "花蓮豐田火車站旁_大同戲院 (花蓮縣壽豐鄉豐山村豐山街28號)",
+    "報名網址": "https://forms.gle/gtV9aYyW2GH4mztk7"
+  },
+  "links": [
+    "https://www.vtaiwan.tw/",
+    "https://forms.gle/gtV9aYyW2GH4mztk7"
+  ],
+  "description": [
+    "活動將會介紹公民科技行動指引網站，邀請參加者操作體驗，歡迎自備電腦或平板；本場次也結合 vTaiwan 數位公民審議活動，vTaiwan 是一個促進政府與公民對話的開放協作平台，讓每個人都能參與公共政策的形成過程，社群網站：https://www.vtaiwan.tw/"
+  ],
+  "month_section": "2026-08",
+  "raw": "8/22【vTaiwan 數位公民審議場次】報名中\n- 時間：8/22 週六下午 14:00-16:30\n- 地點：花蓮豐田火車站旁_大同戲院 (花蓮縣壽豐鄉豐山村豐山街28號)\n- 活動將會介紹公民科技行動指引網站，邀請參加者操作體驗，歡迎自備電腦或平板；本場次也結合 vTaiwan 數位公民審議活動，vTaiwan 是一個促進政府與公民對話的開放協作平台，讓每個人都能參與公共政策的形成過程，社群網站：https://www.vtaiwan.tw/\n- 報名網址：https://forms.gle/gtV9aYyW2GH4mztk7",
+  "warnings": [],
+  "first_seen": "2026-08-05",
+  "in_source": false,
+  "removed_from_source": "2026-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1785943814241",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
+  }
+}

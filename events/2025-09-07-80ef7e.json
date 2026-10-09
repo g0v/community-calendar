@@ -2,11 +2,11 @@
   "id": "2025-09-07-80ef7e",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "18:30 g0v 第三次籌備會議",
+  "title": "g0v 第三次籌備會議",
   "date_start": "2025-09-07",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
+  "start_time": "18:30",
   "end_time": null,
   "venue": null,
   "address": null,
@@ -23,11 +23,11 @@
   "month_section": "2025-09",
   "raw": "9/7 週日晚上 18:30 g0v 第三次籌備會議\n- 會議細節請至 #summit-2026",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-08-12",
   "in_source": false,
-  "removed_from_source": "2025-11-03",
+  "removed_from_source": "2025-10-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1755009009688",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759209908870"
   }
 }

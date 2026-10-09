@@ -2,36 +2,38 @@
   "id": "2026-07-19-f1f3c2",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "宜蘭羅東社群小聚",
+  "title": "宜蘭五結社群小聚",
   "date_start": "2026-07-19",
   "date_end": null,
   "date_precision": "day",
   "start_time": "02:00",
   "end_time": "04:30",
-  "venue": null,
+  "venue": "宜蘭五結宜蘭青年創生基地",
   "address": null,
-  "signup_url": null,
+  "signup_url": "https://forms.gle/gtV9aYyW2GH4mztk7",
   "notes_url": null,
   "page_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
     "時間": "7/19 週日下午 2:00-4:30",
-    "地點暫定": "宜蘭中興文化園區",
-    "活動詳細資訊": "https://g0v.hackmd.io/@jothon/meetup/https%3A%2F%2Fg0v.hackmd.io%2F9j3nnWHZRbuXPH4HgscPRg%3Fview"
+    "地點": "宜蘭五結宜蘭青年創生基地",
+    "報名網址": "https://forms.gle/gtV9aYyW2GH4mztk7",
+    "活動籌備資訊": "https://g0v.hackmd.io/@jothon/meetup/https%3A%2F%2Fg0v.hackmd.io%2F9j3nnWHZRbuXPH4HgscPRg%3Fview"
   },
   "links": [
+    "https://forms.gle/gtV9aYyW2GH4mztk7",
     "https://g0v.hackmd.io/@jothon/meetup/https%3A%2F%2Fg0v.hackmd.io%2F9j3nnWHZRbuXPH4HgscPRg%3Fview"
   ],
   "description": [],
   "month_section": "2026-07",
-  "raw": "7/19 週日下午 宜蘭羅東社群小聚\n- 時間：7/19 週日下午 2:00-4:30\n- 地點暫定：宜蘭中興文化園區\n- 活動詳細資訊：https://g0v.hackmd.io/@jothon/meetup/https%3A%2F%2Fg0v.hackmd.io%2F9j3nnWHZRbuXPH4HgscPRg%3Fview",
+  "raw": "7/19 週日下午 宜蘭五結社群小聚\n- 時間：7/19 週日下午 2:00-4:30\n- 地點：宜蘭五結宜蘭青年創生基地\n- 報名網址：https://forms.gle/gtV9aYyW2GH4mztk7\n- 活動籌備資訊：https://g0v.hackmd.io/@jothon/meetup/https%3A%2F%2Fg0v.hackmd.io%2F9j3nnWHZRbuXPH4HgscPRg%3Fview",
   "warnings": [],
-  "first_seen": "2026-05-21",
+  "first_seen": "2026-05-01",
   "in_source": false,
-  "removed_from_source": "2026-10-06",
+  "removed_from_source": "2026-08-01",
   "archive": {
-    "first": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1777633510844",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
   }
 }

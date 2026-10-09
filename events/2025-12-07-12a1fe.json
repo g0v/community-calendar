@@ -37,11 +37,11 @@
   "month_section": "2025-12",
   "raw": "12/7 週日下午 公民科技社群聚會暨鏈結資料文獻臺灣譯本發表會\n- 活動時間：12/07 週日下午 13:30-16:50\n- 活動地點：📍 嘉義市西市場數位翻轉青年創業基地－X3展演空間\n- 活動地址：嘉義市西區國華街245號2樓\n- 活動共筆：https://g0v.hackmd.io/-fZHED2CSp6qcfxfw9lhWQ?view\n- 活動流程：\n    - 13:15-13:30 活動報到\n    - 13:30-14:30 開源社群介紹：由揪松團介紹 g0v 社群、Wikidata 臺灣社群、OpenStreetMap 社群…等，與參加者互動交流，可透過提問與綜合座談方式，輔助活動參加者了解國內公民科技社群概況，以及參加方式。\n    - 休息 10 分鐘\n    - 14:40-15:40 鏈結資料文獻臺灣譯本發表會：由 Wikidata 臺灣社群分享，近年透過 Wikibase 建立屬於圖書館的鏈結資料 Passage 專案的成果，並分享內容翻譯的問題與挑戰。相關網址：https://hackmd.io/@wikidata-tw/oclc2019report\n    - 休息 10 分鐘\n    - 15:50-16:40 自由分組時間：提供此時段，讓參加者自由分組，可以進行專案討論或實作，口頭分享今日進度概要。\n    - 16:40-17:00 活動結束與場地復原",
   "warnings": [],
-  "first_seen": "2025-12-15",
+  "first_seen": "2025-11-20",
   "in_source": false,
-  "removed_from_source": "2026-01-13",
+  "removed_from_source": "2026-01-04",
   "archive": {
-    "first": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20251215083713/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1763614810844",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1767190809187"
   }
 }

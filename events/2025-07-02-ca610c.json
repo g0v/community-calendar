@@ -1,0 +1,33 @@
+{
+  "id": "2025-07-02-ca610c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Disfactory 專案工作聚會",
+  "date_start": "2025-07-02",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [],
+  "description": [
+    "請至 g0v Slack #disfactory 頻道詢問細節"
+  ],
+  "month_section": "2025-07",
+  "raw": "7/2 週三晚上 Disfactory 專案工作聚會\n- 請至 g0v Slack #disfactory 頻道詢問細節",
+  "warnings": [],
+  "first_seen": "2025-06-23",
+  "in_source": false,
+  "removed_from_source": "2025-08-04",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1750649710116",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753866009646"
+  }
+}

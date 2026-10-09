@@ -2,12 +2,12 @@
   "id": "2025-09-03-2f057a",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "20:00 - 21:30 用社群力量打造MESHTASTIC開源通訊網路",
+  "title": "用社群力量打造MESHTASTIC開源通訊網路",
   "date_start": "2025-09-03",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "20:00",
+  "end_time": "21:30",
   "venue": null,
   "address": null,
   "signup_url": null,
@@ -25,11 +25,11 @@
   "month_section": "2025-09",
   "raw": "9/3 週三 20:00 - 21:30 用社群力量打造MESHTASTIC開源通訊網路\n- 活動資訊：https://www.accupass.com/event/2508021401531334107470",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-08-06",
   "in_source": false,
-  "removed_from_source": "2025-11-03",
+  "removed_from_source": "2025-10-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1754494809233",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759209908870"
   }
 }

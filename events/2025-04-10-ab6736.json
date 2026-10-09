@@ -1,0 +1,37 @@
+{
+  "id": "2025-04-10-ab6736",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "[AI 麻瓜共學團] #1 Google maps 多地址路線規劃",
+  "date_start": "2025-04-10",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://hackmd.io/@ejc/HJjGyuY6yx",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "[線上參與]4/1020": "00-21:30",
+    "他想做的兩件事以及提案": "目標路徑自動規劃及Line bot通知",
+    "活動資訊與共筆": "https://hackmd.io/@ejc/HJjGyuY6yx"
+  },
+  "links": [
+    "https://hackmd.io/@ejc/HJjGyuY6yx"
+  ],
+  "description": [],
+  "month_section": "2025-04",
+  "raw": "4/10 [AI 麻瓜共學團] #1 Google maps 多地址路線規劃\n- [線上參與] 4/10 20:00-21:30 \n- 大家好我們是麻瓜共學團的團主，我們接下來想邀請百工百業提出他們的問題，然後邀請大家一起動腦動手用 AI 解決，我們出現了第一個情境！昨天討論的對象是台東消防局的 Josh，第一場線上討論會會討論「Google maps 多地址路線規劃」這個使用情境。他們常常會需要一天跑 10 個以上的點做檢查，需要批次匯入地址讓 Google maps 規劃最佳路徑。以上的使用情境我們也想到可能有些 NGO 有些拜訪或是送餐規劃也會需要，歡迎對這個主題有興趣的人一起參與，同時也徵求一級魔法使一起來討論～\n    - 他想做的兩件事以及提案：目標路徑自動規劃及Line bot通知\n    - 活動資訊與共筆：https://hackmd.io/@ejc/HJjGyuY6yx",
+  "warnings": [],
+  "first_seen": "2025-04-03",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743694809745",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

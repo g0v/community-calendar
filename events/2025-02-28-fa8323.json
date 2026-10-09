@@ -1,0 +1,42 @@
+{
+  "id": "2025-02-28-fa8323",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v Meetup / Unconference",
+  "date_start": "2025-02-28",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "13:30",
+  "end_time": "16:00",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": "https://www.facebook.com/GongSheng228/posts/pfbid026vYKc3mYsUu9Pnhs1CB5HU38STEfHzZNvdXRTgyHeyAqoSpLTDkCSaq1nueo9GMTl?locale=zh_TW",
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "Location": "https://maps.app.goo.gl/nV3keMN6Np2ZWKtJA",
+    "當天建議延伸行程": "15:30 散步出發至 共生音樂節，地點在凱達格蘭大道，從 NPOHUB 散步過去，只要 10 分鐘 ~",
+    "活動資訊": "https://www.facebook.com/GongSheng228/posts/pfbid026vYKc3mYsUu9Pnhs1CB5HU38STEfHzZNvdXRTgyHeyAqoSpLTDkCSaq1nueo9GMTl?locale=zh_TW"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/20250228-g0v-meetup",
+    "https://maps.app.goo.gl/nV3keMN6Np2ZWKtJA",
+    "https://www.facebook.com/GongSheng228/posts/pfbid026vYKc3mYsUu9Pnhs1CB5HU38STEfHzZNvdXRTgyHeyAqoSpLTDkCSaq1nueo9GMTl?locale=zh_TW"
+  ],
+  "description": [
+    "NPO HUB Taipei 台北市中正區重慶南路三段2號 2F",
+    "2F, No. 2, Sec. 3, Chongqing S. Rd., Zhongzheng Dist., Taipei City"
+  ],
+  "month_section": "2025-02",
+  "raw": "2/28 Fri. 週五下午 13:30-16:00 **g0v Meetup / Unconference**\n- https://g0v.hackmd.io/@jothon/20250228-g0v-meetup\n- Location: https://maps.app.goo.gl/nV3keMN6Np2ZWKtJA\n    - NPO HUB Taipei 台北市中正區重慶南路三段2號 2F\n    - 2F, No. 2, Sec. 3, Chongqing S. Rd., Zhongzheng Dist., Taipei City \n- 當天建議延伸行程：15:30 散步出發至 共生音樂節，地點在凱達格蘭大道，從 NPOHUB 散步過去，只要 10 分鐘 ~\n    - 活動資訊：https://www.facebook.com/GongSheng228/posts/pfbid026vYKc3mYsUu9Pnhs1CB5HU38STEfHzZNvdXRTgyHeyAqoSpLTDkCSaq1nueo9GMTl?locale=zh_TW",
+  "warnings": [],
+  "first_seen": "2025-02-16",
+  "in_source": false,
+  "removed_from_source": "2025-03-03",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1739710208207",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470"
+  }
+}

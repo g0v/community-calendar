@@ -2,13 +2,13 @@
   "id": "2025-05-15-5381cc",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "2026 年，亞太維基社群 ESEAP，地點在高雄",
+  "title": "2026 年，亞太維基社群 ESEAP",
   "date_start": "2025-05-15",
   "date_end": "2025-05-17",
   "date_precision": "day",
   "start_time": null,
   "end_time": null,
-  "venue": null,
+  "venue": "高雄",
   "address": null,
   "signup_url": null,
   "notes_url": null,
@@ -21,11 +21,11 @@
   "month_section": "2026-05",
   "raw": "2025/05/15-17，2026 年，亞太維基社群 ESEAP，地點在高雄",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-07-26",
   "in_source": false,
-  "removed_from_source": "2025-09-23",
+  "removed_from_source": "2025-09-26",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753479308372",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1758594309050"
   }
 }

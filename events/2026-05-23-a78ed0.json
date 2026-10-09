@@ -25,11 +25,11 @@
   "month_section": "2026-05",
   "raw": "2026/05/23-24 g0v Summit\n- 臺北市南港區中央研究院人文館\n- https://summit.g0v.tw/2026/",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-07-26",
   "in_source": false,
-  "removed_from_source": "2026-10-06",
+  "removed_from_source": "2026-06-03",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753479308372",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1780260911352"
   }
 }

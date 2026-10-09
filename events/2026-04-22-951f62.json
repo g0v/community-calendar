@@ -1,0 +1,42 @@
+{
+  "id": "2026-04-22-951f62",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "面對 AI 與國際趨勢：在企業推開源的你不孤單－ 2026 OpenChain 臺灣社群小聚",
+  "date_start": "2026-04-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": "https://openchain.kktix.cc/events/26meetup",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名網址": "https://openchain.kktix.cc/events/26meetup",
+    "ISO/IEC5230": "2020（OpenChain Specification）：建立開源合規管理的基礎流程，協助企業清楚掌握開發過程中開源軟體的使用情形與授權責任"
+  },
+  "links": [
+    "https://openchain.kktix.cc/events/26meetup"
+  ],
+  "description": [
+    "隨著 AI 技術的快速發展，以及國際法規（如歐洲 CRA）逐步落地與影響著合作的國家，企業在使用開放原始碼時，正同時面臨合規、安全與供應鏈透明性等多重挑戰。開源合規，也從過去單純的授權管理問題，逐漸擴展為企業治理與風險控管的重要一環。",
+    "本次小聚將介紹 OpenChain 專案與其最新發展，並邀請具備國內外實務經驗的講者，分享第一線觀察。除了過往在產業中逐漸普及的 SBOM（Software Bill of Materials）與 OSPO（Open Source Program Office）外，也將延伸討論 AI 時代下開源治理的新挑戰與因應方向。",
+    "ISO/IEC 18974（OpenChain Security Assurance Specification）：進一步納入安全與風險管理，回應軟體供應鏈與資安議題",
+    "OpenChain AI System Bill of Materials Compliance Guide：因應生成式 AI 與模型應用的發展，協助企業理解 AI 系統組成、訓練資料與模型來源的透明性與合規要求",
+    "這些工具與標準，正逐步成為企業在 AI 時代中理解與管理開源風險的重要基礎，透過標準化與簡化開源合規實務，協助企業建立一致的管理機制，進而提升整體供應鏈對開源軟體的信任。在這場小聚中，我們也希望透過交流，讓正在企業內部推動開源的你，能夠分享經驗、理解趨勢，並找到屬於自己的下一步。"
+  ],
+  "month_section": "2026-04",
+  "raw": "4/22 週三晚上 面對 AI 與國際趨勢：在企業推開源的你不孤單－ 2026 OpenChain 臺灣社群小聚\n- 報名網址：https://openchain.kktix.cc/events/26meetup\n- 隨著 AI 技術的快速發展，以及國際法規（如歐洲 CRA）逐步落地與影響著合作的國家，企業在使用開放原始碼時，正同時面臨合規、安全與供應鏈透明性等多重挑戰。開源合規，也從過去單純的授權管理問題，逐漸擴展為企業治理與風險控管的重要一環。\n- 本次小聚將介紹 OpenChain 專案與其最新發展，並邀請具備國內外實務經驗的講者，分享第一線觀察。除了過往在產業中逐漸普及的 SBOM（Software Bill of Materials）與 OSPO（Open Source Program Office）外，也將延伸討論 AI 時代下開源治理的新挑戰與因應方向。\n- OpenChain 協助產業在面對開源合規（Open Source Compliance）相關議題與政策時，提供一套可參考的流程與實務框架。在 OpenChain 的國際社群發展中，各種相關標準也持續演進：\n    - ISO/IEC 5230:2020（OpenChain Specification）：建立開源合規管理的基礎流程，協助企業清楚掌握開發過程中開源軟體的使用情形與授權責任\n    - ISO/IEC 18974（OpenChain Security Assurance Specification）：進一步納入安全與風險管理，回應軟體供應鏈與資安議題\n    - OpenChain AI System Bill of Materials Compliance Guide：因應生成式 AI 與模型應用的發展，協助企業理解 AI 系統組成、訓練資料與模型來源的透明性與合規要求\n- 這些工具與標準，正逐步成為企業在 AI 時代中理解與管理開源風險的重要基礎，透過標準化與簡化開源合規實務，協助企業建立一致的管理機制，進而提升整體供應鏈對開源軟體的信任。在這場小聚中，我們也希望透過交流，讓正在企業內部推動開源的你，能夠分享經驗、理解趨勢，並找到屬於自己的下一步。",
+  "warnings": [],
+  "first_seen": "2026-03-30",
+  "in_source": false,
+  "removed_from_source": "2026-05-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1774875011261",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1777223711401"
+  }
+}

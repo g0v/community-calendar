@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-19-49d183",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "開源通訊網路新手村",
+  "date_start": "2026-07-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "是否常聽到人說": "「網路斷線後可以用那個 Mesh 啊！」",
+    "時間｜7月19日_10": "30-12:00"
+  },
+  "links": [
+    "https://forms.gle/HNDsdMrbp7sz4Wvi6"
+  ],
+  "description": [
+    "如果有聽過，表示你有在關注「斷網後怎麼通訊」的議題；如果沒聽過，但很在意「如果斷網怎麼辦？」那這也是一個開始了解的機會。",
+    "Mesh 本意是網，常用來指網狀結構的網路和通訊，也就是不完全依賴單一集中的發送點（如電信基地台），而是透過多台設備彼此連結，形成可以互相傳遞訊息的網路。",
+    "這是網狀網路的其中一套技術系統，也是台灣民間常討論的離網通訊方案，並有相當活動的社群在搭建和交流技術。Meshtastic 利用 LoRa 無線電技術，在不依賴行動網路、Wi-Fi 或網際網路的情況下，讓裝置之間形成分散式的網狀通訊網路。",
+    "在這場新手工作坊中，我們將從零開始介紹 Meshtastic 的運作方式、硬體設備選擇、軟體安裝與基本設定。歡迎第一次接觸 Meshtastic 的初學者，帶著自有的裝置一起參與🙌。若無裝置者，也可以來聽聽看，現場會有少量裝置給大家玩玩看。",
+    "✦ 地點｜NPO Hub 二樓，Impact Space。",
+    "✦ 人數有限，請務必事先報名。"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/19 週日上午 開源通訊網路新手村\n- 是否常聽到人說：「網路斷線後可以用那個 Mesh 啊！」\n    - 如果有聽過，表示你有在關注「斷網後怎麼通訊」的議題；如果沒聽過，但很在意「如果斷網怎麼辦？」那這也是一個開始了解的機會。\n- ▌Mesh 是什麼？\n    - Mesh 本意是網，常用來指網狀結構的網路和通訊，也就是不完全依賴單一集中的發送點（如電信基地台），而是透過多台設備彼此連結，形成可以互相傳遞訊息的網路。\n- ▌Meshtastic 是什麼？\n    - 這是網狀網路的其中一套技術系統，也是台灣民間常討論的離網通訊方案，並有相當活動的社群在搭建和交流技術。Meshtastic 利用 LoRa 無線電技術，在不依賴行動網路、Wi-Fi 或網際網路的情況下，讓裝置之間形成分散式的網狀通訊網路。\n- 在這場新手工作坊中，我們將從零開始介紹 Meshtastic 的運作方式、硬體設備選擇、軟體安裝與基本設定。歡迎第一次接觸 Meshtastic 的初學者，帶著自有的裝置一起參與🙌。若無裝置者，也可以來聽聽看，現場會有少量裝置給大家玩玩看。\n- ✦ 時間｜7月19日 _ 10:30-12:00\n- ✦ 地點｜NPO Hub 二樓，Impact Space。\n- ✦ 人數有限，請務必事先報名。\n- https://forms.gle/HNDsdMrbp7sz4Wvi6",
+  "warnings": [],
+  "first_seen": "2026-06-25",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782345010311",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

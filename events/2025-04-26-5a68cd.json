@@ -2,33 +2,36 @@
   "id": "2025-04-26-5a68cd",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "揪松團預計舉辦 g0v x NGO 提案工作坊",
+  "title": "揪松團舉辦 g0v x NGO 提案工作坊",
   "date_start": "2025-04-26",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "02:00",
+  "end_time": "05:00",
   "venue": "NPO HUB Taipei 二樓 202",
   "address": null,
   "signup_url": null,
-  "notes_url": null,
+  "notes_url": "https://g0v.hackmd.io/Qk2fXBpKTP6Qh1M4wFumoA?view",
   "page_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
     "地點": "NPO HUB Taipei 二樓 202",
-    "共筆": ""
+    "時間": "4/26 週六下午 2:00-5:00",
+    "共筆": "https://g0v.hackmd.io/Qk2fXBpKTP6Qh1M4wFumoA?view"
   },
-  "links": [],
+  "links": [
+    "https://g0v.hackmd.io/Qk2fXBpKTP6Qh1M4wFumoA?view"
+  ],
   "description": [],
   "month_section": "2025-04",
-  "raw": "4/26 Sat. 週六下午，揪松團預計舉辦 g0v x NGO 提案工作坊\n- 地點：NPO HUB Taipei 二樓 202 \n- 共筆：",
+  "raw": "4/26 Sat. 週六下午，**揪松團舉辦 g0v x NGO 提案工作坊**\n- 地點：NPO HUB Taipei 二樓 202 \n- 時間：4/26 週六下午 2:00-5:00\n- 共筆：https://g0v.hackmd.io/Qk2fXBpKTP6Qh1M4wFumoA?view",
   "warnings": [],
-  "first_seen": "2025-03-28",
+  "first_seen": "2025-03-27",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-05-14",
   "archive": {
-    "first": "https://web.archive.org/web/20250328111733/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743072009517",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
   }
 }

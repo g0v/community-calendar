@@ -1,0 +1,35 @@
+{
+  "id": "2025-02-18-1985ae",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "放輕松",
+  "date_start": "2025-02-18",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動共筆": "s.g0v.tw/rand0mthon"
+  },
+  "links": [],
+  "description": [
+    "地點在臺北市 NPOHub 聚落"
+  ],
+  "month_section": "2025-02",
+  "raw": "2/18 Tue. 週二晚上 19:00 放輕松\n地點在臺北市 NPOHub 聚落\n活動共筆：s.g0v.tw/rand0mthon",
+  "warnings": [],
+  "first_seen": "2025-01-28",
+  "in_source": false,
+  "removed_from_source": "2025-03-03",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1737999628047",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2025-10-19-4948bb",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Meshtastic 台灣妹婿太陽能節點經驗分享會",
+  "date_start": "2025-10-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "10:00",
+  "end_time": null,
+  "venue": "104027 台北市中山區玉門街 1 號 — 自造者協會",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025 年 10 月 19 日（日）10:00 AM – 12:00 PM",
+    "地點": "104027 台北市中山區玉門街 1 號 — 自造者協會",
+    "適合參加的人": "",
+    "活動詳細資訊": "https://www.facebook.com/events/1239299524624693"
+  },
+  "links": [
+    "https://www.facebook.com/events/1239299524624693"
+  ],
+  "description": [
+    "想打造離網 LoRa / Meshtastic 節點的人",
+    "想了解太陽能系統實作、儲能規劃的新手與工程師",
+    "對開源通訊、災害韌性、能源自給有興趣的朋友"
+  ],
+  "month_section": "2025-10",
+  "raw": "10/19 週日上午 Meshtastic 台灣妹婿太陽能節點經驗分享會\n- 📍 時間：2025 年 10 月 19 日（日）10:00 AM – 12:00 PM\n- 📍 地點：104027 台北市中山區玉門街 1 號 — 自造者協會\n- 👥 適合參加的人：\n    - 想打造離網 LoRa / Meshtastic 節點的人\n    - 想了解太陽能系統實作、儲能規劃的新手與工程師\n    - 對開源通訊、災害韌性、能源自給有興趣的朋友\n- 活動詳細資訊：https://www.facebook.com/events/1239299524624693",
+  "warnings": [],
+  "first_seen": "2025-10-14",
+  "in_source": false,
+  "removed_from_source": "2025-10-31",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1760440208943",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
+  }
+}

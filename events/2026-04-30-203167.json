@@ -1,0 +1,50 @@
+{
+  "id": "2026-04-30-203167",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "第貳拾壹次國會松 - mySociety 公民科技報告線上讀書會",
+  "date_start": "2026-04-30",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "20:00",
+  "end_time": "22:00",
+  "venue": "線上會議室",
+  "address": null,
+  "signup_url": "https://g0vcongressthon.oen.tw/events/3BoGq11hQNe0oX6pkJ2bTf2EVd2",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名": "https://g0vcongressthon.oen.tw/events/3BoGq11hQNe0oX6pkJ2bTf2EVd2",
+    "導讀團隊": "g0v國會松小組ㄉ夥伴們",
+    "活動資訊": "",
+    "時間": "4/30（四）20:00 - 22:00",
+    "地點": "線上會議室"
+  },
+  "links": [
+    "https://g0vcongressthon.oen.tw/events/3BoGq11hQNe0oX6pkJ2bTf2EVd2"
+  ],
+  "description": [
+    "「AI 真的能幫我們監督國會嗎？還是會讓真相被淹沒在數據雜訊裡？」",
+    "g0v 國會松長期致力於國會資料透明化，讓複雜的數據變得平易近人。但當 AI 浪潮襲來，新的挑戰也隨之展開：雖然 AI 可以一秒摘要法案，卻也可能產出充滿「幻覺」的雜訊，怎麼辦？",
+    "這次，我們想邀請大家一起來聊聊 mySociety 的最新研究報告，我們該如何在倡議的路上，聰明地「評估」與「理解」AI，選擇真正有益且符合民主價值的技術路徑。",
+    "是盲從還是剛需？你的專案真的需要 AI 嗎？",
+    "當生產成本趨近於零，我們付得起「驗證」的代價嗎？",
+    "如何評估適合的模型？我們又如何監督 AI 的輸出？",
+    "你不一定要讀完報告才能參加（但我們非常鼓勵閱讀後一起加入👉點擊閱讀），只要對數位民主有想法，都歡迎來線上互動、聊聊未來的實踐方式！",
+    "✔ 想知道 AI 如何優化現有專案的技術黑客",
+    "✔ 想學習一套理性的 AI 決策框架的科技公民",
+    "✔ 對議會監督、公民科技有興趣的學生、設計師、NGO 工作者"
+  ],
+  "month_section": "2026-04",
+  "raw": "4/30 週四晚上 第貳拾壹次國會松 - mySociety 公民科技報告線上讀書會\n- 報名：https://g0vcongressthon.oen.tw/events/3BoGq11hQNe0oX6pkJ2bTf2EVd2\n- AI 浪潮來襲，但我的專案真的需要 AI 嗎？\n    - 「AI 真的能幫我們監督國會嗎？還是會讓真相被淹沒在數據雜訊裡？」\n    - g0v 國會松長期致力於國會資料透明化，讓複雜的數據變得平易近人。但當 AI 浪潮襲來，新的挑戰也隨之展開：雖然 AI 可以一秒摘要法案，卻也可能產出充滿「幻覺」的雜訊，怎麼辦？\n    - 這次，我們想邀請大家一起來聊聊 mySociety 的最新研究報告，我們該如何在倡議的路上，聰明地「評估」與「理解」AI，選擇真正有益且符合民主價值的技術路徑。\n    - 是盲從還是剛需？你的專案真的需要 AI 嗎？\n    - 當生產成本趨近於零，我們付得起「驗證」的代價嗎？\n    - 如何評估適合的模型？我們又如何監督 AI 的輸出？\n- 本次工作坊將由三位導讀者輪流分享，\n    - 你不一定要讀完報告才能參加（但我們非常鼓勵閱讀後一起加入👉點擊閱讀），只要對數位民主有想法，都歡迎來線上互動、聊聊未來的實踐方式！\n- 📍誰適合參加？\n    - ✔ 想知道 AI 如何優化現有專案的技術黑客\n    - ✔ 想學習一套理性的 AI 決策框架的科技公民\n    - ✔ 對議會監督、公民科技有興趣的學生、設計師、NGO 工作者\n- 導讀團隊：g0v國會松小組ㄉ夥伴們\n- 活動資訊：\n    - 🗓 時間：4/30（四）20:00 - 22:00\n    - 📍 地點：線上會議室",
+  "warnings": [],
+  "first_seen": "2026-04-07",
+  "in_source": false,
+  "removed_from_source": "2026-05-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1775552413243",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1777223711401"
+  }
+}

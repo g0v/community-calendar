@@ -1,0 +1,42 @@
+{
+  "id": "2025-08-13-36d2b9",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "學校資料小聚 (線上活動)",
+  "date_start": "2025-08-13",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": "20:30",
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "線上會議網址": "https://meet.google.com/rva-yjfv-mny",
+    "資料集展示及檔案下載網址": "https://sites.google.com/view/reschool/"
+  },
+  "links": [
+    "https://meet.google.com/rva-yjfv-mny",
+    "https://sites.google.com/view/reschool/"
+  ],
+  "description": [
+    "2041 年全國國小就學人數推估線上地圖",
+    "分校分班清單資料 (72筆，有經緯度)",
+    "歷年廢併校國小清單資料 (約 400 筆，目前正持續建立活化或轉用的類型標籤)",
+    "歡迎協助瀏覽線上地圖，看看推估資料與實際鄉鎮經驗是否有落差 💡"
+  ],
+  "month_section": "2025-08",
+  "raw": "8/13 週三晚上 19:00-20:30 學校資料小聚 (線上活動)\n- 線上會議網址：https://meet.google.com/rva-yjfv-mny\n- 利用過往的教育部學校就學人數歷年資料，推估 未來的每間國小就學人數預估，有製作成線上地圖，並持續整理相關資料集\n    - 2041 年全國國小就學人數推估線上地圖 \n    - 分校分班清單資料 (72筆，有經緯度)\n    - 歷年廢併校國小清單資料 (約 400 筆，目前正持續建立活化或轉用的類型標籤)\n    - 資料集展示及檔案下載網址：https://sites.google.com/view/reschool/\n    - 歡迎協助瀏覽線上地圖，看看推估資料與實際鄉鎮經驗是否有落差 💡",
+  "warnings": [],
+  "first_seen": "2025-08-08",
+  "in_source": false,
+  "removed_from_source": "2025-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1754628908466",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
+  }
+}

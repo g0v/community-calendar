@@ -1,0 +1,36 @@
+{
+  "id": "2026-08-27-42e297",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "網路自由小聚 [8月]：年齡驗證究竟驗證了什麼？",
+  "date_start": "2026-08-27",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://ocftw.kktix.cc/events/internetfreedom-aug2026",
+    "https://ocf.tw/p/infr/"
+  ],
+  "description": [
+    "年齡驗證機制在國際間已經開始落實。歐盟執委會已於 2026 年 4 月決議，各會員國要在 2026 年底前推出年齡驗證 App，可選擇整合進歐盟數位身分皮夾 (EU Digital Identity Wallet)。這項機制的技術核心是 zero-knowledge proof (ZKP)，聲稱能做到「不可連結性」(unlinkability by design)，也就是使用者出示年齡證明時，不會留下可回頭辨識身分的軌跡。然而，如果簽章、金鑰、撤銷查詢紀錄、裝置識別碼、錢包記錄......等資料可以被拿來重複比對辨識，使用者還是可能被追蹤。本活動聚焦在年齡驗證的相關技術機制，以及「不可連結性」是不是真的。選擇性揭露 (Selective disclosure)、ZKP 真的能成為最佳解決方案，還是仍然不完美有缺口？可能有更多的技術能補上這個缺口：匿名憑證、隱私保護式撤銷、匿名裝置綁定......。這場活動希望與參與者一起討論，該如何設計才能運用這些技術，讓年齡與資格驗證兼顧隱私，避免發證單位、憑證、裝置、記錄等各種有可能洩露隱私資料的地方成為破口。"
+  ],
+  "month_section": "2026-08",
+  "raw": "8/27 週四晚上 網路自由小聚 [8月]：年齡驗證究竟驗證了什麼？\n- https://ocftw.kktix.cc/events/internetfreedom-aug2026\n- https://ocf.tw/p/infr/\n- 年齡驗證機制在國際間已經開始落實。歐盟執委會已於 2026 年 4 月決議，各會員國要在 2026 年底前推出年齡驗證 App，可選擇整合進歐盟數位身分皮夾 (EU Digital Identity Wallet)。這項機制的技術核心是 zero-knowledge proof (ZKP)，聲稱能做到「不可連結性」(unlinkability by design)，也就是使用者出示年齡證明時，不會留下可回頭辨識身分的軌跡。然而，如果簽章、金鑰、撤銷查詢紀錄、裝置識別碼、錢包記錄......等資料可以被拿來重複比對辨識，使用者還是可能被追蹤。本活動聚焦在年齡驗證的相關技術機制，以及「不可連結性」是不是真的。選擇性揭露 (Selective disclosure)、ZKP 真的能成為最佳解決方案，還是仍然不完美有缺口？可能有更多的技術能補上這個缺口：匿名憑證、隱私保護式撤銷、匿名裝置綁定......。這場活動希望與參與者一起討論，該如何設計才能運用這些技術，讓年齡與資格驗證兼顧隱私，避免發證單位、憑證、裝置、記錄等各種有可能洩露隱私資料的地方成為破口。",
+  "warnings": [],
+  "first_seen": "2026-07-24",
+  "in_source": false,
+  "removed_from_source": "2026-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
+  }
+}

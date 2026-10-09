@@ -1,0 +1,38 @@
+{
+  "id": "2025-08-16-70a892",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "揪松團嘉義快閃交流",
+  "date_start": "2025-08-16",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "嘉義西市場數位翻轉基地 https://maps.app.goo.gl/uLr7P6GX92VmVwad9",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "8/16 Sat. 週六下午 3點到6點",
+    "地點": "嘉義西市場數位翻轉基地 https://maps.app.goo.gl/uLr7P6GX92VmVwad9",
+    "活動共筆": "https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view"
+  },
+  "links": [
+    "https://maps.app.goo.gl/uLr7P6GX92VmVwad9",
+    "https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view"
+  ],
+  "description": [],
+  "month_section": "2025-08",
+  "raw": "8/16 週六下午 揪松團嘉義快閃交流\n- 時間：8/16 Sat. 週六下午 3點到6點\n- 地點：嘉義西市場數位翻轉基地 https://maps.app.goo.gl/uLr7P6GX92VmVwad9\n- 活動共筆：https://g0v.hackmd.io/71J-oG2VThSDQomGVzi0HA?view",
+  "warnings": [],
+  "first_seen": "2025-07-08",
+  "in_source": false,
+  "removed_from_source": "2025-07-28",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1751967009430",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753473909667"
+  }
+}

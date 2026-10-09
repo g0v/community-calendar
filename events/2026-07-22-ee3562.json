@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-22-ee3562",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Vibe Coding vs. AI Coding — 為什麼你用了 AI，還是覺得在碰運氣？",
+  "date_start": "2026-07-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": "21:00",
+  "venue": "五倍學院（台北市中正區衡陽路 7 號 5 樓）",
+  "address": null,
+  "signup_url": "https://luma.com/5fltzss2",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "7/22（三）19:00–21:00",
+    "地點": "五倍學院（台北市中正區衡陽路 7 號 5 樓）",
+    "報名": "https://luma.com/5fltzss2",
+    "費用": "100 元現場收取（含一瓶飲料）"
+  },
+  "links": [
+    "https://luma.com/5fltzss2"
+  ],
+  "description": [
+    "你一定用過 ChatGPT 或 Claude 幫你寫 code。 有時候一次就給你要的，有時候改了十遍還是不對，你也說不出為什麼。",
+    "差別不在 AI 強不強，而在你是 vibe coding 還是 AI coding， 前者是 AI 給什麼你就用什麼、能跑就好； 後者是你知道自己要什麼，做得出來、也驗收得了。",
+    "七月小聚請到 Ci Yang， 他用 Claude Code 一個下午清掉 13 年、4 萬多封 Gmail，也分享過「睡一覺起來完成一個公司的重構專案」，這晚他不只講，還會現場 Live Demo，再帶大家親手做一次！",
+    "📅 活動資訊"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/22 週三晚上 Vibe Coding vs. AI Coding — 為什麼你用了 AI，還是覺得在碰運氣？\n- 你一定用過 ChatGPT 或 Claude 幫你寫 code。 有時候一次就給你要的，有時候改了十遍還是不對，你也說不出為什麼。\n- 差別不在 AI 強不強，而在你是 vibe coding 還是 AI coding， 前者是 AI 給什麼你就用什麼、能跑就好； 後者是你知道自己要什麼，做得出來、也驗收得了。\n- 七月小聚請到 Ci Yang， 他用 Claude Code 一個下午清掉 13 年、4 萬多封 Gmail，也分享過「睡一覺起來完成一個公司的重構專案」，這晚他不只講，還會現場 Live Demo，再帶大家親手做一次！\n- 📅 活動資訊\n- 日期：7/22（三）19:00–21:00\n- 地點：五倍學院（台北市中正區衡陽路 7 號 5 樓）\n- 報名：https://luma.com/5fltzss2\n- 費用：100 元現場收取（含一瓶飲料）",
+  "warnings": [],
+  "first_seen": "2026-06-22",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782092411019",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

@@ -6,7 +6,7 @@
   "date_start": "2025-03-18",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
+  "start_time": "07:40",
   "end_time": null,
   "venue": null,
   "address": null,
@@ -26,11 +26,11 @@
   "month_section": "2025-03",
   "raw": "3/18 Tue. 晚上 7:40 **Rentea 社群小聚** 線上\n- https://rentalhouse.g0v.ddio.io/\n- 視訊連結：https://meet.jit.si/rentea-tuesday",
   "warnings": [],
-  "first_seen": "2025-03-20",
+  "first_seen": "2025-03-18",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-04-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1742278209440",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743849609388"
   }
 }

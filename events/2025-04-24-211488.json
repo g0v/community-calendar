@@ -1,0 +1,43 @@
+{
+  "id": "2025-04-24-211488",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "從文件地獄逃生！打造屬於你的自動轉檔流程",
+  "date_start": "2025-04-24",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": "21:00",
+  "venue": "台北NPO聚落 NPO HUB Taipei / Impact Hub Taipei - Zhongzheng（中正）",
+  "address": null,
+  "signup_url": "https://forms.gle/6RvhJByniBUae84c8",
+  "notes_url": "https://g0v.hackmd.io/@jothon/ai",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025.04.24 19:00-21:00 (18:30 開放報到入場）",
+    "地點": "台北NPO聚落 NPO HUB Taipei / Impact Hub Taipei - Zhongzheng（中正）",
+    "報名": "https://forms.gle/6RvhJByniBUae84c8",
+    "共筆": "https://g0v.hackmd.io/@jothon/ai"
+  },
+  "links": [
+    "https://forms.gle/6RvhJByniBUae84c8",
+    "https://g0v.hackmd.io/@jothon/ai"
+  ],
+  "description": [
+    "第一階段將是專案分享【Google Docs ➜ Google Sheets 的轉檔工具】",
+    "第二階段會是專案討論/協助【Google Sheets ➜ Google Slides 的自動化排版設計】",
+    "歡迎有興趣的人一起來參加！"
+  ],
+  "month_section": "2025-04",
+  "raw": "4/24 [AI 麻瓜共學團]#2 **從文件地獄逃生！打造屬於你的自動轉檔流程**\n- 活動內容\n    - 第一階段將是專案分享【Google Docs ➜ Google Sheets 的轉檔工具】\n    - 第二階段會是專案討論/協助【Google Sheets ➜ Google Slides 的自動化排版設計】\n    - 歡迎有興趣的人一起來參加！\n- 時間：2025.04.24 19:00-21:00 (18:30 開放報到入場）\n- 地點：台北NPO聚落 NPO HUB Taipei / Impact Hub Taipei - Zhongzheng（中正）\n- 報名：https://forms.gle/6RvhJByniBUae84c8\n- 共筆：https://g0v.hackmd.io/@jothon/ai",
+  "warnings": [],
+  "first_seen": "2025-04-10",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1744295409548",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

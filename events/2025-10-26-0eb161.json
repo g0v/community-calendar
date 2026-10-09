@@ -1,0 +1,37 @@
+{
+  "id": "2025-10-26-0eb161",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Cofacts 真的假的 第49次查核協作培訓",
+  "date_start": "2025-10-26",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "17:00",
+  "venue": "小樹屋｜紅豆杉 201",
+  "address": null,
+  "signup_url": "https://cofacts.kktix.cc/events/cofactseditor49",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名網址": "https://cofacts.kktix.cc/events/cofactseditor49",
+    "時間": "2025/10/26 週日 14:00-17:00",
+    "地點": "小樹屋｜紅豆杉 201"
+  },
+  "links": [
+    "https://cofacts.kktix.cc/events/cofactseditor49"
+  ],
+  "description": [],
+  "month_section": "2025-10",
+  "raw": "10/26 週日下午 Cofacts 真的假的 第49次查核協作培訓\n- 報名網址：https://cofacts.kktix.cc/events/cofactseditor49\n- 時間：2025/10/26 週日 14:00-17:00\n- 地點：小樹屋｜紅豆杉 201",
+  "warnings": [],
+  "first_seen": "2025-10-07",
+  "in_source": false,
+  "removed_from_source": "2025-10-31",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759841409295",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
+  }
+}

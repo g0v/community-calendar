@@ -8,7 +8,7 @@
   "date_precision": "day",
   "start_time": null,
   "end_time": null,
-  "venue": "臺北市士林區福國路101號，台北高等行政法院",
+  "venue": null,
   "address": null,
   "signup_url": null,
   "notes_url": null,
@@ -19,15 +19,17 @@
   "links": [
     "https://g0v.hackmd.io/_GKcnfHQTQWCN_zSAcUdew"
   ],
-  "description": [],
-  "month_section": "2025-null",
-  "raw": "2/18 Tue. 週二下午 **法庭觀察松 - 個人資料外洩議題**，地點在臺北市士林區福國路101號，台北高等行政法院 \nhttps://g0v.hackmd.io/_GKcnfHQTQWCN_zSAcUdew",
+  "description": [
+    "地點在臺北市士林區福國路101號，台北高等行政法院"
+  ],
+  "month_section": "2025-02",
+  "raw": "2/18 Tue. 週二下午 **法庭觀察松 - 個人資料外洩議題**\n地點在臺北市士林區福國路101號，台北高等行政法院 \nhttps://g0v.hackmd.io/_GKcnfHQTQWCN_zSAcUdew",
   "warnings": [],
-  "first_seen": "2025-01-14",
+  "first_seen": "2025-01-04",
   "in_source": false,
-  "removed_from_source": "2025-03-20",
+  "removed_from_source": "2025-03-03",
   "archive": {
-    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1735927786603",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470"
   }
 }

@@ -1,0 +1,36 @@
+{
+  "id": "2025-04-15-87a23d",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v Rand0mth 23 n 第 貳拾參 次放輕松",
+  "date_start": "2025-04-15",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "07:00",
+  "end_time": "09:00",
+  "venue": "NPO Hub 202 辦公室",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動地點": "NPO Hub 202 辦公室",
+    "活動地址": "台北市中正區重慶南路三段2號",
+    "活動時間": "2025/04/15 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)",
+    "活動共筆": "s.g0v.tw/rand0mthon"
+  },
+  "links": [],
+  "description": [],
+  "month_section": "2025-04",
+  "raw": "4/15 晚上 **g0v Rand0mth 23 n 第 貳拾參 次放輕松**\n- 活動地點：NPO Hub 202 辦公室\n- 活動地址：台北市中正區重慶南路三段2號\n- 活動時間：2025/04/15 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)\n- 活動共筆：s.g0v.tw/rand0mthon",
+  "warnings": [],
+  "first_seen": "2025-04-12",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1744466709240",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

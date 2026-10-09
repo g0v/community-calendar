@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-25-e9216a",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第拾陸次數位韌性松 Digital Resilience Hackath16n",
+  "date_start": "2026-07-25",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v-digiresi.kktix.cc/events/digiresith16n"
+  ],
+  "description": [],
+  "month_section": "2026-07",
+  "raw": "7/25 週六上下午 g0v 第拾陸次數位韌性松 Digital Resilience Hackath16n\nhttps://g0v-digiresi.kktix.cc/events/digiresith16n",
+  "warnings": [],
+  "first_seen": "2026-07-23",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784802313966",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

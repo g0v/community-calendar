@@ -2,12 +2,12 @@
   "id": "2025-09-11-94c8af",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "19:00-21:20 Functional Thursday 社群活動",
+  "title": "Functional Thursday 社群活動",
   "date_start": "2025-09-11",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "19:00",
+  "end_time": "21:20",
   "venue": null,
   "address": null,
   "signup_url": null,
@@ -23,11 +23,11 @@
   "month_section": "2025-09",
   "raw": "9/11 週四晚上 19:00-21:20 Functional Thursday 社群活動\n- ▶︎主題：R1CS as Puzzles: Compiling to Constraints",
   "warnings": [],
-  "first_seen": "2025-09-08",
+  "first_seen": "2025-09-01",
   "in_source": false,
-  "removed_from_source": "2025-11-03",
+  "removed_from_source": "2025-10-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250908214944/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250923072823/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756716908317",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759209908870"
   }
 }

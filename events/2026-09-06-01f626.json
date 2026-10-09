@@ -1,0 +1,37 @@
+{
+  "id": "2026-09-06-01f626",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Wikiwomen Taiwan「薇姬的房間」九月第 134 次聚會",
+  "date_start": "2026-09-06",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "17:00",
+  "venue": "台北 NPO 聚落 4F（臺北市中正區重慶南路三段2號）",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "主題": "薇姬的房間第 134 次聚會 - WikiNights 臺菲連線",
+    "時間": "09/06 (日) 14:00-17:00",
+    "地點": "台北 NPO 聚落 4F（臺北市中正區重慶南路三段2號）"
+  },
+  "links": [
+    "https://wikiwomen.kktix.cc/events/wikiwomen-2609"
+  ],
+  "description": [],
+  "month_section": "2026-09",
+  "raw": "9/06 週日下午 Wikiwomen Taiwan「薇姬的房間」九月第 134 次聚會\n- 主題：薇姬的房間第 134 次聚會 - WikiNights 臺菲連線\n- 時間：09/06 (日) 14:00-17:00\n- 地點：台北 NPO 聚落 4F（臺北市中正區重慶南路三段2號）\n- https://wikiwomen.kktix.cc/events/wikiwomen-2609",
+  "warnings": [],
+  "first_seen": "2026-08-29",
+  "in_source": false,
+  "removed_from_source": "2026-09-26",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788015911031",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1790246110531"
+  }
+}

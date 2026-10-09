@@ -1,0 +1,39 @@
+{
+  "id": "2025-08-14-2333bb",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Functional Thursday 將分享一個有趣又易懂的主題：Heighway Dragon Curve: 從摺紙到摺函數！",
+  "date_start": "2025-08-14",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "分享者": "張庭梧，前電機系學生，喜歡用程式製作一些奇妙的圖像或動畫。",
+    "地點": "g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室",
+    "活動FB頁面": "https://www.facebook.com/share/p/1GArtKq5oz/"
+  },
+  "links": [
+    "https://www.facebook.com/share/p/1GArtKq5oz/"
+  ],
+  "description": [
+    "透過反覆折疊一條紙帶，紙帶上的摺痕會產生越來越複雜的圖樣，而當這樣的步驟無限重複時，便會形成被稱為「龍形曲線」（Heighway dragon curve）的美麗碎形曲線。我們將介紹龍形曲線由紙帶折疊所衍生出的兩種構造方式，以及如何運用函數式程式設計形式化並推廣龍形曲線。最終，我們將揭示這兩種構造方式如何能被更高階的 fold 函數加以描述，並透過 foldr 與 foldl 之間的對偶性建立兩種構造方式的等價證明。"
+  ],
+  "month_section": "2025-08",
+  "raw": "8/14 晚上 Functional Thursday 將分享一個有趣又易懂的主題：Heighway Dragon Curve: 從摺紙到摺函數！\n- 透過反覆折疊一條紙帶，紙帶上的摺痕會產生越來越複雜的圖樣，而當這樣的步驟無限重複時，便會形成被稱為「龍形曲線」（Heighway dragon curve）的美麗碎形曲線。我們將介紹龍形曲線由紙帶折疊所衍生出的兩種構造方式，以及如何運用函數式程式設計形式化並推廣龍形曲線。最終，我們將揭示這兩種構造方式如何能被更高階的 fold 函數加以描述，並透過 foldr 與 foldl 之間的對偶性建立兩種構造方式的等價證明。\n- ▶︎ 分享者：張庭梧，前電機系學生，喜歡用程式製作一些奇妙的圖像或動畫。\n- ▶︎ 地點：g0v 台北社群空間，台北市中正區重慶南路三段2號2樓202室\n- ▶︎ 活動 FB 頁面：https://www.facebook.com/share/p/1GArtKq5oz/",
+  "warnings": [],
+  "first_seen": "2025-08-06",
+  "in_source": false,
+  "removed_from_source": "2025-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1754494809233",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
+  }
+}

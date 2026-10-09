@@ -1,0 +1,38 @@
+{
+  "id": "2026-09-23-50e58f",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "三週三下午 AI 時代的企業開源備忘錄",
+  "date_start": "2026-09-23",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "講題一": "亞洲企業的開源新局：以供應鏈協作創造共同利益，從亞洲企業推動開源的趨勢與金融業實務出發，探討企業如何透過開源治理與供應鏈協作，降低重複投入及溝通成本，為企業、供應商與合作夥伴創造共同利益。",
+    "講者": "Jimmy Huang 黃雋，網絡行動科技股份有限公司（NETivism）共同創辦人",
+    "講題二": "歐盟 CRA 如何影響全球動向：活用開源以妥善因應各國合規管理，結合從開源社群出發到企業輔導的經驗，說明歐盟 CRA 如何影響全球產品與供應鏈管理，以及企業如何正確理解開源、調整內部政策，妥善銜接各國合規要求。",
+    "講題三": "17 年開源 CRM 實戰：讓開源工具成為企業經營的核心引擎，當開源工具從一項技術選擇，化成企業長期經營的基礎，關鍵不只在於採用什麼技術，更在於如何從社群貢獻中，累積專業、深化客戶及社群關係，形成可持續成長的營運模式。"
+  },
+  "links": [
+    "https://docs.google.com/forms/d/e/1FAIpQLSeLyVSewKJV5EOK8NcXgmoxW8pIxTU8VY6PaMxSgGBh9tSfew/viewform"
+  ],
+  "description": [],
+  "month_section": "2026-09",
+  "raw": "9/23 三週三下午 AI 時代的企業開源備忘錄\n- 講題一：亞洲企業的開源新局：以供應鏈協作創造共同利益，從亞洲企業推動開源的趨勢與金融業實務出發，探討企業如何透過開源治理與供應鏈協作，降低重複投入及溝通成本，為企業、供應商與合作夥伴創造共同利益。\n    - 講者：Ryan Hsieh 謝文豪，OSPOlogy Asia 2026 籌備暨議程委員｜企業開源治理實務工作者\n- 講題二：歐盟 CRA 如何影響全球動向：活用開源以妥善因應各國合規管理，結合從開源社群出發到企業輔導的經驗，說明歐盟 CRA 如何影響全球產品與供應鏈管理，以及企業如何正確理解開源、調整內部政策，妥善銜接各國合規要求。\n    - 講者：林誠夏 Lucien C. H. Lin，群牧開源管理顧問有限公司負責人｜OSLN.tw 台灣開源法律網絡共同創辦人\n- 講題三：17 年開源 CRM 實戰：讓開源工具成為企業經營的核心引擎，當開源工具從一項技術選擇，化成企業長期經營的基礎，關鍵不只在於採用什麼技術，更在於如何從社群貢獻中，累積專業、深化客戶及社群關係，形成可持續成長的營運模式。\n    - 講者：Jimmy Huang 黃雋，網絡行動科技股份有限公司（NETivism）共同創辦人\n- https://docs.google.com/forms/d/e/1FAIpQLSeLyVSewKJV5EOK8NcXgmoxW8pIxTU8VY6PaMxSgGBh9tSfew/viewform",
+  "warnings": [],
+  "first_seen": "2026-09-10",
+  "in_source": false,
+  "removed_from_source": "2026-09-26",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1789055109729",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1790246110531"
+  }
+}

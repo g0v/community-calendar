@@ -6,8 +6,8 @@
   "date_start": "2025-03-19",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "19:00",
+  "end_time": "20:00",
   "venue": null,
   "address": null,
   "signup_url": null,
@@ -23,11 +23,11 @@
   "month_section": "2025-03",
   "raw": "3/19 Wed. 晚上 19:00-20:00 **vTaiwan 小聚** 線上\n- https://g0v.hackmd.io/@Pno233SAS8G5UfL5OvSRmA/H1xeO5ofnkg",
   "warnings": [],
-  "first_seen": "2025-03-20",
+  "first_seen": "2025-03-19",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-04-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1742385909701",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743849609388"
   }
 }

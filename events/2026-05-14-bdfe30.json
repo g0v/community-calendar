@@ -34,11 +34,11 @@
   "month_section": "2026-05",
   "raw": "5/14 週四晚上 F4: functional thursday 社群活動 Stream 與 Codata\n- 詳細活動資訊：\n    - 7:15-9:30\n    - 台北市中正區重慶南路三段2號2樓202室\n    - https://www.facebook.com/share/1DUFQ8CC6Q/\n- ▶︎主題：Stream 與 Codata\n    - 眾所周知，有限長的串列 (list) 是一種歸納 (inductive) 資料結構；定義資料 (data) 時，我們列舉出它的建構元；以此種歸納資料結構為輸入的函數可歸納地定義，而這些函數的性質又能以歸納法證明。大家對此耳熟能詳，但這只是故事的一半。\n    - 另一半的故事是：無限長的串列 (stream) 可以視為「餘資料」(codata)，定義餘資料的方式之一是列舉其解構元，輸出餘資料的函數以「餘歸納」(coinductive) 方式定義，而他們的性質可用餘歸納法證明。\n    - 操作餘資料、定義餘歸納函數的思考方式常和我們的習慣反過來，對我來說，彷彿是在學一種新程式語言。這次的分享中，我們來試著玩一些 stream 定義、做一些證明，體驗這種「反過來」的思考。\n    - ▶︎分享者：穆信成 \n        - 中研院資訊所。最常用的寫程式工具是一隻鋼筆。",
   "warnings": [],
-  "first_seen": "2026-01-13",
+  "first_seen": "2026-01-05",
   "in_source": false,
-  "removed_from_source": "2026-10-06",
+  "removed_from_source": "2026-06-03",
   "archive": {
-    "first": "https://web.archive.org/web/20260113221040/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260521045252/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1767605411904",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1780260911352"
   }
 }

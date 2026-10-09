@@ -1,0 +1,37 @@
+{
+  "id": "2025-07-28-fb9157",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "線上 - 公開場【公務結合公民科技_推動計畫】",
+  "date_start": "2025-07-28",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": "https://forms.gle/2ejJJdogWVZRZpAk6",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "提案單位": "臺南市政府警察局資訊室提案【共乘有位 · 共享不累】",
+    "說明": "由台南市政府警察局資訊室的坤祥提案，希望能開發一款新創 APP，透過即時共乘空位分享，媒合有空位的駕駛與需要搭乘的旅人。不只是節能減碳，還能結識同路人，省時又省力，為生活創造更多可能。",
+    "報名網址": "https://forms.gle/2ejJJdogWVZRZpAk6"
+  },
+  "links": [
+    "https://forms.gle/2ejJJdogWVZRZpAk6"
+  ],
+  "description": [],
+  "month_section": "2025-07",
+  "raw": "7/28（一） 14:00 線上 - 公開場【公務結合公民科技_推動計畫】\n- 提案單位：臺南市政府警察局資訊室提案【共乘有位 · 共享不累】\n- 說明：由台南市政府警察局資訊室的坤祥提案，希望能開發一款新創 APP，透過即時共乘空位分享，媒合有空位的駕駛與需要搭乘的旅人。不只是節能減碳，還能結識同路人，省時又省力，為生活創造更多可能。\n- 報名網址：https://forms.gle/2ejJJdogWVZRZpAk6",
+  "warnings": [],
+  "first_seen": "2025-07-09",
+  "in_source": false,
+  "removed_from_source": "2025-08-04",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1752066908653",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753866009646"
+  }
+}

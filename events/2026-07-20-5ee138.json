@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-20-5ee138",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "公民社會的數位防線",
+  "date_start": "2026-07-20",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": "https://ocftw.kktix.cc/events/2026digitalfronline",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "報名連結": "https://ocftw.kktix.cc/events/2026digitalfronline",
+    "公民社會正面臨前所未有的數位威脅": "釣魚信件、帳號入侵、境外干預，越來越近在咫尺，不再只是遠方的新聞故事。",
+    "7/20（一）14": "30–17:10"
+  },
+  "links": [
+    "https://ocftw.kktix.cc/events/2026digitalfronline"
+  ],
+  "description": [
+    "你的組織，是下一個數位攻擊目標嗎？",
+    "7/20（一），開放文化基金會邀請你一起用實際案例了解如何面對數位威脅。",
+    "📄 2 份最新數位威脅報告，揭露台灣公民社會面臨的真實威脅",
+    "🔒 資安陪伴計畫成果分享，公民團體如何一步步建立防護能力",
+    "國家安全會議",
+    "黑熊民防教育協會",
+    "Cisco Talos",
+    "Civil Society Cyber Shield 公民團體資安暨隱私交流計劃",
+    "數位安全不能光交給 IT 部門，但醒醒吧你沒有 IT 部門。",
+    "📍 BEONE 未來共生基地會議中心"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/20 週一下午 公民社會的數位防線\n- 報名連結：https://ocftw.kktix.cc/events/2026digitalfronline\n- 你的組織，是下一個數位攻擊目標嗎？\n- 公民社會正面臨前所未有的數位威脅：釣魚信件、帳號入侵、境外干預，越來越近在咫尺，不再只是遠方的新聞故事。\n- 7/20（一），開放文化基金會邀請你一起用實際案例了解如何面對數位威脅。\n- 📄 2 份最新數位威脅報告，揭露台灣公民社會面臨的真實威脅\n- 🔒 資安陪伴計畫成果分享，公民團體如何一步步建立防護能力\n- 🎙️ 1 場圓桌論壇，5 位專家共同參與，講者來自：\n    - 國家安全會議\n    - 黑熊民防教育協會\n    - Cisco Talos\n    - Civil Society Cyber Shield 公民團體資安暨隱私交流計劃\n- 數位安全不能光交給 IT 部門，但醒醒吧你沒有 IT 部門。\n- 📅 7/20（一）14:30–17:10\n- 📍 BEONE 未來共生基地會議中心",
+  "warnings": [],
+  "first_seen": "2026-06-26",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782438612812",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

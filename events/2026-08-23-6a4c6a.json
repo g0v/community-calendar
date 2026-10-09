@@ -1,0 +1,40 @@
+{
+  "id": "2026-08-23-6a4c6a",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "2026 中臺灣街景踏察維基媒體工作坊",
+  "date_start": "2026-08-23",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "#淺山綠 獨立書店 358苗栗縣苑裡鎮南勢里南勢七鄰93號",
+  "address": null,
+  "signup_url": "https://g0v.social/@wikidatataiwan/117088904311876096",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2026 年 8 月 23 日下午一點至下午六點(UTC+8)",
+    "地點": "#淺山綠 獨立書店 358苗栗縣苑裡鎮南勢里南勢七鄰93號",
+    "活動詳細資訊與報名網址": "https://g0v.social/@wikidatataiwan/117088904311876096"
+  },
+  "links": [
+    "https://g0v.social/@wikidatataiwan/117088904311876096"
+  ],
+  "description": [
+    "街景踏察團維基媒體工作坊是 Wikidata Taiwan 社群與 OpenStreetMap Taiwan 社群共同推動的臺灣基礎資料建設工作坊，工作坊中以各地方的街景照片為主要核心，擴充 #OpenStreetMap、 #Wikidata 與 Wikimedia Commons 等國際開放平台中臺灣各地區的基礎資料，為臺灣資料基礎建設盡一份心力。",
+    "本次工作坊中將會從零開始進行 OpenStreetMap ( #開放街圖 )、Wikidata、 Wikimedia Commons ( #維基共享資源 )、 #Wikivoyage ( #維基導遊 ) 以及 #Wikipedia ( #維基百科 ) 等開放資料平台的編輯教學，若是對於地方資料紀錄與開放資料相關議題的社群夥伴，即便都沒有使用過這些平台，都非常歡迎參與這次的活動。"
+  ],
+  "month_section": "2026-08",
+  "raw": "8/23 週六下午 2026 中臺灣街景踏察維基媒體工作坊\n- 時間：2026 年 8 月 23 日下午一點至下午六點(UTC+8)\n- 地點：#淺山綠 獨立書店 358苗栗縣苑裡鎮南勢里南勢七鄰93號\n- 活動詳細資訊與報名網址：https://g0v.social/@wikidatataiwan/117088904311876096\n- 街景踏察團維基媒體工作坊是 Wikidata Taiwan 社群與 OpenStreetMap Taiwan 社群共同推動的臺灣基礎資料建設工作坊，工作坊中以各地方的街景照片為主要核心，擴充 #OpenStreetMap、 #Wikidata 與 Wikimedia Commons 等國際開放平台中臺灣各地區的基礎資料，為臺灣資料基礎建設盡一份心力。\n- 本次工作坊中將會從零開始進行 OpenStreetMap ( #開放街圖 )、Wikidata、 Wikimedia Commons ( #維基共享資源 )、 #Wikivoyage ( #維基導遊 ) 以及 #Wikipedia ( #維基百科 ) 等開放資料平台的編輯教學，若是對於地方資料紀錄與開放資料相關議題的社群夥伴，即便都沒有使用過這些平台，都非常歡迎參與這次的活動。",
+  "warnings": [],
+  "first_seen": "2026-08-19",
+  "in_source": false,
+  "removed_from_source": "2026-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1787135110858",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
+  }
+}

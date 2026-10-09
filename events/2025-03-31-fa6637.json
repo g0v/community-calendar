@@ -2,13 +2,13 @@
   "id": "2025-03-31-fa6637",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "19:00-20:30 討論臺北市政府開放資料現況與願景，地點在 NPOHUB 二樓 202 室",
+  "title": "討論臺北市政府開放資料現況與願景",
   "date_start": "2025-03-31",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
-  "venue": null,
+  "start_time": "19:00",
+  "end_time": "20:30",
+  "venue": "NPOHUB 二樓 202 室",
   "address": null,
   "signup_url": null,
   "notes_url": null,
@@ -25,11 +25,11 @@
   "month_section": "2025-03",
   "raw": "3/31 Mon. 週一晚上 19:00-20:30 討論臺北市政府開放資料現況與願景，地點在 NPOHUB 二樓 202 室 \n- 活動網址：https://g0v.hackmd.io/CRNYfKKbRhSvC9MpvozflQ?view",
   "warnings": [],
-  "first_seen": "2025-03-28",
+  "first_seen": "2025-03-26",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-04-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250328111733/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1742972710028",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743849609388"
   }
 }

@@ -1,0 +1,42 @@
+{
+  "id": "2025-04-02-39bde1",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "vTaiwan 社群與 TWNIC 合作的「面對網路詐騙，哪些還沒做？」討論",
+  "date_start": "2025-04-02",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "意見在此": "https://docs.google.com/spreadsheets/d/1xXjnptMcKItVa_9o83R2gnxp-zDwliWnJjNMCK3mW18/edit",
+    "Location": "官民共創HUB / オンライン(ハイブリッド), 東京都港区⻁ノ門1-1-3 磯村ビル３階 Japan"
+  },
+  "links": [
+    "https://docs.google.com/spreadsheets/d/1xXjnptMcKItVa_9o83R2gnxp-zDwliWnJjNMCK3mW18/edit",
+    "https://s.g0v.tw/bayarea",
+    "https://socialhackday70.peatix.com/view"
+  ],
+  "description": [
+    "延續之前在黑魔法防禦松的討論，目前將於 4/2 與六月舉辦兩場與 TWNIC 合作的「面對網路詐騙，哪些還沒做？」討論，歡迎大家針對目前我們設計的種子意見提出討論！",
+    ":ledger: g0v 矽谷灣區社群共筆 Shared Notes  https://s.g0v.tw/bayarea",
+    "日本時間 4/19 Sat. 10:45-18:00 **Social Hack Day #69 Code for Japan** (Online)"
+  ],
+  "month_section": "2025-04",
+  "raw": "4/2 Wed. 週三 vTaiwan 社群與 TWNIC 合作的「面對網路詐騙，哪些還沒做？」討論\n- 延續之前在黑魔法防禦松的討論，目前將於 4/2 與六月舉辦兩場與 TWNIC 合作的「面對網路詐騙，哪些還沒做？」討論，歡迎大家針對目前我們設計的種子意見提出討論！\n- 意見在此：https://docs.google.com/spreadsheets/d/1xXjnptMcKItVa_9o83R2gnxp-zDwliWnJjNMCK3mW18/edit\n\n* Location: Stanford\n* :ledger: g0v 矽谷灣區社群共筆 Shared Notes  https://s.g0v.tw/bayarea\n\n日本時間 4/19 Sat. 10:45-18:00 **Social Hack Day #69 Code for Japan** (Online)\n- https://socialhackday70.peatix.com/view\n- Location: 官民共創HUB / オンライン(ハイブリッド), 東京都港区⻁ノ門1-1-3 磯村ビル３階 Japan",
+  "warnings": [],
+  "first_seen": "2025-03-13",
+  "in_source": false,
+  "removed_from_source": "2025-03-20",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1741873509447",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1742380209344"
+  }
+}

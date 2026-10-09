@@ -8,24 +8,34 @@
   "date_precision": "day",
   "start_time": null,
   "end_time": null,
-  "venue": "臺北市 NPOHub 聚落",
+  "venue": null,
   "address": null,
   "signup_url": null,
   "notes_url": null,
   "page_url": null,
   "host": null,
   "sub_sessions": [],
-  "fields": {},
-  "links": [],
-  "description": [],
-  "month_section": "2025-null",
-  "raw": "2/15 Sat. 週六下午 **g0v 國會松 g0v Congressthon**，地點在臺北市 NPOHub 聚落",
+  "fields": {
+    "第4次g0v灣區小聚": "Mini Hack Day",
+    "Location": "Via Ortega Stanford, CA 94305 United States**"
+  },
+  "links": [
+    "https://g0vcongressthon.oen.tw/events/2sbuSbv75mOfRmCICRCk5QIO9Hu",
+    "https://www.eventbrite.com/e/4-g0v-mini-hack-day-tickets-1235164242499",
+    "https://s.g0v.tw/bayarea"
+  ],
+  "description": [
+    "地點在臺北市 NPOHub 聚落",
+    "**[注意!] 美西時間 Saturday, February 15 · 1:30 - 6:30pm PST"
+  ],
+  "month_section": "2025-02",
+  "raw": "2/15 Sat. 週六下午 **g0v 國會松 g0v Congressthon**\n地點在臺北市 NPOHub 聚落\nhttps://g0vcongressthon.oen.tw/events/2sbuSbv75mOfRmCICRCk5QIO9Hu\n\n**[注意!] 美西時間 Saturday, February 15 · 1:30 - 6:30pm PST\n第4次 g0v 灣區小聚：Mini Hack Day\nLocation: Via Ortega Stanford, CA 94305 United States**\nhttps://www.eventbrite.com/e/4-g0v-mini-hack-day-tickets-1235164242499\nhttps://s.g0v.tw/bayarea",
   "warnings": [],
-  "first_seen": "2025-01-14",
+  "first_seen": "2024-12-21",
   "in_source": false,
-  "removed_from_source": "2025-03-20",
+  "removed_from_source": "2025-03-03",
   "archive": {
-    "first": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250114163847/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1734791709818",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470"
   }
 }

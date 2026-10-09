@@ -1,0 +1,43 @@
+{
+  "id": "2025-08-09-abe269",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "「匿名網路」工作坊",
+  "date_start": "2025-08-09",
+  "date_end": "2025-08-10",
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "國立臺灣科技大學 研揚教學大樓 TR-510 教室",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "2025/08/09（六）、2025/08/10（日）",
+    "地點": "國立臺灣科技大學 研揚教學大樓 TR-510 教室",
+    "活動說明": "https://anoni.net/docs/event-workshop-2025/",
+    "活動型態": ""
+  },
+  "links": [
+    "https://anoni.net/docs/event-workshop-2025/"
+  ],
+  "description": [
+    "包含工作坊、講座、圓桌討論會議",
+    "工作坊將帶領參與者了解並實際操作匿名網路工具，如 Tor/Tails 和 OONI。",
+    "圓桌討論則專注於匿名網路工具、新聞媒體、獨立記者、公民團體與開源社群之間未來的合作與支援可能性。",
+    "有關活動詳情與議程表，請參考活動網站。"
+  ],
+  "month_section": "2025-08",
+  "raw": "8/9-8/10 「匿名網路」工作坊\n- 日期：2025/08/09（六）、2025/08/10（日）\n- 地點：國立臺灣科技大學 研揚教學大樓 TR-510 教室\n- 活動說明：https://anoni.net/docs/event-workshop-2025/\n- 活動型態：\n    - 包含工作坊、講座、圓桌討論會議\n    - 工作坊將帶領參與者了解並實際操作匿名網路工具，如 Tor/Tails 和 OONI。\n    - 圓桌討論則專注於匿名網路工具、新聞媒體、獨立記者、公民團體與開源社群之間未來的合作與支援可能性。\n    - 有關活動詳情與議程表，請參考活動網站。",
+  "warnings": [],
+  "first_seen": "2025-07-30",
+  "in_source": false,
+  "removed_from_source": "2025-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1753866009646",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
+  }
+}

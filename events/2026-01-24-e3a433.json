@@ -1,0 +1,48 @@
+{
+  "id": "2026-01-24-e3a433",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 黑客松 hackath71n",
+  "date_start": "2026-01-25",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "10:30",
+  "end_time": "17:30",
+  "venue": "高雄市",
+  "address": null,
+  "signup_url": "https://g0v-jothon.kktix.cc/events/g0v-hackath71n",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "10": "30-11:00 報到及活動介紹",
+    "11": "00-12:00 提案時間，每個提案 3 分鐘；自我介紹、大合照",
+    "12": "00-16:30 自由分組實作 (午餐自理，場地附近有眾多餐飲選項)",
+    "16": "30-17:30 成果發表時間，每個成果發表 5 分鐘；活動結束",
+    "17": "30-18:00 場地復原",
+    "活動地點": "高雄市",
+    "活動時間": "2026/01/25 週日上午 10:30-17:30",
+    "活動流程": "",
+    "實體場次_報名網址": "https://g0v-jothon.kktix.cc/events/g0v-hackath71n"
+  },
+  "links": [
+    "https://g0v-jothon.kktix.cc/events/g0v-hackath71n",
+    "https://www.youtube.com/@g0vTW/",
+    "https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "description": [
+    "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
+    "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack"
+  ],
+  "month_section": "2026-01",
+  "raw": "**2026/01/25 Sun. g0v 黑客松 hackath71n**\n- 活動地點：高雄市\n- 活動時間：2026/01/25 週日上午 10:30-17:30\n- 活動流程：\n    - 10:00-10:30 場地佈置\n    - 10:30-11:00 報到及活動介紹\n    - 11:00-12:00 提案時間，每個提案 3 分鐘；自我介紹、大合照\n    - 12:00-16:30 自由分組實作 (午餐自理，場地附近有眾多餐飲選項)\n    - 16:30-17:30 成果發表時間，每個成果發表 5 分鐘；活動結束\n    - 17:30-18:00 場地復原\n- 實體場次_報名網址：https://g0v-jothon.kktix.cc/events/g0v-hackath71n\n- Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n- g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
+  "warnings": [],
+  "first_seen": "2025-05-21",
+  "in_source": false,
+  "removed_from_source": "2025-12-17",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747835109369",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1765716009022"
+  }
+}

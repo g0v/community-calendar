@@ -1,0 +1,41 @@
+{
+  "id": "2026-08-08-17f73f",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "AI 開放治理 & Civic Tech 議程",
+  "date_start": "2026-08-08",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "10": "50-11:00 Break / 休息時間",
+    "11": "30-12:00 Towards Trustworthy AI: Essential Open-Source Tools for Agent Bias Detection and Mitigation 邁向可信任 AI：開發者必備的 Agents 偏見檢測與緩解框架 Speaker: Jing-Tian Sung",
+    "13": "30-14:00 Engineer Cafe’s OSS Reception System: A Reproducible Model for Local-Global Collaboration｜Speaker: Kosuke Shimada (Engineer Cafe Community manager)",
+    "14": "50-15:20 Citizen Development Governance in the Era of Generative AI: From Business Innovation to Corporate Management ｜生成式 AI 時代的公民開發治理：從業務創新到企業納管｜Speaker: Teemo",
+    "15": "50-16:20 Building an Open-Source Labor Observatory: Using n8n and LLMs to Track Skill Drift and AI Employment Risks｜打造開源勞動觀測站：用 n8n 與 LLM 解析 AI 時代的職能轉變與就業衝擊｜Speaker: 林源隆 (Wilson)",
+    "16": "20-16:30 Open Discussion / 綜合交流",
+    "09": "30-10:20 AI x Open Source: Global Trends & Policy Landscape｜人工智慧與開源的對話：國際趨勢與政策發展｜Speaker: Ministry of Digital Affairs (數位發展部)"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/ai/https%3A%2F%2Fg0v.hackmd.io%2FX-35BMf_QjW8NntAIGzuhQ%3Fview"
+  ],
+  "description": [],
+  "month_section": "2026-08",
+  "raw": "8/8 週六上下午 AI 開放治理 & Civic Tech 議程\n- https://g0v.hackmd.io/@jothon/ai/https%3A%2F%2Fg0v.hackmd.io%2FX-35BMf_QjW8NntAIGzuhQ%3Fview\n- 議程 AI Open Governance Venue: Room TR411 Time: 09:30 - 12:00\n    - 09:30-10:20 AI x Open Source: Global Trends & Policy Landscape｜人工智慧與開源的對話：國際趨勢與政策發展｜Speaker: Ministry of Digital Affairs (數位發展部)\n    - 10:20-10:50 Open-Source AI: Definition, Risk and Governance｜開源人工智慧的定義、風險與治理｜Speaker: Cui Jia Wei\n    - 10:50-11:00 Break / 休息時間\n    - 11:00-11:30 What did the UN say about Open Source x AI?｜關於開放原始碼 x 人工智慧，聯合國怎麼說？｜Speaker: RR\n    - 11:30-12:00 Towards Trustworthy AI: Essential Open-Source Tools for Agent Bias Detection and Mitigation 邁向可信任 AI：開發者必備的 Agents 偏見檢測與緩解框架 Speaker: Jing-Tian Sung\n- 議程 AI Civic Tech Venue: Room TR411 Time: 13:00 - 16:30\n    - 13:00-13:30 Open source, open voice: the power of FOSS in supporting citizen participation｜Speaker: Lucía Luzuriaga\n    - 13:30-14:00 Engineer Cafe’s OSS Reception System: A Reproducible Model for Local-Global Collaboration｜Speaker: Kosuke Shimada (Engineer Cafe Community manager)\n    - 14:00-14:30 AI Sovereignty in Practice: From Taiwan Benchmark to Production Payment Agents｜Speaker: 蕭新晟\n    - 14:30-14:40 Open Discussion / 綜合交流\n    - 14:40-14:50 Break / 休息時間\n    - 14:50-15:20 Citizen Development Governance in the Era of Generative AI: From Business Innovation to Corporate Management ｜生成式 AI 時代的公民開發治理：從業務創新到企業納管｜Speaker: Teemo\n    - 15:20-15:50 Returning Rescuers to the Frontline: AI-Assisted Development and Open Public-Private Collaboration for Fire Safety Equipment Smart Scheduling System｜讓人力回歸前線：智慧排程系統的 AI 輔助開發與開源公私協力實錄｜Speaker: Josh (杜佳憲)\n    - 15:50-16:20 Building an Open-Source Labor Observatory: Using n8n and LLMs to Track Skill Drift and AI Employment Risks｜打造開源勞動觀測站：用 n8n 與 LLM 解析 AI 時代的職能轉變與就業衝擊｜Speaker: 林源隆 (Wilson)\n    - 16:20-16:30 Open Discussion / 綜合交流",
+  "warnings": [],
+  "first_seen": "2026-07-23",
+  "in_source": false,
+  "removed_from_source": "2026-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784802313966",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
+  }
+}

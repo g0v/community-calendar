@@ -1,0 +1,43 @@
+{
+  "id": "2025-04-27-0ff0d8",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 第拾次國會松 - 預決算資料整理協作黑客松",
+  "date_start": "2025-04-27",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "13:30",
+  "end_time": "17:00",
+  "venue": "台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）",
+  "address": null,
+  "signup_url": "https://g0vcongressthon.oen.tw/events/2vcSlV4wScpMJ1W6jPiLnJbfhQr",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "4/27（日）13:30–17:00（中午12點就可以入場、歡迎大家帶午餐來～）",
+    "地點": "台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）",
+    "開放實體票👉報名連結": "https://g0vcongressthon.oen.tw/events/2vcSlV4wScpMJ1W6jPiLnJbfhQr",
+    "目前已有提案包含": "",
+    "READr": "建立預算資料整理 SOP、規劃未來預算追蹤方向",
+    "公督盟": "下半年將投入人力在國會預算整理，持續關注預算議題",
+    "報導者": "整理地方政府的預算，追蹤《財政收支劃分法》通過後的實際影響"
+  },
+  "links": [
+    "https://g0vcongressthon.oen.tw/events/2vcSlV4wScpMJ1W6jPiLnJbfhQr"
+  ],
+  "description": [
+    "訂閱 g0v 國會松電子報🔗更多詳細資訊：s.g0v.tw/congressthon"
+  ],
+  "month_section": "2025-04",
+  "raw": "4/27 Sun. 週日下午 **g0v 第拾次國會松 - 預決算資料整理協作黑客松**，地點在 NPO HUB Taipei\n- 📅 時間：4/27（日）13:30–17:00（中午12點就可以入場、歡迎大家帶午餐來～）\n- 📍 地點：台北 NPO 聚落／NPO HUB Taipei（台北市中正區重慶南路三段2號，近捷運中正紀念堂站）\n- 開放實體票 👉 報名連結：https://g0vcongressthon.oen.tw/events/2vcSlV4wScpMJ1W6jPiLnJbfhQr\n- 目前已有提案包含：\n    - 📌 READr：建立預算資料整理 SOP、規劃未來預算追蹤方向\n    - 📌 公督盟：下半年將投入人力在國會預算整理，持續關注預算議題\n    - 📌 報導者：整理地方政府的預算，追蹤《財政收支劃分法》通過後的實際影響\n- 📍g0v 國會松是什麼？g0v 國會松是 g0v 零時政府的開放國會專案，每月一次聚會，聚焦國會監督、資料治理、介面設計與測試等議題。透過跨界合作，拉近民間與政局距離，深化民主影響力。歡迎加入我們，一起推動改變！\n    - 訂閱 g0v 國會松電子報🔗更多詳細資訊：s.g0v.tw/congressthon",
+  "warnings": [],
+  "first_seen": "2025-04-04",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743762609845",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

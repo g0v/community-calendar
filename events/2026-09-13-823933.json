@@ -1,0 +1,39 @@
+{
+  "id": "2026-09-13-823933",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 數位韌性松",
+  "date_start": "2026-09-13",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "13:00",
+  "end_time": "17:00",
+  "venue": "臺北市中正區重慶南路三段2號2樓202室",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "臺北市中正區重慶南路三段2號2樓202室"
+  },
+  "links": [],
+  "description": [
+    "g0v-digiresi.kktix.cc/events/digiresith16n-re",
+    "1. OCF 海纜入口網站／手機 App 韌性檢測報告分享",
+    "2. 手機不能上網演習時 OONI 觀測結果 x 社群兵推回顧",
+    "3. 手機不能上網當天的 Mashtastic 實驗心得",
+    "4. ＿＿＿＿＿ 歡迎現場提出你的點子聊聊"
+  ],
+  "month_section": "2026-09",
+  "raw": "9/13 週日下午 13:00-17:00 g0v 數位韌性松\n- 地點：臺北市中正區重慶南路三段2號2樓202室\n- g0v-digiresi.kktix.cc/events/digiresith16n-re \n- 1. OCF 海纜入口網站／手機 App 韌性檢測報告分享\n- 2. 手機不能上網演習時 OONI 觀測結果 x 社群兵推回顧\n- 3. 手機不能上網當天的 Mashtastic 實驗心得\n- 4. ＿＿＿＿＿ 歡迎現場提出你的點子聊聊",
+  "warnings": [],
+  "first_seen": "2026-08-06",
+  "in_source": false,
+  "removed_from_source": "2026-09-26",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1786011613387",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1790246110531"
+  }
+}

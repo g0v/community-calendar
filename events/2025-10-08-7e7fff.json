@@ -1,0 +1,42 @@
+{
+  "id": "2025-10-08-7e7fff",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "違章工廠回報系統地204次小聚",
+  "date_start": "2025-10-08",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:30",
+  "end_time": null,
+  "venue": "實體/線上hybrid",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "2025/10/8（三）19:30 (GMT+8)",
+    "地點": "實體/線上hybrid",
+    "實體地點": "地球公民基金會台北辦公室（北平東路28號9樓之2）",
+    "線上": "https://meet.google.com/coc-vuaa-ykz",
+    "小聚內容": ""
+  },
+  "links": [
+    "https://meet.google.com/coc-vuaa-ykz"
+  ],
+  "description": [
+    "disfactory.tw 圖台問題：測試staging",
+    "回報系統改版討論/設定milestone"
+  ],
+  "month_section": "2025-10",
+  "raw": "10/08 違章工廠回報系統地204次小聚\n- 時間：2025/10/8（三）19:30 (GMT+8)\n- 地點：實體/線上hybrid\n- 實體地點：地球公民基金會台北辦公室（北平東路28號9樓之2）\n- 線上：https://meet.google.com/coc-vuaa-ykz\n- 小聚內容：\n    - disfactory.tw 圖台問題：測試staging\n    - 回報系統改版討論/設定milestone",
+  "warnings": [],
+  "first_seen": "2025-10-07",
+  "in_source": false,
+  "removed_from_source": "2025-10-31",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759841409295",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "2026-07-05-526ccc",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "至中午 出版開源、開源出版！p5.book 用程式做一本開源書！工作坊",
+  "date_start": "2026-07-05",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "10:00",
+  "end_time": "13:00",
+  "venue": "MozTW 摩茲工寮（台北市臺北市中正區重慶南路一段 99 號 世界大樓 11 樓 1105 室）",
+  "address": null,
+  "signup_url": "https://forms.gle/K5LNLRJzZqryVQPW9",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "10": "20–11:00｜p5.js 與生成排版基礎",
+    "11": "00–12:00｜p5.book 架構與實作",
+    "12": "40–13:00｜分享與討論",
+    "工作坊的資訊在這裡": "https://p5-book.vercel.app",
+    "活動時程": "",
+    "活動時間": "2026.07.05 (日) 10:00 - 13:00 (GMT+8)",
+    "活動地點": "MozTW 摩茲工寮（台北市臺北市中正區重慶南路一段 99 號 世界大樓 11 樓 1105 室）",
+    "活動費用": "1000 元",
+    "活動報名連結": "https://forms.gle/K5LNLRJzZqryVQPW9"
+  },
+  "links": [
+    "https://p5-book.vercel.app",
+    "https://forms.gle/K5LNLRJzZqryVQPW9"
+  ],
+  "description": [
+    "如果一本書不只是被設計，而是被程式生成呢？如果排版系統、頁面結構、出版流程本身，也能像開源軟體一樣被分享、修改與再發布呢？",
+    "這次很開心透過 2026 年的 PCDTW 可以在 摩茲工寮 Mozilla Community Space Taipei 以自製的開源出版工具 p5.book 為核心，帶領參與者透過創意程式（Creative Coding）重新思考「書」的形式與生產方式。不同於傳統排版軟體的固定工作流程，p5.book 將出版視為一個可被撰寫、複製、改造與持續演化的系統，讓設計師能直接以程式控制內容、版面、圖像與輸出。",
+    "工作坊將從 p5.js 的創意程式基礎開始，介紹開源文化、生成式設計（Generative Design）與數位出版實踐，並透過 p5.book 建立自己的出版專案。參與者將學習如何以程式生成頁面、建立出版規則、管理內容結構，並將書籍視為一種可持續更新的開源媒介。",
+    "本工作坊為 3 小時實作導向課程，將從基礎概念逐步帶領至實際建立出版專案：",
+    "介紹工作坊內容、參與方式與基本工具，並說明開源出版、生成式設計與 p5.book 的核心概念。",
+    "透過簡單範例熟悉 p5.js 的繪圖與文字處理方式，理解如何以程式控制版面與內容生成。",
+    "實際建立出版專案，學習頁面生成邏輯、內容結構設計與輸出方式（如 PDF / 網頁形式）。",
+    "參與者依自身主題發展出版內容，嘗試修改模板、建立規則或導入自訂素材。",
+    "簡短成果分享與交流，討論開源出版的可能性與後續延伸方式（如 GitHub 協作）。",
+    "Munus Shih 於 Pratt 傳達設計研究所擔任助理教授，主要教授關於科技批判史、批判性製造、合作網路與開源出版等課程。他共同成立了臺灣第一個設計師合作社 CoAssembly，合作對象涵蓋臺灣設計研究院（TDRI）、國立臺灣大學、臺灣柏林影展、草字頭及泰國勞動研究組織 Asian Labor Future。在此之前，Munus 曾任職於 Athletics 和 Design Systems International，服務過的客戶包括紐約新當代美術館（New Museum）、美國平面設計協會（AIGA）、三星（Samsung）、亞馬遜（Amazon）、紐約大學（NYU）以及《紐約書評》（New York Review of Books）。"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/05 週日上午至中午 出版開源、開源出版！p5.book 用程式做一本開源書！工作坊\n- 如果一本書不只是被設計，而是被程式生成呢？如果排版系統、頁面結構、出版流程本身，也能像開源軟體一樣被分享、修改與再發布呢？\n- 這次很開心透過 2026 年的 PCDTW 可以在 摩茲工寮 Mozilla Community Space Taipei 以自製的開源出版工具 p5.book 為核心，帶領參與者透過創意程式（Creative Coding）重新思考「書」的形式與生產方式。不同於傳統排版軟體的固定工作流程，p5.book 將出版視為一個可被撰寫、複製、改造與持續演化的系統，讓設計師能直接以程式控制內容、版面、圖像與輸出。\n- 工作坊將從 p5.js 的創意程式基礎開始，介紹開源文化、生成式設計（Generative Design）與數位出版實踐，並透過 p5.book 建立自己的出版專案。參與者將學習如何以程式生成頁面、建立出版規則、管理內容結構，並將書籍視為一種可持續更新的開源媒介。\n- 工作坊的資訊在這裡：https://p5-book.vercel.app\n- ░ 活動時程：\n    - 本工作坊為 3 小時實作導向課程，將從基礎概念逐步帶領至實際建立出版專案：\n    - 10:00–10:20｜開場與概念導入\n        - 介紹工作坊內容、參與方式與基本工具，並說明開源出版、生成式設計與 p5.book 的核心概念。\n    - 10:20–11:00｜p5.js 與生成排版基礎\n        - 透過簡單範例熟悉 p5.js 的繪圖與文字處理方式，理解如何以程式控制版面與內容生成。\n    - 11:00–12:00｜p5.book 架構與實作\n        - 實際建立出版專案，學習頁面生成邏輯、內容結構設計與輸出方式（如 PDF / 網頁形式）。\n    - 12:00–12:40｜個人專案製作與延伸\n        - 參與者依自身主題發展出版內容，嘗試修改模板、建立規則或導入自訂素材。\n    - 12:40–13:00｜分享與討論\n        - 簡短成果分享與交流，討論開源出版的可能性與後續延伸方式（如 GitHub 協作）。\n- ░ 講者介紹\n    - Munus Shih 於 Pratt 傳達設計研究所擔任助理教授，主要教授關於科技批判史、批判性製造、合作網路與開源出版等課程。他共同成立了臺灣第一個設計師合作社 CoAssembly，合作對象涵蓋臺灣設計研究院（TDRI）、國立臺灣大學、臺灣柏林影展、草字頭及泰國勞動研究組織 Asian Labor Future。在此之前，Munus 曾任職於 Athletics 和 Design Systems International，服務過的客戶包括紐約新當代美術館（New Museum）、美國平面設計協會（AIGA）、三星（Samsung）、亞馬遜（Amazon）、紐約大學（NYU）以及《紐約書評》（New York Review of Books）。\n- ░ 活動時間：2026.07.05 (日) 10:00 - 13:00 (GMT+8)\n- ░ 活動地點：MozTW 摩茲工寮（台北市臺北市中正區重慶南路一段 99 號 世界大樓 11 樓 1105 室）\n- ░ 活動費用： 1000 元\n- ░ 活動報名連結：https://forms.gle/K5LNLRJzZqryVQPW9",
+  "warnings": [],
+  "first_seen": "2026-06-23",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782220509744",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

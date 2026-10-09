@@ -27,11 +27,11 @@
   "month_section": "2026-03",
   "raw": "2026/03/28 SITCON \n- https://sitcon.org/2026/\n- 預計申請擺攤：\n    - RS",
   "warnings": [],
-  "first_seen": "2025-11-03",
+  "first_seen": "2025-10-07",
   "in_source": false,
-  "removed_from_source": "2026-05-21",
+  "removed_from_source": "2026-04-07",
   "archive": {
-    "first": "https://web.archive.org/web/20251103183349/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20260328131858/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759841409295",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1774874411595"
   }
 }

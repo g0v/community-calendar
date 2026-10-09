@@ -6,8 +6,8 @@
   "date_start": "2025-05-12",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "20:00",
+  "end_time": "21:30",
   "venue": "g0v 台北社群空間",
   "address": "臺北市中正區重慶南路三段2號2樓",
   "signup_url": null,
@@ -36,11 +36,11 @@
   "month_section": "2025-05",
   "raw": "5/12 Mon. 週一晚上 20:00-21:30 **開源社群活動性騷擾防治措施討論 g0v Open Source Community Anti-Sexual Harassment Measures**\n- 地點：g0v 台北社群空間\n    - 地址：臺北市中正區重慶南路三段2號2樓\n    - Google 地圖：https://maps.app.goo.gl/Ee9jaPsm9b6yzDfT7\n- 活動文件：https://g0v.hackmd.io/@jothon/HJhZQbbdke?type=view\n    - 針對 5/25 週日大松使用 NPOHUB 多間空間，檢視安全空間風險，並提出因應方案\n    - 應用「場域規劃與軟硬體指引」檢視開源社群活動常見樣態\n    - 持續深化「社群可以往什麼方向推進？」的內容\n        - 注意徵兆與經驗，持續列舉中\n        - 強調先行告知，主動告知，事先讓大家知道的 Ｍindset\n        - 建立「求助的機制」\n        - ..等",
   "warnings": [],
-  "first_seen": "2025-05-21",
+  "first_seen": "2025-05-06",
   "in_source": false,
-  "removed_from_source": "2025-09-08",
+  "removed_from_source": "2025-06-01",
   "archive": {
-    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1746544808173",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1748414109784"
   }
 }

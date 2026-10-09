@@ -6,8 +6,8 @@
   "date_start": "2025-03-09",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "14:00",
+  "end_time": "16:00",
   "venue": null,
   "address": null,
   "signup_url": "https://forms.gle/918ifNSdfRsdinba7",
@@ -26,11 +26,11 @@
   "month_section": "2025-03",
   "raw": "3/9 Sun. 週日下午 14:00-16:00 **島島阿學 教育社群活動**\n- 報名網址：https://forms.gle/918ifNSdfRsdinba7\n- https://www.instagram.com/p/DGj_W43T8bi/?igsh=bGZhOGpubDFwdWM5",
   "warnings": [],
-  "first_seen": "2025-03-20",
+  "first_seen": "2025-03-02",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-04-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743849609388"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "id": "2025-04-07-eda053",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Rentea 實體小聚",
+  "date_start": "2025-04-07",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "19:00",
+  "end_time": null,
+  "venue": null,
+  "address": "台北市中山區林森北路487號1樓219室",
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地址": "台北市中山區林森北路487號1樓219室"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@ddio/rentea-tue/",
+    "https://maps.app.goo.gl/xyGEj7qegvYa5FBe6"
+  ],
+  "description": [
+    "可以帶著晚餐來，垃圾需自己帶走哦",
+    "捷運中山國小站2號出口",
+    "林森北路上寶雅側邊的巷子走進來"
+  ],
+  "month_section": "2025-04",
+  "raw": "4/7 Mon. 19:00 Rentea 實體小聚\n- https://g0v.hackmd.io/@ddio/rentea-tue/\n- 可以帶著晚餐來，垃圾需自己帶走哦\n- 地址：台北市中山區林森北路487號1樓219室\n    - 捷運中山國小站2號出口\n    - 林森北路上寶雅側邊的巷子走進來\n    - https://maps.app.goo.gl/xyGEj7qegvYa5FBe6",
+  "warnings": [],
+  "first_seen": "2025-04-06",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743910508736",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

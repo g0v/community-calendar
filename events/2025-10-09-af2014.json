@@ -1,0 +1,40 @@
+{
+  "id": "2025-10-09-af2014",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "ascii art",
+  "date_start": "2025-10-09",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "介紹工具": "ASCIIFlow, PabloDraw"
+  },
+  "links": [
+    "https://www.instagram.com/p/DPMV-HOD9Eq/?igsh=MWN3bXk5Ym1jZ2J1MA%3D%3D",
+    "https://ap14.ragic.com/ciosai/mailinglist/7?webview&webaction=form&ver=new&version=2&pfv1000020=Op-Digifest1"
+  ],
+  "description": [
+    "在電腦只能顯示文字的時代，為了傳達圖形資訊，大家用有限的文字硬拼湊出圖案。隨著顯示技術和頻寬的進步，這種創作 -稱作 textmode/ascii art/ansi art- 變成一種懷舊風格，挑戰作者利用有限資源的能力。而現在也有許多大佬幫我們做比較方便的工具。",
+    "活動資訊 → https://www.instagram.com/p/DPMV-HOD9Eq/?igsh=MWN3bXk5Ym1jZ2J1MA%3D%3D",
+    "報名網址 → https://ap14.ragic.com/ciosai/mailinglist/7?webview&webaction=form&ver=new&version=2&pfv1000020=Op-Digifest1"
+  ],
+  "month_section": "2025-10",
+  "raw": "10/09 週四晚上 ascii art \n- 介紹工具：ASCIIFlow, PabloDraw\n- 在電腦只能顯示文字的時代，為了傳達圖形資訊，大家用有限的文字硬拼湊出圖案。隨著顯示技術和頻寬的進步，這種創作 -稱作 textmode/ascii art/ansi art- 變成一種懷舊風格，挑戰作者利用有限資源的能力。而現在也有許多大佬幫我們做比較方便的工具。\n- 活動資訊 → https://www.instagram.com/p/DPMV-HOD9Eq/?igsh=MWN3bXk5Ym1jZ2J1MA%3D%3D\n- 報名網址 → https://ap14.ragic.com/ciosai/mailinglist/7?webview&webaction=form&ver=new&version=2&pfv1000020=Op-Digifest1",
+  "warnings": [],
+  "first_seen": "2025-10-07",
+  "in_source": false,
+  "removed_from_source": "2025-10-31",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759841409295",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
+  }
+}

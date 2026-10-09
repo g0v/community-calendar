@@ -1,0 +1,39 @@
+{
+  "id": "2026-08-23-c57b15",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "【數位公民跨域動員經驗交流場次】報名中",
+  "date_start": "2026-08-23",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "16:30",
+  "venue": "花蓮光復_仁愛43空間 (花蓮縣光復鄉大華村仁愛路43號)",
+  "address": null,
+  "signup_url": "https://forms.gle/gtV9aYyW2GH4mztk7",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "8/23 週日下午 14:00-16:30",
+    "地點": "花蓮光復_仁愛43空間 (花蓮縣光復鄉大華村仁愛路43號)",
+    "報名網址": "https://forms.gle/gtV9aYyW2GH4mztk7"
+  },
+  "links": [
+    "https://forms.gle/gtV9aYyW2GH4mztk7"
+  ],
+  "description": [
+    "延續今年五月份舉辦的 g0v Summit 2026 雙年會議程中，關於數位動員相關主題，包含「光復超人救災歷程：為什麼每次救災都像第一次」、「群眾外包是災區裡的無敵星星嗎？」、「零基動員與資訊韌性：從「光復鄉救災資訊整合救災地圖」看公民社群的協作與退場」、「公民科技如何介入地方治理」等內容，邀請活動參加者了解相關經驗，並操作針對緊急災害事件的「預鑄造工具」，給予回饋意見。"
+  ],
+  "month_section": "2026-08",
+  "raw": "8/23【數位公民跨域動員經驗交流場次】報名中\n- 時間：8/23 週日下午 14:00-16:30\n- 地點：花蓮光復_仁愛43空間 (花蓮縣光復鄉大華村仁愛路43號)\n- 延續今年五月份舉辦的 g0v Summit 2026 雙年會議程中，關於數位動員相關主題，包含「光復超人救災歷程：為什麼每次救災都像第一次」、「群眾外包是災區裡的無敵星星嗎？」、「零基動員與資訊韌性：從「光復鄉救災資訊整合救災地圖」看公民社群的協作與退場」、「公民科技如何介入地方治理」等內容，邀請活動參加者了解相關經驗，並操作針對緊急災害事件的「預鑄造工具」，給予回饋意見。\n- 報名網址：https://forms.gle/gtV9aYyW2GH4mztk7",
+  "warnings": [],
+  "first_seen": "2026-08-05",
+  "in_source": false,
+  "removed_from_source": "2026-09-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1785943814241",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788081311227"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2025-04-01-a9d33f",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v Rand0mth 22 n 第貳拾貳次放輕松",
+  "date_start": "2025-04-01",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "07:00",
+  "end_time": "09:00",
+  "venue": "NPO Hub 202 辦公室，台北市中正區重慶南路三段2號",
+  "address": null,
+  "signup_url": null,
+  "notes_url": "http://s.g0v.tw/rand0mthon",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動地點": "NPO Hub 202 辦公室，台北市中正區重慶南路三段2號",
+    "活動時間": "2025/04/01 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)",
+    "活動共筆": "http://s.g0v.tw/rand0mthon",
+    "EventLocation": "NPO Hub, Room 202，Address: No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei",
+    "EventTime": "Tuesday, 2025/04/01, 7:00 PM - 9:00 PM (Entry starts at 6:30 PM)"
+  },
+  "links": [
+    "https://forms.gle/Q662eutJcxcWTe5s6",
+    "http://s.g0v.tw/rand0mthon"
+  ],
+  "description": [
+    "Collaborative Note: http://s.g0v.tw/rand0mthon"
+  ],
+  "month_section": "2025-04",
+  "raw": "4/1 Tue. 7:00-9:00 週二 晚上 g0v Rand0mth 22 n 第貳拾貳次放輕松\n- https://forms.gle/Q662eutJcxcWTe5s6\n- 活動地點：NPO Hub 202 辦公室，台北市中正區重慶南路三段2號\n- 活動時間：2025/04/01 週二晚上 7:00 - 9:00 ( 6:30 就可以入場囉)\n- 活動共筆：http://s.g0v.tw/rand0mthon\n- Event Location: NPO Hub, Room 202，Address: No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei\n- Event Time: Tuesday, 2025/04/01, 7:00 PM - 9:00 PM (Entry starts at 6:30 PM)\n- Collaborative Note: http://s.g0v.tw/rand0mthon",
+  "warnings": [],
+  "first_seen": "2025-05-11",
+  "in_source": false,
+  "removed_from_source": "2025-05-14",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1746929409372",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
+  }
+}

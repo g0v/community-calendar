@@ -2,35 +2,36 @@
   "id": "2025-08-09-884b60",
   "source": "jothon-hackmd",
   "source_url": "https://g0v.hackmd.io/@jothon/event",
-  "title": "COSCUP",
+  "title": "COSCUP 開源人年會",
   "date_start": "2025-08-09",
   "date_end": "2025-08-10",
   "date_precision": "day",
   "start_time": null,
   "end_time": null,
-  "venue": "台科大",
+  "venue": "台北市台科大校園",
   "address": null,
   "signup_url": null,
-  "notes_url": null,
+  "notes_url": "https://g0v.hackmd.io/@jothon/rknaiQh31x?type=view",
   "page_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
-    "地點": "台科大",
-    "社群活動分享": ""
+    "地點": "台北市台科大校園",
+    "社群活動分享": "",
+    "揪松團有擺攤，工作文件": "https://g0v.hackmd.io/@jothon/rknaiQh31x?type=view"
   },
-  "links": [],
-  "description": [
-    "揪松團有擺攤"
+  "links": [
+    "https://g0v.hackmd.io/@jothon/rknaiQh31x?type=view"
   ],
+  "description": [],
   "month_section": "2025-08",
-  "raw": "8/9 Sat. ~ 8/10 Sun. COSCUP \n- 地點：台科大\n- 社群活動分享：\n    - 揪松團有擺攤",
+  "raw": "8/9 Sat. ~ 8/10 Sun. COSCUP 開源人年會\n- 地點：台北市台科大校園\n- 社群活動分享：\n    - 揪松團有擺攤，工作文件：https://g0v.hackmd.io/@jothon/rknaiQh31x?type=view",
   "warnings": [],
-  "first_seen": "2025-05-21",
+  "first_seen": "2025-04-05",
   "in_source": false,
-  "removed_from_source": "2025-09-08",
+  "removed_from_source": "2025-09-01",
   "archive": {
-    "first": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250521211514/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743862808587",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1756245908410"
   }
 }

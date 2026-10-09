@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-17-2313cb",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "審議活動：AI時代的風險評估",
+  "date_start": "2026-07-17",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "18:30",
+  "end_time": "21:30",
+  "venue": "台灣網路資訊中心會議室（台北市松山區八德路四段123號3樓）",
+  "address": null,
+  "signup_url": "https://docs.google.com/forms/d/e/1FAIpQLSfZ7ZtrXB841V8Jv7eY0fFvB8N9QvihaNEoO1t8H_daKxt6oQ/viewform?usp=dialog",
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "日期": "2026/07/17（五）以及 2026/09/11（五）",
+    "時間": "18:30 - 21:30",
+    "地點": "台灣網路資訊中心會議室（台北市松山區八德路四段123號3樓）",
+    "報名表單": "https://docs.google.com/forms/d/e/1FAIpQLSfZ7ZtrXB841V8Jv7eY0fFvB8N9QvihaNEoO1t8H_daKxt6oQ/viewform?usp=dialog",
+    "polis": "https://polis.tw/9xeamzkbjp"
+  },
+  "links": [
+    "https://docs.google.com/forms/d/e/1FAIpQLSfZ7ZtrXB841V8Jv7eY0fFvB8N9QvihaNEoO1t8H_daKxt6oQ/viewform?usp=dialog",
+    "https://polis.tw/9xeamzkbjp"
+  ],
+  "description": [
+    "vTaiwan 社群與台灣網路資訊中心（TWNIC）合作，將於 2026 年 7 月 17 日（五）以及 9 月 11 日 （五）舉辦兩場 「2026審議大會：AI時代的風險評估」 的實體討論活動，聚焦於「AI 生成 / 散佈兒少不宜內容」這個風險情境的防治討論。活動也開放線上參與，完整參加兩場實體討論者，我們將提供新台幣1500元車馬費。如果你有興趣參加，歡迎填寫這份表單！"
+  ],
+  "month_section": "2026-07",
+  "raw": "7/17 週五晚上 審議活動：AI時代的風險評估\n- vTaiwan 社群與台灣網路資訊中心（TWNIC）合作，將於 2026 年 7 月 17 日（五）以及 9 月 11 日 （五）舉辦兩場 「2026審議大會：AI時代的風險評估」 的實體討論活動，聚焦於「AI 生成 / 散佈兒少不宜內容」這個風險情境的防治討論。活動也開放線上參與，完整參加兩場實體討論者，我們將提供新台幣1500元車馬費。如果你有興趣參加，歡迎填寫這份表單！\n- 活動資訊\n    - 📅 日期：2026/07/17（五）以及 2026/09/11（五）\n    - 🕡 時間：18:30 - 21:30 \n    - 📍 地點：台灣網路資訊中心會議室（台北市松山區八德路四段123號3樓）\n- 報名表單：https://docs.google.com/forms/d/e/1FAIpQLSfZ7ZtrXB841V8Jv7eY0fFvB8N9QvihaNEoO1t8H_daKxt6oQ/viewform?usp=dialog\n- polis：https://polis.tw/9xeamzkbjp",
+  "warnings": [],
+  "first_seen": "2026-06-25",
+  "in_source": false,
+  "removed_from_source": "2026-08-01",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1782345010311",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1784876419197"
+  }
+}

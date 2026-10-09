@@ -6,8 +6,8 @@
   "date_start": "2025-03-04",
   "date_end": null,
   "date_precision": "day",
-  "start_time": null,
-  "end_time": null,
+  "start_time": "19:30",
+  "end_time": "21:00",
   "venue": null,
   "address": null,
   "signup_url": null,
@@ -25,11 +25,11 @@
   "month_section": "2025-03",
   "raw": "3/4 Tue. 週二晚上 19:30-21:00 **放輕松** \n- NPOHUB 二樓 202\n- http://s.g0v.tw/rand0mthon",
   "warnings": [],
-  "first_seen": "2025-03-20",
+  "first_seen": "2025-03-02",
   "in_source": false,
-  "removed_from_source": "2025-05-21",
+  "removed_from_source": "2025-04-06",
   "archive": {
-    "first": "https://web.archive.org/web/20250320083829/https://g0v.hackmd.io/@jothon/event",
-    "last": "https://web.archive.org/web/20250328111908/https://g0v.hackmd.io/@jothon/event"
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1740878109470",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1743849609388"
   }
 }

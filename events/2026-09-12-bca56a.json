@@ -1,0 +1,39 @@
+{
+  "id": "2026-09-12-bca56a",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "維基協寫作",
+  "date_start": "2026-09-12",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": "14:00",
+  "end_time": "16:00",
+  "venue": "摩茲工寮",
+  "address": "臺北市中正區重慶南路一段 99 號世界大樓 11 樓 1105 室",
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "活動時間": "9/12（六）14:00-16:00",
+    "活動地點": "摩茲工寮",
+    "地址": "臺北市中正區重慶南路一段 99 號世界大樓 11 樓 1105 室"
+  },
+  "links": [
+    "https://www.facebook.com/share/p/1HczYxqE3P/"
+  ],
+  "description": [
+    "如果你想編維基百科、整理資料或問 Wikimedia 相關問題，可以來台北假日寫作月聚。"
+  ],
+  "month_section": "2026-09",
+  "raw": "9/12 週六下午 14:00-16:00 維基協寫作\n- 如果你想編維基百科、整理資料或問 Wikimedia 相關問題，可以來台北假日寫作月聚。\n- 活動時間：9/12（六）14:00-16:00\n- 活動地點：摩茲工寮\n- 地址：臺北市中正區重慶南路一段 99 號世界大樓 11 樓 1105 室\n- https://www.facebook.com/share/p/1HczYxqE3P/",
+  "warnings": [],
+  "first_seen": "2026-09-09",
+  "in_source": false,
+  "removed_from_source": "2026-09-26",
+  "archive": {
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1788903010651",
+    "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1790246110531"
+  }
+}
