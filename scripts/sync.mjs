@@ -101,8 +101,9 @@ async function main() {
 //
 // 共筆誰都能改，標題、日期都可能被改，所以按可信度依序試：
 //   1. 連結：報名／共筆／活動頁的網址，且這個網址在共筆上只出現在這一筆（同一張報名表被好幾場共用是常態）
-//   2. 同一天＋標題相似
-//   3. 標題一字不差、日期不同（改期）→ 同一場，但報一條警告
+//   2. 同一天＋標題相似（一個標題包含另一個也算；同一天的兩筆黑客松也算——大松常從「g0v 黑客松 (80-100人)」改成正式名稱）
+//   3. 標題一字不差、日期不同（改期）→ 同一場，但報一條警告。只限夠長的標題、而且前後差不到兩個月：
+//      「g0v 黑客松」「F4 社群活動」這種每次都一樣的標題，改期跟「另一場」分不出來
 // 都對不上就是新的一筆。寧可多一筆讓人合併，也不要把兩場不同的活動默默合成一筆。
 
 export function match(parsed, stored) {
@@ -122,19 +123,21 @@ export function match(parsed, stored) {
     if (r.rec) continue;
     const best = [...pool]
       .filter((rec) => sameWhen(rec, r.p))
-      .map((rec) => [rec, similarity(rec.title, r.p.title)])
+      .map((rec) => [rec, HACKATHON.test(rec.title) && HACKATHON.test(r.p.title) ? 1 : similarity(rec.title, r.p.title)])
       .filter(([, s]) => s >= 0.5)
       .sort((a, b) => b[1] - a[1])[0];
     if (best) claim(r, best[0], 'date+title');
   }
   for (const r of results) {
     if (r.rec) continue;
-    const same = [...pool].filter((rec) => norm(rec.title) === norm(r.p.title));
+    const same = [...pool].filter((rec) => norm(rec.title) === norm(r.p.title) && norm(rec.title).length >= 8 && daysApart(rec.date_start, r.p.date_start) <= 60);
     if (same.length === 1) claim(r, same[0], 'title');
   }
   return { results, unmatched: [...pool] };
 }
 
+const HACKATHON = /黑客松|hackath/i;
+const daysApart = (a, b) => (a && b ? Math.abs(Date.parse(a) - Date.parse(b)) / 864e5 : Infinity);
 const keyLinks = (e) => [e.signup_url, e.notes_url, e.page_url].filter(Boolean);
 const sameWhen = (a, b) => a.date_start === b.date_start && (a.date_start || a.month_section === b.month_section);
 
@@ -143,6 +146,8 @@ export const norm = (s) => s.toLowerCase().replace(/週[一二三四五六日]|[
 
 // 兩個字一組的 Dice 係數，中文英文都能用
 export function similarity(a, b) {
+  const [x, y] = [norm(a), norm(b)].sort((p, q) => p.length - q.length);
+  if (x.length >= 4 && y.includes(x)) return 1; // 「2026 維基數據跨領域論壇」vs 後面多了英文名稱的同一場
   const grams = (s) => { const n = norm(s); const g = []; for (let i = 0; i < n.length - 1; i++) g.push(n.slice(i, i + 2)); return g.length ? g : [n]; };
   const A = grams(a), B = grams(b);
   const pool = [...B];

@@ -8,6 +8,10 @@
 // 只做「文字 → 結構」，不碰檔案、不碰網路，方便單獨測。累積保存與比對在 sync.mjs。
 
 const MONTH_HEADING = /^###\s+(\d{4})\.(\d{1,2})\s*$/;
+// 2025 年初的舊格式：月份寫成「### 三月 March」（沒有年份），更早則沒有月份標題、活動直接放在「## 近期活動」底下
+const CN_MONTH_HEADING = /^###\s+([一二三四五六七八九十]{1,3})月/;
+const RECENT_HEADING = /^##\s+近期活動/;
+const CN_NUM = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10, 十一: 11, 十二: 12 };
 const SECTION_END = /^#{1,2}\s/; // 活動區之後是「## [每月 Monthly]」「## 工作討論區」…，都不是活動
 const URL = /https?:\/\/[^\s)）>\]]+/g;
 
@@ -25,11 +29,12 @@ const KEYS = [
 const WEEKDAY = /^(?:週[一二三四五六日]|星期[一二三四五六日]|[（(][一二三四五六日][）)]|(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\.?)/;
 const DAYPART = /^(?:上午下午晚上|上下午|上午|下午|中午|晚上|早上|全天)/;
 
-export function parse(md) {
+// defaultYear：舊格式沒寫年份時用的年份（從網路檔案館補資料時，帶入存檔那天的年份）
+export function parse(md, { defaultYear = null } = {}) {
   const lines = md.split(/\r?\n/);
   const events = [];
   const warnings = [];
-  let year = null, month = null, inSection = false, cur = null;
+  let year = defaultYear, month = null, inSection = false, cur = null;
 
   const close = () => { if (cur) events.push(finish(cur, warnings)); cur = null; };
 
@@ -38,14 +43,33 @@ export function parse(md) {
     const lineNo = i + 1;
     const mh = line.match(MONTH_HEADING);
     if (mh) { close(); inSection = true; year = +mh[1]; month = +mh[2]; return; }
+    const cm = line.match(CN_MONTH_HEADING);
+    if (cm && year) {
+      close(); inSection = true;
+      const m = CN_NUM[cm[1]];
+      if (month && m < month) year += 1; // 「十二月」之後接「一月」＝隔年
+      month = m;
+      return;
+    }
+    if (RECENT_HEADING.test(line)) { close(); inSection = !!year; month = null; return; }
     if (!inSection) return;
     if (SECTION_END.test(line)) { close(); inSection = false; return; }
     if (/^-{3,}$/.test(line.trim())) { close(); return; }
     if (!line.trim()) { if (cur) cur.raw.push(raw); return; }
     if (/^!\[[^\]]*\]\([^)]*\)$/.test(line.trim())) { if (cur) cur.raw.push(raw); return; } // 圖片
-    if (/^\*\*[^*]+\*\*$/.test(line.trim()) && !cur) return; // 「**注意這個月是投票月**」這種月份備註
+    // 整行粗體：開頭是日期的是活動（「**[注意!] 5/25 Sun. g0v 黑客松**」），其他是備註（「**注意這個月是投票月**」）
+    const boldLine = /^\*\*([^*]+)\*\*$/.exec(line.trim());
+    if (boldLine) {
+      const inner = boldLine[1].replace(/^\[注意!?！?\]\s*/, '').trim();
+      if (!/^(\d|\[月份日期待確認\])/.test(inner)) return;
+      close();
+      cur = { header: inner, line: lineNo, year, month, bullets: [], raw: [raw] };
+      return;
+    }
 
     const isBullet = /^\s*[-*]\s+/.test(line);
+    // 舊格式把網址單獨寫一行，不加列點
+    if (!isBullet && cur && /^https?:\/\/\S+$/.test(line.trim())) { cur.raw.push(raw); cur.bullets.push({ indent: 0, text: line.trim(), line: lineNo }); return; }
     if (!isBullet && !/^\s/.test(line)) {
       // 頂層的非列點文字＝新的一筆。前一筆還開著代表中間漏了 ---
       if (cur) {
@@ -78,7 +102,7 @@ function finish(b, warnings) {
     date_precision: head.precision,
     start_time: null,
     end_time: null,
-    venue: null,
+    venue: head.venue ?? null,
     address: null,
     signup_url: null,
     notes_url: null,
@@ -136,7 +160,7 @@ function finish(b, warnings) {
       }
       return;
     }
-    if (std === 'venue') { ev.venue = ev.venue ? `${ev.venue}；${kv.value}` : kv.value; return; }
+    if (std === 'venue') { ev.venue = ev.venue && ev.venue !== head.venue ? `${ev.venue}；${kv.value}` : kv.value; return; }
     ev[std] ??= kv.value;
   });
 
@@ -157,6 +181,7 @@ export function parseHeader(header, ctxYear, ctxMonth) {
   let s = header.trim();
   const pending = /^\[月份日期待確認\]\s*/.exec(s);
   if (pending) s = s.slice(pending[0].length);
+  s = s.replace(/^日期暫定\s*/, '');
 
   let y, m, d, m2, d2, rest = null;
   const pats = [
@@ -201,9 +226,17 @@ export function parseHeader(header, ctxYear, ctxMonth) {
     if (+(m2 ?? m) < +m) ey += 1; // 12/31-1/1 跨年
     end = `${ey}-${pad(m2 ?? m)}-${pad(d2)}`;
   }
-  const title = rest.replace(/^[\s，,、:：|｜▶︎\uFE0F]+/u, '').trim() || s;
+  let title = rest.replace(/^[\s，,、:：|｜▶︎\uFE0F]+/u, '').trim() || s;
+  // 舊格式：「週六下午 **g0v 國會松**，地點在臺北市 NPOHub 聚落」——粗體是活動名稱，後面是地點
+  let venue = null;
+  const bold = /\*\*(.+?)\*\*/.exec(title);
+  if (bold) {
+    venue = /地點在\s*(.+)$/.exec(title.slice(bold.index + bold[0].length))?.[1].trim() ?? null;
+    title = bold[1].trim();
+  }
+  title = title.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // 標題裡的 Markdown 連結只留文字
   const month_mismatch = !!ctxMonth && +m !== ctxMonth && !(end && +(m2 ?? m) === ctxMonth);
-  return { date_start: start, date_end: end, precision: 'day', title, month_mismatch };
+  return { date_start: start, date_end: end, precision: 'day', title, venue, month_mismatch };
 }
 
 function stripDecor(s) {

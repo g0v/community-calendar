@@ -19,6 +19,8 @@ import path from 'node:path';
 
 // 揪松主辦的系列（2026-10-09 定）：大松、AI Monday、放輕松、跑咖松。國會松與小松不算
 export const JOTHON_GUESS = /黑客松|hackath\w*n|ai\s*monday|放輕松|跑咖松/i;
+// 標題裡也有「黑客松」但不是揪松主辦的系列
+const NOT_JOTHON = /國會松|韌性松/;
 const AI_MONDAY = /ai\s*monday/i;
 const AIMONDAY_URL = 'https://data.civictech.tw/v0/aimonday/events.json';
 
@@ -59,7 +61,7 @@ export function resolve(events, overrides, aimonday = []) {
       r.jothon = typeof o.jothon === 'boolean' ? o.jothon : !!am;
       r.jothon_source = typeof o.jothon === 'boolean' ? 'override' : am ? 'aimonday' : null;
       // 猜得到是揪松活動、但沒有人確認過：報給管理員
-      r.jothon_pending = r.jothon_source == null && JOTHON_GUESS.test(r.title);
+      r.jothon_pending = r.jothon_source == null && JOTHON_GUESS.test(r.title) && !NOT_JOTHON.test(r.title);
       return r;
     })
     .sort((a, b) => (a.date_start ?? a.month_section ?? '9999').localeCompare(b.date_start ?? b.month_section ?? '9999'));
