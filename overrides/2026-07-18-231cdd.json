@@ -1,0 +1,9 @@
+{
+  "set": {
+    "start_time": "14:00",
+    "end_time": "16:30"
+  },
+  "series": "other-jothon",
+  "jothon": true,
+  "note": "#4：編輯活動資訊"
+}
