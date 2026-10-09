@@ -18,6 +18,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from './parse.mjs';
+import { loadAll, loadAiMonday, resolve } from './resolve.mjs';
 
 export const SOURCE_URL = 'https://g0v.hackmd.io/@jothon/event';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -76,6 +77,13 @@ async function main() {
   }
 
   for (const w of parseWarnings) report.warnings.push({ where: `共筆第 ${w.line} 行`, msg: w.msg });
+
+  // 標題看起來是揪松主辦、但還沒有管理員確認的（只報還沒辦的，過去的不吵）
+  const { events: all, overrides } = await loadAll(ROOT);
+  for (const e of resolve(all, overrides, await loadAiMonday())) {
+    if (!e.jothon_pending || e.hidden || (e.date_start && (e.date_end ?? e.date_start) < TODAY)) continue;
+    report.warnings.push({ where: e.id, id: e.id, msg: `「${e.title}」看起來是揪松主辦。是的話請建立 overrides/${e.id}.json 寫 {"jothon": true}，才會進揪松日曆；不是就寫 {"jothon": false}` });
+  }
   report.counts = { parsed: parsed.length, created, updated, removed, restored, total: stored.length + created };
   await writeReport(report);
   console.log(`共筆 ${parsed.length} 筆：新增 ${created}、更新 ${updated}、從共筆消失 ${removed}、重新出現 ${restored}；警告 ${report.warnings.length}`);
