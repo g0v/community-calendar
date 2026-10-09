@@ -167,7 +167,7 @@ function finish(b, warnings) {
 
     const std = KEYS.find(([, re]) => re.test(kv.key))?.[0];
     if (session) {
-      if (std === 'time') Object.assign(session, timeOf(kv.value), { date: dateIn(kv.value, ev.date_start) ?? session.date });
+      if (std === 'time') Object.assign(session, timeOf(kv.value, `${kv.value} ${session.name}`), { date: dateIn(kv.value, ev.date_start) ?? session.date });
       else if (std === 'venue') session.venue = kv.value;
       else ev.fields[`${session.name}／${kv.key}`] = kv.value;
       return;
@@ -176,7 +176,7 @@ function finish(b, warnings) {
     if (!std) return;
     if (std.endsWith('_url')) { ev[std] ??= firstUrl(kv.value); return; }
     if (std === 'time') {
-      const t = timeOf(kv.value);
+      const t = timeOf(kv.value, `${kv.value} ${b.header}`);
       if (t.start_time && (!ev.start_time || !ev.end_time)) Object.assign(ev, t);
       const d = dateIn(kv.value, ev.date_start);
       if (d && ev.date_start && d !== ev.date_start && !(ev.date_end && d <= ev.date_end && d >= ev.date_start)) {
@@ -255,8 +255,7 @@ export function parseHeader(header, ctxYear, ctxMonth, refDate = null) {
   let start_time = null, end_time = null;
   const tm = /^(\d{1,2})[:：](\d{2})(?:\s*[-–~～〜]\s*(\d{1,2})[:：](\d{2}))?/.exec(rest);
   if (tm) {
-    start_time = `${pad(tm[1])}:${tm[2]}`;
-    end_time = tm[3] ? `${pad(tm[3])}:${tm[4]}` : null;
+    ({ start_time, end_time } = to24({ start_time: `${pad(tm[1])}:${tm[2]}`, end_time: tm[3] ? `${pad(tm[3])}:${tm[4]}` : null }, s));
     rest = stripDecor(rest.slice(tm[0].length));
   }
   let title = rest.replace(/^[\s，,、:：|｜▶︎\uFE0F]+/u, '').trim();
@@ -302,11 +301,25 @@ function splitKV(text) {
 const firstUrl = (s) => (s.match(URL) ?? [null])[0];
 
 // 「13:30–17:00」「19:30-21:30」「10:30 〜 18:00」「14:00~16:00」；只寫開始也收
-export function timeOf(s) {
+// context：周圍的文字（例如整行標題）。寫「下午 2:00-5:00」「晚上 7:00」這種 12 小時制的，換成 24 小時制
+export function timeOf(s, context = s) {
   const r = /(\d{1,2})[:：](\d{2})\s*(?:[-–—~～〜]|to)\s*(\d{1,2})[:：](\d{2})/.exec(s);
-  if (r) return { start_time: `${pad(r[1])}:${r[2]}`, end_time: `${pad(r[3])}:${r[4]}` };
+  if (r) return to24({ start_time: `${pad(r[1])}:${r[2]}`, end_time: `${pad(r[3])}:${r[4]}` }, context);
   const one = /(?<!\d)(\d{1,2})[:：](\d{2})(?!\d)/.exec(s);
-  return { start_time: one ? `${pad(one[1])}:${one[2]}` : null, end_time: null };
+  return to24({ start_time: one ? `${pad(one[1])}:${one[2]}` : null, end_time: null }, context);
+}
+
+// 只在「有寫下午／晚上、而且開始時間早於 8 點」時才加 12 小時。
+// 不能看到「下午」就加：大松常寫「上午下午晚上 10:30-17:00」，那已經是 24 小時制
+export function to24(t, context) {
+  if (!t.start_time || !/下午|晚上|晚間|傍晚|pm/i.test(context)) return t;
+  const h = (x) => +x.slice(0, 2);
+  const plus = (x) => `${pad(h(x) + 12)}${x.slice(2)}`;
+  if (h(t.start_time) >= 8) return t;
+  const start_time = plus(t.start_time);
+  let end_time = t.end_time;
+  if (end_time && h(end_time) < 12 && end_time < start_time) end_time = plus(end_time);
+  return { start_time, end_time };
 }
 
 // 欄位值裡的日期（用來跟標題對帳、或給子場次用）。沒寫年份就沿用標題的年份

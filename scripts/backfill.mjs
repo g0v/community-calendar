@@ -84,6 +84,7 @@ async function main() {
         in_source: false,
         removed_from_source: null,
         archive: { first: rec && rec.first_seen < date ? rec.archive.first : url, last: url },
+        ...(rec?.hsiaothon ? { hsiaothon: rec.hsiaothon } : {}), // 小松果補上的欄位要留著
       };
       if (!rec) { created++; added++; }
       byId.set(next.id, next);

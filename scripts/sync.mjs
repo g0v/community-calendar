@@ -19,7 +19,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from './parse.mjs';
 import { loadAll, loadAiMonday, resolve } from './resolve.mjs';
-import { seriesOf } from './facets.mjs';
 
 export const SOURCE_URL = 'https://g0v.hackmd.io/@jothon/event';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -138,11 +137,11 @@ export function match(parsed, stored) {
   return { results, unmatched: [...pool] };
 }
 
-const HACKATHON = /黑客松|hackath/i;
-const sameSeries = (a, b) => {
-  const s = seriesOf(a);
-  return (s && s.slug === seriesOf(b)?.slug) || (HACKATHON.test(a) && HACKATHON.test(b));
-};
+// 比對「同一天、同一個系列就是同一場」用的系列。跟網站上的系列（config/series.json，只有揪松自己辦的）分開：
+// 網站分類可以隨意調整，但比對要認得所有固定舉辦的系列，不然不同來源對同一場 F4、國會松的寫法對不起來
+const RECURRING = [/黑客松|hackath/i, /國會松|congressthon/i, /functional\s*thursday|\bF4\b/i, /openstreetmap|osm\s*x/i,
+  /韌性松|DigiResiTh/i, /放輕松|rand0mth/i, /ai\s*monday/i, /跑咖松/, /網路自由小聚/, /cofacts/i, /vtaiwan/i, /島島阿學/, /sitcon/i];
+const sameSeries = (a, b) => RECURRING.some((re) => re.test(a) && re.test(b));
 const daysApart = (a, b) => (a && b ? Math.abs(Date.parse(a) - Date.parse(b)) / 864e5 : Infinity);
 const keyLinks = (e) => [e.signup_url, e.notes_url, e.page_url].filter(Boolean);
 const sameWhen = (a, b) => a.date_start === b.date_start && (a.date_start || a.month_section === b.month_section);

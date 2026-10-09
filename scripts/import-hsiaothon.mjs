@@ -51,7 +51,7 @@ export function parseList(md) {
       no: +m[1],
       title: title || rest,
       date_start: `${year}-${d[1]}-${d[2]}`,
-      ...(hhmm ?? timeOf(rest.slice(0, 30))),
+      ...(hhmm ?? timeOf(rest.slice(0, 30), rest)),
       links,
       line: line.trim(),
     });
