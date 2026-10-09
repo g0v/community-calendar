@@ -21,6 +21,8 @@ export interface Event {
   warnings: string[];
   first_seen: string; in_source: boolean; removed_from_source: string | null;
   status?: string | null; // 只有 AI Monday 來源有：已排定／已完成／邀約中／停辦
+  // 小松果（g0v 台北社群空間使用紀錄）上的編號與成果共筆
+  hsiaothon?: { no: number; year: number; notes_url: string | null; line: string };
   // resolve() 加上的
   hidden: boolean; jothon: boolean; jothon_source: 'override' | 'aimonday' | null; jothon_pending: boolean;
   aimonday_id: string | null; aimonday_url: string | null; cancelled: boolean; has_override: boolean;

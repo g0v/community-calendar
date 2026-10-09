@@ -77,7 +77,7 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
       )}
       {e.raw && (
         <section>
-          <h2>共筆上的原文</h2>
+          <h2>{e.source === 'hsiaothon' ? '小松果上的原文' : '共筆上的原文'}</h2>
           <pre class="raw">{e.raw}</pre>
         </section>
       )}
@@ -89,11 +89,17 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
         <dl class="info small">
           <dt>來源</dt><dd><a href={e.source_url}>AI Monday 工作小組</a></dd>
         </dl>
+      ) : e.source === 'hsiaothon' ? (
+        <dl class="info small">
+          <dt>來源</dt><dd><a href={e.source_url}>小松果</a>（g0v 台北社群空間的使用紀錄）</dd>
+          <dt>編號</dt><dd class="mono">{e.hsiaothon!.year} No.{e.hsiaothon!.no}</dd>
+        </dl>
       ) : (
         <dl class="info small">
           <dt>來源</dt><dd><a href={SOURCE_URL}>揪松團活動共筆</a></dd>
           <dt>第一次看到</dt><dd class="mono">{e.first_seen}</dd>
           <dt>共筆上</dt><dd>{e.in_source ? '還在' : e.removed_from_source ? `${e.removed_from_source} 前已移除` : '已移除'}</dd>
+          {e.hsiaothon && <><dt>小松果</dt><dd><span class="mono">{e.hsiaothon.year} No.{e.hsiaothon.no}</span>{e.hsiaothon.notes_url && <>・<a href={e.hsiaothon.notes_url}>成果共筆</a></>}</dd></>}
         </dl>
       )}
       {e.warnings.length > 0 && (

@@ -19,6 +19,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from './parse.mjs';
 import { loadAll, loadAiMonday, resolve } from './resolve.mjs';
+import { seriesOf } from './facets.mjs';
 
 export const SOURCE_URL = 'https://g0v.hackmd.io/@jothon/event';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -101,7 +102,8 @@ async function main() {
 //
 // 共筆誰都能改，標題、日期都可能被改，所以按可信度依序試：
 //   1. 連結：報名／共筆／活動頁的網址，且這個網址在共筆上只出現在這一筆（同一張報名表被好幾場共用是常態）
-//   2. 同一天＋標題相似（一個標題包含另一個也算；同一天的兩筆黑客松也算——大松常從「g0v 黑客松 (80-100人)」改成正式名稱）
+//   2. 同一天＋標題相似（一個標題包含另一個也算；同一天、同一個系列的也算——大松常從「g0v 黑客松 (80-100人)」
+//      改成正式名稱，不同來源對同一場 F4、國會松的寫法也常常差很多）
 //   3. 標題一字不差、日期不同（改期）→ 同一場，但報一條警告。只限夠長的標題、而且前後差不到兩個月：
 //      「g0v 黑客松」「F4 社群活動」這種每次都一樣的標題，改期跟「另一場」分不出來
 // 都對不上就是新的一筆。寧可多一筆讓人合併，也不要把兩場不同的活動默默合成一筆。
@@ -123,7 +125,7 @@ export function match(parsed, stored) {
     if (r.rec) continue;
     const best = [...pool]
       .filter((rec) => sameWhen(rec, r.p))
-      .map((rec) => [rec, HACKATHON.test(rec.title) && HACKATHON.test(r.p.title) ? 1 : similarity(rec.title, r.p.title)])
+      .map((rec) => [rec, sameSeries(rec.title, r.p.title) ? 1 : similarity(rec.title, r.p.title)])
       .filter(([, s]) => s >= 0.5)
       .sort((a, b) => b[1] - a[1])[0];
     if (best) claim(r, best[0], 'date+title');
@@ -137,6 +139,10 @@ export function match(parsed, stored) {
 }
 
 const HACKATHON = /黑客松|hackath/i;
+const sameSeries = (a, b) => {
+  const s = seriesOf(a);
+  return (s && s.slug === seriesOf(b)?.slug) || (HACKATHON.test(a) && HACKATHON.test(b));
+};
 const daysApart = (a, b) => (a && b ? Math.abs(Date.parse(a) - Date.parse(b)) / 864e5 : Infinity);
 const keyLinks = (e) => [e.signup_url, e.notes_url, e.page_url].filter(Boolean);
 const sameWhen = (a, b) => a.date_start === b.date_start && (a.date_start || a.month_section === b.month_section);
@@ -170,6 +176,9 @@ function toRecord(p, prev) {
     first_seen: prev?.first_seen ?? TODAY,
     in_source: true,
     removed_from_source: null,
+    // 其他來源補上的欄位，同步重寫這筆時要留著
+    ...(prev?.archive ? { archive: prev.archive } : {}),
+    ...(prev?.hsiaothon ? { hsiaothon: prev.hsiaothon } : {}),
   };
 }
 
