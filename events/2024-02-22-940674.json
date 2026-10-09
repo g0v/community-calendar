@@ -1,0 +1,35 @@
+{
+  "id": "2024-02-22-940674",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "台灣德國科技交流German & Taiwan Civic Tech Meetup",
+  "date_start": "2024-02-22",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://docs.google.com/forms/d/e/1FAIpQLSdFQ_Vdgvp66Wb312drQMofre11rpvWDmTPjagUGIk2-o9rEw/viewform?pli=1",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://docs.google.com/forms/d/e/1FAIpQLSdFQ_Vdgvp66Wb312drQMofre11rpvWDmTPjagUGIk2-o9rEw/viewform?pli=1"
+  ],
+  "description": [],
+  "month_section": "2024-02",
+  "raw": "- [No.03] [0222 台灣德國科技交流German & Taiwan Civic Tech Meetup](https://docs.google.com/forms/d/e/1FAIpQLSdFQ_Vdgvp66Wb312drQMofre11rpvWDmTPjagUGIk2-o9rEw/viewform?pli=1)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 3,
+    "year": 2024,
+    "notes_url": "https://docs.google.com/forms/d/e/1FAIpQLSdFQ_Vdgvp66Wb312drQMofre11rpvWDmTPjagUGIk2-o9rEw/viewform?pli=1",
+    "line": "- [No.03] [0222 台灣德國科技交流German & Taiwan Civic Tech Meetup](https://docs.google.com/forms/d/e/1FAIpQLSdFQ_Vdgvp66Wb312drQMofre11rpvWDmTPjagUGIk2-o9rEw/viewform?pli=1)"
+  }
+}

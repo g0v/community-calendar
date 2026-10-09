@@ -1,0 +1,33 @@
+{
+  "id": "2025-12-21-be2210",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "g0v Summit 預算會議",
+  "date_start": "2025-12-21",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [],
+  "description": [],
+  "month_section": "2025-12",
+  "raw": "- [No.171] 1221 週日晚上 g0v Summit 預算會議",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 171,
+    "year": 2025,
+    "notes_url": null,
+    "line": "- [No.171] 1221 週日晚上 g0v Summit 預算會議"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "2026-01-17-a67027",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "上下午 運算子數位藝術節",
+  "date_start": "2026-01-17",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://ciosai.github.io/operator-digitalfest/timetable/",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://ciosai.github.io/operator-digitalfest/timetable/"
+  ],
+  "description": [],
+  "month_section": "2026-01",
+  "raw": "- [No.12] 0117 週六上下午 [運算子數位藝術節](https://ciosai.github.io/operator-digitalfest/timetable/)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 12,
+    "year": 2026,
+    "notes_url": "https://ciosai.github.io/operator-digitalfest/timetable/",
+    "line": "- [No.12] 0117 週六上下午 [運算子數位藝術節](https://ciosai.github.io/operator-digitalfest/timetable/)"
+  }
+}

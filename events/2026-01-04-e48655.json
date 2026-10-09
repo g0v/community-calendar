@@ -1,0 +1,35 @@
+{
+  "id": "2026-01-04-e48655",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "SITCON Podcast 錄製",
+  "date_start": "2026-01-04",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://player.soundon.fm/p/429de7c0-0c71-4fc9-a2a3-fcc3a651988e",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://player.soundon.fm/p/429de7c0-0c71-4fc9-a2a3-fcc3a651988e"
+  ],
+  "description": [],
+  "month_section": "2026-01",
+  "raw": "- [No.03] 0104 週日下午 SITCON [Podcast 錄製](https://player.soundon.fm/p/429de7c0-0c71-4fc9-a2a3-fcc3a651988e)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 3,
+    "year": 2026,
+    "notes_url": "https://player.soundon.fm/p/429de7c0-0c71-4fc9-a2a3-fcc3a651988e",
+    "line": "- [No.03] 0104 週日下午 SITCON [Podcast 錄製](https://player.soundon.fm/p/429de7c0-0c71-4fc9-a2a3-fcc3a651988e)"
+  }
+}

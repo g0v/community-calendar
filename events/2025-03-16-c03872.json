@@ -1,0 +1,35 @@
+{
+  "id": "2025-03-16-c03872",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "SITCON 籌辦團隊活動 (二樓202)",
+  "date_start": "2025-03-16",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://sitcon.org/",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://sitcon.org/"
+  ],
+  "description": [],
+  "month_section": "2025-03",
+  "raw": "- [No.17] 0316 下午 [SITCON](https://sitcon.org/) 籌辦團隊活動 (二樓202)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 17,
+    "year": 2025,
+    "notes_url": "https://sitcon.org/",
+    "line": "- [No.17] 0316 下午 [SITCON](https://sitcon.org/) 籌辦團隊活動 (二樓202)"
+  }
+}

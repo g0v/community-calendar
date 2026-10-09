@@ -1,0 +1,35 @@
+{
+  "id": "2023-02-09-5aa6e4",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "Studi0 Meeting",
+  "date_start": "2023-02-09",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@noahyeh/H15Dvm7as",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://g0v.hackmd.io/@noahyeh/H15Dvm7as"
+  ],
+  "description": [],
+  "month_section": "2023-02",
+  "raw": "- [No.03] [0209 Studi0 Meeting](https://g0v.hackmd.io/@noahyeh/H15Dvm7as)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 3,
+    "year": 2023,
+    "notes_url": "https://g0v.hackmd.io/@noahyeh/H15Dvm7as",
+    "line": "- [No.03] [0209 Studi0 Meeting](https://g0v.hackmd.io/@noahyeh/H15Dvm7as)"
+  }
+}

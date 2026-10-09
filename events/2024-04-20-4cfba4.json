@@ -1,0 +1,35 @@
+{
+  "id": "2024-04-20-4cfba4",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "G0V 科技職涯講座 X 迷你黑客松",
+  "date_start": "2024-04-20",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://www.dcard.tw/f/ntu/p/255300345",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://www.dcard.tw/f/ntu/p/255300345"
+  ],
+  "description": [],
+  "month_section": "2024-04",
+  "raw": "- [No.11] [0420 G0V 科技職涯講座 X 迷你黑客松](https://www.dcard.tw/f/ntu/p/255300345)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 11,
+    "year": 2024,
+    "notes_url": "https://www.dcard.tw/f/ntu/p/255300345",
+    "line": "- [No.11] [0420 G0V 科技職涯講座 X 迷你黑客松](https://www.dcard.tw/f/ntu/p/255300345)"
+  }
+}

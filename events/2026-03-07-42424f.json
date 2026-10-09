@@ -1,0 +1,35 @@
+{
+  "id": "2026-03-07-42424f",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "都市農耕網食農講座 (接洽 by chewei)",
+  "date_start": "2026-03-07",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://www.beclass.com/rid=3052570698765bc10363",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://www.beclass.com/rid=3052570698765bc10363"
+  ],
+  "description": [],
+  "month_section": "2026-03",
+  "raw": "- [No.31] 0307 週六上午 [都市農耕網食農講座](https://www.beclass.com/rid=3052570698765bc10363) (接洽 by chewei)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 31,
+    "year": 2026,
+    "notes_url": "https://www.beclass.com/rid=3052570698765bc10363",
+    "line": "- [No.31] 0307 週六上午 [都市農耕網食農講座](https://www.beclass.com/rid=3052570698765bc10363) (接洽 by chewei)"
+  }
+}

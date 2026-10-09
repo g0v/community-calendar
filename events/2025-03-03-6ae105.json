@@ -1,0 +1,35 @@
+{
+  "id": "2025-03-03-6ae105",
+  "source": "hsiaothon",
+  "source_url": "https://g0v.hackmd.io/@jothon/hsiaothon",
+  "title": "Cofacts 開發者會議",
+  "date_start": "2025-03-03",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": "https://www.facebook.com/groups/cofacts/posts/4055320918033040/",
+  "page_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://www.facebook.com/groups/cofacts/posts/4055320918033040/"
+  ],
+  "description": [],
+  "month_section": "2025-03",
+  "raw": "- [No.12] [0303 晚上 Cofacts 開發者會議](https://www.facebook.com/groups/cofacts/posts/4055320918033040/)",
+  "warnings": [],
+  "first_seen": null,
+  "in_source": false,
+  "removed_from_source": null,
+  "hsiaothon": {
+    "no": 12,
+    "year": 2025,
+    "notes_url": "https://www.facebook.com/groups/cofacts/posts/4055320918033040/",
+    "line": "- [No.12] [0303 晚上 Cofacts 開發者會議](https://www.facebook.com/groups/cofacts/posts/4055320918033040/)"
+  }
+}
