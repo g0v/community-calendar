@@ -197,13 +197,19 @@ async function writeReport(report) {
   await writeFile(path.join(ROOT, 'report.json'), JSON.stringify(report, null, 2) + '\n');
 }
 
-// 共筆的 Markdown 原文
+// 共筆的 note id（@jothon/event 是它的短網址；/@jothon/event/edit 會轉址到這裡）
+export const NOTE_ID = 'N3EnvC7ATSG-r71zuleuyQ';
+
+// 共筆的 Markdown 原文。先用 note id 讀；短網址在 GitHub Actions 上會被回 HTTP 405，留著當備援
 async function fetchSource() {
-  const url = `${SOURCE_URL}/download`;
-  const r = await fetch(url, { signal: AbortSignal.timeout(30_000), headers: { 'User-Agent': 'g0v-community-calendar (+https://github.com/g0v/community-calendar)' } });
-  console.log(`${url} → HTTP ${r.status}`);
-  if (!r.ok) throw new Error(`${url} 回 HTTP ${r.status}`);
-  return r.text();
+  const tried = [];
+  for (const url of [`https://g0v.hackmd.io/${NOTE_ID}/download`, `${SOURCE_URL}/download`]) {
+    const r = await fetch(url, { signal: AbortSignal.timeout(30_000), headers: { 'User-Agent': 'g0v-community-calendar (+https://github.com/g0v/community-calendar)' } });
+    console.log(`${url} → HTTP ${r.status}`);
+    if (r.ok) return r.text();
+    tried.push(`${url} 回 HTTP ${r.status}`);
+  }
+  throw new Error(tried.join('；'));
 }
 
 // 路徑有中文時 import.meta.url 會被百分比編碼，所以比對前先轉回檔案路徑
