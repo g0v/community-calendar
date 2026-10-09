@@ -1,0 +1,35 @@
+{
+  "說明": "可以訂閱的日曆，一段一份。match 裡的條件要全部符合：jothon＝揪松主辦、series＝屬於這些系列之一（系列定義在 series.json）、keywords＝標題有這些字之一。都不寫就是全部活動。file 是訂閱網址的檔名，發布後不要改，不然已經訂閱的人會斷。已經有自己訂閱網址的系列用 url，不另外產生。",
+  "feeds": [
+    {
+      "file": "jothon.ics", "title": "揪松團活動", "hint": "只想知道揪松團的大活動，訂這份",
+      "name": "g0v 揪松團活動", "desc": "揪松團主辦的活動：黑客松（大松）、AI Monday、放輕松、跑咖松。",
+      "match": { "jothon": true }
+    },
+    {
+      "file": "all.ics", "title": "所有社群活動", "hint": "想知道 g0v 社群所有的小聚、講座，訂這份",
+      "name": "g0v 社群活動", "desc": "揪松團「大松小松活動訊息」共筆上的所有活動，加上 AI Monday。共筆開放社群自由填寫，內容未經審核。",
+      "match": {}
+    },
+    {
+      "file": "hackathon.ics", "title": "大松（g0v 黑客松）",
+      "name": "g0v 黑客松", "desc": "g0v 揪松團每兩個月一次的黑客松。分城市辦的每個城市一個事件。",
+      "match": { "series": ["hackathon"], "jothon": true }
+    },
+    {
+      "file": "rand0mthon.ics", "title": "放輕松",
+      "name": "g0v 放輕松", "desc": "g0v 揪松團的放輕松：輕鬆交流的晚上。",
+      "match": { "series": ["rand0mthon"], "jothon": true }
+    },
+    {
+      "file": "cafethon.ics", "title": "跑咖松",
+      "name": "g0v 跑咖松", "desc": "g0v 揪松團在台北以外辦的跑咖松。",
+      "match": { "series": ["cafethon"], "jothon": true }
+    },
+    {
+      "title": "AI Monday",
+      "url": "https://g0v.github.io/AI-Monday/calendar.ics",
+      "desc": "AI Monday 工作小組自己的日曆。"
+    }
+  ]
+}

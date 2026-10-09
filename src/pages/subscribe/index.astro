@@ -1,17 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getEvents, href } from '../../lib/data';
-import { MAIN_FEEDS, seriesFeeds } from '../../lib/feeds';
+import { FEEDS, type FeedInfo } from '../../lib/feeds';
 
-const series = seriesFeeds(await getEvents());
+// 訂閱名單在 config/feeds.json：前兩份是主要的（有 hint），其他列在下面
+const events = (await getEvents()).filter((e) => !e.hidden);
+const main = FEEDS.filter((f) => f.hint);
+const more = FEEDS.filter((f) => !f.hint);
+const count = (f: FeedInfo) => (f.file ? events.filter((e) => e.date_precision === 'day' && f.filter(e)).length : null);
 const site = new URL(href('/'), Astro.site);
-const url = (f: { path: string; external?: string }) => f.external ?? new URL(f.path, site).href;
+const url = (f: FeedInfo) => f.url ?? new URL(f.file!, site).href;
 const webcal = (u: string) => u.replace(/^https?:/, 'webcal:');
 const google = (u: string) => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal(u))}`;
-const main = [
-  { ...MAIN_FEEDS[0], title: '揪松團活動', hint: '只想知道揪松團的大活動，訂這份' },
-  { ...MAIN_FEEDS[1], title: '所有社群活動', hint: '想知道 g0v 社群所有的小聚、講座，訂這份' },
-];
 ---
 <Base title="訂閱" description="把 g0v 社群活動訂閱到 Google、Apple、Outlook 日曆，活動有異動會自動更新。">
   <h1 class="page-title">訂閱到你的日曆</h1>
@@ -33,15 +33,15 @@ const main = [
   </div>
 
   <section class="series">
-    <h2>只訂某個系列</h2>
-    <p class="muted">系列是從活動名稱判斷的，沒寫系列名稱的活動不會出現在這裡。</p>
+    <h2>只訂揪松團的某個系列</h2>
+    <p class="muted">其他社群的活動多半有自己的公告管道，這裡只列揪松團自己辦的。想加一份訂閱，改 <a href="https://github.com/g0v/community-calendar/blob/main/config/feeds.json">config/feeds.json</a> 就好。</p>
     <ul>
-      {series.map((f) => (
+      {more.map((f) => (
         <li>
           <div>
-            <span class="name">{f.name.replace('｜g0v 社群行事曆', '')}</span>
-            <span class="muted count">{f.count} 場</span>
-            {f.external && <span class="muted note">（AI Monday 自己的日曆）</span>}
+            <span class="name">{f.title}</span>
+            {count(f) !== null && <span class="muted count">{count(f) ? `${count(f)} 場` : '目前還沒有活動，排定後會自動出現'}</span>}
+            {f.url && <span class="muted note">（{f.desc.replace(/。$/, '')}）</span>}
           </div>
           <div class="links">
             <a href={google(url(f))}>Google 日曆</a>

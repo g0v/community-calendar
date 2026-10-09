@@ -26,7 +26,9 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 | 揪松團活動 | `https://g0v.github.io/community-calendar/jothon.ics` | 只有揪松團主辦的：黑客松（大松）、AI Monday、放輕松、跑咖松 |
 | 所有社群活動 | `https://g0v.github.io/community-calendar/all.ics` | 共筆上的所有活動。共筆開放社群自由填寫，**內容未經審核** |
 
-另外每個系列各有一份：`series/{系列}.ics`（例如 `series/hackathon.ics`），完整清單在[訂閱頁](https://g0v.github.io/community-calendar/subscribe/)。AI Monday 用它自己原本的 `https://g0v.github.io/AI-Monday/calendar.ics`，不另外產生，免得訂閱的人分散在兩個網址。
+另外揪松團自己辦的系列各有一份（`hackathon.ics`、`rand0mthon.ics`、`cafethon.ics`），完整清單在[訂閱頁](https://g0v.github.io/community-calendar/subscribe/)。AI Monday 用它自己原本的 `https://g0v.github.io/AI-Monday/calendar.ics`，不另外產生。
+
+**要加一份訂閱，改 [`config/feeds.json`](config/feeds.json)**：一段一份，用「揪松主辦」「系列」「標題關鍵字」組合條件。系列的判斷規則在 [`config/series.json`](config/series.json)（標題關鍵字）。兩個檔案都不用會寫程式。
 
 都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
 

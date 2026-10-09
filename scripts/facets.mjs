@@ -1,26 +1,15 @@
 // 篩選用的欄位：系列、城市、線上。共筆沒有這些欄位，從標題與地點推出來；推不出來就不標（null），不猜。
 //
-// 規則表依序比對，先中先贏，所以「OpenStreetMap x Wikidata」要排在「維基」前面、國會松要排在大松前面
-// （國會松的標題常常也有「黑客松」）。
+// 系列的判斷規則在 config/series.json（關鍵字，不用會寫程式也能改）。城市與線上的規則比較少變，留在這裡。
+import seriesConfig from '../config/series.json' with { type: 'json' };
 
-export const SERIES = [
-  ['ai-monday', 'AI Monday', /ai\s*monday/i],
-  ['congressthon', '國會松', /國會松|congressthon/i],
-  ['resilience', '數位韌性松', /韌性松/],
-  ['facing-ocean', '面海松', /面海松|facing the ocean/i],
-  // 大松：「g0v 第柒拾次黑客松」「g0v hackath70n」。「vTaiwan 小黑客松」、講題裡提到黑客松的不算
-  ['hackathon', '大松', /^(?!.*(小黑客松|hack進)).*((g0v|零時政府)[^｜|]{0,24}黑客松|hackath\w*n)/i],
-  ['rand0mthon', '放輕松', /放輕松|rand0mth/i],
-  ['cafethon', '跑咖松', /跑咖松/],
-  ['osm-wikidata', 'OpenStreetMap × Wikidata 月聚會', /openstreetmap|osm\s*x/i],
-  ['f4', 'F4 Functional Thursday', /functional\s*thursday|\bF4\b/i],
-  ['internet-freedom', '網路自由小聚', /網路自由小聚/],
-  ['civictech-day', '公民科技主題日', /公民科技主題日|civic\s*tech\s*on/i],
-  ['wikidata', '維基數據', /維基|wikidata|wikimedia|ESEAP/i],
-  ['tipf', 'TIPF 台灣國際攝影節', /TIPF/],
-  ['coscup', 'COSCUP', /coscup/i],
-  ['code-for-japan', 'Code for Japan', /code\s*for\s*japan/i],
-];
+export const SERIES = seriesConfig.series.map((s) => [s.slug, s.name]);
+
+const has = (title, words = []) => words.some((w) => title.includes(w.toLowerCase()));
+export function seriesOf(title) {
+  const t = title.toLowerCase();
+  return seriesConfig.series.find((s) => has(t, s.keywords) && !has(t, s.exclude)) ?? null;
+}
 
 // 地名 → 縣市。只認得明確的地名與常用場地，認不出來就不標
 const CITY = [
@@ -44,12 +33,12 @@ const CITY = [
 const ONLINE = /線上|online|webex|google\s*meet|meet\.google|zoom|hybrid|直播/i;
 
 export function facets(e) {
-  const series = SERIES.find(([, , re]) => re.test(e.title));
+  const series = seriesOf(e.title);
   const where = [e.venue, e.address, ...(e.sub_sessions ?? []).map((s) => s.venue), e.title].filter(Boolean).join(' ');
   const cities = [...new Set(CITY.filter(([, re]) => re.test(where)).map(([c]) => c))];
   return {
-    series: series?.[0] ?? null,
-    series_label: series?.[1] ?? null,
+    series: series?.slug ?? null,
+    series_label: series?.name ?? null,
     cities,
     online: ONLINE.test([e.venue, e.title, ...Object.values(e.fields ?? {})].filter(Boolean).join(' ')),
   };
