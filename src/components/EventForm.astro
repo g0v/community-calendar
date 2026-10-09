@@ -42,7 +42,7 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
           <option value="" selected={!v('series')}>{mode === 'new' ? '不屬於任何系列' : '（沒有系列）'}</option>
           {SERIES.map(([slug, name]) => <option value={slug} selected={v('series') === slug}>{name}</option>)}
         </select>
-        <span class="hint muted">歸類到系列後，可以用系列篩選與訂閱</span>
+        <span class="hint muted">只有揪松自己辦的系列</span>
       </label>
       <label class="field">
         <span class="l">揪松主辦</span>
@@ -51,7 +51,7 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
           <option value="是" selected={v('jothon') === '是'}>是</option>
           <option value="不是" selected={v('jothon') === '不是'}>不是</option>
         </select>
-        <span class="hint muted">大松、AI Monday、放輕松、跑咖松；是的話會進揪松團日曆</span>
+        <span class="hint muted">是的話會進揪松團日曆；不屬於上面幾個系列的，系列選「其他揪松活動」</span>
       </label>
         </>)}
     </>))}

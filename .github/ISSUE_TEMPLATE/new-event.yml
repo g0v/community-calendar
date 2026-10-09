@@ -53,14 +53,12 @@ body:
     id: address
     attributes:
       label: 地址
-      placeholder: ""
     validations:
       required: false
   - type: input
     id: host
     attributes:
       label: 主辦
-      placeholder: ""
     validations:
       required: false
   - type: input

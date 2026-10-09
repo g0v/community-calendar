@@ -1,24 +1,14 @@
 {
-  "說明": "活動屬於哪個系列，看標題裡有沒有 keywords 裡的任一個字（不分大小寫）；有 exclude 裡的字就不算。由上往下比，先對到的就是。新增系列：照格式加一段，slug 用英文小寫與連字號，之後不要改（訂閱網址會用到）。jothon: true 代表這個系列是揪松團主辦的：標題對到這個系列、但還沒有管理員確認的活動，會在資料檢查 issue 裡提醒。",
+  "說明": "只放揪松團自己辦的系列。活動屬於哪個系列，看標題裡有沒有 keywords 裡的任一個字（不分大小寫）；有 exclude 裡的字就不算。由上往下比，先對到的就是。標成揪松主辦、但不屬於上面任何一個系列的，自動歸到 other-jothon（其他揪松活動）。也可以在活動的修改頁直接指定系列。slug 用英文小寫與連字號，之後不要改（訂閱網址會用到）。",
   "series": [
-    { "slug": "ai-monday", "jothon": true, "name": "AI Monday", "keywords": ["AI Monday", "AIMonday"] },
-    { "slug": "congressthon", "name": "國會松", "keywords": ["國會松", "congressthon"] },
-    { "slug": "resilience", "name": "數位韌性松", "keywords": ["韌性松", "DigiResiTh"] },
-    { "slug": "facing-ocean", "name": "面海松", "keywords": ["面海松", "facing the ocean"] },
     {
-      "slug": "hackathon", "jothon": true, "name": "大松",
+      "slug": "hackathon", "name": "大松",
       "keywords": ["hackath", "次黑客松", "g0v 黑客松", "g0v 大黑客松", "零時政府第"],
       "exclude": ["小黑客松", "hack進", "國會松", "韌性松", "面海松"]
     },
-    { "slug": "rand0mthon", "jothon": true, "name": "放輕松", "keywords": ["放輕松", "rand0mth"] },
-    { "slug": "cafethon", "jothon": true, "name": "跑咖松", "keywords": ["跑咖松"] },
-    { "slug": "osm-wikidata", "name": "OpenStreetMap × Wikidata 月聚會", "keywords": ["OpenStreetMap", "OSM x"] },
-    { "slug": "f4", "name": "F4 Functional Thursday", "keywords": ["functional thursday", "F4:", "F4 "] },
-    { "slug": "internet-freedom", "name": "網路自由小聚", "keywords": ["網路自由小聚"] },
-    { "slug": "civictech-day", "name": "公民科技主題日", "keywords": ["公民科技主題日", "civic tech on", "civictech on"] },
-    { "slug": "wikidata", "name": "維基數據", "keywords": ["維基", "wikidata", "wikimedia", "ESEAP"] },
-    { "slug": "tipf", "name": "TIPF 台灣國際攝影節", "keywords": ["TIPF"] },
-    { "slug": "coscup", "name": "COSCUP", "keywords": ["COSCUP"] },
-    { "slug": "code-for-japan", "name": "Code for Japan", "keywords": ["Code for Japan"] }
+    { "slug": "ai-monday", "name": "AI Monday", "keywords": ["AI Monday", "AIMonday"] },
+    { "slug": "rand0mthon", "name": "放輕松", "keywords": ["放輕松", "rand0mth"] },
+    { "slug": "cafethon", "name": "跑咖松", "keywords": ["跑咖松"] },
+    { "slug": "other-jothon", "name": "其他揪松活動", "keywords": [] }
   ]
 }

@@ -92,7 +92,7 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
     r.jothon = fixed ?? amJothon;
     r.jothon_source = fixed !== null ? 'override' : amJothon ? 'aimonday' : null;
     // 標題對到揪松主辦的系列（config/series.json 的 jothon: true）、但沒有人確認過：報給管理員
-    r.jothon_pending = r.jothon_source == null && !!seriesOf(r.title)?.jothon;
+    r.jothon_pending = r.jothon_source == null && !!seriesOf(r.title);
     return r;
   });
 
@@ -111,7 +111,12 @@ const sameTitle = (a, b) => { const [x, y] = [squash(a), squash(b)].sort((p, q) 
 // 系列由標題自動判斷，但管理員或送修改的人可以指定（overrides 的 "series"，或新增活動時選的）。
 // 指定 null＝不屬於任何系列
 const SERIES_NAME = Object.fromEntries(SERIES.map(([slug, name]) => [slug, name]));
-const fixedSeries = (r) => (r.series_fixed === undefined ? {} : { series: r.series_fixed, series_label: SERIES_NAME[r.series_fixed] ?? null });
+// 揪松主辦、但標題對不到任何系列的，歸到「其他揪松活動」
+const fixedSeries = (r) => {
+  if (r.series_fixed !== undefined) return { series: r.series_fixed, series_label: SERIES_NAME[r.series_fixed] ?? null };
+  if (r.jothon && !seriesOf(r.title)) return { series: 'other-jothon', series_label: SERIES_NAME['other-jothon'] };
+  return {};
+};
 
 const talksOf = (am, talks) =>
   talks.filter((t) => t.event_id === am.id && !t.open_slot && t.kind === 'talk')

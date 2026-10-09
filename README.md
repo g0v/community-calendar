@@ -28,7 +28,7 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
 另外揪松團自己辦的系列各有一份（`hackathon.ics`、`rand0mthon.ics`、`cafethon.ics`），完整清單在[訂閱頁](https://g0v.github.io/community-calendar/subscribe/)。AI Monday 用它自己原本的 `https://g0v.github.io/AI-Monday/calendar.ics`，不另外產生。
 
-**要加一份訂閱，改 [`config/feeds.json`](config/feeds.json)**：一段一份，用「揪松主辦」「系列」「標題關鍵字」組合條件。系列的判斷規則在 [`config/series.json`](config/series.json)（標題關鍵字）。兩個檔案都不用會寫程式。
+**要加一份訂閱，改 [`config/feeds.json`](config/feeds.json)**：一段一份，用「揪松主辦」「系列」「標題關鍵字」組合條件。系列的判斷規則在 [`config/series.json`](config/series.json)（標題關鍵字），只放揪松自己辦的系列；揪松主辦、但不屬於任何系列的，自動歸到「其他揪松活動」。兩個檔案都不用會寫程式。
 
 都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
 

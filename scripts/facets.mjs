@@ -1,6 +1,6 @@
 // 篩選用的欄位：系列、城市、線上。共筆沒有這些欄位，從標題與地點推出來；推不出來就不標（null），不猜。
 //
-// 系列的判斷規則在 config/series.json（關鍵字，不用會寫程式也能改）。城市與線上的規則比較少變，留在這裡。
+// 系列的判斷規則在 config/series.json（關鍵字，不用會寫程式也能改），只放揪松自己辦的系列。城市與線上的規則比較少變，留在這裡。
 import seriesConfig from '../config/series.json' with { type: 'json' };
 
 export const SERIES = seriesConfig.series.map((s) => [s.slug, s.name]);
@@ -8,7 +8,7 @@ export const SERIES = seriesConfig.series.map((s) => [s.slug, s.name]);
 const has = (title, words = []) => words.some((w) => title.includes(w.toLowerCase()));
 export function seriesOf(title) {
   const t = title.toLowerCase();
-  return seriesConfig.series.find((s) => has(t, s.keywords) && !has(t, s.exclude)) ?? null;
+  return seriesConfig.series.find((s) => s.keywords?.length && has(t, s.keywords) && !has(t, s.exclude)) ?? null;
 }
 
 // 地名 → 縣市。只認得明確的地名與常用場地，認不出來就不標
