@@ -1,0 +1,69 @@
+name: 同步、建置、部署與資料檢查
+
+# 每天台灣 04:30 讀一次共筆：events/ 有變就 commit 回 main（這就是每一筆的修改紀錄），
+# 然後重建網站與日曆，再把要人看的地方同步成一張 issue。
+# 用 GITHUB_TOKEN push 的 commit 不會再觸發 workflow，所以不會自己跟自己打轉。
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '30 20 * * *' # UTC 20:30＝台灣 04:30
+  workflow_dispatch:
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # 同步失敗（例如共筆被整份清空）時不更新資料，但網站照樣用上一版建置，檢查結果照樣開 issue
+      - id: sync
+        run: node scripts/sync.mjs
+        continue-on-error: true
+
+      - name: 有變動就 commit
+        run: |
+          git add events
+          if git diff --cached --quiet; then echo '資料沒有變動'; exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m "sync: $(TZ=Asia/Taipei date +%F) 資料更新"
+          git push
+
+      - run: npm run build
+      - run: cp report.json dist/report.json
+        if: hashFiles('report.json') != ''
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: 資料檢查 issue
+        if: hashFiles('report.json') != ''
+        run: bash scripts/data-check-issue.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

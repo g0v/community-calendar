@@ -94,8 +94,10 @@ function finish(b, warnings) {
     warnings: [],
   };
   const warn = (msg) => { ev.warnings.push(msg); where(msg); };
+  // 只記在這筆資料上、不報給管理員的：共筆本來就允許「日期未定」，每天報只會變成洗不掉的噪音
+  const note = (msg) => ev.warnings.push(msg);
 
-  if (head.precision !== 'day') warn(head.precision === 'month' ? '沒有日期，只知道月份；不會放進訂閱日曆' : '日期待確認；不會放進訂閱日曆');
+  if (head.precision !== 'day') note(head.precision === 'month' ? '沒有日期，只知道月份；不會放進訂閱日曆' : '日期待確認；不會放進訂閱日曆');
   if (head.month_mismatch) warn(`寫在 ${ev.month_section} 底下，但日期是 ${head.date_start}`);
 
   // 列點：`鍵：值`、`【鍵】值`、`[標籤](網址)`。沒有冒號又有下一層的，是群組（「活動資訊」）或子場次（「高雄場」）
