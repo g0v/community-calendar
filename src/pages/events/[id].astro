@@ -94,10 +94,7 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
       {(log.length > 0 || fixes.length > 0) && (
         <!-- 預設收起來：大部分人只想看活動本身，紀錄是給要確認資料來源的人看的 -->
         <details id="history" class="history">
-          <summary>
-            這筆資料的紀錄
-            <span class="muted count">{log.length} 筆{fixes.length > 0 && `，${fixes.length} 項修正`}</span>
-          </summary>
+          <summary>修改紀錄<span class="count">{log.length} 筆{fixes.length > 0 && `・${fixes.length} 項修正`}</span></summary>
           {fixes.length > 0 && (
             <div class="fixes">
               <p class="fixes-title">目前套用的修正</p>
@@ -189,17 +186,24 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
   .tip summary::-webkit-details-marker { display: none; }
   .tip[open] summary { color: var(--accent); border-color: var(--accent); }
   .tip p { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 2; margin: 0; padding: 10px 12px; border-radius: var(--r-md); background: var(--surface-2); font-size: .8rem; color: var(--muted); }
-  .history { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 16px; }
-  .history summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
-  .history summary .count { font-weight: 400; font-size: .85rem; margin-left: 6px; }
-  .history[open] summary { margin-bottom: 12px; }
-  .fixes { padding: 10px 14px; border-radius: var(--r-md); background: var(--surface-2); margin-bottom: 12px; font-size: .875rem; }
+  /* 修改紀錄：收在頁面最下面一行小字，要找的人找得到、不看的人不會注意到 */
+  .history { margin-top: 40px; font-size: .8rem; color: var(--muted); }
+  .history summary { display: inline-flex; gap: 8px; cursor: pointer; list-style: none; }
+  .history summary::-webkit-details-marker { display: none; }
+  .history summary::before { content: '▸'; transition: transform .2s; }
+  .history[open] summary::before { transform: rotate(90deg); }
+  .history summary:hover { color: var(--text); }
+  .history .count { opacity: .8; }
+  .history[open] summary { margin-bottom: 10px; }
+  .fixes { margin-bottom: 10px; }
   .fixes-title { margin: 0 0 4px; font-weight: 600; }
   .fixes ul { margin: 0; padding-left: 1.2em; }
-  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .875rem; }
+  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
   .log li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
-  .log .d { color: var(--muted); font-size: .8rem; }
-  .log a { color: var(--text); text-decoration-color: color-mix(in srgb, var(--text) 25%, transparent); overflow-wrap: anywhere; }
+  .log .d { font-size: inherit; }
+  .log .badge { font-size: .7rem; padding: 0 5px; }
+  .log a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 30%, transparent); overflow-wrap: anywhere; }
+  .log a:hover { color: var(--text); }
 
 
 
