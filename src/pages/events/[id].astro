@@ -92,8 +92,12 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
         </section>
       )}
       {(log.length > 0 || fixes.length > 0) && (
-        <section id="history" class="history">
-          <h2>這筆資料的紀錄</h2>
+        <!-- 預設收起來：大部分人只想看活動本身，紀錄是給要確認資料來源的人看的 -->
+        <details id="history" class="history">
+          <summary>
+            這筆資料的紀錄
+            <span class="muted count">{log.length} 筆{fixes.length > 0 && `，${fixes.length} 項修正`}</span>
+          </summary>
           {fixes.length > 0 && (
             <div class="fixes">
               <p class="fixes-title">目前套用的修正</p>
@@ -101,21 +105,11 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
             </div>
           )}
           <ol class="log">
-            {log.slice(0, 8).map((h) => (
+            {log.map((h) => (
               <li><span class="d mono">{h.date}</span><span class="badge">{h.kind}</span><a href={h.url}>{h.text}</a></li>
             ))}
           </ol>
-          {log.length > 8 && (
-            <details class="more">
-              <summary>再看 {log.length - 8} 筆</summary>
-              <ol class="log">
-                {log.slice(8).map((h) => (
-                  <li><span class="d mono">{h.date}</span><span class="badge">{h.kind}</span><a href={h.url}>{h.text}</a></li>
-                ))}
-              </ol>
-            </details>
-          )}
-        </section>
+        </details>
       )}
     </div>
 
@@ -151,11 +145,20 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
           <summary aria-label="說明">i</summary>
           <p>資料有錯、活動取消、或內容不適合放在這裡，都從「修改這筆」送出，管理員看過後就會更新。管理員也可以直接改<a href={editUrl(e)}>修正檔</a>。</p>
         </details>
-        {log.length > 0 && <a class="link" href="#history">修改紀錄</a>}
+        {log.length > 0 && <a class="link" href="#history" data-open-history>修改紀錄</a>}
       </div>
     </aside>
   </div>
 </Base>
+
+<script>
+  // 側欄的「修改紀錄」：打開收起來的紀錄再捲過去
+  document.querySelector('[data-open-history]')?.addEventListener('click', () => {
+    const d = document.querySelector<HTMLDetailsElement>('#history');
+    if (d) d.open = true;
+  });
+  if (location.hash === '#history') document.querySelector<HTMLDetailsElement>('#history')?.setAttribute('open', '');
+</script>
 
 <style>
   .badges { display: flex; gap: 6px; min-height: 0; margin-bottom: 8px; }
@@ -186,7 +189,10 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
   .tip summary::-webkit-details-marker { display: none; }
   .tip[open] summary { color: var(--accent); border-color: var(--accent); }
   .tip p { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 2; margin: 0; padding: 10px 12px; border-radius: var(--r-md); background: var(--surface-2); font-size: .8rem; color: var(--muted); }
-  .history { margin-top: 8px; }
+  .history { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 16px; }
+  .history summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
+  .history summary .count { font-weight: 400; font-size: .85rem; margin-left: 6px; }
+  .history[open] summary { margin-bottom: 12px; }
   .fixes { padding: 10px 14px; border-radius: var(--r-md); background: var(--surface-2); margin-bottom: 12px; font-size: .875rem; }
   .fixes-title { margin: 0 0 4px; font-weight: 600; }
   .fixes ul { margin: 0; padding-left: 1.2em; }
@@ -194,8 +200,7 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
   .log li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
   .log .d { color: var(--muted); font-size: .8rem; }
   .log a { color: var(--text); text-decoration-color: color-mix(in srgb, var(--text) 25%, transparent); overflow-wrap: anywhere; }
-  .more summary { margin-top: 8px; font-size: .85rem; color: var(--muted); cursor: pointer; }
-  .more .log { margin-top: 8px; }
+
 
 
   .am { margin: 16px 0 0; }
