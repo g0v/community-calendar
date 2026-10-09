@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import EventForm from '../../components/EventForm.astro';
+---
+<Base title="新增活動" description="把 g0v 社群的活動加進行事曆。">
+  <h1 class="page-title">新增活動</h1>
+  <div class="intro">
+    <p>
+      <strong>能編輯共筆的話，直接寫進<a href="https://g0v.hackmd.io/@jothon/event">揪松團的活動共筆</a>最快</strong>——不用帳號，也是大家最常看的地方，
+      隔天就會同步到這裡。寫法照共筆最上面的範本。
+    </p>
+    <p class="muted">共筆不方便的話，填下面的表單。</p>
+  </div>
+  <EventForm mode="new" />
+</Base>
+
+<style>
+  .intro { max-width: 44rem; margin: 12px 0 28px; }
+  .intro p { margin: 0 0 8px; }
+</style>

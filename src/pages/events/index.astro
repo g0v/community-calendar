@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EventRow from '../../components/EventRow.astro';
-import { getEvents, isPast, monthKey } from '../../lib/data';
+import { getEvents, href, isPast, monthKey } from '../../lib/data';
 import { SERIES } from '../../../scripts/facets.mjs';
 
 const all = (await getEvents()).filter((e) => !e.hidden);
@@ -18,7 +18,10 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
 
 ---
 <Base title="活動" description="搜尋 g0v 社群的活動：黑客松、AI Monday、各地小聚與講座，含過去的活動。">
-  <h1 class="page-title">活動</h1>
+  <div class="title-row">
+    <h1 class="page-title">活動</h1>
+    <a class="add" href={href('/submit/')}>＋ 新增活動</a>
+  </div>
 
   <section class="list">
     <form class="filters" role="search" onsubmit="return false">
@@ -176,6 +179,8 @@ const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
 </script>
 
 <style>
+  .title-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .add { font-size: .9rem; text-decoration: none; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
   .filters { position: sticky; top: 64px; z-index: 3; margin: 28px 0 8px; padding: 12px 0; background: var(--bg); display: grid; gap: 10px; }

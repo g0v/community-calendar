@@ -1,0 +1,28 @@
+---
+import Base from '../../../layouts/Base.astro';
+import EventForm from '../../../components/EventForm.astro';
+import { formatWhen, fromAiMonday, getEvents, href, type Event } from '../../../lib/data';
+
+export async function getStaticPaths() {
+  return (await getEvents()).filter((e) => !e.hidden).map((e) => ({ params: { id: e.id }, props: { event: e } }));
+}
+const { event: e } = Astro.props as { event: Event };
+const values = {
+  name: e.title, date: e.date_start, date_end: e.date_end, start_time: e.start_time, end_time: e.end_time,
+  venue: e.venue, address: e.address, host: e.host,
+  signup_url: e.signup_url, online_url: e.online_url, notes_url: e.notes_url, page_url: e.page_url,
+};
+---
+<Base title={`修改：${e.title}`}>
+  <a class="back" href={href(`/events/${e.id}/`)}>← 回到活動頁</a>
+  <h1 class="page-title">修改活動資料</h1>
+  <p class="lede muted">{e.title}・{formatWhen(e)}</p>
+  {fromAiMonday(e) && <p class="notice">這場的原始資料由 AI Monday 工作小組維護。這裡改的只影響社群行事曆；AI Monday 網站上的要請工作小組改。</p>}
+  {e.in_source && <p class="notice">這場活動還在<a href="https://g0v.hackmd.io/@jothon/event">揪松團的活動共筆</a>上。能編輯共筆的話，直接改共筆最快，明天同步後就會更新。</p>}
+  <EventForm mode="edit" eventId={e.id} values={values} label={e.title} />
+</Base>
+
+<style>
+  .lede { margin: 8px 0 24px; overflow-wrap: anywhere; }
+  .notice { padding: 12px 16px; border-radius: var(--r-md); background: var(--surface-2); font-size: .9rem; margin: 0 0 20px; }
+</style>

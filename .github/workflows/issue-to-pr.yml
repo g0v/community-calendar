@@ -1,0 +1,57 @@
+name: 修改／新增活動的 issue 轉成 PR
+
+# 網站上的「編輯這筆」「新增活動」會開一張帶表單的 issue（.github/ISSUE_TEMPLATE/），
+# 這裡把它轉成檔案變更、開 PR，並在 issue 留言附上 PR。管理員合併 PR 就生效。
+# issue 被修改時重跑一次，PR 跟著更新。
+#
+# 安全：issue 的內容是任何人都能寫的。它只會被 scripts/issue-to-pr.mjs 當資料讀（白名單欄位、驗證格式），
+# 不會被拼進任何 shell 指令；PR 的標題與內文都從檔案讀。
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: issue-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  to-pr:
+    if: contains(github.event.issue.labels.*.name, '修改活動') || contains(github.event.issue.labels.*.name, '新增活動')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/issue-to-pr.mjs "$GITHUB_EVENT_PATH"
+
+      - name: 開或更新 PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          if [ "$(jq -r .ok issue-result.json)" != "true" ]; then
+            jq -r '"這張 issue 還不能轉成 PR：\n\n" + (.errors | map("- " + .) | join("\n")) + "\n\n修改 issue 內容後會自動重試。"' issue-result.json > comment.md
+            gh issue comment "$NUMBER" --body-file comment.md
+            exit 0
+          fi
+          branch="issue-$NUMBER"
+          git checkout -B "$branch"
+          jq -r '.files[]' issue-result.json | xargs git add --
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m "$(jq -r .title issue-result.json)" -m "由 #$NUMBER 自動產生"
+          git push --force origin "$branch"
+          jq -r .body issue-result.json > body.md
+          existing=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --title "$(jq -r .title issue-result.json)" --body-file body.md
+            gh issue comment "$NUMBER" --body "內容有更新，PR #$existing 已跟著更新。"
+          else
+            url=$(gh pr create --head "$branch" --base main --title "$(jq -r .title issue-result.json)" --body-file body.md)
+            gh issue comment "$NUMBER" --body "已經開好 PR：$url 。管理員看過後合併，網站與訂閱日曆幾分鐘內就會更新。"
+          fi

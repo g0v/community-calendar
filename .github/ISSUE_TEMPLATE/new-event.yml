@@ -1,0 +1,105 @@
+name: 新增活動
+description: 揪松團的活動共筆上沒有的活動。能編輯共筆的話，直接寫進共筆最快。
+title: "新增："
+labels: ["新增活動"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        送出後會自動開一個 PR，管理員看過後合併就會出現在網站與訂閱日曆。
+        **也可以直接寫進[揪松團的活動共筆](https://g0v.hackmd.io/@jothon/event)**——不用帳號，這也是大家最常看的地方。
+  - type: input
+    id: name
+    attributes:
+      label: 活動名稱
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: 日期
+      placeholder: "YYYY-MM-DD，例如 2026-11-20"
+    validations:
+      required: true
+  - type: input
+    id: date_end
+    attributes:
+      label: 結束日期（跨天才填）
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+  - type: input
+    id: start_time
+    attributes:
+      label: 開始時間
+      placeholder: "HH:MM，例如 19:00"
+    validations:
+      required: false
+  - type: input
+    id: end_time
+    attributes:
+      label: 結束時間
+      placeholder: "HH:MM，例如 21:00"
+    validations:
+      required: false
+  - type: input
+    id: venue
+    attributes:
+      label: 地點
+      placeholder: "場地名稱；線上活動寫「線上」"
+    validations:
+      required: false
+  - type: input
+    id: address
+    attributes:
+      label: 地址
+      placeholder: ""
+    validations:
+      required: false
+  - type: input
+    id: host
+    attributes:
+      label: 主辦
+      placeholder: ""
+    validations:
+      required: false
+  - type: input
+    id: signup_url
+    attributes:
+      label: 報名網址
+      placeholder: "https://…"
+    validations:
+      required: false
+  - type: input
+    id: online_url
+    attributes:
+      label: 線上參加網址
+      placeholder: "直播或線上會議的網址"
+    validations:
+      required: false
+  - type: input
+    id: notes_url
+    attributes:
+      label: 共筆網址
+      placeholder: "https://…"
+    validations:
+      required: false
+  - type: input
+    id: page_url
+    attributes:
+      label: 活動頁
+      placeholder: "活動官網或 FB 活動頁"
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: 活動說明
+      description: 幾句話介紹這場活動
+  - type: textarea
+    id: reason
+    attributes:
+      label: 你跟這場活動的關係
+      description: 例如「我是主辦」「在某某社群看到公告（附連結）」，方便管理員確認
+    validations:
+      required: true

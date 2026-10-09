@@ -103,11 +103,19 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
 例外是 AI Monday：揪松團自己維護的 [AI Monday 資料](https://data.civictech.tw/v0/aimonday/events.json) 同一天也有一場，就自動當成揪松主辦，並沿用 [AI Monday 日曆](https://g0v.github.io/AI-Monday/calendar.ics) 的 UID。
 
-### 最快的改法：活動頁的「編輯這筆」
+### 網站上的「修改這筆」與「新增活動」
 
-每場活動頁都有「編輯這筆」，會直接在 GitHub 打開這場活動的修正檔（還沒有的話，打開新增檔案畫面，檔名與範本都填好）。改完按 Commit 就生效。沒有寫入權限的人按同一個按鈕，GitHub 會自動開成 PR，管理員合併即可——這也是外人提修改的管道。
+一般人不用碰 GitHub 的檔案：
 
-**不要直接改 `events/{id}.json`**：活動還在共筆上的話，共筆下次一改就會整筆重寫，改過的東西會安靜地消失。
+1. 活動頁按「修改這筆」（或 `/submit/` 新增活動），在網站上填好
+2. 按「到 GitHub 送出」，會打開一張欄位都填好的 issue（表單在 `.github/ISSUE_TEMPLATE/`），按 Submit
+3. `.github/workflows/issue-to-pr.yml` 自動把它轉成 PR（`scripts/issue-to-pr.mjs`），並在 issue 留言附上 PR
+4. 管理員看過後合併，網站與日曆幾分鐘內更新
+
+修改寫進 `overrides/{id}.json`；新增的活動放在 `manual/`，之後共筆上也出現同一場時，以共筆那筆為準。
+沒有 GitHub 帳號的人，表單上有「寄信給揪松團」，內容會幫他填好（信箱在 `config/site.json`）。
+
+管理員也可以直接改 `overrides/{id}.json`（活動頁的「修正檔」連結）。**不要直接改 `events/{id}.json`**：活動還在共筆上的話，共筆下次一改就會整筆重寫。
 
 ### 有人回報問題時
 

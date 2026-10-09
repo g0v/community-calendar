@@ -1,7 +1,10 @@
 // 建置時讀 events/ 與 overrides/，套上管理員的修正（邏輯在 scripts/resolve.mjs，同步與網站共用一份）
 import { loadAiMonday, loadAll, resolve } from '../../scripts/resolve.mjs';
 
+import site from '../../config/site.json' with { type: 'json' };
+
 export const REPO = 'https://github.com/g0v/community-calendar';
+export const CONTACT_EMAIL = site.contact_email;
 export const SOURCE_URL = 'https://g0v.hackmd.io/@jothon/event';
 
 export interface SubSession { name: string; date: string | null; start_time: string | null; end_time: string | null; venue: string | null }
@@ -107,7 +110,14 @@ export const monthKey = (e: Event) => e.date_start?.slice(0, 7) ?? e.month_secti
 
 // GitHub 上這筆資料的修改紀錄與回報入口。AI Monday 來源的資料不在這個 repo，修改紀錄在 civictech-tw-data
 export const historyUrl = (e: Event) => (fromAiMonday(e) ? null : `${REPO}/commits/main/events/${e.id}.json`);
-// 「編輯這筆」：改的是 overrides/{id}.json，不是 events/——events/ 會被每日同步重寫，overrides 不會。
+// 網站上的編輯頁與新增活動頁送出時開的 issue（表單在 .github/ISSUE_TEMPLATE/，欄位用 id 預先填好）
+export function issueUrl(template: 'edit-event.yml' | 'new-event.yml', title: string, fields: Record<string, string>) {
+  const q = new URLSearchParams({ template, title });
+  for (const [k, v] of Object.entries(fields)) if (v) q.set(k, v);
+  return `${REPO}/issues/new?${q}`;
+}
+
+// 給管理員的捷徑：直接在 GitHub 改 overrides/{id}.json。改的是 overrides/{id}.json，不是 events/——events/ 會被每日同步重寫，overrides 不會。
 // 已經有修正檔就打開它編輯；還沒有就打開 GitHub 的新增檔案畫面，檔名與範本都填好。
 // 沒有 repo 寫入權限的人按同一個按鈕，GitHub 會自動幫他開成 PR，管理員合併就生效
 export function editUrl(e: Event) {

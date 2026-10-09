@@ -3,3 +3,6 @@ dist/
 .astro/
 # 每次同步都會變（產生時間），由 workflow 直接交給建置，不進版控
 report.json
+issue-result.json
+comment.md
+body.md

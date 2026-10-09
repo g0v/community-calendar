@@ -107,15 +107,11 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
         <ul class="warnings">{e.warnings.map((w) => <li>{w}</li>)}</ul>
       )}
       <p class="actions">
-        <a href={editUrl(e)}>編輯這筆</a>
+        <a href={href(`/events/${e.id}/edit/`)}>修改這筆</a>
         {history && <a href={history}>修改紀錄</a>}
         {fromAiMonday(e) ? <a href="https://github.com/g0v/AI-Monday/issues/new">回報問題</a> : <a href={reportUrl(e)}>回報問題</a>}
       </p>
-      <p class="muted tiny">
-        「編輯這筆」會在 GitHub 打開這場活動的修正檔：<code>set</code> 改欄位、<code>hidden</code> 下架，說明見 <a href={`${REPO}#管理員`}>README</a>。
-        沒有權限的話 GitHub 會幫你開成 PR，管理員看過後合併。
-        {fromAiMonday(e) ? 'AI Monday 的原始資料由 AI Monday 工作小組維護。' : '不想碰 GitHub 的話，按「回報問題」用文字說明也可以。'}
-      </p>
+      <p class="muted tiny">資料有錯、活動取消、或內容不適合放在這裡，按「修改這筆」。管理員可以直接改<a href={editUrl(e)}>修正檔</a>。</p>
     </aside>
   </div>
 </Base>

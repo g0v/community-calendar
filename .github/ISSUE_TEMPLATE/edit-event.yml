@@ -1,0 +1,111 @@
+name: 修改活動資料
+description: 活動資料有錯、活動取消、或內容不適合放在行事曆上。建議從網站上的「編輯這筆」進來，欄位會先填好。
+title: "修改："
+labels: ["修改活動"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **只要填你要改的欄位**，沒有要改的留空。送出後會自動開一個 PR，管理員看過後合併就會更新到網站與訂閱日曆。
+  - type: input
+    id: event_id
+    attributes:
+      label: 活動代號
+      description: 活動頁網址 /events/ 後面那一段，例如 2026-11-08-543cc9
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: 活動名稱
+  - type: input
+    id: date
+    attributes:
+      label: 日期
+      placeholder: "YYYY-MM-DD，例如 2026-11-20"
+    validations:
+      required: false
+  - type: input
+    id: date_end
+    attributes:
+      label: 結束日期（跨天才填）
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+  - type: input
+    id: start_time
+    attributes:
+      label: 開始時間
+      placeholder: "HH:MM，例如 19:00"
+    validations:
+      required: false
+  - type: input
+    id: end_time
+    attributes:
+      label: 結束時間
+      placeholder: "HH:MM，例如 21:00"
+    validations:
+      required: false
+  - type: input
+    id: venue
+    attributes:
+      label: 地點
+      placeholder: "場地名稱；線上活動寫「線上」"
+    validations:
+      required: false
+  - type: input
+    id: address
+    attributes:
+      label: 地址
+      placeholder: ""
+    validations:
+      required: false
+  - type: input
+    id: host
+    attributes:
+      label: 主辦
+      placeholder: ""
+    validations:
+      required: false
+  - type: input
+    id: signup_url
+    attributes:
+      label: 報名網址
+      placeholder: "https://…"
+    validations:
+      required: false
+  - type: input
+    id: online_url
+    attributes:
+      label: 線上參加網址
+      placeholder: "直播或線上會議的網址"
+    validations:
+      required: false
+  - type: input
+    id: notes_url
+    attributes:
+      label: 共筆網址
+      placeholder: "https://…"
+    validations:
+      required: false
+  - type: input
+    id: page_url
+    attributes:
+      label: 活動頁
+      placeholder: "活動官網或 FB 活動頁"
+    validations:
+      required: false
+  - type: input
+    id: takedown
+    attributes:
+      label: 要不要從行事曆上拿掉？
+      description: 活動取消、重複、或內容不適合放在這裡，就寫「請拿掉」；不用就留空
+    validations:
+      required: false
+  - type: textarea
+    id: reason
+    attributes:
+      label: 為什麼要改
+      description: 例如「主辦單位公告改期」，附上來源連結更好
+    validations:
+      required: true

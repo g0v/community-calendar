@@ -10,6 +10,7 @@
 // 在建置時直接加進來，不存進 events/——它們的修改紀錄在 civictech-tw-data，不在這裡。
 // 要修正或下架，overrides 的檔名用 aimonday-{AI Monday 的場次 id}.json
 //
+// 網站上的「編輯這筆」會開一張 issue，再由 workflow 轉成改這個檔案的 PR（scripts/issue-to-pr.mjs）。
 // overrides/{id}.json 的格式（每個欄位都可省略）：
 //   {
 //     "hidden": true,                 下架：網站與日曆都不出現（資料仍保留在 events/）
@@ -35,7 +36,10 @@ export async function loadAll(root) {
   };
   const events = (await read('events')).map(([, e]) => e);
   const overrides = Object.fromEntries(await read('overrides'));
-  return { events, overrides };
+  // manual/：從網站「新增活動」送進來、合併過的活動。共筆上之後也出現同一場的話，以共筆那筆為準
+  const manual = (await read('manual')).map(([, e]) => e)
+    .filter((m) => !events.some((e) => e.date_start === m.date_start && sameTitle(e.title, m.title)));
+  return { events: [...events, ...manual], overrides };
 }
 
 // AI Monday 工作小組維護的資料（data.civictech.tw）。讀不到就當成沒有：AI Monday 場次這次只會有共筆上的那些，
@@ -95,6 +99,10 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
     .map((r) => ({ ...r, ...facets(r) }))
     .sort((a, b) => (a.date_start ?? a.month_section ?? '9999').localeCompare(b.date_start ?? b.month_section ?? '9999'));
 }
+
+// 共筆的寫法常常比表單多幾個字，所以一個包含另一個就算同一場
+const squash = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+const sameTitle = (a, b) => { const [x, y] = [squash(a), squash(b)].sort((p, q) => p.length - q.length); return x.length >= 3 && y.includes(x); };
 
 const talksOf = (am, talks) =>
   talks.filter((t) => t.event_id === am.id && !t.open_slot && t.kind === 'talk')

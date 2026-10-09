@@ -1,0 +1,144 @@
+---
+// 編輯頁與新增活動頁共用的表單。送出時不直接改資料：組好一張 GitHub issue（表單欄位預先填好），
+// 由 workflow 轉成 PR、管理員合併後才生效。沒有 GitHub 帳號的人改用 email
+import { CONTACT_EMAIL, REPO } from '../lib/data';
+
+interface Props {
+  mode: 'edit' | 'new';
+  eventId?: string;
+  values?: Record<string, string | null | undefined>;
+  label?: string; // issue 標題用
+}
+const { mode, eventId = '', values = {}, label = '' } = Astro.props;
+const v = (k: string) => values[k] ?? '';
+const fields: { id: string; label: string; type?: string; hint?: string; wide?: boolean }[] = [
+  { id: 'name', label: '活動名稱', wide: true },
+  { id: 'date', label: '日期', type: 'date' },
+  { id: 'date_end', label: '結束日期', type: 'date', hint: '跨天才填' },
+  { id: 'start_time', label: '開始時間', type: 'time' },
+  { id: 'end_time', label: '結束時間', type: 'time' },
+  { id: 'venue', label: '地點', hint: '場地名稱；線上活動寫「線上」' },
+  { id: 'address', label: '地址' },
+  { id: 'host', label: '主辦' },
+  { id: 'signup_url', label: '報名網址', type: 'url' },
+  { id: 'online_url', label: '線上參加網址', type: 'url', hint: '直播或線上會議' },
+  { id: 'notes_url', label: '共筆網址', type: 'url' },
+  { id: 'page_url', label: '活動頁', type: 'url', hint: '官網或 FB 活動頁' },
+];
+---
+<form class="event-form" data-mode={mode} data-event-id={eventId} data-label={label} data-repo={REPO} data-email={CONTACT_EMAIL}>
+  <div class="grid">
+    {fields.map((f) => (
+      <label class:list={['field', { wide: f.wide }]}>
+        <span class="l">{f.label}{(f.id === 'name' || f.id === 'date') && mode === 'new' && <span class="req">必填</span>}</span>
+        <input name={f.id} type={f.type ?? 'text'} value={v(f.id)} data-initial={v(f.id)} required={mode === 'new' && (f.id === 'name' || f.id === 'date')} />
+        {f.hint && <span class="hint muted">{f.hint}</span>}
+      </label>
+    ))}
+    {mode === 'new' && (
+      <label class="field wide">
+        <span class="l">活動說明</span>
+        <textarea name="description" rows="4"></textarea>
+      </label>
+    )}
+    {mode === 'edit' && (
+      <label class="field wide check">
+        <input type="checkbox" name="takedown" />
+        <span>請從行事曆上拿掉這場活動（活動取消、重複、或內容不適合放在這裡）</span>
+      </label>
+    )}
+    <label class="field wide">
+      <span class="l">{mode === 'edit' ? '為什麼要改' : '你跟這場活動的關係'}<span class="req">必填</span></span>
+      <textarea name="reason" rows="3" required placeholder={mode === 'edit' ? '例如「主辦單位公告改期」，附上來源連結更好' : '例如「我是主辦」「在某某社群看到公告」，附上連結更好'}></textarea>
+    </label>
+  </div>
+
+  <p class="err" data-err hidden></p>
+  <div class="actions">
+    <button class="btn primary" type="submit">到 GitHub 送出</button>
+    <a class="btn" href="#" data-mail>沒有 GitHub 帳號？寄信給揪松團</a>
+  </div>
+  <p class="muted small">
+    「到 GitHub 送出」會打開一張填好的 issue，按下 Submit 之後會自動開 PR，管理員看過後合併就生效。
+    需要 <a href="https://github.com/signup">GitHub 帳號</a>（免費）。不想註冊的話，寄信也可以，內容會幫你填好。
+  </p>
+</form>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>('.event-form')) {
+    const mode = form.dataset.mode!;
+    const err = form.querySelector<HTMLElement>('[data-err]')!;
+    // 編輯：只送有改的欄位，管理員一眼就看得出改了什麼
+    const collect = () => {
+      const out: Record<string, string> = {};
+      form.querySelectorAll<HTMLInputElement>('input[name]:not([type=checkbox]), textarea[name]').forEach((el) => {
+        const v = el.value.trim();
+        if (el.name === 'reason' || el.name === 'description') { if (v) out[el.name] = v; return; }
+        if (mode === 'new' ? v : v !== (el.dataset.initial ?? '')) out[el.name] = v;
+      });
+      return out;
+    };
+    const takedown = () => !!form.querySelector<HTMLInputElement>('[name=takedown]')?.checked;
+    const check = (f: Record<string, string>) => {
+      if (!f.reason) return mode === 'edit' ? '請寫一下為什麼要改。' : '請寫一下你跟這場活動的關係。';
+      if (mode === 'edit' && Object.keys(f).filter((k) => k !== 'reason').length === 0 && !takedown()) return '沒有改到任何欄位。';
+      if (mode === 'new' && (!f.name || !f.date)) return '活動名稱與日期是必填。';
+      return null;
+    };
+    const label = () => form.dataset.label || collect().name || '';
+
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const f = collect();
+      const problem = check(f);
+      err.hidden = !problem; err.textContent = problem ?? '';
+      if (problem) return;
+      const q = new URLSearchParams({
+        template: mode === 'edit' ? 'edit-event.yml' : 'new-event.yml',
+        title: `${mode === 'edit' ? '修改' : '新增'}：${label()}`,
+      });
+      if (mode === 'edit') { q.set('event_id', form.dataset.eventId!); if (takedown()) q.set('takedown', '請拿掉'); }
+      for (const [k, v] of Object.entries(f)) q.set(k, v);
+      window.open(`${form.dataset.repo}/issues/new?${q}`, '_blank', 'noopener');
+    });
+
+    // 寄信：把同樣的內容寫成信件
+    form.querySelector<HTMLAnchorElement>('[data-mail]')!.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const f = collect();
+      const names: Record<string, string> = { name: '活動名稱', date: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間', venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址', notes_url: '共筆網址', page_url: '活動頁', description: '活動說明', reason: mode === 'edit' ? '為什麼要改' : '我跟這場活動的關係' };
+      const body = [
+        mode === 'edit' ? `我想修改 g0v 社群行事曆上的這場活動：${location.href.replace(/edit\/?$/, '')}` : '我想在 g0v 社群行事曆上新增一場活動：',
+        '',
+        ...Object.entries(f).map(([k, v]) => `${names[k] ?? k}：${v}`),
+        ...(takedown() ? ['請從行事曆上拿掉這場活動'] : []),
+      ].join('\n');
+      location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`［社群行事曆］${mode === 'edit' ? '修改' : '新增'}：${label()}`)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+</script>
+
+<style>
+  .grid { display: grid; gap: 16px; }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } .wide { grid-column: 1 / -1; } }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .l { font-size: .875rem; font-weight: 600; }
+  .req { margin-left: 6px; font-size: .75rem; font-weight: 500; color: var(--accent); }
+  input:not([type=checkbox]), textarea {
+    width: 100%; padding: 9px 12px; border-radius: var(--r-md); border: 1px solid var(--line);
+    background: var(--surface); color: var(--text); font: inherit; font-size: .95rem;
+  }
+  input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+  .hint { font-size: .8rem; }
+  .check { flex-direction: row; align-items: center; gap: 8px; font-size: .9rem; }
+  .err { color: var(--warn); margin: 16px 0 0; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border-radius: var(--r-md);
+    border: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: .9rem;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .small { font-size: .85rem; margin-top: 12px; max-width: 44rem; }
+</style>
