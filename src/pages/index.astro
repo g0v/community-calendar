@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import EventRow from '../components/EventRow.astro';
+import { getEvents, href, isPast, monthKey, SOURCE_URL } from '../lib/data';
+
+const events = (await getEvents()).filter((e) => !e.hidden && !isPast(e));
+const months = [...new Set(events.map(monthKey))];
+const monthLabel = (k: string) => (/^\d{4}-\d{2}$/.test(k) ? `${k.slice(0, 4)} 年 ${Number(k.slice(5))} 月` : '日期待確認');
+
+const site = new URL(href('/'), Astro.site);
+const feeds = [
+  { file: 'jothon.ics', name: '揪松團活動', desc: '只有揪松團主辦的：黑客松（大松）、AI Monday、放輕松、跑咖松。' },
+  { file: 'all.ics', name: '所有社群活動', desc: '共筆上的所有活動，包含各社群的小聚、講座、研討會。內容由社群自由填寫，未經審核。' },
+];
+const feedUrl = (f: string) => new URL(f, site).href;
+const webcal = (f: string) => feedUrl(f).replace(/^https?:/, 'webcal:');
+const google = (f: string) => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal(f))}`;
+---
+<Base>
+  <section class="hero">
+    <h1>g0v 社群行事曆</h1>
+    <p class="lede muted">黑客松、AI Monday、各地小聚與講座。資料每天從揪松團的<a href={SOURCE_URL}>活動共筆</a>同步，共筆上刪掉的活動，這裡也會留著。</p>
+  </section>
+
+  <section id="subscribe" class="feeds">
+    {feeds.map((f) => (
+      <div class="panel feed">
+        <h2>{f.name}</h2>
+        <p class="muted">{f.desc}</p>
+        <div class="actions">
+          <a class="btn primary" href={google(f.file)}>加到 Google 日曆</a>
+          <a class="btn" href={webcal(f.file)}>用其他日曆訂閱</a>
+          <button class="btn" type="button" data-copy={feedUrl(f.file)}>複製網址</button>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="list">
+    <div class="list-head">
+      <h2>近期活動</h2>
+      <div class="filter" role="group" aria-label="篩選">
+        <button type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button type="button" data-filter="jothon" aria-pressed="false">揪松主辦</button>
+      </div>
+    </div>
+    {months.map((m) => (
+      <section class="month" data-month>
+        <h3 class="month-title">{monthLabel(m)}</h3>
+        {events.filter((e) => monthKey(e) === m).map((e) => <EventRow event={e} />)}
+      </section>
+    ))}
+    <p class="more"><a href={href('/past/')}>過去的活動 →</a></p>
+  </section>
+</Base>
+
+<script>
+  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = '已複製'; } catch { b.textContent = b.dataset.copy!; }
+      setTimeout(() => (b.textContent = '複製網址'), 2000);
+    });
+  }
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  for (const b of buttons) {
+    b.addEventListener('click', () => {
+      const only = b.dataset.filter === 'jothon';
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      document.querySelectorAll<HTMLElement>('.row').forEach((r) => (r.hidden = only && r.dataset.jothon !== '1'));
+      // 整個月份都沒有符合的，連月份標題一起藏
+      document.querySelectorAll<HTMLElement>('[data-month]').forEach((m) => (m.hidden = !m.querySelector('.row:not([hidden])')));
+    });
+  }
+</script>
+
+<style>
+  .hero { max-width: 720px; }
+  .lede { font-size: 1.05rem; margin: 12px 0 0; }
+  .feeds { display: grid; gap: 16px; margin: 32px 0 48px; }
+  @media (min-width: 768px) { .feeds { grid-template-columns: 1fr 1fr; } }
+  .feed { padding: 20px; }
+  .feed p { margin: 6px 0 16px; font-size: .9rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: var(--r-md);
+    border: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: .875rem;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .list-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .filter { display: inline-flex; padding: 3px; border-radius: var(--r-md); background: var(--surface-2); }
+  .filter button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .875rem; padding: 4px 12px; border-radius: var(--r-sm); cursor: pointer; }
+  .filter button[aria-pressed='true'] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+  .month-title { margin: 28px 0 0; font-size: .95rem; color: var(--muted); font-weight: 600; }
+  .more { margin-top: 32px; }
+</style>

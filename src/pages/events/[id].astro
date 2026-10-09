@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import { formatWhen, getEvents, historyUrl, href, reportUrl, SOURCE_URL, vanishedEarly, type Event } from '../../lib/data';
+
+// 下架的不產生頁面（網址會變成 404）
+export async function getStaticPaths() {
+  return (await getEvents()).filter((e) => !e.hidden).map((e) => ({ params: { id: e.id }, props: { event: e } }));
+}
+const { event: e } = Astro.props as { event: Event };
+
+const info = [
+  ['地點', e.venue],
+  ['地址', e.address],
+  ['主辦', e.host],
+].filter(([, v]) => v) as [string, string][];
+const links = [
+  ['報名', e.signup_url],
+  ['共筆', e.notes_url],
+  ['活動頁', e.page_url],
+].filter(([, v]) => v) as [string, string][];
+const other = e.links.filter((u) => !links.some(([, v]) => v === u));
+---
+<Base title={e.title} description={`${formatWhen(e)}｜${e.venue ?? ''}`}>
+  <a class="back" href={href('/')}>← 近期活動</a>
+  <div class="badges">
+    {e.jothon && <span class="badge accent">揪松主辦</span>}
+    {vanishedEarly(e) && <span class="badge warn">共筆已移除</span>}
+  </div>
+  <h1 class="page-title">{e.title}</h1>
+  <p class="when mono">{formatWhen(e)}</p>
+
+  {vanishedEarly(e) && (
+    <p class="notice">這場活動在 {e.removed_from_source} 從揪松團的活動共筆上被移除了，活動日還沒到。可能已經取消，參加前請向主辦單位確認。</p>
+  )}
+
+  <div class="grid">
+    <div>
+      {info.length > 0 && (
+        <dl class="info">
+          {info.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+        </dl>
+      )}
+      {e.sub_sessions.length > 0 && (
+        <section>
+          <h2>場次</h2>
+          <ul class="subs">
+            {e.sub_sessions.map((s) => (
+              <li><strong>{s.name}</strong> <span class="mono muted">{s.date}{s.start_time && ` ${s.start_time}${s.end_time ? `–${s.end_time}` : ''}`}</span>{s.venue && <div class="muted">{s.venue}</div>}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {(links.length > 0 || other.length > 0) && (
+        <section>
+          <h2>連結</h2>
+          <ul class="links">
+            {links.map(([k, v]) => <li>{k}：<a href={v}>{v}</a></li>)}
+            {other.map((u) => <li><a href={u}>{u}</a></li>)}
+          </ul>
+        </section>
+      )}
+      <section>
+        <h2>共筆上的原文</h2>
+        <pre class="raw">{e.raw}</pre>
+      </section>
+    </div>
+
+    <aside class="panel side">
+      <h2>這筆資料</h2>
+      <dl class="info small">
+        <dt>來源</dt><dd><a href={SOURCE_URL}>揪松團活動共筆</a></dd>
+        <dt>第一次看到</dt><dd class="mono">{e.first_seen}</dd>
+        <dt>共筆上</dt><dd>{e.in_source ? '還在' : `已在 ${e.removed_from_source} 移除`}</dd>
+      </dl>
+      {e.warnings.length > 0 && (
+        <ul class="warnings">{e.warnings.map((w) => <li>{w}</li>)}</ul>
+      )}
+      <p class="actions">
+        <a href={historyUrl(e)}>修改紀錄</a>
+        <a href={reportUrl(e)}>回報問題</a>
+      </p>
+      <p class="muted tiny">資料有誤、活動已取消、或內容不適合放在這裡，請按「回報問題」，管理員會處理。</p>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .badges { display: flex; gap: 6px; min-height: 0; margin-bottom: 8px; }
+  .page-title { overflow-wrap: anywhere; }
+  .when { font-size: 1.05rem; margin: 12px 0 24px; }
+  .notice { padding: 12px 16px; border-radius: var(--r-md); background: var(--warn-soft); color: var(--warn); }
+  .grid { display: grid; gap: 32px; }
+  @media (min-width: 900px) { .grid { grid-template-columns: 1fr 300px; align-items: start; } }
+  h2 { font-size: 1rem; margin: 28px 0 10px; }
+  .info { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  .info dt { color: var(--muted); }
+  .info dd { margin: 0; overflow-wrap: anywhere; }
+  .info.small { font-size: .875rem; }
+  .subs, .links { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+  .links a { overflow-wrap: anywhere; }
+  .raw { white-space: pre-wrap; overflow-wrap: anywhere; font: .85rem/1.6 var(--mono); background: var(--surface-2); padding: 16px; border-radius: var(--r-md); margin: 0; }
+  .side { padding: 20px; }
+  .side h2 { margin-top: 0; }
+  .warnings { margin: 16px 0 0; padding-left: 1.2em; font-size: .85rem; color: var(--warn); }
+  .actions { display: flex; gap: 16px; margin: 16px 0 6px; }
+  .tiny { font-size: .8rem; margin: 0; }
+</style>

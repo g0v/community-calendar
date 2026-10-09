@@ -1,0 +1,45 @@
+---
+import { href, vanishedEarly, type Event } from '../lib/data';
+
+interface Props { event: Event }
+const { event: e } = Astro.props;
+const WEEK = '日一二三四五六';
+const d = e.date_start;
+const day = d ? Number(d.slice(8)) : null;
+const label = d
+  ? `${Number(d.slice(5, 7))} 月・週${WEEK[new Date(`${d}T00:00:00Z`).getUTCDay()]}${e.date_end ? ` 起 ${Math.round((Date.parse(e.date_end) - Date.parse(d)) / 864e5) + 1} 天` : ''}`
+  : e.date_precision === 'month' ? '日期未定' : '待確認';
+const time = e.start_time ? (e.end_time ? `${e.start_time}–${e.end_time}` : `${e.start_time} 開始`) : null;
+---
+<article class="row" data-jothon={e.jothon ? '1' : '0'}>
+  <a class="date" href={href(`/events/${e.id}/`)}>
+    <span class="day mono">{day ?? '—'}</span>
+    <span class="month">{label}</span>
+  </a>
+  <div class="body">
+    <div class="meta">
+      {e.jothon && <span class="badge accent">揪松主辦</span>}
+      {vanishedEarly(e) && <span class="badge warn">共筆已移除</span>}
+      {time && <span class="mono">{time}</span>}
+      {e.venue && <span class="venue">{e.venue}</span>}
+    </div>
+    <h3><a href={href(`/events/${e.id}/`)}>{e.title}</a></h3>
+    {e.sub_sessions.length > 0 && (
+      <p class="subs muted">{e.sub_sessions.map((s) => s.name).join('・')}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  .row { display: grid; grid-template-columns: 4.5rem 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--line); }
+  @media (min-width: 768px) { .row { grid-template-columns: 6rem 1fr; gap: 32px; } }
+  .date { display: flex; flex-direction: column; text-decoration: none; color: var(--text); }
+  .day { font-size: 2rem; font-weight: 500; line-height: 1; letter-spacing: -.03em; }
+  .month { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: .85rem; color: var(--muted); }
+  .venue { overflow-wrap: anywhere; }
+  h3 { margin: 6px 0 4px; font-size: 1.1rem; overflow-wrap: anywhere; }
+  h3 a { color: var(--text); text-decoration: none; }
+  h3 a:hover { color: var(--accent); }
+  .subs { margin: 4px 0 0; font-size: .875rem; }
+</style>

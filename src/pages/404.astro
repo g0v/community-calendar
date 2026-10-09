@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/data';
+---
+<Base title="找不到這一頁">
+  <h1 class="page-title">找不到這一頁</h1>
+  <p class="muted">這場活動可能已被管理員下架，或網址打錯了。</p>
+  <p><a href={href('/')}>回到近期活動</a></p>
+</Base>
