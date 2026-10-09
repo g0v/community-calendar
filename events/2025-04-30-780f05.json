@@ -13,6 +13,7 @@
   "signup_url": null,
   "notes_url": null,
   "page_url": null,
+  "online_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
@@ -30,11 +31,11 @@
   "month_section": "2025-04",
   "raw": "4/30 晚上 vTaiwan 社群聚會\n- 地點：g0v 台北社群空間\n- 地址：台北市中正區重慶南路三段2號2樓202室\n- https://lu.ma/4tfc8pt2\n\n本月份 Rentea 社群活動請見以下行事曆\n<iframe src=\"https://calendar.google.com/calendar/embed?height=250&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTaipei&amp;src=MmVscWhnZGVmbnBxNmlmNmo0cnFhNmF1dHNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23B39DDB&amp;mode=AGENDA\" style=\"border:solid 1px #777\" width=\"400\" height=\"250\" frameborder=\"0\" scrolling=\"no\"></iframe>",
   "warnings": [],
-  "first_seen": "2025-05-06",
+  "first_seen": "2025-04-24",
   "in_source": false,
   "removed_from_source": "2025-05-14",
   "archive": {
-    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1746544808173",
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1745508909282",
     "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1747131008917"
   },
   "hsiaothon": {

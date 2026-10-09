@@ -13,6 +13,7 @@
   "signup_url": null,
   "notes_url": null,
   "page_url": null,
+  "online_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
@@ -27,11 +28,11 @@
   "month_section": "2025-10",
   "raw": "10/26 週日下午 📢 g0v 國會松｜115年全國總預算讀書會\n- TBD\n- 活動資訊\n    - 🗓️時間：10/26（日）14:00–17:00（13:30開放入場）\n    - 📍 地點：NPO HUB Taipei（台北市中正區重慶南路三段 2 號 2 樓，近捷運中正紀念堂站）\n    - 🎟️ 報名連結：TBD （僅開放實體票）",
   "warnings": [],
-  "first_seen": "2025-10-16",
+  "first_seen": "2025-09-30",
   "in_source": false,
   "removed_from_source": "2025-10-31",
   "archive": {
-    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1760621709121",
+    "first": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1759209908870",
     "last": "https://g0v.hackmd.io/N3EnvC7ATSG-r71zuleuyQ/revision/1761381610000"
   },
   "hsiaothon": {
