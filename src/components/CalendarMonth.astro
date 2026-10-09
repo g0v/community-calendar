@@ -24,6 +24,13 @@ const time = (e: Event) => (tentative(e) ? null : e.start_time);
     {prev ? <a href={href(`/calendar/${prev}/`)} rel="prev" data-keep>← 上個月</a> : <span class="off">← 上個月</span>}
     {month !== thisMonth && months.includes(thisMonth) && <a href={href(`/calendar/${thisMonth}/`)} data-keep>本月</a>}
     {next ? <a href={href(`/calendar/${next}/`)} rel="next" data-keep>下個月 →</a> : <span class="off">下個月 →</span>}
+    <select aria-label="跳到月份" data-jump>
+      {[...new Set(months.map((x) => x.slice(0, 4)))].map((yy) => (
+        <optgroup label={`${yy} 年`}>
+          {months.filter((x) => x.startsWith(yy)).map((x) => <option value={href(`/calendar/${x}/`)} selected={x === month}>{yy} 年 {Number(x.slice(5))} 月</option>)}
+        </optgroup>
+      ))}
+    </select>
   </nav>
 </header>
 <label class="check"><input type="checkbox" data-jothon-only /><span>只看揪松主辦</span></label>
@@ -71,11 +78,19 @@ const time = (e: Event) => (tentative(e) ? null : e.start_time);
   };
   box.addEventListener('change', apply);
   apply();
+  // 跳到選的月份，帶著「只看揪松主辦」
+  document.querySelector<HTMLSelectElement>('[data-jump]')!.addEventListener('change', (ev) => {
+    location.href = (ev.target as HTMLSelectElement).value + (box.checked ? '?jothon=1' : '');
+  });
 </script>
 
 <style>
   .cal-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 12px; }
-  .pager { display: flex; gap: 16px; font-size: .95rem; }
+  .pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: .95rem; }
+  .pager select {
+    height: 34px; padding: 0 10px; border-radius: var(--r-md); border: 1px solid var(--line);
+    background: var(--surface); color: var(--text); font: inherit; font-size: .875rem;
+  }
   .pager a { text-decoration: none; }
   .pager .off { color: var(--line); }
   .check { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; cursor: pointer; margin-bottom: 16px; }

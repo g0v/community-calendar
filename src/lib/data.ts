@@ -23,7 +23,7 @@ export interface Event {
   status?: string | null; // 只有 AI Monday 來源有：已排定／已完成／邀約中／停辦
   // resolve() 加上的
   hidden: boolean; jothon: boolean; jothon_source: 'override' | 'aimonday' | null; jothon_pending: boolean;
-  aimonday_id: string | null; aimonday_url: string | null; cancelled: boolean;
+  aimonday_id: string | null; aimonday_url: string | null; cancelled: boolean; has_override: boolean;
   talks?: { title: string | null; speakers: string[]; url: string }[];
   // facets()：篩選用，推不出來就是 null／空陣列
   series: string | null; series_label: string | null; cities: string[]; online: boolean;
@@ -105,6 +105,15 @@ export const monthKey = (e: Event) => e.date_start?.slice(0, 7) ?? e.month_secti
 
 // GitHub 上這筆資料的修改紀錄與回報入口。AI Monday 來源的資料不在這個 repo，修改紀錄在 civictech-tw-data
 export const historyUrl = (e: Event) => (fromAiMonday(e) ? null : `${REPO}/commits/main/events/${e.id}.json`);
+// 「編輯這筆」：改的是 overrides/{id}.json，不是 events/——events/ 會被每日同步重寫，overrides 不會。
+// 已經有修正檔就打開它編輯；還沒有就打開 GitHub 的新增檔案畫面，檔名與範本都填好。
+// 沒有 repo 寫入權限的人按同一個按鈕，GitHub 會自動幫他開成 PR，管理員合併就生效
+export function editUrl(e: Event) {
+  if (e.has_override) return `${REPO}/edit/main/overrides/${e.id}.json`;
+  const template = JSON.stringify({ note: '為什麼要改（給管理員看）', hidden: false, set: { title: e.title } }, null, 2) + '\n';
+  return `${REPO}/new/main/overrides?filename=${encodeURIComponent(`${e.id}.json`)}&value=${encodeURIComponent(template)}`;
+}
+
 export function reportUrl(e: Event) {
   const body = [
     `活動：${e.title}（\`${e.id}\`）`,

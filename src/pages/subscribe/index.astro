@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getEvents, href } from '../../lib/data';
+import { MAIN_FEEDS, seriesFeeds } from '../../lib/feeds';
+
+const series = seriesFeeds(await getEvents());
+const site = new URL(href('/'), Astro.site);
+const url = (f: { path: string; external?: string }) => f.external ?? new URL(f.path, site).href;
+const webcal = (u: string) => u.replace(/^https?:/, 'webcal:');
+const google = (u: string) => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal(u))}`;
+const main = [
+  { ...MAIN_FEEDS[0], title: '揪松團活動', hint: '只想知道揪松團的大活動，訂這份' },
+  { ...MAIN_FEEDS[1], title: '所有社群活動', hint: '想知道 g0v 社群所有的小聚、講座，訂這份' },
+];
+---
+<Base title="訂閱" description="把 g0v 社群活動訂閱到 Google、Apple、Outlook 日曆，活動有異動會自動更新。">
+  <h1 class="page-title">訂閱到你的日曆</h1>
+  <p class="lede muted">訂閱之後，活動會自動出現在你的日曆裡；時間異動、停辦也會跟著更新。只收日期確定的活動。</p>
+
+  <div class="main-grid">
+    {main.map((f) => (
+      <section class="panel feed">
+        <p class="hint">{f.hint}</p>
+        <h2>{f.title}</h2>
+        <p class="muted">{f.desc}</p>
+        <div class="actions">
+          <a class="btn primary" href={google(url(f))}>加到 Google 日曆</a>
+          <a class="btn" href={webcal(url(f))}>用其他日曆訂閱</a>
+          <button class="btn" type="button" data-copy={url(f)}>複製網址</button>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="series">
+    <h2>只訂某個系列</h2>
+    <p class="muted">系列是從活動名稱判斷的，沒寫系列名稱的活動不會出現在這裡。</p>
+    <ul>
+      {series.map((f) => (
+        <li>
+          <div>
+            <span class="name">{f.name.replace('｜g0v 社群行事曆', '')}</span>
+            <span class="muted count">{f.count} 場</span>
+            {f.external && <span class="muted note">（AI Monday 自己的日曆）</span>}
+          </div>
+          <div class="links">
+            <a href={google(url(f))}>Google 日曆</a>
+            <a href={webcal(url(f))}>其他日曆</a>
+            <button type="button" data-copy={url(f)}>複製網址</button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="help">
+    <h2>怎麼訂閱</h2>
+    <ul class="muted">
+      <li><strong>Google 日曆</strong>：按「加到 Google 日曆」。手機 app 不能直接加，請用電腦版加一次，手機就會同步。</li>
+      <li><strong>Apple 日曆</strong>：按「用其他日曆訂閱」，或在 Mac 上選「檔案 → 新增日曆訂閱」貼上網址。</li>
+      <li><strong>Outlook</strong>：新增行事曆 → 從網際網路訂閱，貼上網址。</li>
+      <li>Google 日曆大約半天到一天才會抓一次新資料，異動不會馬上出現。</li>
+    </ul>
+  </section>
+</Base>
+
+<script>
+  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    const label = b.textContent;
+    b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = '已複製'; } catch { prompt('訂閱網址', b.dataset.copy!); return; }
+      setTimeout(() => (b.textContent = label), 2000);
+    });
+  }
+</script>
+
+<style>
+  .lede { max-width: 40rem; margin: 12px 0 32px; }
+  .main-grid { display: grid; gap: 16px; }
+  @media (min-width: 768px) { .main-grid { grid-template-columns: 1fr 1fr; } }
+  .feed { padding: 24px; }
+  .feed .hint { margin: 0 0 4px; font-size: .8rem; color: var(--accent); font-weight: 600; }
+  .feed p.muted { margin: 6px 0 18px; font-size: .9rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 38px; padding: 0 14px; border-radius: var(--r-md);
+    border: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: .875rem;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .series { margin-top: 56px; }
+  .series > p { margin: 6px 0 12px; font-size: .9rem; }
+  .series ul { list-style: none; margin: 0; padding: 0; }
+  .series li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .series .name { font-weight: 600; }
+  .series .count, .series .note { font-size: .85rem; margin-left: 8px; }
+  .links { display: flex; gap: 14px; font-size: .875rem; }
+  .links button { border: 0; padding: 0; background: none; color: var(--accent); font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+  .help { margin-top: 56px; }
+  .help ul { padding-left: 1.2em; display: grid; gap: 6px; font-size: .9rem; }
+</style>

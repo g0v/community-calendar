@@ -1,211 +1,108 @@
 ---
 import Base from '../layouts/Base.astro';
 import EventRow from '../components/EventRow.astro';
-import { getEvents, href, isPast, monthKey, SOURCE_URL } from '../lib/data';
-import { SERIES } from '../../scripts/facets.mjs';
+import { formatWhen, getEvents, href, isPast, tentative, today, vanishedEarly, type Event } from '../lib/data';
 
-const all = (await getEvents()).filter((e) => !e.hidden);
-const upcoming = all.filter((e) => !isPast(e));
-const past = all.filter(isPast).reverse(); // 過去的由近到遠
-const groups = (list: typeof all) => [...new Set(list.map(monthKey))].map((m) => [m, list.filter((e) => monthKey(e) === m)] as const);
-const monthLabel = (k: string) => (/^\d{4}-\d{2}$/.test(k) ? `${k.slice(0, 4)} 年 ${Number(k.slice(5))} 月` : '日期待確認');
+const events = (await getEvents()).filter((e) => !e.hidden);
+// 「真的會辦」的：日期確定、沒停辦、不是邀約中的空場次、不是活動日前就從共筆消失的舊計畫
+const real = (e: Event) => e.date_precision === 'day' && !e.cancelled && !tentative(e) && !vanishedEarly(e);
+const upcoming = events.filter((e) => !isPast(e) && real(e));
+const next = upcoming.find((e) => e.jothon);
 
-// 篩選選項只列資料裡真的有的
-const seriesOpts = SERIES.filter(([slug]) => all.some((e) => e.series === slug)).map(([slug, label]) => [slug, label]);
-const cityCount = new Map<string, number>();
-for (const e of all) for (const c of e.cities) cityCount.set(c, (cityCount.get(c) ?? 0) + 1);
-const cityOpts = [...cityCount].sort((a, b) => b[1] - a[1]).map(([c]) => c);
+const in14 = new Date(Date.parse(`${today}T00:00:00Z`) + 14 * 864e5).toISOString().slice(0, 10);
+const soon = upcoming.filter((e) => e !== next && e.date_start! <= in14).slice(0, 8);
+const soonOrNext = soon.length ? soon : upcoming.filter((e) => e !== next).slice(0, 5); // 兩週內沒有活動時，列接下來的幾場
 
-const site = new URL(href('/'), Astro.site);
-const feeds = [
-  { file: 'jothon.ics', name: '揪松團活動', desc: '只有揪松團主辦的：黑客松（大松）、AI Monday、放輕松、跑咖松。' },
-  { file: 'all.ics', name: '所有社群活動', desc: '共筆上的所有活動，包含各社群的小聚、講座、研討會。內容由社群自由填寫，未經審核。' },
-];
-const feedUrl = (f: string) => new URL(f, site).href;
-const webcal = (f: string) => feedUrl(f).replace(/^https?:/, 'webcal:');
-const google = (f: string) => `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal(f))}`;
+const years = events.filter((e) => e.date_start).map((e) => e.date_start!.slice(0, 4)).sort();
+const stats = {
+  total: events.filter((e) => isPast(e) && real(e)).length,
+  series: new Set(events.map((e) => e.series).filter(Boolean)).size,
+  since: years[0],
+};
 ---
 <Base>
+  <script is:inline>
+    // 舊網址相容：首頁以前就是活動列表，帶著篩選條件分享出去的連結轉到 /events/
+    if (/[?&](q|when|jothon|series|city)=/.test(location.search)) location.replace('events/' + location.search);
+  </script>
+
   <section class="hero">
     <h1>g0v 社群行事曆</h1>
-    <p class="lede muted">黑客松、AI Monday、各地小聚與講座。資料每天從揪松團的<a href={SOURCE_URL}>活動共筆</a>同步，共筆上刪掉的活動，這裡也會留著。</p>
+    <p class="lede">黑客松、AI Monday、各地小聚與講座，g0v 社群的活動都在這裡。可以訂閱到你的日曆，有異動會自動更新。</p>
   </section>
 
-  <section class="list">
-    <form class="filters" role="search" onsubmit="return false">
-      <div class="search">
-        <label for="q" class="sr">搜尋活動</label>
-        <input id="q" name="q" type="search" placeholder="搜尋活動名稱、地點、講者…" autocomplete="off" />
+  {next && (
+    <section class="next panel">
+      <span class="label">下一場揪松活動</span>
+      <h2><a href={href(`/events/${next.id}/`)}>{next.title}</a></h2>
+      <p class="when mono">{formatWhen(next)}</p>
+      {next.venue && <p class="muted">{next.venue}</p>}
+      {next.sub_sessions.length > 0 && <p class="muted">{next.sub_sessions.map((s) => s.name).join('・')}</p>}
+      <div class="actions">
+        {next.signup_url && <a class="btn primary" href={next.signup_url}>報名</a>}
+        <a class="btn" href={href(`/events/${next.id}/`)}>活動資訊</a>
       </div>
-      <div class="selects">
-        <div class="seg" role="radiogroup" aria-label="時間">
-          <label><input type="radio" name="when" value="" checked /><span>近期</span></label>
-          <label><input type="radio" name="when" value="past" /><span>過去</span></label>
-          <label><input type="radio" name="when" value="all" /><span>全部</span></label>
-        </div>
-        <label class="check"><input type="checkbox" name="jothon" value="1" /><span>只看揪松主辦</span></label>
-        <select name="series" aria-label="系列">
-          <option value="">所有系列</option>
-          {seriesOpts.map(([v, l]) => <option value={v}>{l}</option>)}
-        </select>
-        <select name="city" aria-label="地點">
-          <option value="">所有地點</option>
-          <option value="online">線上</option>
-          {cityOpts.map((c) => <option value={c}>{c}</option>)}
-        </select>
-      </div>
-      <p class="count muted" aria-live="polite" data-count></p>
-    </form>
+    </section>
+  )}
 
-    <div data-list="upcoming">
-      {groups(upcoming).map(([m, list]) => (
-        <section data-month>
-          <h3 class="month-title">{monthLabel(m)}</h3>
-          {list.map((e) => <EventRow event={e} />)}
-        </section>
-      ))}
+  <section class="soon">
+    <div class="head">
+      <h2>{soon.length ? '近兩週' : '接下來'}</h2>
+      <a href={href('/events/')}>看全部活動 →</a>
     </div>
-    <div data-list="past">
-      <h2 class="past-title" data-past-title>過去的活動</h2>
-      {groups(past).map(([m, list]) => (
-        <section data-month>
-          <h3 class="month-title">{monthLabel(m)}</h3>
-          {list.map((e) => <EventRow event={e} />)}
-        </section>
-      ))}
-    </div>
-    <p class="empty muted" data-empty hidden>沒有符合條件的活動。</p>
+    {soonOrNext.length ? soonOrNext.map((e) => <EventRow event={e} />) : <p class="muted">目前沒有排定的活動。</p>}
   </section>
 
-  <section id="subscribe" class="feeds">
-    <h2>訂閱到你的日曆</h2>
-    <div class="feed-grid">
-      {feeds.map((f) => (
-        <div class="panel feed">
-          <h3>{f.name}</h3>
-          <p class="muted">{f.desc}</p>
-          <div class="actions">
-            <a class="btn primary" href={google(f.file)}>加到 Google 日曆</a>
-            <a class="btn" href={webcal(f.file)}>用其他日曆訂閱</a>
-            <button class="btn" type="button" data-copy={feedUrl(f.file)}>複製網址</button>
-          </div>
-        </div>
-      ))}
-    </div>
-    <p class="muted hint">Google 日曆大約半天到一天才會抓一次新資料，異動不會馬上出現。</p>
-  </section>
+  <nav class="doors" aria-label="主要功能">
+    <a class="panel door" href={href('/calendar/')}>
+      <span class="t">日曆</span>
+      <span class="muted">一個月一個月看，可以跳到任何一個月</span>
+    </a>
+    <a class="panel door" href={href('/events/')}>
+      <span class="t">搜尋活動</span>
+      <span class="muted">依名稱、地點、講者、系列找，含過去的活動</span>
+    </a>
+    <a class="panel door" href={href('/subscribe/')}>
+      <span class="t">訂閱</span>
+      <span class="muted">揪松團活動、所有社群活動，或只訂某個系列</span>
+    </a>
+  </nav>
+
+  <p class="stats muted">
+    已收錄 <span class="num">{stats.total}</span> 場辦過的活動、<span class="num">{stats.series}</span> 個系列，最早從 <span class="num">{stats.since}</span> 年開始。
+  </p>
 </Base>
 
-<script>
-  // 篩選全在瀏覽器端做：每一列都帶著自己的 data-*，條件寫進網址，可以直接分享
-  const form = document.querySelector<HTMLFormElement>('.filters')!;
-  const rows = [...document.querySelectorAll<HTMLElement>('[data-row]')];
-  const lists = { upcoming: document.querySelector<HTMLElement>('[data-list="upcoming"]')!, past: document.querySelector<HTMLElement>('[data-list="past"]')! };
-  const count = document.querySelector<HTMLElement>('[data-count]')!;
-  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
-  const pastTitle = document.querySelector<HTMLElement>('[data-past-title]')!;
-
-  // 網址 → 表單
-  const params = new URLSearchParams(location.search);
-  for (const [k, v] of params) {
-    const el = form.elements.namedItem(k);
-    if (el instanceof RadioNodeList) el.value = v;
-    else if (el instanceof HTMLInputElement && el.type === 'checkbox') el.checked = v === '1';
-    else if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = v;
-  }
-
-  function apply() {
-    const data = new FormData(form);
-    const q = String(data.get('q') ?? '').trim().toLowerCase();
-    const terms = q.split(/\s+/).filter(Boolean);
-    const when = String(data.get('when') ?? '');
-    const jothon = data.get('jothon') === '1';
-    const series = String(data.get('series') ?? '');
-    const city = String(data.get('city') ?? '');
-    // 有搜尋字時，「近期」也一起搜過去的——找不到過去的活動是最常見的落空
-    const showPast = when === 'past' || when === 'all' || (terms.length > 0 && when === '');
-    const showUpcoming = when !== 'past';
-
-    let n = 0;
-    for (const r of rows) {
-      const ok = (r.dataset.when === 'past' ? showPast : showUpcoming)
-        && (!jothon || r.dataset.jothon === '1')
-        && (!series || r.dataset.series === series)
-        && (!city || (city === 'online' ? r.dataset.online === '1' : r.dataset.cities!.split(' ').includes(city)))
-        && terms.every((t) => r.dataset.text!.includes(t));
-      r.hidden = !ok;
-      if (ok) n++;
-    }
-    document.querySelectorAll<HTMLElement>('[data-month]').forEach((m) => (m.hidden = !m.querySelector('[data-row]:not([hidden])')));
-    lists.upcoming.hidden = !showUpcoming;
-    lists.past.hidden = !showPast || !lists.past.querySelector('[data-row]:not([hidden])');
-    pastTitle.hidden = !showUpcoming; // 只看過去的時候不需要這個分隔標題
-    empty.hidden = n > 0;
-    count.textContent = q || jothon || series || city || when ? `${n} 場活動` : '';
-
-    // 表單 → 網址（預設值不寫，網址保持乾淨）
-    const out = new URLSearchParams();
-    if (q) out.set('q', q);
-    if (when) out.set('when', when);
-    if (jothon) out.set('jothon', '1');
-    if (series) out.set('series', series);
-    if (city) out.set('city', city);
-    history.replaceState(null, '', out.size ? `?${out}` : location.pathname);
-  }
-  form.addEventListener('input', apply);
-  form.addEventListener('change', apply);
-  apply();
-
-  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
-    b.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(b.dataset.copy!); b.textContent = '已複製'; } catch { b.textContent = b.dataset.copy!; }
-      setTimeout(() => (b.textContent = '複製網址'), 2000);
-    });
-  }
-</script>
-
 <style>
-  .hero { max-width: 720px; }
-  .lede { font-size: 1.05rem; margin: 12px 0 0; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .hero { max-width: 44rem; }
+  .lede { font-size: 1.1rem; color: var(--muted); margin: 14px 0 0; }
 
-  .filters { position: sticky; top: 64px; z-index: 3; margin: 28px 0 8px; padding: 12px 0; background: var(--bg); display: grid; gap: 10px; }
-  .search input {
-    width: 100%; height: 44px; padding: 0 14px; border-radius: var(--r-md); border: 1px solid var(--line);
-    background: var(--surface); color: var(--text); font: inherit;
-  }
-  .search input:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
-  .selects { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
-  .seg { display: inline-flex; padding: 3px; border-radius: var(--r-md); background: var(--surface-2); }
-  .seg label { cursor: pointer; }
-  .seg input { position: absolute; opacity: 0; pointer-events: none; }
-  .seg span { display: inline-block; padding: 4px 12px; border-radius: var(--r-sm); font-size: .875rem; color: var(--muted); }
-  .seg input:checked + span { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
-  .seg input:focus-visible + span { outline: 2px solid var(--accent); }
-  .check { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; cursor: pointer; }
-  select {
-    height: 34px; padding: 0 10px; border-radius: var(--r-md); border: 1px solid var(--line);
-    background: var(--surface); color: var(--text); font: inherit; font-size: .875rem; max-width: 100%;
-  }
-  .count { margin: 0; font-size: .85rem; min-height: 1.2em; }
-
-  .month-title { margin: 28px 0 0; font-size: .95rem; color: var(--muted); font-weight: 600; }
-  .past-title { margin: 56px 0 0; font-size: 1.1rem; }
-  .empty { padding: 40px 0; text-align: center; }
-
-  .feeds { margin-top: 64px; }
-  .feeds > h2 { margin-bottom: 16px; }
-  .feed-grid { display: grid; gap: 16px; }
-  @media (min-width: 768px) { .feed-grid { grid-template-columns: 1fr 1fr; } }
-  .feed { padding: 20px; }
-  .feed p { margin: 6px 0 16px; font-size: .9rem; }
-  .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .next { margin-top: 40px; padding: 28px; }
+  @media (min-width: 768px) { .next { padding: 36px; } }
+  .label { display: inline-block; font-size: .8rem; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+  .next h2 { font-size: clamp(1.35rem, 3vw, 1.75rem); overflow-wrap: anywhere; }
+  .next h2 a { color: var(--text); text-decoration: none; }
+  .next h2 a:hover { color: var(--accent); }
+  .next .when { font-size: 1.05rem; margin: 12px 0 4px; }
+  .next p { margin: 2px 0; overflow-wrap: anywhere; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
   .btn {
-    display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: var(--r-md);
-    border: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: .875rem;
-    text-decoration: none; cursor: pointer;
+    display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: var(--r-md);
+    border: 1px solid var(--line); color: var(--text); font-size: .9rem; text-decoration: none;
   }
   .btn:hover { border-color: var(--muted); }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .hint { font-size: .85rem; margin-top: 12px; }
+
+  .soon { margin-top: 56px; }
+  .head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .head a { font-size: .9rem; text-decoration: none; }
+
+  .doors { display: grid; gap: 12px; margin-top: 56px; }
+  @media (min-width: 768px) { .doors { grid-template-columns: repeat(3, 1fr); } }
+  .door { display: flex; flex-direction: column; gap: 4px; padding: 20px; text-decoration: none; color: var(--text); transition: transform .2s; }
+  .door:hover { transform: translateY(-2px); }
+  .door .t { font-weight: 600; font-size: 1.05rem; }
+  .door .muted { font-size: .875rem; }
+
+  .stats { margin-top: 40px; font-size: .875rem; }
 </style>

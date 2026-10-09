@@ -83,6 +83,7 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
     r.aimonday_url = am ? `${AIMONDAY_SITE}/events/${am.id}/` : null;
     r.cancelled = am?.status === '停辦';
     r.hidden = o.hidden === true;
+    r.has_override = e.id in overrides;
     const amJothon = am?.series_slug === 'ai-monday';
     r.jothon = typeof o.jothon === 'boolean' ? o.jothon : amJothon;
     r.jothon_source = typeof o.jothon === 'boolean' ? 'override' : amJothon ? 'aimonday' : null;
@@ -92,7 +93,7 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
   });
 
   // 只在 AI Monday Sheet 上、共筆上沒有的場次（共筆清掉的、或從來沒寫上共筆的）
-  const fromAiMonday = amEvents.filter((a) => !claimed.has(a.id)).map((a) => fromAm(a, amTalks, overrides[`aimonday-${a.id}`] ?? {}));
+  const fromAiMonday = amEvents.filter((a) => !claimed.has(a.id)).map((a) => fromAm(a, amTalks, overrides[`aimonday-${a.id}`]));
 
   return [...fromHackmd, ...fromAiMonday]
     .map((r) => ({ ...r, ...facets(r) }))
@@ -104,7 +105,8 @@ const talksOf = (am, talks) =>
     .sort((a, b) => a.order - b.order)
     .map((t) => ({ title: t.title, speakers: t.speakers.map((s) => s.name), url: `${AIMONDAY_SITE}/talks/${t.id}/` }));
 
-function fromAm(a, talks, o) {
+function fromAm(a, talks, found) {
+  const o = found ?? {};
   const title = a.theme ? `${a.series}｜${a.theme}` : a.series;
   const r = {
     id: `aimonday-${a.id}`,
@@ -127,6 +129,7 @@ function fromAm(a, talks, o) {
     aimonday_id: a.id, aimonday_url: r.source_url,
     cancelled: a.status === '停辦',
     hidden: o.hidden === true,
+    has_override: !!found,
     jothon, jothon_source: 'aimonday', jothon_pending: false,
   };
 }

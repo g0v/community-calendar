@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { formatWhen, fromAiMonday, getEvents, historyUrl, href, reportUrl, SOURCE_URL, tentative, vanishedEarly, type Event } from '../../lib/data';
+import { editUrl, formatWhen, fromAiMonday, getEvents, historyUrl, href, REPO, reportUrl, SOURCE_URL, tentative, vanishedEarly, type Event } from '../../lib/data';
 
 // 下架的不產生頁面（網址會變成 404）
 export async function getStaticPaths() {
@@ -23,7 +23,7 @@ const links = [
 const other = e.links.filter((u) => !links.some(([, v]) => v === u));
 ---
 <Base title={e.title} description={`${formatWhen(e)}｜${e.venue ?? ''}`}>
-  <a class="back" href={href('/')}>← 近期活動</a>
+  <a class="back" href={href('/events/')}>← 所有活動</a>
   <div class="badges">
     {e.jothon && <span class="badge accent">揪松主辦</span>}
     {e.cancelled && <span class="badge warn">停辦</span>}
@@ -100,10 +100,15 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
         <ul class="warnings">{e.warnings.map((w) => <li>{w}</li>)}</ul>
       )}
       <p class="actions">
+        <a href={editUrl(e)}>編輯這筆</a>
         {history && <a href={history}>修改紀錄</a>}
         {fromAiMonday(e) ? <a href="https://github.com/g0v/AI-Monday/issues/new">回報問題</a> : <a href={reportUrl(e)}>回報問題</a>}
       </p>
-      <p class="muted tiny">{fromAiMonday(e) ? 'AI Monday 的場次資料由 AI Monday 工作小組維護，有誤請回報給他們。' : '資料有誤、活動已取消、或內容不適合放在這裡，請按「回報問題」，管理員會處理。'}</p>
+      <p class="muted tiny">
+        「編輯這筆」會在 GitHub 打開這場活動的修正檔：<code>set</code> 改欄位、<code>hidden</code> 下架，說明見 <a href={`${REPO}#管理員`}>README</a>。
+        沒有權限的話 GitHub 會幫你開成 PR，管理員看過後合併。
+        {fromAiMonday(e) ? 'AI Monday 的原始資料由 AI Monday 工作小組維護。' : '不想碰 GitHub 的話，按「回報問題」用文字說明也可以。'}
+      </p>
     </aside>
   </div>
 </Base>
@@ -126,7 +131,8 @@ const other = e.links.filter((u) => !links.some(([, v]) => v === u));
   .side { padding: 20px; }
   .side h2 { margin-top: 0; }
   .warnings { margin: 16px 0 0; padding-left: 1.2em; font-size: .85rem; color: var(--warn); }
-  .actions { display: flex; gap: 16px; margin: 16px 0 6px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 16px 0 6px; }
+  .tiny code { font-size: .95em; }
   .tiny { font-size: .8rem; margin: 0; }
   .am { margin: 16px 0 0; }
 </style>

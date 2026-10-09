@@ -2,7 +2,7 @@
 
 g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
-網站：<https://g0v.github.io/community-calendar/>（活動列表與搜尋、[月曆](https://g0v.github.io/community-calendar/calendar/)）
+網站：<https://g0v.github.io/community-calendar/>（[活動搜尋](https://g0v.github.io/community-calendar/events/)、[月曆](https://g0v.github.io/community-calendar/calendar/)、[訂閱](https://g0v.github.io/community-calendar/subscribe/)）
 
 ## 資料來源
 
@@ -15,7 +15,7 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
 ## 搜尋與篩選
 
-首頁可以搜尋活動名稱、地點、講者與共筆原文，並依時間（近期／過去）、揪松主辦、系列、地點（縣市或線上）篩選。條件會寫進網址，可以直接分享，例如 `?series=hackathon&when=all`。
+活動頁（`/events/`）可以搜尋活動名稱、地點、講者與共筆原文，並依時間（近期／過去）、揪松主辦、系列、地點（縣市或線上）篩選。條件會寫進網址，可以直接分享，例如 `?series=hackathon&when=all`。
 
 系列、縣市、線上是程式從標題與地點推出來的（`scripts/facets.mjs`），推不出來就不標。
 
@@ -26,7 +26,9 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 | 揪松團活動 | `https://g0v.github.io/community-calendar/jothon.ics` | 只有揪松團主辦的：黑客松（大松）、AI Monday、放輕松、跑咖松 |
 | 所有社群活動 | `https://g0v.github.io/community-calendar/all.ics` | 共筆上的所有活動。共筆開放社群自由填寫，**內容未經審核** |
 
-兩份都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
+另外每個系列各有一份：`series/{系列}.ics`（例如 `series/hackathon.ics`），完整清單在[訂閱頁](https://g0v.github.io/community-calendar/subscribe/)。AI Monday 用它自己原本的 `https://g0v.github.io/AI-Monday/calendar.ics`，不另外產生，免得訂閱的人分散在兩個網址。
+
+都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
 
 ## 從網路檔案館補回的過去活動
 
@@ -93,6 +95,12 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 **揪松主辦只看這裡，不看共筆上寫的「主辦」**：共筆誰都能寫「主辦：揪松」，而揪松日曆是帶著揪松名義發出去的。標題看起來像揪松活動（黑客松、AI Monday、放輕松、跑咖松）但還沒確認的，會列在「資料檢查」issue 裡。
 
 例外是 AI Monday：揪松團自己維護的 [AI Monday 資料](https://data.civictech.tw/v0/aimonday/events.json) 同一天也有一場，就自動當成揪松主辦，並沿用 [AI Monday 日曆](https://g0v.github.io/AI-Monday/calendar.ics) 的 UID。
+
+### 最快的改法：活動頁的「編輯這筆」
+
+每場活動頁都有「編輯這筆」，會直接在 GitHub 打開這場活動的修正檔（還沒有的話，打開新增檔案畫面，檔名與範本都填好）。改完按 Commit 就生效。沒有寫入權限的人按同一個按鈕，GitHub 會自動開成 PR，管理員合併即可——這也是外人提修改的管道。
+
+**不要直接改 `events/{id}.json`**：活動還在共筆上的話，共筆下次一改就會整筆重寫，改過的東西會安靜地消失。
 
 ### 有人回報問題時
 
