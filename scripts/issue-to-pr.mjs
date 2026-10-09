@@ -95,7 +95,7 @@ export async function handle(issue) {
     if (!f.event_id) errors.push('缺少「活動代號」');
     const isAm = f.event_id?.startsWith('aimonday-');
     if (f.event_id && !isAm && !existsSync(path.join(ROOT, 'events', `${f.event_id}.json`)) && !existsSync(path.join(ROOT, 'manual', `${f.event_id}.json`))) {
-      errors.push(`找不到活動代號「${f.event_id}」，請從活動頁的「編輯這筆」進來`);
+      errors.push(`找不到活動代號「${f.event_id}」，請從活動頁的「修改這筆」進來`);
     }
     const set = Object.fromEntries(Object.entries(TO_EVENT).filter(([k]) => f[k]).map(([k, to]) => [to, f[k]]));
     // 用文字欄位而不是下拉選單：GitHub 的 issue 表單只有文字欄位能從網址預先填好
@@ -110,7 +110,7 @@ export async function handle(issue) {
       const file = `manual/${f.event_id}.json`;
       const cur = JSON.parse(await readFile(path.join(ROOT, file), 'utf8'));
       const next = { ...cur, ...set, ...(series ? { series_fixed: series.series } : {}), ...(jothon ? { jothon_fixed: jothon.jothon } : {}), ...(takedown ? { hidden: true } : {}) };
-      return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason);
+      return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason, f.event_id);
     }
     const file = `overrides/${f.event_id}.json`;
     const cur = existsSync(path.join(ROOT, file)) ? JSON.parse(await readFile(path.join(ROOT, file), 'utf8')) : {};
@@ -122,7 +122,7 @@ export async function handle(issue) {
       ...(jothon ?? {}),
       note: [cur.note, `${ref}：${(f.reason ?? '').replace(/\s+/g, ' ').slice(0, 200)}`].filter(Boolean).join('／'),
     };
-    return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason);
+    return done(kind, issue, [[file, next]], { ...set, ...(series ?? {}), ...(jothon ?? {}) }, takedown, f.reason, f.event_id);
   }
 
   // 新增活動
@@ -146,28 +146,130 @@ export async function handle(issue) {
     ...('series' in f ? { series_fixed: f.series } : {}),
     ...('jothon' in f ? { jothon_fixed: f.jothon } : {}),
   };
-  return done(kind, issue, [[`manual/${id}.json`, ev]], null, false, f.reason);
+  return done(kind, issue, [[`manual/${id}.json`, ev]], null, false, f.reason, id);
 }
 
-function done(kind, issue, files, set, takedown, reason) {
-  const lines = kind === 'edit'
-    ? [
-        ...(set ? Object.entries(set).map(([k, v]) => `- \`${k}\`：${v === true ? '是' : v === false ? '不是' : v ?? '（無）'}`) : []),
-        ...(takedown ? ['- **從行事曆上拿掉**（`hidden: true`，資料仍保留，改回 false 就恢復）'] : []),
-      ]
-    : [`- ${files[0][1].title}（${files[0][1].date_start}）`];
+// ---------- PR 內文：給管理員判斷要不要合併 ----------
+//
+// 管理員要知道的：這是哪一場（連到網站）、每個欄位從什麼改成什麼、誰送的、
+// 這場還在不在共筆上（在的話改共筆比較好）、新增的同一天有沒有已經有的、有沒有看起來不對的地方
+
+const SITE = 'https://g0v.github.io/community-calendar';
+const FIELD_NAME = {
+  title: '活動名稱', date_start: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間',
+  venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址',
+  notes_url: '共筆網址', page_url: '活動頁', series: '系列', jothon: '揪松主辦',
+};
+const SERIES_NAME = Object.fromEntries(seriesConfig.series.map((x) => [x.slug, x.name]));
+const show = (k, v) => {
+  if (v === undefined || v === null || v === '') return '（空）';
+  if (k === 'jothon') return v ? '是' : '不是';
+  if (k === 'series') return SERIES_NAME[v] ?? v;
+  return String(v).replace(/\|/g, '\\|');
+};
+const readJson = async (rel) => (existsSync(path.join(ROOT, rel)) ? JSON.parse(await readFile(path.join(ROOT, rel), 'utf8')) : null);
+
+// 這場活動「現在」在網站上的值：原始資料＋已經有的修正
+async function current(id) {
+  const base = (await readJson(`events/${id}.json`)) ?? (await readJson(`manual/${id}.json`));
+  const o = (await readJson(`overrides/${id}.json`)) ?? {};
+  if (!base) return null;
+  const r = { ...base, ...(o.set ?? {}) };
+  const { seriesOf } = await import('./facets.mjs');
+  r.series = 'series' in o ? o.series : base.series_fixed !== undefined ? base.series_fixed : seriesOf(r.title)?.slug ?? null;
+  r.jothon = typeof o.jothon === 'boolean' ? o.jothon : typeof base.jothon_fixed === 'boolean' ? base.jothon_fixed : undefined;
+  r.hidden = o.hidden === true || base.hidden === true;
+  return r;
+}
+
+async function author(issue) {
+  const login = issue.user?.login;
+  const relation = {
+    OWNER: '擁有者', MEMBER: 'g0v 組織成員', COLLABORATOR: '協作者', CONTRIBUTOR: '貢獻過這個 repo',
+    FIRST_TIME_CONTRIBUTOR: '第一次貢獻', FIRST_TIMER: '第一次在 GitHub 上貢獻', NONE: '第一次來',
+  }[issue.author_association] ?? issue.author_association;
+  let age = '';
+  try {
+    const r = await fetch(`https://api.github.com/users/${login}`, { headers: process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env.GH_TOKEN}` } : {} });
+    const u = await r.json();
+    if (u.created_at) {
+      const days = Math.floor((Date.now() - Date.parse(u.created_at)) / 864e5);
+      age = days < 30 ? `，**帳號建立才 ${days} 天**` : `，帳號建立於 ${u.created_at.slice(0, 10)}`;
+    }
+  } catch {}
+  return `@${login}（${relation}${age}）`;
+}
+
+function sanity(r) {
+  const w = [];
+  if (r.start_time && r.end_time && r.end_time <= r.start_time) w.push(`結束時間（${r.end_time}）沒有晚於開始時間（${r.start_time}）`);
+  if (r.date_end && r.date_start && r.date_end < r.date_start) w.push(`結束日期（${r.date_end}）比開始日期（${r.date_start}）早`);
+  return w;
+}
+
+async function done(kind, issue, files, changes, takedown, reason, id) {
+  const today = new Date().toISOString().slice(0, 10);
+  const lines = [`由 #${issue.number} 自動產生，送出的人：${await author(issue)}`, ''];
+  const warn = [];
+
+  if (kind === 'edit') {
+    const cur = await current(id);
+    lines.push(`**活動**：[${cur?.title ?? id}](${SITE}/events/${id}/)（\`${id}\`）`);
+    if (cur?.date_start) lines.push(`**日期**：${cur.date_start}${cur.date_end ? ` ～ ${cur.date_end}` : ''}`);
+    lines.push('');
+    if (takedown) {
+      lines.push('### ⚠️ 要求從行事曆上拿掉', '', '合併後這場活動會從網站與所有訂閱日曆消失（資料仍保留，`hidden` 改回 false 就恢復）。', '');
+    }
+    // 值跟現在一樣的欄位不列，表格裡只留真的有變的
+    const keys = Object.keys(changes ?? {}).filter((k) => !cur || show(k, cur[k]) !== show(k, changes[k]));
+    if (keys.length) {
+      lines.push('| 欄位 | 現在 | 改成 |', '|---|---|---|');
+      for (const k of keys) {
+        const from = k === 'title' ? cur?.title : cur?.[k];
+        lines.push(`| ${FIELD_NAME[k] ?? k} | ${cur ? show(k, from) : '（AI Monday 的資料，這裡看不到原值）'} | **${show(k, changes[k])}** |`);
+      }
+      lines.push('');
+    }
+    if (cur?.in_source) warn.push('這場活動**還在揪松團的活動共筆上**。合併後，這裡的修正會一直蓋過共筆上的值——之後共筆改對了，網站也不會跟著變。能的話請改共筆，這個 PR 可以不合併。');
+    if (cur?.hidden && !takedown) warn.push('這場活動目前是**下架**狀態，改了也不會顯示。');
+    if (cur) warn.push(...sanity({ ...cur, ...changes }));
+    if (id.startsWith('aimonday-')) warn.push('這場的原始資料來自 AI Monday 工作小組的 Sheet，這裡的修正只影響社群行事曆。');
+  } else {
+    const ev = files[0][1];
+    lines.push(`**新增**：${ev.title}`, '', '| 欄位 | 內容 |', '|---|---|');
+    for (const k of ['date_start', 'date_end', 'start_time', 'end_time', 'venue', 'address', 'host', 'signup_url', 'online_url', 'notes_url', 'page_url']) {
+      if (ev[k]) lines.push(`| ${FIELD_NAME[k]} | ${show(k, ev[k])} |`);
+    }
+    if (ev.series_fixed !== undefined) lines.push(`| 系列 | ${show('series', ev.series_fixed)} |`);
+    if (ev.jothon_fixed !== undefined) lines.push(`| 揪松主辦 | ${show('jothon', ev.jothon_fixed)} |`);
+    if (ev.description?.length) lines.push(`| 說明 | ${ev.description.join(' ').replace(/\|/g, '\\|').slice(0, 300)} |`);
+    lines.push('');
+    // 同一天已經有的活動：最常見的問題是重複送
+    const { readdir } = await import('node:fs/promises');
+    const same = [];
+    for (const dir of ['events', 'manual']) {
+      if (!existsSync(path.join(ROOT, dir))) continue;
+      for (const f of await readdir(path.join(ROOT, dir))) {
+        const r = await readJson(`${dir}/${f}`);
+        if (r?.date_start === ev.date_start && r.id !== ev.id) same.push(r);
+      }
+    }
+    if (same.length) {
+      lines.push(`**同一天已經有的活動**（${same.length} 場，看看是不是重複）：`, ...same.map((r) => `- [${r.title}](${SITE}/events/${r.id}/)`), '');
+    } else {
+      lines.push('同一天沒有其他活動。', '');
+    }
+    if (ev.date_start < today) warn.push(`日期（${ev.date_start}）已經過了。補登過去的活動沒問題，只是確認一下不是打錯年份。`);
+    warn.push(...sanity(ev));
+  }
+
+  if (warn.length) lines.push('### 合併前請注意', '', ...warn.map((w) => `- ${w}`), '');
+  lines.push(`**理由**：${(reason ?? '').replace(/\n+/g, ' ').slice(0, 1000)}`, '', '---', '合併後網站與訂閱日曆幾分鐘內更新。不採用的話直接關掉這個 PR，issue 會留著，方便回覆送出的人。', '', `Closes #${issue.number}`);
+
   return {
     ok: true, kind, files,
     title: `${kind === 'edit' ? '修改' : '新增'}：${issue.title.replace(/^(修改|新增)[:：]\s*/, '')}`.slice(0, 120),
-    body: [
-      `由 #${issue.number} 自動產生。合併之後，網站與訂閱日曆幾分鐘內更新。`,
-      '',
-      ...lines,
-      '',
-      `**理由**：${(reason ?? '').slice(0, 1000)}`,
-      '',
-      `Closes #${issue.number}`,
-    ].join('\n'),
+    body: lines.join('\n'),
   };
 }
 

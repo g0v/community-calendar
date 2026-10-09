@@ -1,6 +1,6 @@
 name: 修改／新增活動的 issue 轉成 PR
 
-# 網站上的「編輯這筆」「新增活動」會開一張帶表單的 issue（.github/ISSUE_TEMPLATE/），
+# 網站上的「修改這筆」「新增活動」會開一張帶表單的 issue（.github/ISSUE_TEMPLATE/），
 # 這裡把它轉成檔案變更、開 PR，並在 issue 留言附上 PR。管理員合併 PR 就生效。
 # issue 被修改時重跑一次，PR 跟著更新。
 #

@@ -10,7 +10,7 @@
 // 在建置時直接加進來，不存進 events/——它們的修改紀錄在 civictech-tw-data，不在這裡。
 // 要修正或下架，overrides 的檔名用 aimonday-{AI Monday 的場次 id}.json
 //
-// 網站上的「編輯這筆」會開一張 issue，再由 workflow 轉成改這個檔案的 PR（scripts/issue-to-pr.mjs）。
+// 網站上的「修改這筆」會開一張 issue，再由 workflow 轉成改這個檔案的 PR（scripts/issue-to-pr.mjs）。
 // overrides/{id}.json 的格式（每個欄位都可省略）：
 //   {
 //     "hidden": true,                 下架：網站與日曆都不出現（資料仍保留在 events/）
