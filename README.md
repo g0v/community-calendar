@@ -90,7 +90,7 @@ g0v.hackmd.io 前面有 AWS 的防火牆，對 GitHub Actions 的機器（Azure 
 
 ## 管理員
 
-目前的管理員：哲瑋、Dong。管理員做的事都寫在 `overrides/{id}.json`：
+管理員是有這個 repo 寫入權限的人。管理員做的事都寫在 `overrides/{id}.json`：
 
 ```json
 {
