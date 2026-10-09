@@ -1,6 +1,7 @@
 // 建置時讀 events/ 與 overrides/，套上管理員的修正（邏輯在 scripts/resolve.mjs，同步與網站共用一份）
 import { loadAiMonday, loadAll, resolve } from '../../scripts/resolve.mjs';
 
+import { execFileSync } from 'node:child_process';
 import site from '../../config/site.json' with { type: 'json' };
 
 export const REPO = 'https://github.com/g0v/community-calendar';
@@ -27,6 +28,7 @@ export interface Event {
   // 小松果（g0v 台北社群空間使用紀錄）上的編號與成果共筆
   hsiaothon?: { no: number; year: number; notes_url: string | null; line: string };
   // resolve() 加上的
+  override?: { hidden?: boolean; jothon?: boolean; series?: string | null; set?: Record<string, unknown>; note?: string };
   hidden: boolean; jothon: boolean; jothon_source: 'override' | 'aimonday' | null; jothon_pending: boolean;
   aimonday_id: string | null; aimonday_url: string | null; cancelled: boolean; has_override: boolean;
   talks?: { title: string | null; speakers: string[]; url: string }[];
@@ -41,6 +43,55 @@ export function getEvents(): Promise<Event[]> {
     return resolve(events, overrides, await loadAiMonday()) as Event[];
   })();
   return cache;
+}
+
+// ---------- 這筆資料的紀錄 ----------
+//
+// 一場活動的資料分散在 events/{id}.json（同步寫的）、overrides/{id}.json（修正）、manual/{id}.json（網站新增的），
+// GitHub 一次只能看一個檔案的歷史。所以建置時跑一次 git log，把三個檔案的修改依時間合在一起，放在活動頁上
+export interface HistoryEntry { date: string; kind: string; text: string; url: string }
+
+let historyCache: Map<string, HistoryEntry[]> | undefined;
+export function historyOf(id: string): HistoryEntry[] {
+  historyCache ??= loadHistory();
+  return historyCache.get(id) ?? [];
+}
+
+function loadHistory() {
+  const map = new Map<string, HistoryEntry[]>();
+  let out = '';
+  try {
+    out = execFileSync('git', ['log', '--date=short', '--format=@@%H%x1f%ad%x1f%s%x1f%b%x1e', '--name-only', '--', 'events', 'overrides', 'manual'], { encoding: 'utf8', maxBuffer: 64 << 20 });
+  } catch { return map; } // 不是 git 目錄（例如只有 dist 的環境）就不顯示
+  for (const chunk of out.split('@@').slice(1)) {
+    const [meta, files = ''] = chunk.split('\x1e');
+    const [hash, date, subject, body = ''] = meta.split('\x1f');
+    const issue = /由 #(\d+) 自動產生/.exec(body)?.[1];
+    const { kind, text } = describe(subject, !!issue);
+    const entry = { date, kind, text, url: issue ? `${REPO}/issues/${issue}` : `${REPO}/commit/${hash}` };
+    for (const f of files.split('\n').map((x) => x.trim()).filter(Boolean)) {
+      const m = /^(events|overrides|manual)\/(.+)\.json$/.exec(f);
+      if (!m) continue;
+      const list = map.get(m[2]) ?? [];
+      // 同一個 commit 同時改了 events/ 與 overrides/ 只記一次
+      if (!list.some((x) => x.url === entry.url && x.date === entry.date)) list.push({ ...entry, kind: m[1] === 'overrides' && !issue ? '管理員修正' : entry.kind });
+      map.set(m[2], list);
+    }
+  }
+  // git log 由新到舊，最後一筆就是第一次出現
+  for (const list of map.values()) {
+    const first = list[list.length - 1];
+    first.kind = first.kind === '網站上的修改' ? '從網站新增' : '第一次收錄';
+  }
+  return map;
+}
+
+function describe(subject: string, fromIssue: boolean) {
+  if (fromIssue) return { kind: '網站上的修改', text: subject };
+  if (subject.startsWith('sync:')) return { kind: '共筆同步', text: '活動共筆上的內容有更新' };
+  if (/^data: .*(網路檔案館|版本歷史|小松果)/.test(subject)) return { kind: '補資料', text: subject.replace(/^data:\s*/, '') };
+  if (subject.startsWith('data:')) return { kind: '資料整理', text: subject.replace(/^data:\s*/, '') };
+  return { kind: '資料整理', text: subject.replace(/^\w+:\s*/, '') };
 }
 
 // 「今天」以台灣時間算；網站每天跟著同步重建，所以建置當下的日期就夠準

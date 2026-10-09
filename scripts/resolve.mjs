@@ -86,6 +86,7 @@ export function resolve(events, overrides, aimonday = { events: [], talks: [] })
     r.hidden = o.hidden === true;
     if ('series' in o) r.series_fixed = o.series;
     r.has_override = e.id in overrides;
+    if (r.has_override) r.override = o;
     const amJothon = am?.series_slug === 'ai-monday';
     // 揪松主辦：管理員的 overrides 優先，其次是新增活動時就標好的（manual/ 的 jothon_fixed），再其次是 AI Monday
     const fixed = typeof o.jothon === 'boolean' ? o.jothon : typeof r.jothon_fixed === 'boolean' ? r.jothon_fixed : null;
@@ -148,6 +149,7 @@ function fromAm(a, talks, found) {
     cancelled: a.status === '停辦',
     hidden: o.hidden === true,
     has_override: !!found,
+    ...(found ? { override: found } : {}),
     jothon, jothon_source: 'aimonday', jothon_pending: false,
   };
 }

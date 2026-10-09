@@ -80,7 +80,7 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
   </div>
   <p class="muted small">
     「到 GitHub 送出」會打開一張填好的 issue，按下 Submit 之後會自動開 PR，管理員看過後合併就生效。
-    需要 <a href="https://github.com/signup">GitHub 帳號</a>（免費）。不想註冊的話，寄信也可以，內容會幫你填好。
+    需要 <a href="https://github.com/signup">GitHub 帳號</a>（免費）。不想註冊的話，寄信也可以：信會幫你寫好，揪松團收到後點信裡的連結就能代你送出。
   </p>
 </form>
 
@@ -110,31 +110,54 @@ const fields: { id: string; label: string; type?: string; hint?: string; wide?: 
     };
     const label = () => form.dataset.label || collect().name || '';
 
-    form.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      const f = collect();
-      const problem = check(f);
-      err.hidden = !problem; err.textContent = problem ?? '';
-      if (problem) return;
+    // 送出用的 issue 網址：欄位都預先填好。寄信時也附上同一個網址，揪松團的人點了就能代為送出
+    const issueUrl = (f: Record<string, string>, viaEmail = false) => {
       const q = new URLSearchParams({
         template: mode === 'edit' ? 'edit-event.yml' : 'new-event.yml',
         title: `${mode === 'edit' ? '修改' : '新增'}：${label()}`,
       });
       if (mode === 'edit') { q.set('event_id', form.dataset.eventId!); if (takedown()) q.set('takedown', '請拿掉'); }
       for (const [k, v] of Object.entries(f)) q.set(k, v);
-      window.open(`${form.dataset.repo}/issues/new?${q}`, '_blank', 'noopener');
+      if (viaEmail) q.set('reason', `（來信轉交）${f.reason ?? ''}`);
+      return `${form.dataset.repo}/issues/new?${q}`;
+    };
+
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const f = collect();
+      const problem = check(f);
+      err.hidden = !problem; err.textContent = problem ?? '';
+      if (problem) return;
+      window.open(issueUrl(f), '_blank', 'noopener');
     });
 
-    // 寄信：把同樣的內容寫成信件
+    // 寄信：寫法比照 PR——哪一場、每個欄位從什麼改成什麼、理由——最後附上預先填好的 issue 連結，
+    // 揪松團的人看完點一下、按 Submit，就跟寄信的人自己送出一樣會自動開 PR
     form.querySelector<HTMLAnchorElement>('[data-mail]')!.addEventListener('click', (ev) => {
       ev.preventDefault();
       const f = collect();
-      const names: Record<string, string> = { series: '系列', jothon: '揪松主辦', name: '活動名稱', date: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間', venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址', notes_url: '共筆網址', page_url: '活動頁', description: '活動說明', reason: mode === 'edit' ? '為什麼要改' : '我跟這場活動的關係' };
+      const problem = check(f);
+      err.hidden = !problem; err.textContent = problem ?? '';
+      if (problem) return;
+      const names: Record<string, string> = { series: '系列', jothon: '揪松主辦', name: '活動名稱', date: '日期', date_end: '結束日期', start_time: '開始時間', end_time: '結束時間', venue: '地點', address: '地址', host: '主辦', signup_url: '報名網址', online_url: '線上參加網址', notes_url: '共筆網址', page_url: '活動頁', description: '活動說明' };
+      const initial = (k: string) => form.querySelector<HTMLInputElement>(`[name="${k}"]`)?.dataset.initial || '（空）';
+      const shown = (k: string, v: string) => (k === 'series' ? form.querySelector<HTMLSelectElement>('[name=series]')?.selectedOptions[0]?.textContent ?? v : v || '（空）');
+      const fields = Object.entries(f).filter(([k]) => k !== 'reason' && k !== 'description');
+      const page = location.href.replace(/edit\/?(\?.*)?$/, '');
       const body = [
-        mode === 'edit' ? `我想修改 g0v 社群行事曆上的這場活動：${location.href.replace(/edit\/?$/, '')}` : '我想在 g0v 社群行事曆上新增一場活動：',
+        mode === 'edit' ? `我想修改 g0v 社群行事曆上的這場活動：` : '我想在 g0v 社群行事曆上新增一場活動：',
+        mode === 'edit' ? `${label()}\n${page}` : label(),
         '',
-        ...Object.entries(f).map(([k, v]) => `${names[k] ?? k}：${v}`),
-        ...(takedown() ? ['請從行事曆上拿掉這場活動'] : []),
+        ...(takedown() ? ['【請從行事曆上拿掉這場活動】', ''] : []),
+        ...(fields.length ? [mode === 'edit' ? '要改的地方（現在 → 改成）：' : '活動資料：'] : []),
+        ...fields.map(([k, v]) => mode === 'edit' ? `・${names[k] ?? k}：${initial(k)} → ${shown(k, v)}` : `・${names[k] ?? k}：${shown(k, v)}`),
+        ...(f.description ? ['', `活動說明：${f.description}`] : []),
+        '',
+        `${mode === 'edit' ? '為什麼要改' : '我跟這場活動的關係'}：${f.reason}`,
+        '',
+        '――――',
+        '給揪松團：點下面的連結，GitHub 上的表單已經照這封信填好，確認後按 Submit 就會自動開 PR。',
+        issueUrl(f, true),
       ].join('\n');
       location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`［社群行事曆］${mode === 'edit' ? '修改' : '新增'}：${label()}`)}&body=${encodeURIComponent(body)}`;
     });
