@@ -18,20 +18,20 @@ const onDay = (d: string) => own.filter((e) => onDate(e, d));
 const [y, m] = month.split('-').map(Number);
 const time = (e: Event) => (tentative(e) ? null : e.start_time);
 ---
-<header class="cal-head">
+<header class="cal-head" data-months={JSON.stringify(months)} data-current={month} data-base={href('/calendar/')}>
   <h1 class="page-title">
-    <!-- 標題本身就是月份選單：看起來是標題，點下去可以選任何一個月 -->
-    <label class="pick">
-      <span class="sr">選擇月份</span>
-      <select data-jump>
-        {[...new Set(months.map((x) => x.slice(0, 4)))].map((yy) => (
-          <optgroup label={`${yy} 年`}>
-            {months.filter((x) => x.startsWith(yy)).map((x) => <option value={href(`/calendar/${x}/`)} selected={x === month}>{yy} 年 {Number(x.slice(5))} 月</option>)}
-          </optgroup>
-        ))}
-      </select>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
-    </label>
+    <!-- 標題本身就是月份選擇器：點開是一個小面板，上面換年份、下面選月份 -->
+    <details class="pick" data-pick>
+      <summary aria-label="選擇月份"><span class="num">{y}</span> 年 <span class="num">{m}</span> 月<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary>
+      <div class="pop panel" role="dialog" aria-label="選擇月份">
+        <div class="pop-year">
+          <button type="button" data-year="-1" aria-label="上一年">‹</button>
+          <span class="num" data-year-label>{y}</span>
+          <button type="button" data-year="1" aria-label="下一年">›</button>
+        </div>
+        <div class="pop-grid" data-grid></div>
+      </div>
+    </details>
   </h1>
   <nav class="pager" aria-label="切換月份">
     {prev ? <a href={href(`/calendar/${prev}/`)} rel="prev" data-keep>← 上個月</a> : <span class="off">← 上個月</span>}
@@ -84,25 +84,55 @@ const time = (e: Event) => (tentative(e) ? null : e.start_time);
   };
   box.addEventListener('change', apply);
   apply();
-  // 跳到選的月份，帶著「只看揪松主辦」
-  document.querySelector<HTMLSelectElement>('[data-jump]')!.addEventListener('change', (ev) => {
-    location.href = (ev.target as HTMLSelectElement).value + (box.checked ? '?jothon=1' : '');
-  });
+  // 月份選擇器：有活動的月份才能點，翻年份只在有資料的年份之間
+  const head = document.querySelector<HTMLElement>('.cal-head')!;
+  const months: string[] = JSON.parse(head.dataset.months!);
+  const years = [...new Set(months.map((x) => x.slice(0, 4)))];
+  let shown = head.dataset.current!.slice(0, 4);
+  const grid = head.querySelector<HTMLElement>('[data-grid]')!;
+  const yLabel = head.querySelector<HTMLElement>('[data-year-label]')!;
+  const draw = () => {
+    yLabel.textContent = shown;
+    head.querySelectorAll<HTMLButtonElement>('[data-year]').forEach((b) => (b.disabled = !years[years.indexOf(shown) + Number(b.dataset.year)]));
+    grid.innerHTML = Array.from({ length: 12 }, (_, i) => {
+      const ym = `${shown}-${String(i + 1).padStart(2, '0')}`;
+      const cls = ym === head.dataset.current ? ' class="on"' : '';
+      return months.includes(ym)
+        ? `<a${cls} href="${head.dataset.base}${ym}/${box.checked ? '?jothon=1' : ''}">${i + 1} 月</a>`
+        : `<span>${i + 1} 月</span>`;
+    }).join('');
+  };
+  head.querySelectorAll<HTMLButtonElement>('[data-year]').forEach((b) => b.addEventListener('click', () => {
+    shown = years[years.indexOf(shown) + Number(b.dataset.year)] ?? shown;
+    draw();
+  }));
+  const pick = head.querySelector<HTMLDetailsElement>('[data-pick]')!;
+  pick.addEventListener('toggle', () => { if (pick.open) { shown = head.dataset.current!.slice(0, 4); draw(); } });
+  // 點面板外面、按 Esc 就收起來
+  document.addEventListener('click', (ev) => { if (pick.open && !pick.contains(ev.target as Node)) pick.open = false; });
+  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') pick.open = false; });
 </script>
 
 <style>
   .cal-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 12px; }
   .pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: .95rem; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .pick { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
-  .pick select {
-    appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: var(--text);
-    font: inherit; letter-spacing: inherit; padding: 2px 1.4em 2px 6px; margin-left: -6px; border-radius: var(--r-md); cursor: pointer;
-    font-variant-numeric: tabular-nums;
-  }
-  .pick select:hover, .pick select:focus-visible { background: var(--surface-2); }
-  .pick svg { position: absolute; right: .2em; width: .7em; height: .7em; pointer-events: none; fill: none; stroke: var(--muted); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .pick option, .pick optgroup { font-size: 1rem; font-weight: 400; }
+  .pick { position: relative; display: inline-block; }
+  .pick summary { list-style: none; display: inline-flex; align-items: center; gap: .15em; cursor: pointer; padding: 0 6px; margin-left: -6px; border-radius: var(--r-md); }
+  .pick summary::-webkit-details-marker { display: none; }
+  .pick summary:hover, .pick[open] summary { background: var(--surface-2); }
+  .pick summary svg { width: .55em; height: .55em; margin-left: .15em; fill: none; stroke: var(--muted); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+  .pick[open] summary svg { transform: rotate(180deg); }
+  .pop { position: absolute; z-index: 10; top: calc(100% + 8px); left: 0; width: 248px; padding: 12px; font-size: .9rem; font-weight: 400; letter-spacing: 0; }
+  .pop-year { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
+  .pop-year button { width: 30px; height: 30px; border: 0; border-radius: var(--r-sm); background: transparent; color: var(--text); font-size: 1.1rem; cursor: pointer; }
+  .pop-year button:hover:not(:disabled) { background: var(--surface-2); }
+  .pop-year button:disabled { color: var(--line); cursor: default; }
+  .pop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .pop-grid :global(a), .pop-grid :global(span) { display: grid; place-items: center; height: 34px; border-radius: var(--r-sm); text-decoration: none; }
+  .pop-grid :global(a) { color: var(--text); }
+  .pop-grid :global(a:hover) { background: var(--surface-2); }
+  .pop-grid :global(a.on) { background: var(--accent); color: #fff; }
+  .pop-grid :global(span) { color: var(--line); }
   .pager a { text-decoration: none; }
   .pager .off { color: var(--line); }
   .check { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; cursor: pointer; margin-bottom: 16px; }

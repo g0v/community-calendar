@@ -28,6 +28,7 @@ export function buildIcs(events: Event[], feed: Feed, site: URL | undefined) {
         ...(e.talks ?? []).map((t) => `・${t.title ?? '講題待定'}${t.speakers.length ? `（${t.speakers.join('、')}）` : ''}`),
         e.aimonday_url && `講題與影片：${e.aimonday_url}`,
         e.signup_url && `報名：${e.signup_url}`,
+        e.online_url && `線上參加：${e.online_url}`,
         e.notes_url && `共筆：${e.notes_url}`,
         e.page_url && `活動頁：${e.page_url}`,
         e.start_time && !e.end_time && '結束時間未定',

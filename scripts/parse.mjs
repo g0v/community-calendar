@@ -23,7 +23,8 @@ const KEYS = [
   ['signup_url', /(報名|參加方法|参加方法|申込)/],
   ['notes_url', /(共筆|工作文件|籌備構想)/],
   ['host', /^(主辦|主辦單位|主催)$/],
-  ['page_url', /^(詳細資訊|活動頁面|活動資訊|活動網址|線上活動網址|活動連結)$/],
+  ['online_url', /^(線上|線上參加|線上會議|線上活動網址|會議連結|直播|直播連結)$/],
+  ['page_url', /^(活動頁|詳細資訊|活動頁面|活動資訊|活動網址|活動連結|相關連結|連結)$/],
 ];
 
 const WEEKDAY = /^(?:週[一二三四五六日]|星期[一二三四五六日]|[（(][一二三四五六日][）)]|(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\.?)/;
@@ -129,6 +130,7 @@ function finish(b, warnings) {
     signup_url: null,
     notes_url: null,
     page_url: null,
+    online_url: null,
     host: null,
     sub_sessions: [],
     fields: {},

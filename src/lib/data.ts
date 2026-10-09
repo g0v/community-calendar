@@ -11,7 +11,7 @@ export interface Event {
   date_start: string | null; date_end: string | null; date_precision: 'day' | 'month' | 'year';
   start_time: string | null; end_time: string | null;
   venue: string | null; address: string | null; host: string | null;
-  signup_url: string | null; notes_url: string | null; page_url: string | null;
+  signup_url: string | null; notes_url: string | null; page_url: string | null; online_url?: string | null;
   sub_sessions: SubSession[];
   fields: Record<string, string>;
   links: string[];
