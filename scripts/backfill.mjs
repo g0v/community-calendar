@@ -1,8 +1,11 @@
-// 一次性補資料：從網路檔案館（Wayback Machine）的共筆存檔，把每日同步開始（2026-10-09）以前的活動補進 events/。
+// 一次性補資料：把每日同步開始（2026-10-09）以前就從共筆刪掉的活動補進 events/。
 //
-// 共筆會被定期清掉，所以在同步開始之前就被刪掉的活動，只剩存檔裡還看得到。限制：
-//   - 存檔不是每天都有，兩次存檔之間新增又被刪掉的活動補不回來
-//   - 2025 年初的共筆格式不同（沒有年份），parse() 用存檔當天的年份補
+// 共筆會被定期清掉，所以同步開始前就被刪掉的活動，只剩舊版本裡看得到。兩個來源：
+//   - revisions（預設）：HackMD 的版本歷史。公開的共筆不用登入就讀得到，從 2024-12-15 起約 500 版，
+//     幾乎每次編輯都有一版，比網路檔案館密得多
+//   - wayback：網路檔案館的存檔（2025-01 起 21 份）。第一輪就是用它補的，revisions 能讀之後就不需要了
+// 可以重複跑：已經補過的會更新成最新一版的內容，id 不變，所以 overrides 照樣對得上。
+// 2025 年初的共筆格式不同（沒有年份），parse() 用版本當天的年份補
 //
 // 規則：
 //   - 比對方式跟每日同步一樣（sync.mjs 的 match）
@@ -12,25 +15,32 @@
 //     活動日之前就不見的，網站會標「共筆已移除」：多半是改期或取消前的舊計畫，不一定真的辦過
 //   - 同一場出現在好幾份存檔：以最晚那份的內容為準
 //
-// 用法：node scripts/backfill-wayback.mjs            抓存檔並寫入 events/
-//       DRY_RUN=1 node scripts/backfill-wayback.mjs  只印出會補幾筆
-//       CACHE_DIR=path …                             存檔下載到這裡，重跑不必再抓
+// 用法：node scripts/backfill.mjs                   從 HackMD 版本歷史補，寫入 events/
+//       BACKFILL_SOURCE=wayback node scripts/backfill.mjs   改用網路檔案館
+//       DRY_RUN=1 …                                  只印出會補幾筆
+//       CACHE_DIR=path …                             下載的版本存在這裡，重跑不必再抓
 
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from './parse.mjs';
-import { match, SOURCE_URL } from './sync.mjs';
+import { match, norm, NOTE_ID, SOURCE_URL } from './sync.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const EVENTS_DIR = path.join(ROOT, 'events');
 const SYNC_STARTED = '2026-10-09';
 const CDX = `https://web.archive.org/cdx/search/cdx?url=${encodeURIComponent('g0v.hackmd.io/@jothon/event')}&output=json&fl=timestamp,statuscode&filter=statuscode:200`;
 
+const HACKMD = `https://g0v.hackmd.io/${NOTE_ID}`;
+const WAYBACK = process.env.BACKFILL_SOURCE === 'wayback';
+
 async function main() {
-  const snaps = (await cdx()).slice(1).map(([ts]) => ts).filter((ts) => toDate(ts) < SYNC_STARTED);
-  console.log(`網路檔案館有 ${snaps.length} 份同步開始前的存檔`);
+  // 每一份「版本」：ts 用來排序與當快取檔名，url 記在資料的 archive 欄位
+  const snaps = WAYBACK
+    ? (await cdx()).slice(1).map(([ts]) => ts).filter((ts) => toDate(ts) < SYNC_STARTED)
+    : (await (await fetch(`${HACKMD}/revision`)).json()).revision.map((r) => String(r.time)).filter((t) => toDate(t) < SYNC_STARTED);
+  console.log(`${WAYBACK ? '網路檔案館' : 'HackMD 版本歷史'}有 ${snaps.length} 份同步開始前的版本`);
 
   const { readdir } = await import('node:fs/promises');
   const stored = await Promise.all((await readdir(EVENTS_DIR)).filter((f) => f.endsWith('.json'))
@@ -42,12 +52,17 @@ async function main() {
   const lastSeen = new Map(); // 補進來的 id → 最後出現在哪一份存檔
 
   for (const ts of snaps.sort()) {
-    const md = await snapshot(ts);
+    const md = WAYBACK ? await snapshot(ts) : await revision(ts);
     if (!md) { console.log(`${ts}：讀不到共筆內文，略過`); continue; }
     const date = toDate(ts);
-    const url = `https://web.archive.org/web/${ts}/${SOURCE_URL}`;
+    const url = WAYBACK ? `https://web.archive.org/web/${ts}/${SOURCE_URL}` : `${HACKMD}/revision/${ts}`;
     if (parsedDates.at(-1) !== date) parsedDates.push(date);
-    const { events } = parse(md, { defaultYear: +ts.slice(0, 4) });
+    // 同一版裡同一天、同名的只留一筆（有人正在複製貼上時存下的版本）
+    const seen = new Set();
+    const events = parse(md, { refDate: date }).events.filter((e) => {
+      const k = `${e.date_start}|${norm(e.title)}`;
+      return !seen.has(k) && seen.add(k);
+    });
     const { results } = match(events, [...byId.values()]);
     let added = 0;
     for (const { p, rec } of results) {
@@ -65,16 +80,16 @@ async function main() {
         source: 'jothon-hackmd',
         source_url: SOURCE_URL,
         ...rest,
-        first_seen: rec?.first_seen ?? date,
+        first_seen: rec && rec.first_seen < date ? rec.first_seen : date,
         in_source: false,
         removed_from_source: null,
-        archive: { first: rec?.archive.first ?? url, last: url },
+        archive: { first: rec && rec.first_seen < date ? rec.archive.first : url, last: url },
       };
       if (!rec) { created++; added++; }
       byId.set(next.id, next);
       lastSeen.set(next.id, date);
     }
-    console.log(`${date}：解析 ${events.length} 筆，新補 ${added} 筆`);
+    if (WAYBACK || added) console.log(`${date}：解析 ${events.length} 筆，新補 ${added} 筆`);
   }
 
   for (const [id, seen] of lastSeen) {
@@ -82,7 +97,7 @@ async function main() {
   }
 
   const changed = [...byId.values()].filter((r) => original.get(r.id) !== JSON.stringify(r));
-  console.log(`共新補 ${created} 筆，${changed.length - created} 筆既有資料的 first_seen 往前改`);
+  console.log(`共新補 ${created} 筆，${changed.length - created} 筆既有資料有更新（first_seen 往前、或補過的內容換成更新的版本）`);
   if (process.env.DRY_RUN) return;
   for (const r of changed) await writeFile(path.join(EVENTS_DIR, `${r.id}.json`), JSON.stringify(r, null, 2) + '\n');
 }
@@ -114,7 +129,24 @@ async function cdx() {
   throw new Error('讀不到網路檔案館的存檔索引');
 }
 
-const toDate = (ts) => `${ts.slice(0, 4)}-${ts.slice(4, 6)}-${ts.slice(6, 8)}`;
+// HackMD 的一個版本（ts 是毫秒時間戳）
+async function revision(ts) {
+  const dir = process.env.CACHE_DIR;
+  const file = dir && path.join(dir, `rev-${ts}.md`);
+  const cached = file ? await readFile(file, 'utf8').catch(() => null) : null;
+  if (cached != null) return cached;
+  const r = await fetch(`${HACKMD}/revision/${ts}`, { signal: AbortSignal.timeout(60_000) });
+  if (!r.ok) return null;
+  const md = (await r.json()).content;
+  if (file) { await mkdir(dir, { recursive: true }); await writeFile(file, md); }
+  await new Promise((ok) => setTimeout(ok, 200)); // 對 HackMD 客氣一點
+  return md;
+}
+
+// 網路檔案館的時間戳是 YYYYMMDDhhmmss（UTC）；HackMD 的是毫秒。都轉成台灣時間的日期
+const toDate = (ts) => ts.length === 14
+  ? `${ts.slice(0, 4)}-${ts.slice(4, 6)}-${ts.slice(6, 8)}`
+  : new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date(+ts));
 
 // 跟 sync.mjs 同一套 id 規則
 function makeId(p) {

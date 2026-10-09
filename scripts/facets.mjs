@@ -8,7 +8,8 @@ export const SERIES = [
   ['congressthon', '國會松', /國會松|congressthon/i],
   ['resilience', '數位韌性松', /韌性松/],
   ['facing-ocean', '面海松', /面海松|facing the ocean/i],
-  ['hackathon', '大松', /黑客松|hackath\w*n/i],
+  // 大松：「g0v 第柒拾次黑客松」「g0v hackath70n」。「vTaiwan 小黑客松」、講題裡提到黑客松的不算
+  ['hackathon', '大松', /^(?!.*(小黑客松|hack進)).*((g0v|零時政府)[^｜|]{0,24}黑客松|hackath\w*n)/i],
   ['rand0mthon', '放輕松', /放輕松|rand0mth/i],
   ['cafethon', '跑咖松', /跑咖松/],
   ['osm-wikidata', 'OpenStreetMap × Wikidata 月聚會', /openstreetmap|osm\s*x/i],

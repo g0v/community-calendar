@@ -25,7 +25,7 @@ import { facets } from './facets.mjs';
 // 揪松主辦的系列（2026-10-09 定）：大松、AI Monday、放輕松、跑咖松。國會松與小松不算
 export const JOTHON_GUESS = /黑客松|hackath\w*n|ai\s*monday|放輕松|跑咖松/i;
 // 標題裡也有「黑客松」但不是揪松主辦的系列
-const NOT_JOTHON = /國會松|韌性松/;
+const NOT_JOTHON = /國會松|韌性松|小黑客松|hack進/;
 const AI_MONDAY = /ai\s*monday/i;
 const AIMONDAY_API = 'https://data.civictech.tw/v0/aimonday';
 const AIMONDAY_SITE = 'https://g0v.github.io/AI-Monday';

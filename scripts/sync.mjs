@@ -147,7 +147,7 @@ export const norm = (s) => s.toLowerCase().replace(/週[一二三四五六日]|[
 // 兩個字一組的 Dice 係數，中文英文都能用
 export function similarity(a, b) {
   const [x, y] = [norm(a), norm(b)].sort((p, q) => p.length - q.length);
-  if (x.length >= 4 && y.includes(x)) return 1; // 「2026 維基數據跨領域論壇」vs 後面多了英文名稱的同一場
+  if (x.length >= 3 && y.includes(x)) return 1; // 一個包含另一個：「韌性松」vs「韌性松 @ 摩茲工寮」、「維基數據跨領域論壇」vs 後面多了英文名稱
   const grams = (s) => { const n = norm(s); const g = []; for (let i = 0; i < n.length - 1; i++) g.push(n.slice(i, i + 2)); return g.length ? g : [n]; };
   const A = grams(a), B = grams(b);
   const pool = [...B];

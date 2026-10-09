@@ -29,12 +29,14 @@ const KEYS = [
 const WEEKDAY = /^(?:週[一二三四五六日]|星期[一二三四五六日]|[（(][一二三四五六日][）)]|(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\.?)/;
 const DAYPART = /^(?:上午下午晚上|上下午|上午|下午|中午|晚上|早上|全天)/;
 
-// defaultYear：舊格式沒寫年份時用的年份（從網路檔案館補資料時，帶入存檔那天的年份）
-export function parse(md, { defaultYear = null } = {}) {
+// refDate：舊格式沒寫年份時的參考日（從舊版本補資料時，帶入那個版本的日期）。
+// 沒寫年份的日期取離參考日最近的那一年——12 月的版本寫「1/5」是指隔年
+export function parse(md, { refDate = null } = {}) {
   const lines = md.split(/\r?\n/);
   const events = [];
   const warnings = [];
-  let year = defaultYear, month = null, inSection = false, cur = null;
+  let year = refDate ? +refDate.slice(0, 4) : null, month = null, inSection = false, cur = null;
+  let modern = false; // 有「### 2026.10」這種月份標題的格式（2025-05 起）
 
   const close = () => { if (cur) events.push(finish(cur, warnings)); cur = null; };
 
@@ -42,12 +44,13 @@ export function parse(md, { defaultYear = null } = {}) {
     const line = raw.replace(/\s+$/, '');
     const lineNo = i + 1;
     const mh = line.match(MONTH_HEADING);
-    if (mh) { close(); inSection = true; year = +mh[1]; month = +mh[2]; return; }
+    if (mh) { close(); inSection = true; modern = true; year = +mh[1]; month = +mh[2]; return; }
     const cm = line.match(CN_MONTH_HEADING);
     if (cm && year) {
       close(); inSection = true;
       const m = CN_NUM[cm[1]];
       if (month && m < month) year += 1; // 「十二月」之後接「一月」＝隔年
+      else if (!month && refDate) year = nearestYear(m, 15, refDate); // 第一個月份標題：取離參考日最近的那一年
       month = m;
       return;
     }
@@ -63,7 +66,7 @@ export function parse(md, { defaultYear = null } = {}) {
       const inner = boldLine[1].replace(/^\[注意!?！?\]\s*/, '').trim();
       if (!/^(\d|\[月份日期待確認\])/.test(inner)) return;
       close();
-      cur = { header: inner, line: lineNo, year, month, bullets: [], raw: [raw] };
+      cur = { header: inner, line: lineNo, year, month, refDate, bullets: [], raw: [raw] };
       return;
     }
 
@@ -71,12 +74,19 @@ export function parse(md, { defaultYear = null } = {}) {
     // 舊格式把網址單獨寫一行，不加列點
     if (!isBullet && cur && /^https?:\/\/\S+$/.test(line.trim())) { cur.raw.push(raw); cur.bullets.push({ indent: 0, text: line.trim(), line: lineNo }); return; }
     if (!isBullet && !/^\s/.test(line)) {
-      // 頂層的非列點文字＝新的一筆。前一筆還開著代表中間漏了 ---
+      if (cur && !modern && !DATE_START.test(line.trim())) {
+        // 舊格式：開著的活動底下、不是日期開頭的頂層文字，是這筆的說明（常寫一整段），不是新的一筆。
+        // 新格式不這樣寫，頂層文字就是新的一筆（「暫定舉辦 Open Data Day」接在黑客松後面、中間漏了 ---）
+        cur.raw.push(raw);
+        cur.bullets.push({ indent: 0, text: line.trim(), line: lineNo });
+        return;
+      }
+      // 日期開頭的頂層文字＝新的一筆。前一筆還開著代表中間漏了 ---
       if (cur) {
         warnings.push({ line: lineNo, msg: `「${short(line)}」前面少了 ---，跟上一筆「${short(cur.header)}」黏在一起；已當成兩筆處理` });
         close();
       }
-      cur = { header: line.trim(), line: lineNo, year, month, bullets: [], raw: [raw] };
+      cur = { header: line.trim(), line: lineNo, year, month, refDate, bullets: [], raw: [raw] };
       return;
     }
     if (!cur) return; // 不屬於任何活動的列點，例如月份底下的說明
@@ -89,19 +99,31 @@ export function parse(md, { defaultYear = null } = {}) {
     }
   });
   close();
-  return { events, warnings };
+  // 標題只剩日期、沒有活動名稱的（多半是有人正在打字時存下的版本），不收
+  return { events: events.filter((e) => e.title), warnings };
+}
+
+const DATE_START = /^(\d{1,4}[/\-]\d|\d{8}|\[月份日期待確認\]|日期暫定)/;
+
+// 沒寫年份的 m/d：共筆列的是近期與未來的活動（大松常提早快一年排），辦完的通常一個月內就清掉，
+// 所以取「版本日期前 1 個月到後 11 個月」之間的那一年。例：2025-01 的版本寫「11/22 黑客松」是 2025 年，不是兩個月前
+function nearestYear(m, d, refDate) {
+  const ref = Date.parse(`${refDate}T00:00:00Z`);
+  const y0 = +refDate.slice(0, 4);
+  const days = (y) => (Date.UTC(y, m - 1, d) - ref) / 864e5;
+  return [y0 - 1, y0, y0 + 1].find((y) => days(y) >= -30 && days(y) < 335) ?? y0;
 }
 
 function finish(b, warnings) {
   const where = (msg) => warnings.push({ line: b.line, msg: `「${short(b.header)}」${msg}` });
-  const head = parseHeader(b.header, b.year, b.month);
+  const head = parseHeader(b.header, b.year, b.month, b.refDate);
   const ev = {
     title: head.title,
     date_start: head.date_start,
     date_end: head.date_end,
     date_precision: head.precision,
-    start_time: null,
-    end_time: null,
+    start_time: head.start_time ?? null,
+    end_time: head.end_time ?? null,
     venue: head.venue ?? null,
     address: null,
     signup_url: null,
@@ -153,7 +175,7 @@ function finish(b, warnings) {
     if (std.endsWith('_url')) { ev[std] ??= firstUrl(kv.value); return; }
     if (std === 'time') {
       const t = timeOf(kv.value);
-      if (!ev.start_time && t.start_time) Object.assign(ev, t);
+      if (t.start_time && (!ev.start_time || !ev.end_time)) Object.assign(ev, t);
       const d = dateIn(kv.value, ev.date_start);
       if (d && ev.date_start && d !== ev.date_start && !(ev.date_end && d <= ev.date_end && d >= ev.date_start)) {
         warn(`標題的日期是 ${ev.date_start}，但「${kv.key}」寫的是 ${d}`);
@@ -177,7 +199,7 @@ function finish(b, warnings) {
 // ---------- 標題列 ----------
 
 // 回傳 { date_start, date_end, precision: 'day'|'month'|'year', title }
-export function parseHeader(header, ctxYear, ctxMonth) {
+export function parseHeader(header, ctxYear, ctxMonth, refDate = null) {
   let s = header.trim();
   const pending = /^\[月份日期待確認\]\s*/.exec(s);
   if (pending) s = s.slice(pending[0].length);
@@ -218,7 +240,8 @@ export function parseHeader(header, ctxYear, ctxMonth) {
   const plus = /^[+＋&~～-]\s*(?:(\d{1,2})\/)?(\d{1,2})(?!\d)/.exec(rest);
   if (plus && !d2) { m2 = plus[1] ?? m; d2 = plus[2]; rest = stripDecor(rest.slice(plus[0].length)); }
 
-  const year = +(y ?? ctxYear);
+  // 沒寫年份、也沒有「### 2026.10」這種月份標題可以參考（舊格式）：取離版本日期最近的那一年
+  const year = +(y ?? (!ctxMonth && refDate ? nearestYear(+m, +d, refDate) : ctxYear));
   const start = `${year}-${pad(m)}-${pad(d)}`;
   let end = null;
   if (d2) {
@@ -226,17 +249,29 @@ export function parseHeader(header, ctxYear, ctxMonth) {
     if (+(m2 ?? m) < +m) ey += 1; // 12/31-1/1 跨年
     end = `${ey}-${pad(m2 ?? m)}-${pad(d2)}`;
   }
-  let title = rest.replace(/^[\s，,、:：|｜▶︎\uFE0F]+/u, '').trim() || s;
+  // 日期後面直接接時間：「19:30-21:00 放輕松」
+  let start_time = null, end_time = null;
+  const tm = /^(\d{1,2})[:：](\d{2})(?:\s*[-–~～〜]\s*(\d{1,2})[:：](\d{2}))?/.exec(rest);
+  if (tm) {
+    start_time = `${pad(tm[1])}:${tm[2]}`;
+    end_time = tm[3] ? `${pad(tm[3])}:${tm[4]}` : null;
+    rest = stripDecor(rest.slice(tm[0].length));
+  }
+  let title = rest.replace(/^[\s，,、:：|｜▶︎\uFE0F]+/u, '').trim();
   // 舊格式：「週六下午 **g0v 國會松**，地點在臺北市 NPOHub 聚落」——粗體是活動名稱，後面是地點
   let venue = null;
   const bold = /\*\*(.+?)\*\*/.exec(title);
   if (bold) {
     venue = /地點在\s*(.+)$/.exec(title.slice(bold.index + bold[0].length))?.[1].trim() ?? null;
     title = bold[1].trim();
+  } else {
+    // 沒有粗體也一樣：「放輕松，地點在臺北市 NPOHub 聚落」
+    const at = /[，,]\s*地點在\s*(.+)$/.exec(title);
+    if (at) { venue = at[1].trim(); title = title.slice(0, at.index).trim(); }
   }
   title = title.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // 標題裡的 Markdown 連結只留文字
   const month_mismatch = !!ctxMonth && +m !== ctxMonth && !(end && +(m2 ?? m) === ctxMonth);
-  return { date_start: start, date_end: end, precision: 'day', title, venue, month_mismatch };
+  return { date_start: start, date_end: end, precision: 'day', title, venue, start_time, end_time, month_mismatch };
 }
 
 function stripDecor(s) {

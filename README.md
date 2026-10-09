@@ -30,9 +30,14 @@ g0v 社群活動的入口：什麼時候、在哪裡、能不能訂閱。
 
 都只收日期確定到「哪一天」的活動。有子場次的大松（分城市辦）每個城市一個事件。
 
-## 從網路檔案館補回的過去活動
+## 補回來的過去活動
 
-每日同步從 2026-10-09 開始。在那之前就被清掉的活動，是從網路檔案館（Wayback Machine）的共筆存檔補回來的（`scripts/backfill-wayback.mjs`，2025-01 到 2026-10 共 21 份存檔）。這些資料帶有 `archive` 欄位，記錄最早與最晚出現在哪一份存檔。兩次存檔之間新增又刪掉的活動補不回來。
+每日同步從 2026-10-09 開始。在那之前就被清掉的活動，是從共筆的舊版本補回來的（`scripts/backfill.mjs`）：
+
+- **HackMD 版本歷史**：公開的共筆不用登入就讀得到（`/{note id}/revision`），從 2024-12-15 起約 500 版，幾乎每次編輯都有一版
+- **網路檔案館**（Wayback Machine）：2025-01 起 21 份存檔，是第一輪補資料用的，版本歷史涵蓋得更完整
+
+這些資料帶有 `archive` 欄位，記錄最早與最晚出現在哪一版。2024-12-15 以前的共筆沒有版本可以讀。
 
 在活動日之前就從存檔裡消失的，多半是改期或取消前的舊計畫，網站會標「共筆已移除」，月曆上畫刪除線。
 
@@ -155,7 +160,7 @@ npm run build    # 輸出靜態檔到 dist/
 | `scripts/sync.mjs` | 讀共筆、比對既有資料、寫 `events/` 與 `report.json` |
 | `scripts/resolve.mjs` | 套上 `overrides/`、判斷揪松主辦、併進 AI Monday 的場次。同步與網站共用 |
 | `scripts/facets.mjs` | 從標題與地點推出系列、縣市、線上 |
-| `scripts/backfill-wayback.mjs` | 一次性：從網路檔案館補回過去的活動 |
+| `scripts/backfill.mjs` | 從共筆的 HackMD 版本歷史（或網路檔案館）補回過去的活動，可重複跑 |
 | `scripts/data-check-issue.sh` | 把 `report.json` 同步成「資料檢查」issue |
 | `src/lib/ics.ts` | 產生日曆檔 |
 
