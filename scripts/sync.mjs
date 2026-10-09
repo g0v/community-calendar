@@ -31,13 +31,21 @@ const TODAY = process.env.TODAY ?? new Intl.DateTimeFormat('sv-SE', { timeZone: 
 const MIN_RATIO = 0.3;
 
 async function main() {
-  const md = process.env.SOURCE_FILE
-    ? await readFile(process.env.SOURCE_FILE, 'utf8')
-    : await fetchText(`${SOURCE_URL}/download`);
+  const report = { generated_at: new Date().toISOString(), today: TODAY, source: SOURCE_URL, counts: {}, errors: [], warnings: [] };
+  let md;
+  try {
+    md = process.env.SOURCE_FILE ? await readFile(process.env.SOURCE_FILE, 'utf8') : await fetchSource();
+  } catch (e) {
+    // 讀不到共筆也要留下報告，資料檢查 issue 才會開出來；不然只會在 Actions 裡安靜地紅一格
+    report.errors.push({ where: '共筆', msg: `讀不到共筆：${e.message}。這次不更新資料` });
+    await writeReport(report);
+    console.error(report.errors[0].msg);
+    process.exitCode = 1;
+    return;
+  }
   const { events: parsed, warnings: parseWarnings } = parse(md);
   const stored = await loadStored();
 
-  const report = { generated_at: new Date().toISOString(), today: TODAY, source: SOURCE_URL, counts: {}, errors: [], warnings: [] };
   const alive = stored.filter((r) => r.in_source).length;
   if (parsed.length === 0 || (alive >= 5 && parsed.length < alive * MIN_RATIO)) {
     report.errors.push({ where: '共筆', msg: `只解析到 ${parsed.length} 筆活動（目前共筆上應有 ${alive} 筆）。共筆可能被整份改版或清空，這次不更新資料，請人看一下` });
@@ -184,9 +192,12 @@ async function writeReport(report) {
   await writeFile(path.join(ROOT, 'report.json'), JSON.stringify(report, null, 2) + '\n');
 }
 
-async function fetchText(url) {
-  const r = await fetch(url, { signal: AbortSignal.timeout(30_000) });
-  if (!r.ok) throw new Error(`${url}：HTTP ${r.status}`);
+// 共筆的 Markdown 原文
+async function fetchSource() {
+  const url = `${SOURCE_URL}/download`;
+  const r = await fetch(url, { signal: AbortSignal.timeout(30_000), headers: { 'User-Agent': 'g0v-community-calendar (+https://github.com/g0v/community-calendar)' } });
+  console.log(`${url} → HTTP ${r.status}`);
+  if (!r.ok) throw new Error(`${url} 回 HTTP ${r.status}`);
   return r.text();
 }
 
