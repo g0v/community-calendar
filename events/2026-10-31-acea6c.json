@@ -1,0 +1,33 @@
+{
+  "id": "2026-10-31-acea6c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "MOPCON 科技年會 2026",
+  "date_start": "2026-10-31",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "online_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://mopcon.kktix.cc/events/mopcon-2026"
+  ],
+  "description": [
+    "2026/10/31(周六) 08:30 ~ 17:30",
+    "國立高雄科技大學 楠梓校區 國際會議中心 / 高雄市楠梓區海專路142號"
+  ],
+  "month_section": "2026-10",
+  "raw": "10/31 週六 MOPCON 科技年會 2026\n- 2026/10/31(周六) 08:30 ~ 17:30\n- 國立高雄科技大學 楠梓校區 國際會議中心 / 高雄市楠梓區海專路142號\n- https://mopcon.kktix.cc/events/mopcon-2026",
+  "warnings": [],
+  "first_seen": "2026-10-17",
+  "in_source": true,
+  "removed_from_source": null
+}

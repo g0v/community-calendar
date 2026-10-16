@@ -8,29 +8,36 @@
   "date_precision": "day",
   "start_time": null,
   "end_time": null,
-  "venue": "g0v 台北社群空間 (臺北市中正區重慶南路三段2號2樓202室)",
+  "venue": null,
   "address": null,
-  "signup_url": "https://g0v.hackmd.io/@jothon/g0v-hackath75n",
+  "signup_url": null,
   "notes_url": null,
   "page_url": null,
   "online_url": null,
   "host": null,
   "sub_sessions": [],
   "fields": {
-    "實體場次_報名網址": "https://g0v.hackmd.io/@jothon/g0v-hackath75n",
-    "活動地點": "g0v 台北社群空間 (臺北市中正區重慶南路三段2號2樓202室)"
+    "10": "30-11:00 活動開場，公民科技資料庫介紹 Opening & Civic Tech Database Introduction",
+    "11": "00-12:00 提案時間，每個提案 3 分鐘 Project Pitching (3 mins per pitch)",
+    "12": "00 午餐 Lunch",
+    "14": "00-14:40 短講時間，每個短講 8 分鐘 Talks (8 mins per talk)",
+    "16": "30-17:30 成果報告，每個報告 5 分鐘 Project Wrap-up (5 mins per presentation)",
+    "17": "30-20:30 場地開放自由使用 Venue Open for Free Networking / Hacking",
+    "活動時間Time": "2026/11/08 週日 Sun. 10:30-17:30",
+    "活動地點Location": "g0v 台北社群空間 / 台北市中正區重慶南路三段2號 g0v Community Hub, Taipei   / No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei City"
   },
   "links": [
+    "https://g0v.hackmd.io/@jothon/g0v-hackath75n/",
     "https://www.youtube.com/@g0vTW/",
-    "https://g0v.hackmd.io/@jothon/joing0vslack",
-    "https://g0v.hackmd.io/@jothon/g0v-hackath75n"
+    "https://g0v.hackmd.io/@jothon/joing0vslack"
   ],
   "description": [
+    "活動共筆與報名網址 Registration：https://g0v.hackmd.io/@jothon/g0v-hackath75n/",
     "Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/",
     "g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack"
   ],
   "month_section": "2026-11",
-  "raw": "2026/11/08 Sun. g0v 第柒拾伍次投出未來黑客松 G0Vote Hackath75n\n- Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n- g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack\n- 實體場次_報名網址：https://g0v.hackmd.io/@jothon/g0v-hackath75n\n    - 活動地點：g0v 台北社群空間 (臺北市中正區重慶南路三段2號2樓202室)",
+  "raw": "2026/11/08 Sun. g0v 第柒拾伍次投出未來黑客松 G0Vote Hackath75n\n- 活動時間 Time：2026/11/08 週日 Sun. 10:30-17:30\n- 活動地點 Location：g0v 台北社群空間 / 台北市中正區重慶南路三段2號 g0v Community Hub, Taipei   / No. 2, Section 3, Chongqing South Road, Zhongzheng District, Taipei City\n- 活動流程 Event Schedule\n    - 10:20-10:30 報到 Check-in\n    - 10:30-11:00 活動開場，公民科技資料庫介紹 Opening & Civic Tech Database Introduction\n    - 11:00-12:00 提案時間，每個提案 3 分鐘 Project Pitching (3 mins per pitch)\n    - 12:00 午餐 Lunch\n    - 14:00-14:40 短講時間，每個短講 8 分鐘 Talks (8 mins per talk)\n    - 16:30-17:30 成果報告，每個報告 5 分鐘 Project Wrap-up (5 mins per presentation)\n    - 17:30 活動結束 Event Ends\n    - 17:30-20:30 場地開放自由使用 Venue Open for Free Networking / Hacking\n- 活動共筆與報名網址 Registration：https://g0v.hackmd.io/@jothon/g0v-hackath75n/\n- Live stream on YouTube 活動直播 https://www.youtube.com/@g0vTW/\n- g0v Slack Chat Room 文字聊天頻道 https://g0v.hackmd.io/@jothon/joing0vslack",
   "warnings": [],
   "first_seen": "2026-01-27",
   "in_source": true,
