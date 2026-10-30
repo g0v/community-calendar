@@ -33,6 +33,6 @@
   "raw": "10/08 週四晚上 ▶︎ 主題：Dragon Curve 背後的共同遞迴結構 F4: functional thursday 社群活動\n- ▶︎ 分享者：李金樺，今年剛升台大資訊系大二，平常喜歡有趣數學問題、寫寫程式，所以想事情的方式可能有一點「數學腦」XD\n- ▶︎ 講題內容：大一期間，我意外接觸到 Dragon Curve，並發現這條曲線背後藏著許多漂亮的遞迴結構。後來，我又進一步認識了 Short Folded Representation 與 Gray Code 兩種不同的數學描述，卻發現它們都能產生相同的 Dragon Sequence。這次分享將介紹我如何利用 Haskell 與數學證明探索它們之間的關係，並找出三者共同的遞迴函數。\n- 活動時間：10/08 週四晚上 7:15\n- 活動地點：台北市中正區重慶南路三段2號2樓202室\n- 活動頁面：https://www.facebook.com/events/1082482564748571/\n- FB 社團：https://www.facebook.com/groups/functioanl.thursday/",
   "warnings": [],
   "first_seen": "2026-01-05",
-  "in_source": true,
-  "removed_from_source": null
+  "in_source": false,
+  "removed_from_source": "2026-10-31"
 }
