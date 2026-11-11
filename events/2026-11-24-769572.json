@@ -1,0 +1,35 @@
+{
+  "id": "2026-11-24-769572",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Kaohsiung | Claude Meetup",
+  "date_start": "2026-11-24",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "online_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {},
+  "links": [
+    "https://www.facebook.com/share/p/1Eb2ZXihof/",
+    "https://luma.com/claude-kaohsiung-1"
+  ],
+  "description": [
+    "JC Lee (Turing Space Head of Product)：產品團隊如何和 Claude 大軍相愛相殺，倍增工作的速度與產能",
+    "GGM (Cofacts 貢獻者／Skymizer 共同創辦人)：像做 Code Review 一樣做事實查核，以及 AI 在流程中真正幫上忙的地方",
+    "Summit (Linker Vision Head of Delivery)：以團隊在公司專案上運用 Claude 的實際案例，為 BYOD 時段開場"
+  ],
+  "month_section": "2026-11",
+  "raw": "11/24 週二晚上 Kaohsiung | Claude Meetup\n- JC Lee (Turing Space Head of Product)：產品團隊如何和 Claude 大軍相愛相殺，倍增工作的速度與產能\n- GGM (Cofacts 貢獻者／Skymizer 共同創辦人)：像做 Code Review 一樣做事實查核，以及 AI 在流程中真正幫上忙的地方\n- Summit (Linker Vision Head of Delivery)：以團隊在公司專案上運用 Claude 的實際案例，為 BYOD 時段開場\n- https://www.facebook.com/share/p/1Eb2ZXihof/\n- https://luma.com/claude-kaohsiung-1",
+  "warnings": [],
+  "first_seen": "2026-11-11",
+  "in_source": true,
+  "removed_from_source": null
+}
