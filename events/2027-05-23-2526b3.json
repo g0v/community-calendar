@@ -20,10 +20,12 @@
     "時間": "5/23 週日 10:30-17:00",
     "地點": "臺北市中正區重慶南路三段2號2樓"
   },
-  "links": [],
+  "links": [
+    "https://g0v.hackmd.io/@jothon/g0v-hackath78n"
+  ],
   "description": [],
   "month_section": "2027-05",
-  "raw": "2027/05/23 週日 g0v 第柒拾捌次黑客松 Hackath78n\n- 時間：5/23 週日 10:30-17:00\n- 地點：臺北市中正區重慶南路三段2號2樓",
+  "raw": "2027/05/23 週日 g0v 第柒拾捌次黑客松 Hackath78n\n- https://g0v.hackmd.io/@jothon/g0v-hackath78n\n- 時間：5/23 週日 10:30-17:00\n- 地點：臺北市中正區重慶南路三段2號2樓",
   "warnings": [],
   "first_seen": "2026-01-27",
   "in_source": true,
