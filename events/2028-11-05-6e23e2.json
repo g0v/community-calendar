@@ -1,0 +1,36 @@
+{
+  "id": "2028-11-05-6e23e2",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "g0v 黑客松暨公民科技主題日",
+  "date_start": "2028-11-05",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "g0v 台北社群空間，重慶南路三段2號2樓",
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": "https://g0v.hackmd.io/@jothon/g0v-hackathon",
+  "online_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "地點": "g0v 台北社群空間，重慶南路三段2號2樓",
+    "日期": "11/05 週日",
+    "活動資訊": "https://g0v.hackmd.io/@jothon/g0v-hackathon",
+    "流程內容": "整合 Civic Tech Day https://g0v.hackmd.io/@jothon/civictechon"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@jothon/g0v-hackathon",
+    "https://g0v.hackmd.io/@jothon/civictechon"
+  ],
+  "description": [],
+  "month_section": "2028-11",
+  "raw": "11/05 週日 g0v 黑客松暨公民科技主題日 \n- 地點：g0v 台北社群空間，重慶南路三段2號2樓\n- 日期：11/05 週日\n- 活動資訊：https://g0v.hackmd.io/@jothon/g0v-hackathon\n- 流程內容：整合 Civic Tech Day https://g0v.hackmd.io/@jothon/civictechon",
+  "warnings": [],
+  "first_seen": "2026-11-16",
+  "in_source": true,
+  "removed_from_source": null
+}
