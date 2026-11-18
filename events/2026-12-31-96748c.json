@@ -1,0 +1,35 @@
+{
+  "id": "2026-12-31-96748c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "跨年松",
+  "date_start": "2026-12-31",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": "NPO Hub 202",
+  "address": "臺北市中正區重慶南路三段2號2樓",
+  "signup_url": null,
+  "notes_url": "https://g0v.hackmd.io/@Percy314159/croissant-bookmode/%2F%40Percy314159%2Fcroissant-introduce",
+  "page_url": null,
+  "online_url": null,
+  "host": null,
+  "sub_sessions": [],
+  "fields": {
+    "時間": "待確認",
+    "地點": "NPO Hub 202",
+    "地址": "臺北市中正區重慶南路三段2號2樓",
+    "共筆": "https://g0v.hackmd.io/@Percy314159/croissant-bookmode/%2F%40Percy314159%2Fcroissant-introduce"
+  },
+  "links": [
+    "https://g0v.hackmd.io/@Percy314159/croissant-bookmode/%2F%40Percy314159%2Fcroissant-introduce"
+  ],
+  "description": [],
+  "month_section": "2026-12",
+  "raw": "2026-12-31 跨年松\n- 時間：待確認\n- 地點：NPO Hub 202\n- 地址：臺北市中正區重慶南路三段2號2樓\n- 共筆：https://g0v.hackmd.io/@Percy314159/croissant-bookmode/%2F%40Percy314159%2Fcroissant-introduce",
+  "warnings": [],
+  "first_seen": "2026-11-18",
+  "in_source": true,
+  "removed_from_source": null
+}
