@@ -1,0 +1,34 @@
+{
+  "id": "2026-12-19-2c7f2c",
+  "source": "jothon-hackmd",
+  "source_url": "https://g0v.hackmd.io/@jothon/event",
+  "title": "Social Hack Day #79",
+  "date_start": "2026-12-19",
+  "date_end": null,
+  "date_precision": "day",
+  "start_time": null,
+  "end_time": null,
+  "venue": null,
+  "address": null,
+  "signup_url": null,
+  "notes_url": null,
+  "page_url": null,
+  "online_url": null,
+  "host": "Code for Japan",
+  "sub_sessions": [],
+  "fields": {
+    "主辦單位": "Code for Japan"
+  },
+  "links": [
+    "https://luma.com/shd79"
+  ],
+  "description": [
+    "日本時間 12月19日 星期六上午 11:00 - 下午6:00 GMT+9"
+  ],
+  "month_section": "2026-12",
+  "raw": "12/19 週六 Social Hack Day #79\n- https://luma.com/shd79\n- 主辦單位：Code for Japan\n- 日本時間 12月19日 星期六上午 11:00 - 下午6:00 GMT+9",
+  "warnings": [],
+  "first_seen": "2026-11-26",
+  "in_source": true,
+  "removed_from_source": null
+}
